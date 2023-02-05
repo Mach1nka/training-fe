@@ -1,12 +1,13 @@
 import { Suspense } from "react";
 import { Routes, Route, Link } from "react-router-dom";
 
-import { AboutPageLazy } from "./pages/AboutPage/AboutPage.lazy";
-import { MainPageLazy } from "./pages/MainPage/MainPage.lazy";
-import { useTheme } from "./theme/useTheme";
-import { classNames } from './utils/classNames/classNames';
-classNames('remove-btn', {hovered: false, selectable: true}, ['add']);
+import { AboutPage } from "@/pages/AboutPage";
+import { MainPage } from "@/pages/MainPage";
+import { useTheme } from "@/app/providers/ThemeProvider";
+import { classNames } from '@/shared/lib/classNames/classNames';
+
 import './styles/index.scss';
+
 
 const App = () => {
   const { theme, toggleTheme } = useTheme();
@@ -20,8 +21,8 @@ const App = () => {
       <Link to={'/about'}>About Page</Link>
       <Suspense fallback={<div>Loading...</div>}>
         <Routes>
-          <Route path={'/about'} element={<AboutPageLazy />} />
-          <Route path={'/'} element={<MainPageLazy />} />
+          <Route path={'/about'} element={<AboutPage />} />
+          <Route path={'/'} element={<MainPage />} />
         </Routes>
       </Suspense>
     </div>
