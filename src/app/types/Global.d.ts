@@ -25,3 +25,5 @@ declare module "*.gif" {
   const value: any;
   export = value;
 }
+
+declare const IS_DEV: boolean;
