@@ -1,0 +1,11 @@
+{
+  "stylelint.config": null,
+  "stylelint.enable": true,
+  "css.validate": false,
+  "scss.validate": false,
+  "less.validate": false,
+  "stylelint.validate": [
+    "css",
+    "scss"
+  ],
+}
