@@ -9,13 +9,11 @@ interface Props {
   className?: string;
 }
 
-export const Navbar: FC<Props> = ({ className }) => {
-  return (
-    <div className={classNames(cls.Navbar, {}, [className])}>
-      <div className={classNames(cls.links)}>
-        <AppLink theme={AppLinkTheme.SECONDARY} className={classNames(cls.mainLink)} to={'/'}>Main Page</AppLink>
-        <AppLink theme={AppLinkTheme.SECONDARY} to={'/about'}>About Page</AppLink>
-      </div>
+export const Navbar: FC<Props> = ({ className }) => (
+  <div className={classNames(cls.Navbar, {}, [className])}>
+    <div className={classNames(cls.links)}>
+      <AppLink theme={AppLinkTheme.SECONDARY} className={classNames(cls.mainLink)} to="/">Main Page</AppLink>
+      <AppLink theme={AppLinkTheme.SECONDARY} to="/about">About Page</AppLink>
     </div>
-  );
-};
+  </div>
+);

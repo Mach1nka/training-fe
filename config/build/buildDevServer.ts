@@ -1,6 +1,6 @@
-import { Configuration as DevServerConfiguration } from "webpack-dev-server";
+import { Configuration as DevServerConfiguration } from 'webpack-dev-server';
 
-import { BuildOptions } from "./types/config";
+import { BuildOptions } from './types/config';
 
 export function buildDevServer({ port }: BuildOptions): DevServerConfiguration {
   return {
@@ -9,5 +9,5 @@ export function buildDevServer({ port }: BuildOptions): DevServerConfiguration {
     open: true,
     port,
     hot: true,
-  }
-};
+  };
+}

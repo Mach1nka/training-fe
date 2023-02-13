@@ -7,7 +7,7 @@ export function buildResolvers({ paths }: BuildOptions): ResolveOptions {
     extensions: ['.tsx', '.ts', '.js'],
     mainFiles: ['index'],
     alias: {
-      "@": paths.src,
-    }
+      '@': paths.src,
+    },
   });
 }
