@@ -17,6 +17,7 @@ describe('classNames', () => {
 
   test('class mods', () => {
     const expectedResult = 'someClass class1 class2 hovered';
-    expect(classNames('someClass', { hovered: true, clickable: false }, ['class1', 'class2'])).toBe(expectedResult);
+    expect(classNames('someClass', { hovered: true, clickable: false }, ['class1', 'class2']))
+      .toBe(expectedResult);
   });
 });

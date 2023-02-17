@@ -16,6 +16,8 @@ export const LangSwitcher: FC<Props> = ({ className }) => {
   };
 
   return (
-    <Button theme={ButtonTheme.CLEAR} className={classNames('', {}, [className])} onClick={toggle}>{t('translate')}</Button>
+    <Button theme={ButtonTheme.CLEAR} className={classNames('', {}, [className])} onClick={toggle}>
+      {t('translate')}
+    </Button>
   );
 };
