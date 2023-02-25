@@ -20,7 +20,9 @@
     }
   },
   // NOTE: absolute path vscode's issue because of config property
-  // "include": [
-  //   "./config/jest/setup.ts"
-  // ]
+  "include": [
+    "./config/jest/setup.ts",
+    "./src/**/*.ts",
+    "./src/**/*.tsx"
+  ]
 }
