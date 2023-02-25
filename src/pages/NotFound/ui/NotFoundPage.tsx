@@ -9,7 +9,7 @@ interface Props {
   className?: string;
 }
 
-export const NotFoundPage: FC<Props> = ({ className }) => {
+const NotFoundPage: FC<Props> = ({ className }) => {
   const { t } = useTranslation();
 
   return (
@@ -18,3 +18,5 @@ export const NotFoundPage: FC<Props> = ({ className }) => {
     </div>
   );
 };
+
+export default NotFoundPage;
