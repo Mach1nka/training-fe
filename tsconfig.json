@@ -18,5 +18,9 @@
     "compilerOptions": {
       "module": "CommonJS"
     }
-  }
+  },
+  // NOTE: absolute path vscode's issue because of config property
+  // "include": [
+  //   "./config/jest/setup.ts"
+  // ]
 }
