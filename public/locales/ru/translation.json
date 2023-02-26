@@ -4,5 +4,9 @@
   "errorBoundary": {
     "title": "Произошла ошибка",
     "button": "Перезагрузить страницу"
+  },
+  "navigation": {
+    "aboutPage": "О нас",
+    "mainPage": "Главная страница"
   }
 }

@@ -4,5 +4,9 @@
   "errorBoundary": {
     "title": "Error happend",
     "button": "Reload Page"
+  },
+  "navigation": {
+    "aboutPage": "About Us",
+    "mainPage": "Main Page"
   }
 }
