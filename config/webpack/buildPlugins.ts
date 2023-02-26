@@ -9,6 +9,15 @@ import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import { BuildOptions } from './types/config';
 
 export function buildPlugins({ paths, isDev }: BuildOptions): WebpackPluginInstance[] {
+  const devPlugins = [
+    new HotModuleReplacementPlugin(),
+    new ReactRefreshWebpackPlugin(),
+    new BundleAnalyzerPlugin({
+      openAnalyzer: false,
+      analyzerMode: 'disabled',
+    }),
+  ];
+
   return [
     new HTMLWebpackPlugin({ template: paths.html }),
     new MiniCssExtractPlugin({
@@ -19,10 +28,5 @@ export function buildPlugins({ paths, isDev }: BuildOptions): WebpackPluginInsta
     new DefinePlugin({
       IS_DEV: JSON.stringify(isDev),
     }),
-    new HotModuleReplacementPlugin(),
-    new ReactRefreshWebpackPlugin(),
-    // new BundleAnalyzerPlugin({
-    //   openAnalyzer: false,
-    // }),
-  ];
+  ].concat(isDev ? devPlugins : []);
 }
