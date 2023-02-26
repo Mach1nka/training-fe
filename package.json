@@ -13,6 +13,7 @@
     "lint:scss:fix": "stylelint \"**/*.scss\" --fix",
     "test:unit": "jest --config ./config/jest/jest.config.ts",
     "test:screenshot": "loki test",
+    "test:screenshot:ci": "npx storybook:build && loki --requireReference --reactUri file:./storybook-static",
     "test:screenshot:approve": "loki test",
     "storybook": "start-storybook -c ./config/storybook -p 6006",
     "storybook:build": "build-storybook -c ./config/storybook"
