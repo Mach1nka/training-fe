@@ -7,9 +7,10 @@ on:
     branches: [master]
 jobs:
   pipeline:
-    matrix:
-      os: ubuntu-latest
-      node: 16
+    strategy:
+      matrix:
+        os: ubuntu-latest
+        node: 16
     runs-on: ${{ matrix.os }}
     steps:
       - name: Cloning...
