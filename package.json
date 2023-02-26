@@ -14,7 +14,7 @@
     "test:unit": "jest --config ./config/jest/jest.config.ts",
     "test:screenshot": "loki test",
     "test:screenshot:ci": "loki --requireReference --reactUri file:./storybook-static",
-    "test:screenshot:approve": "loki test",
+    "test:screenshot:approve": "loki approve",
     "storybook": "start-storybook -c ./config/storybook -p 6006",
     "storybook:build": "build-storybook -c ./config/storybook"
   },
