@@ -30,7 +30,9 @@ jobs:
       - name: Unit Tests
         run: npm run test:unit
       - name: Screenshot Tests
-        run: npm run test:screenshot:ci
+        run: |
+          npm run storybook:build
+          npm run test:screenshot:ci
         
 
   
