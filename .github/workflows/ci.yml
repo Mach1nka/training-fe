@@ -1,0 +1,32 @@
+name: GitHub Actions CI Pipeline
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+on: 
+  push
+    branches: [master]
+  pull_request:
+    branches: [master]
+jobs:
+  pipeline:
+    matrix:
+      os: ubuntu-latest
+      node: 16
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Cloning...
+        uses: actions/checkout@v3
+      - name: Installing node...
+        uses: actions/setup-node@v3
+        with:
+          node-version:  ${{ matrix.node }}
+      - name: NPM Install
+        run: npm install
+      - name: Build
+        run: npm run build:prod
+      - name: Lint
+        run: npm run lint
+        run: npm run lint:scss
+      - name: Unit Tests
+        run: npm test:unit
+        
+
+  
