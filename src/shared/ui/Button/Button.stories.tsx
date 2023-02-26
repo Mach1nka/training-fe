@@ -2,7 +2,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { Theme } from '@/app/providers/ThemeProvider';
 import { themeDecorator } from '@/shared/lib/storybook/decorators';
-import { Button, ButtonTheme } from './Button';
+import { Button, ButtonSize, ButtonTheme } from './Button';
 
 export default {
   title: 'shared/Button',
@@ -25,6 +25,42 @@ Clear.args = {
 export const Outline = Template.bind({});
 Outline.args = {
   children: 'Text',
+  theme: ButtonTheme.OUTLINE,
+};
+
+export const Background = Template.bind({});
+Background.args = {
+  children: 'Text',
+  theme: ButtonTheme.BACKGROUND,
+};
+
+export const BackgroundInverted = Template.bind({});
+BackgroundInverted.args = {
+  children: 'Text',
+  theme: ButtonTheme.BACKGROUND_INVERTED,
+};
+
+export const SquareM = Template.bind({});
+SquareM.args = {
+  children: '>',
+  square: true,
+  size: ButtonSize.MEDIUM,
+  theme: ButtonTheme.OUTLINE,
+};
+
+export const SquareL = Template.bind({});
+SquareL.args = {
+  children: '>',
+  square: true,
+  size: ButtonSize.LARGE,
+  theme: ButtonTheme.OUTLINE,
+};
+
+export const SquareXL = Template.bind({});
+SquareXL.args = {
+  children: '>',
+  square: true,
+  size: ButtonSize.XLARGE,
   theme: ButtonTheme.OUTLINE,
 };
 

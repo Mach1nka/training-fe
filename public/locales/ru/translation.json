@@ -1,5 +1,8 @@
 {
-  "translate": "Перевод",
+  "langSwitcher": {
+    "lang": "Русский",
+    "shortLang": "Ru"
+  },
   "pageNotFound": "Страница не найдена",
   "errorBoundary": {
     "title": "Произошла ошибка",
