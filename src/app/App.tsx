@@ -6,8 +6,6 @@ import { AppRouter } from '@/app/providers/routes';
 import { Navbar } from '@/widgets/Navbar';
 import { Sidebar } from '@/widgets/Sidebar';
 
-import './styles/index.scss';
-
 const App = () => {
   const { theme } = useTheme();
 

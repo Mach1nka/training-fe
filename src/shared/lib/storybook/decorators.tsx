@@ -8,9 +8,11 @@ export const styleDecorator = (Story: Story) => <Story />;
 
 // TODO: integrate global storybook addon
 export const themeDecorator = (theme: Theme) => (Story: Story) => (
-  <div className={`app ${theme}`}>
-    <Story />
-  </div>
+  <ThemeProvider initialTheme={theme}>
+    <div className={`app ${theme}`}>
+      <Story />
+    </div>
+  </ThemeProvider>
 );
 
 export const routerDecorator = (Story: Story) => (

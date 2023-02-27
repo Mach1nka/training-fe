@@ -11,5 +11,6 @@
   "navigation": {
     "aboutPage": "О нас",
     "mainPage": "Главная страница"
-  }
+  },
+  "login": "Войти"
 }
