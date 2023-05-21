@@ -12,24 +12,26 @@ interface Props {
   children: ReactNode;
   isOpen: boolean;
   onClose: () => void;
+  lazy?: boolean;
 }
 
 export const Modal: FC<Props> = ({
-  children, className, isOpen, onClose,
+  children, className, isOpen, onClose, lazy,
 }) => {
-  const [isClosing, setIsClosing] = useState(false);
+  const [isClosed, setIsClosed] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
   const timerRef = useRef<ReturnType<typeof setTimeout>>();
 
   const mods = {
     [cls.opened]: isOpen,
-    [cls.isClosing]: isClosing,
+    [cls.closed]: isClosed,
   };
 
   const closeHandler = () => {
-    setIsClosing(true);
+    setIsClosed(true);
     timerRef.current = setTimeout(() => {
       onClose();
-      setIsClosing(false);
+      setIsClosed(false);
     }, 300);
   };
 
@@ -46,13 +48,20 @@ export const Modal: FC<Props> = ({
 
   useEffect(() => {
     if (isOpen) {
+      setIsMounted(true);
       window.addEventListener('keydown', onKeyDown);
     }
+
     return () => {
+      setIsMounted(false);
       window.removeEventListener('keydown', onKeyDown);
       clearTimeout(timerRef.current);
     };
   }, [isOpen]);
+
+  if (lazy && !isMounted) {
+    return null;
+  }
 
   return (
     <Portal>

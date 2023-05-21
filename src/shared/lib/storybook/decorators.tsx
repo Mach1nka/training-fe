@@ -1,7 +1,7 @@
 import { Story } from '@storybook/react';
 import { BrowserRouter } from 'react-router-dom';
 
-import { Theme, ThemeProvider, ThemeContext } from '@/app/providers/ThemeProvider';
+import { Theme, ThemeProvider } from '@/app/providers/ThemeProvider';
 import '@/app/styles/index.scss';
 
 export const styleDecorator = (Story: Story) => <Story />;

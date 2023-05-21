@@ -12,5 +12,9 @@
     "aboutPage": "О нас",
     "mainPage": "Главная страница"
   },
+  "authForm": {
+    "username": "Введите имя",
+    "password": "Введите пароль"
+  },
   "login": "Войти"
 }

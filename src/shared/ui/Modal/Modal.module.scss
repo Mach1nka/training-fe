@@ -4,8 +4,6 @@
   z-index: var(--modal-z-index);
   pointer-events: none;
   opacity: 0;
-
-  // transition: 0.3s opacity;
 }
 
 .overlay {
@@ -35,7 +33,7 @@
   }
 }
 
-.isClosing {
+.closed {
   .content {
     transform: scale(0.3);
   }

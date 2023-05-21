@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
@@ -12,9 +12,9 @@ interface Props {
 export const LangSwitcher: FC<Props> = ({ className, short }) => {
   const { t, i18n } = useTranslation();
 
-  const toggle = () => {
+  const toggle = useCallback(() => {
     i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru');
-  };
+  }, []);
 
   return (
     <Button theme={ButtonTheme.CLEAR} className={classNames('', {}, [className])} onClick={toggle}>
@@ -22,3 +22,5 @@ export const LangSwitcher: FC<Props> = ({ className, short }) => {
     </Button>
   );
 };
+
+// TODO: add story after integration i18n into SB

@@ -12,5 +12,9 @@
     "aboutPage": "About Us",
     "mainPage": "Main Page"
   },
+  "authForm": {
+    "username": "Enter username",
+    "password": "Enter password"
+  },
   "login": "Login"
 }
