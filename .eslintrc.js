@@ -48,6 +48,7 @@ module.exports = {
       code: 100,
       ignoreComments: true,
     }],
+    'no-param-reassign': 'off',
     // NOTE: Accessability
     'jsx-a11y/click-events-have-key-events': 'off',
     'jsx-a11y/no-static-element-interactions': 'off',
