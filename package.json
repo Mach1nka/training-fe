@@ -10,6 +10,7 @@
     "build:dev": "webpack --env mode=development",
     "lint": "eslint \"**/*.{ts,tsx}\"",
     "lint:fix": "eslint \"**/*.{ts,tsx}\" --fix",
+    "lint:types": "tsc --project ./tsconfig.json --noEmit",
     "lint:scss": "stylelint \"**/*.scss\"",
     "lint:scss:fix": "stylelint \"**/*.scss\" --fix",
     "test:unit": "jest --config ./config/jest/jest.config.ts",
