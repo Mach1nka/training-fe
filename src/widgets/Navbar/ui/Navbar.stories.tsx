@@ -12,7 +12,6 @@ export default {
 const Template: ComponentStory<typeof Navbar> = (args) => <Navbar {...args} />;
 
 export const Light = Template.bind({});
-Light.decorators = [themeDecorator(Theme.LIGHT)];
 
 export const Dark = Template.bind({});
 Dark.decorators = [themeDecorator(Theme.DARK)];

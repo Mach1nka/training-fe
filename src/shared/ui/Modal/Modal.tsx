@@ -15,6 +15,7 @@ interface Props {
   lazy?: boolean;
 }
 
+// TODO: fix opening animation
 export const Modal: FC<Props> = ({
   children, className, isOpen, onClose, lazy,
 }) => {

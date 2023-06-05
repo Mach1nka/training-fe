@@ -71,6 +71,11 @@ OutlineDark.args = {
 };
 OutlineDark.decorators = [themeDecorator(Theme.DARK)];
 
+export const Disabled = Template.bind({});
+Disabled.args = {
+  disabled: true,
+};
+
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
