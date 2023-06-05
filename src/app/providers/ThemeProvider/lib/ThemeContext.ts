@@ -10,6 +10,4 @@ export interface ThemeContextProps {
   setTheme?: Dispatch<SetStateAction<Theme>>;
 }
 
-export const LOCAL_STORAGE_THEME_KEY = 'theme';
-
 export const ThemeContext = createContext<ThemeContextProps>({});

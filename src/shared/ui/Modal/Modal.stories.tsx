@@ -14,8 +14,8 @@ export default {
 
 const Template: ComponentStory<typeof Modal> = (args) => <Modal {...args} />;
 
-export const Primary = Template.bind({});
-Primary.args = {
+export const Light = Template.bind({});
+Light.args = {
   isOpen: true,
 };
 

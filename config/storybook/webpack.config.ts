@@ -1,5 +1,5 @@
 import path from 'path';
-import { Configuration } from 'webpack';
+import { Configuration, DefinePlugin } from 'webpack';
 import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin';
 
 import { BuildPaths } from '../webpack/types/config';
@@ -54,6 +54,10 @@ export default ({ config }: {config: Configuration}) => {
     test: /\.svg$/,
     use: ['@svgr/webpack'],
   });
+
+  config.plugins?.push(new DefinePlugin({
+    IS_DEV: true,
+  }));
 
   return config;
 };

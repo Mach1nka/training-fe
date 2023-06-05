@@ -1,7 +1,7 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { Theme } from '@/app/providers/ThemeProvider';
-import { themeDecorator } from '@/shared/lib/storybook/decorators';
+import { storeDecorator, themeDecorator } from '@/shared/lib/storybook/decorators';
 import { Navbar } from './Navbar';
 
 export default {
@@ -12,9 +12,22 @@ export default {
 const Template: ComponentStory<typeof Navbar> = (args) => <Navbar {...args} />;
 
 export const Light = Template.bind({});
+Light.decorators = [storeDecorator({ user: { authData: null } })];
+
+export const Authorized = Template.bind({});
+Authorized.decorators = [storeDecorator({ user: { authData: { id: '1', username: 'guest' } } })];
 
 export const Dark = Template.bind({});
-Dark.decorators = [themeDecorator(Theme.DARK)];
+Dark.decorators = [
+  storeDecorator({ user: { authData: null } }),
+  themeDecorator(Theme.DARK),
+];
+
+export const AuthorizedDark = Template.bind({});
+AuthorizedDark.decorators = [
+  storeDecorator({ user: { authData: { id: '1', username: 'guest' } } }),
+  themeDecorator(Theme.DARK),
+];
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 // More on argTypes: https://storybook.js.org/docs/react/api/argtypes

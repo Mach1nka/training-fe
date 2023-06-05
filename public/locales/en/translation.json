@@ -5,7 +5,7 @@
   },
   "pageNotFound": "Page Not Found",
   "errorBoundary": {
-    "title": "Error happend",
+    "title": "Error happened",
     "button": "Reload Page"
   },
   "navigation": {
@@ -13,8 +13,10 @@
     "mainPage": "Main Page"
   },
   "authForm": {
+    "title": "Authorization Form",
     "username": "Enter username",
     "password": "Enter password"
   },
-  "login": "Login"
+  "login": "Login",
+  "logout": "Logout"
 }
