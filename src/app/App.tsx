@@ -2,7 +2,7 @@ import { Suspense, FC, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { AppRouter } from '@/app/providers/RouterProvider';
+import { AppRouter } from '@/app/providers/AppRouter';
 import { Navbar } from '@/widgets/Navbar';
 import { Sidebar } from '@/widgets/Sidebar';
 import { userActions } from '@/entities/User';

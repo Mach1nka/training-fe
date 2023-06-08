@@ -6,7 +6,7 @@ import { DeepPartial } from '@reduxjs/toolkit';
 
 import i18nForTests from '@/shared/config/i18n/i18nForTests';
 import { StoreProvider } from '@/app/providers/StoreProvider';
-import { StateSchema } from '@/shared/config/reduxConfig/StateSchema';
+import { StateSchema } from '@/shared/config/redux/types';
 
 export interface Options {
   route?: string;

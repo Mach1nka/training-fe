@@ -1,10 +1,11 @@
 import { Story } from '@storybook/react';
 import { BrowserRouter } from 'react-router-dom';
-import { DeepPartial } from '@reduxjs/toolkit';
+import { DeepPartial, ReducersMapObject } from '@reduxjs/toolkit';
 
 import { Theme, ThemeProvider } from '@/app/providers/ThemeProvider';
 import { StoreProvider } from '@/app/providers/StoreProvider';
-import { StateSchema } from '@/shared/config/reduxConfig/StateSchema';
+
+import { StateSchema } from '../../config/redux/types';
 
 import '@/app/styles/index.scss';
 
@@ -25,8 +26,11 @@ export const routerDecorator = (Story: Story) => (
   </BrowserRouter>
 );
 
-export const storeDecorator = (initialState: DeepPartial<StateSchema>) => (Story: Story) => (
-  <StoreProvider initialState={initialState}>
+export const storeDecorator = (
+  initialState: DeepPartial<StateSchema>,
+  asyncReducers?: DeepPartial<ReducersMapObject<StateSchema>>,
+) => (Story: Story) => (
+  <StoreProvider initialState={initialState} asyncReducers={asyncReducers}>
     <Story />
   </StoreProvider>
 );

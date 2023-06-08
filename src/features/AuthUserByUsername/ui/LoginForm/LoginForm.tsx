@@ -6,9 +6,12 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
 import { Input } from '@/shared/ui/Input/Input';
 import { Text, TextTheme } from '@/shared/ui/Text/Text';
+import { ReducersList, useDynamicModuleLoad } from '@/shared/lib/hook/useDynamicModuleLoad';
 
-import { loginActions } from '../../model/slice/loginSlice';
-import { getLoginState } from '../../model/selector/loginSelector';
+import { loginActions, loginReducer } from '../../model/slice/loginSlice';
+import {
+  getLoginUsername, getLoginPassword, getLoginLoading, getLoginError,
+} from '../../model/selector/loginSelector';
 import { loginByUsername } from '../../model/service/loginByUsername';
 import cls from './LoginForm.module.scss';
 
@@ -16,13 +19,17 @@ interface Props {
   className?: string;
 }
 
-export const LoginForm = memo<Props>(({ className }) => {
+const initialReducers: ReducersList = {
+  loginForm: loginReducer,
+};
+
+const LoginForm = memo<Props>(({ className }) => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
-  // NOTE: possible error
-  const {
-    username, password, isLoading, error,
-  } = useSelector(getLoginState);
+  const username = useSelector(getLoginUsername);
+  const password = useSelector(getLoginPassword);
+  const isLoading = useSelector(getLoginLoading);
+  const error = useSelector(getLoginError);
 
   const onChangeUsername = useCallback((value: string) => {
     dispatch(loginActions.setUsername(value));
@@ -35,6 +42,8 @@ export const LoginForm = memo<Props>(({ className }) => {
   const onLoginClick = useCallback(() => {
     dispatch(loginByUsername({ username, password }));
   }, [username, password]);
+
+  useDynamicModuleLoad(initialReducers);
 
   return (
     <div className={classNames(cls.LoginForm, {}, [className])}>
@@ -65,3 +74,5 @@ export const LoginForm = memo<Props>(({ className }) => {
     </div>
   );
 });
+
+export default LoginForm;
