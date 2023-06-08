@@ -6,7 +6,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
 import { Input } from '@/shared/ui/Input/Input';
 import { Text, TextTheme } from '@/shared/ui/Text/Text';
-import { ReducersList, useDynamicModuleLoad } from '@/shared/lib/hook/useDynamicModuleLoad';
+import { ReducersList, useDynamicModuleLoad } from '@/shared/hook/useDynamicModuleLoad';
 
 import { loginActions, loginReducer } from '../../model/slice/loginSlice';
 import {
