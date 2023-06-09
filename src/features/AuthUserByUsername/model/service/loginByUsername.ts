@@ -24,7 +24,6 @@ export const loginByUsername = createAsyncThunk<User, LoginByUserName, { rejectV
 
       return response.data;
     } catch (err) {
-      console.log(err);
       return rejectWithValue('Credentials are incorrect');
     }
   },
