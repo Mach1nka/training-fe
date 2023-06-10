@@ -10,7 +10,8 @@
   },
   "navigation": {
     "aboutPage": "About Us",
-    "mainPage": "Main Page"
+    "mainPage": "Main Page",
+    "profilePage": "Profile Page"
   },
   "authForm": {
     "title": "Authorization Form",

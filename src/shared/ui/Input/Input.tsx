@@ -1,4 +1,6 @@
-import { memo, InputHTMLAttributes, ChangeEvent } from 'react';
+import {
+  memo, InputHTMLAttributes, ChangeEvent, FC,
+} from 'react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
 
@@ -12,7 +14,7 @@ interface Props extends HTMLInputProps {
   onChange?: (value: string) => void;
 }
 
-export const Input = memo<Props>(({
+export const Input: FC<Props> = memo(({
   className, value, onChange, placeholder, type = 'text', ...props
 }) => {
   const onInputChange = (e: ChangeEvent<HTMLInputElement>) => {

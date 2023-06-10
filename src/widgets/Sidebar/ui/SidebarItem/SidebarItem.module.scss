@@ -1,0 +1,22 @@
+.SidebarItem {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.text {
+  display: block;
+  margin-left: 10px;
+}
+
+.icon {
+  fill: var(--inverted-primary-color);
+}
+
+.collapsed {
+  .text {
+    opacity: 0;
+    transition: 0.3s opacity;
+    width: 0;
+  }
+}

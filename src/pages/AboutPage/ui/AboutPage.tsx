@@ -6,7 +6,7 @@ const AboutPage: FC = () => {
 
   return (
     <div>
-      {t('aboutPage')}
+      {t('title')}
     </div>
   );
 };

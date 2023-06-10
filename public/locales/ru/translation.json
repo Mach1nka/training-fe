@@ -10,7 +10,8 @@
   },
   "navigation": {
     "aboutPage": "О нас",
-    "mainPage": "Главная страница"
+    "mainPage": "Главная страница",
+    "profilePage": "Профиль"
   },
   "authForm": {
     "title": "Форма авторизации",

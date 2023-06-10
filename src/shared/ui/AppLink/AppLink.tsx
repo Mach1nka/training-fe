@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, memo } from 'react';
 import { Link, LinkProps } from 'react-router-dom';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
@@ -15,7 +15,7 @@ interface Props extends LinkProps {
   theme?: AppLinkTheme;
 }
 
-export const AppLink: FC<Props> = ({
+export const AppLink: FC<Props> = memo(({
   children,
   className,
   theme = AppLinkTheme.PRIMARY,
@@ -24,4 +24,4 @@ export const AppLink: FC<Props> = ({
   <Link className={classNames(cls.Navbar, {}, [className, cls[theme]])} {...props}>
     {children}
   </Link>
-);
+));
