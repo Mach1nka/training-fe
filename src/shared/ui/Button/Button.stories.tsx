@@ -26,11 +26,6 @@ ClearInverted.args = {
   theme: ButtonTheme.CLEAR_INVERTED,
 };
 
-export const Outline = Template.bind({});
-Outline.args = {
-  theme: ButtonTheme.OUTLINE,
-};
-
 export const Background = Template.bind({});
 Background.args = {
   theme: ButtonTheme.BACKGROUND,

@@ -3,10 +3,10 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
+import { Button } from '@/shared/ui/Button/Button';
 import { Input } from '@/shared/ui/Input/Input';
 import { Text, TextTheme } from '@/shared/ui/Text/Text';
-import { ReducersList, useDynamicModuleLoad } from '@/shared/hook/useDynamicModuleLoad';
+import { ReducersList, useDynamicReducerLoad } from '@/shared/hook/useDynamicReducerLoad';
 import { useAppDispatch } from '@/shared/hook/useAppDispatch';
 
 import { loginActions, loginReducer } from '../../model/slice/loginSlice';
@@ -49,7 +49,7 @@ const LoginForm: FC<Props> = memo(({ className, onSuccess }) => {
     }
   }, [username, password]);
 
-  useDynamicModuleLoad(initialReducers);
+  useDynamicReducerLoad(initialReducers);
 
   return (
     <div className={classNames(cls.LoginForm, {}, [className])}>
@@ -70,7 +70,6 @@ const LoginForm: FC<Props> = memo(({ className, onSuccess }) => {
         onChange={onChangePassword}
       />
       <Button
-        theme={ButtonTheme.OUTLINE}
         className={cls.loginBtn}
         disabled={isLoading}
         onClick={onLoginClick}

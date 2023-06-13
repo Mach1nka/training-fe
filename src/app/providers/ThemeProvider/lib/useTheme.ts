@@ -10,7 +10,7 @@ interface UseThemeResult {
 }
 
 export function useTheme(): UseThemeResult {
-  const { theme, setTheme } = useContext(ThemeContext);
+  const { theme = Theme.LIGHT, setTheme } = useContext(ThemeContext);
 
   const toggleTheme = () => {
     let newTheme = theme;
@@ -22,10 +22,11 @@ export function useTheme(): UseThemeResult {
       newTheme = Theme.DARK;
       break;
     default:
+      newTheme = Theme.DARK;
       break;
     }
 
-    setTheme(newTheme);
+    setTheme?.(newTheme);
     document.body.classList.replace(theme, newTheme);
     localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme);
   };

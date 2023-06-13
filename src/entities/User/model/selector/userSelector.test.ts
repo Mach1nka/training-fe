@@ -20,9 +20,9 @@ describe('User selector', () => {
   test('should work with empty value', () => {
     const state: DeepPartial<StateSchema> = {
       user: {
-        authData: null,
+        authData: undefined,
       },
     };
-    expect(getUserAuthData(state as StateSchema)).toBeNull();
+    expect(getUserAuthData(state as StateSchema)).toBeUndefined();
   });
 });

@@ -4,7 +4,7 @@ import { User, UserSchema } from '../type';
 import { LOCAL_STORAGE_USER_KEY } from '@/shared/constant/localstorage';
 
 const initialState: UserSchema = {
-  authData: null,
+  authData: undefined,
 };
 
 export const userSlice = createSlice({
@@ -21,13 +21,15 @@ export const userSlice = createSlice({
         }
       },
       prepare: () => {
-        const authData = JSON.parse(localStorage.getItem(LOCAL_STORAGE_USER_KEY));
-        return { payload: authData };
+        const authData = localStorage.getItem(LOCAL_STORAGE_USER_KEY);
+        const parsedData: User | undefined = authData ? JSON.parse(authData) : undefined;
+
+        return { payload: parsedData };
       },
     },
     logout: {
       reducer: (state) => {
-        state.authData = null;
+        state.authData = undefined;
       },
       prepare: () => {
         localStorage.removeItem(LOCAL_STORAGE_USER_KEY);

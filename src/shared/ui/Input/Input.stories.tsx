@@ -12,7 +12,7 @@ const Template: ComponentStory<typeof Input> = (args) => <Input {...args} />;
 export const Primary = Template.bind({});
 Primary.args = {
   placeholder: 'Type text',
-  text: 'text example',
+  value: 'text example',
 };
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args

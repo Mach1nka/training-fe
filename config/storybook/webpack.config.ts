@@ -12,19 +12,19 @@ export default ({ config }: {config: Configuration}) => {
     src: path.resolve(__dirname, '..', '..', 'src'),
   };
 
-  config.resolve?.modules?.push(paths.src);
+  config.resolve!.modules!.push(paths.src);
 
   // @ts-ignore
   // eslint-disable-next-line
-  config.resolve?.plugins = [
-    ...(config.resolve?.plugins || []),
+  config.resolve!.plugins = [
+    ...(config.resolve!.plugins || []),
     new TsconfigPathsPlugin({
-      extensions: config.resolve?.extensions,
+      extensions: config.resolve!.extensions,
       configFile: path.resolve(__dirname, '..', '..', 'tsconfig.json'),
     }),
   ];
 
-  config.module?.rules?.push(
+  config.module!.rules!.push(
     {
       test: /\.s[ac]ss$/i,
       use: [
@@ -48,15 +48,16 @@ export default ({ config }: {config: Configuration}) => {
 
   // @ts-ignore
   // eslint-disable-next-line
-  config.module?.rules?.filter((rule) => rule.test.test('.svg')).forEach((rule) => rule.exclude = /\.svg$/i);
+  config.module!.rules!.filter((rule) => rule.test.test('.svg')).forEach((rule) => rule.exclude = /\.svg$/i);
 
-  config.module?.rules?.push({
+  config.module!.rules!.push({
     test: /\.svg$/,
     use: ['@svgr/webpack'],
   });
 
-  config.plugins?.push(new DefinePlugin({
-    IS_DEV: true,
+  config.plugins!.push(new DefinePlugin({
+    IS_DEV: JSON.stringify(true),
+    API_URL: JSON.stringify(''),
   }));
 
   return config;

@@ -1,8 +1,9 @@
 import { ReducersMapObject, configureStore } from '@reduxjs/toolkit';
 
 import { userReducer } from '@/entities/User';
+import { api } from '@/shared/api/api';
 
-import { StateSchema } from './types';
+import { StateSchema, ThunkExtraArg } from './types';
 import { createReducerManager } from './reducerManager';
 
 export const createReduxStore = (
@@ -14,11 +15,20 @@ export const createReduxStore = (
     user: userReducer,
   };
 
+  const extraArgs: ThunkExtraArg = {
+    api,
+  };
+
   const reducerManager = createReducerManager(rootReducer);
-  const store = configureStore<StateSchema>({
+  const store = configureStore({
     reducer: reducerManager.reduce,
     devTools: IS_DEV,
     preloadedState: initialState,
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware({
+      thunk: {
+        extraArgument: extraArgs,
+      },
+    }),
   });
 
   // @ts-ignore
@@ -27,7 +37,4 @@ export const createReduxStore = (
   return store;
 };
 
-// Infer the `RootState` and `AppDispatch` types from the store itself
-// export type RootState = ReturnType<typeof createReduxStore.getState>;
-// Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
 export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch'];

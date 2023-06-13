@@ -5,7 +5,7 @@ import { User, UserSchema } from '../type';
 
 describe('User slice', () => {
   test('set auth data', () => {
-    const state: DeepPartial<UserSchema> = { authData: null };
+    const state: DeepPartial<UserSchema> = { authData: undefined };
     const user: User = { id: '1', username: 'guest' };
 
     expect(userReducer(state as UserSchema, userActions.setAuthData(user)))
@@ -16,6 +16,6 @@ describe('User slice', () => {
     const state: DeepPartial<UserSchema> = { authData: { id: '1', username: 'guest' } };
 
     expect(userReducer(state as UserSchema, userActions.logout()))
-      .toEqual({ authData: null });
+      .toEqual({ authData: undefined });
   });
 });

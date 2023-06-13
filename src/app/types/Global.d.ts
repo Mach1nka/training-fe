@@ -1,8 +1,8 @@
 declare module '*.scss' {
-  interface IClassNames {
+  interface ClassNames {
     [className: string]: string
   }
-  const classNames: IClassNames;
+  const classNames: ClassNames;
   export = classNames;
 }
 
@@ -29,3 +29,8 @@ declare module '*.gif' {
 }
 
 declare const IS_DEV: boolean;
+declare const API_URL: string;
+
+declare type DeepPartial<T> = T extends object ? {
+  [P in keyof T]?: DeepPartial<T[P]>;
+} : T;

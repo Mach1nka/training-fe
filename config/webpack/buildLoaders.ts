@@ -6,7 +6,12 @@ import { BuildOptions } from './types/config';
 export function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
   const typescriptLoader = {
     test: /\.tsx?$/,
-    use: 'ts-loader',
+    use: {
+      loader: 'ts-loader',
+      options: {
+        // transpileOnly: true,
+      },
+    },
     exclude: /node_modules/,
   };
 

@@ -1,3 +1,6 @@
 {
-  "title": "Profile Page"
+  "title": "Profile Page",
+  "edit": "Edit",
+  "firstname": "Name",
+  "lastname": "Surname"
 }

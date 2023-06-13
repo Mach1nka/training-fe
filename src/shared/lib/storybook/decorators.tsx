@@ -1,9 +1,9 @@
 import { Story } from '@storybook/react';
 import { BrowserRouter } from 'react-router-dom';
-import { DeepPartial, ReducersMapObject } from '@reduxjs/toolkit';
 
 import { Theme, ThemeProvider } from '@/app/providers/ThemeProvider';
 import { StoreProvider } from '@/app/providers/StoreProvider';
+import { ReducersList } from '@/shared/hook/useDynamicReducerLoad';
 
 import { StateSchema } from '../../config/redux/types';
 
@@ -28,7 +28,7 @@ export const routerDecorator = (Story: Story) => (
 
 export const storeDecorator = (
   initialState: DeepPartial<StateSchema>,
-  asyncReducers?: DeepPartial<ReducersMapObject<StateSchema>>,
+  asyncReducers?: ReducersList,
 ) => (Story: Story) => (
   <StoreProvider initialState={initialState} asyncReducers={asyncReducers}>
     <Story />

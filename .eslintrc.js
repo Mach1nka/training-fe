@@ -50,12 +50,15 @@ module.exports = {
       ignoreComments: true,
     }],
     'no-param-reassign': 'off',
+    'no-plusplus': 'off',
+    'no-undef': 'off',
     // NOTE: Accessability
     'jsx-a11y/click-events-have-key-events': 'off',
     'jsx-a11y/no-static-element-interactions': 'off',
   },
   globals: {
-    IS_DEV: true,
+    IS_DEV: 'readonly',
+    API_URL: 'readonly',
   },
   overrides: [
     {

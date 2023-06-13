@@ -1,8 +1,8 @@
 import { FC, ReactNode } from 'react';
 import { Provider } from 'react-redux';
-import { DeepPartial, ReducersMapObject } from '@reduxjs/toolkit';
+import { ReducersMapObject } from '@reduxjs/toolkit';
 
-import { createReduxStore } from '@/shared/config/redux/config';
+import { createReduxStore } from '@/shared/config/redux/store';
 import { StateSchema } from '@/shared/config/redux/types';
 
 interface Props {

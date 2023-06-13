@@ -3,11 +3,13 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Theme } from '@/app/providers/ThemeProvider';
 import { storeDecorator, themeDecorator } from '@/shared/lib/storybook/decorators';
 import { profileReducer } from '@/entities/Profile';
-import ProfilePage from './ProfilePage';
 
-const initialReducers = {
+import ProfilePage from './ProfilePage';
+import { ReducersList } from '@/shared/hook/useDynamicReducerLoad';
+
+const initialReducers: ReducersList = {
   profile: profileReducer,
-} as const;
+};
 
 export default {
   title: 'pages/ProfilePage',
@@ -18,7 +20,7 @@ const Template: ComponentStory<typeof ProfilePage> = (args) => <ProfilePage {...
 
 export const Light = Template.bind({});
 Light.decorators = [storeDecorator(
-  { profile: null },
+  { profile: undefined },
   initialReducers,
 )];
 
@@ -26,6 +28,6 @@ export const Dark = Template.bind({});
 Dark.decorators = [
   themeDecorator(Theme.DARK),
   storeDecorator(
-    { profile: null },
+    { profile: undefined },
     initialReducers,
   )];

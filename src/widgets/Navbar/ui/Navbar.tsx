@@ -21,6 +21,7 @@ export const Navbar: FC<Props> = memo(({ className }) => {
   const authData = useSelector(getUserAuthData);
   const dispatch = useAppDispatch();
   const [isOpenModal, setIsOpenModal] = useState(false);
+  // console.log(authData);
 
   const onOpenModal = useCallback(() => {
     setIsOpenModal(true);

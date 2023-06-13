@@ -2,13 +2,14 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { storeDecorator, themeDecorator } from '@/shared/lib/storybook/decorators';
 import { Theme } from '@/app/providers/ThemeProvider';
+import { ReducersList } from '@/shared/hook/useDynamicReducerLoad';
 
 import LoginForm from './LoginForm';
 import { loginReducer } from '../../model/slice/loginSlice';
 
-const initialReducers = {
+const initialReducers: ReducersList = {
   loginForm: loginReducer,
-} as const;
+};
 
 export default {
   title: 'features/LoginForm',

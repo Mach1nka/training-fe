@@ -26,8 +26,8 @@
     }
   ],
   "profile": {
-    "firstName": "John",
-    "lastName": "Doe",
+    "firstname": "John",
+    "lastname": "Doe",
     "age": 22,
     "currency": "USD",
     "country": "Armenia",

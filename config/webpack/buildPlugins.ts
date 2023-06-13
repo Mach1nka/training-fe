@@ -8,7 +8,7 @@ import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 
 import { BuildOptions } from './types/config';
 
-export function buildPlugins({ paths, isDev }: BuildOptions): WebpackPluginInstance[] {
+export function buildPlugins({ paths, isDev, apiUrl }: BuildOptions): WebpackPluginInstance[] {
   const devPlugins = [
     new HotModuleReplacementPlugin(),
     new ReactRefreshWebpackPlugin(),
@@ -27,6 +27,7 @@ export function buildPlugins({ paths, isDev }: BuildOptions): WebpackPluginInsta
     new ProgressPlugin(),
     new DefinePlugin({
       IS_DEV: JSON.stringify(isDev),
+      API_URL: JSON.stringify(apiUrl),
     }),
   ].concat(isDev ? devPlugins : []);
 }

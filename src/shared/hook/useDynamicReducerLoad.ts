@@ -8,24 +8,22 @@ export type ReducersList = {
   [key in StateSchemaKeys]?: Reducer;
 }
 
-function useDynamicModuleLoad(
+export function useDynamicReducerLoad(
   reducers: ReducersList,
   removeAfterUnmount = true,
 ) {
   const store = useStore() as ReduxStoreWithManager;
 
   useEffect(() => {
-    Object.entries(reducers).forEach(
-      ([name, reducer]: [StateSchemaKeys, Reducer]) => store.reducerManager.add(name, reducer),
+    Object.entries<Reducer>(reducers).forEach(
+      ([name, reducer]) => store.reducerManager.add(name as StateSchemaKeys, reducer),
     );
 
     return () => {
       if (removeAfterUnmount) {
-        Object.entries(reducers)
-          .forEach(([name]: [StateSchemaKeys, Reducer]) => store.reducerManager.remove(name));
+        Object.entries<Reducer>(reducers)
+          .forEach(([name]) => store.reducerManager.remove(name as StateSchemaKeys));
       }
     };
   }, [reducers, removeAfterUnmount]);
 }
-
-export { useDynamicModuleLoad };
