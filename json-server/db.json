@@ -26,13 +26,13 @@
     }
   ],
   "profile": {
-    "firstname": "John",
-    "lastname": "Doe",
-    "age": 22,
-    "currency": "USD",
-    "country": "Armenia",
-    "city": "Erevan",
-    "username": "admin",
-    "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
+    "firstname": "John123",
+    "lastname": "Doe123",
+    "age": 20,
+    "currency": "EUR",
+    "country": "Kazakhstan",
+    "city": "Erevan123",
+    "username": "guest",
+    "avatar": "https://img.freepik.com/free-photo/html-css-collage-concept-with-hacker_23-2150061984.jpg?w=1380&t=st=1686853323~exp=1686853923~hmac=2ea8add7a7f87e9cd928bd7e7b5237531d331d46c2ba610b3b41270dc77079c5"
   }
 }

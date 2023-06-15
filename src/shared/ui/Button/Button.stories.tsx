@@ -14,7 +14,12 @@ export default {
 
 const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
 
-export const Primary = Template.bind({});
+export const Outline = Template.bind({});
+
+export const OutlineRed = Template.bind({});
+OutlineRed.args = {
+  theme: ButtonTheme.OUTLINE_RED,
+};
 
 export const Clear = Template.bind({});
 Clear.args = {

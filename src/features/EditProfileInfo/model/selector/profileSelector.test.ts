@@ -1,10 +1,11 @@
 import { DeepPartial } from '@reduxjs/toolkit';
 
 import { StateSchema } from '@/shared/config/redux/types';
-import { Country, Currency } from '@/shared/constant/common';
+import { Country } from '@/entities/Country';
+import { Currency } from '@/entities/Currency';
 
 import {
-  getProfileData, getProfileError, getProfileLoading,
+  getProfileData, getProfileError, getProfileLoading, getProfileReadonly, getProfileForm,
 } from './profileSelector';
 
 const state: DeepPartial<StateSchema> = {
@@ -19,13 +20,23 @@ const state: DeepPartial<StateSchema> = {
       username: 'admin',
       avatar: 'https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg',
     },
+    form: {
+      firstname: 'Kevin',
+      lastname: '',
+      age: 1,
+      currency: Currency.USD,
+      country: Country.ARMENIA,
+      city: 'Erevan',
+      username: 'admin',
+      avatar: '',
+    },
     isLoading: true,
     error: 'error text',
-    readonly: true,
+    readonly: false,
   },
 };
 
-describe('Profile selector', () => {
+describe('Profile data selector', () => {
   test('should return profile', () => {
     expect(getProfileData(state as StateSchema)).toEqual({
       firstname: 'John',
@@ -36,6 +47,25 @@ describe('Profile selector', () => {
       city: 'Erevan',
       username: 'admin',
       avatar: 'https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg',
+    });
+  });
+
+  test('should work with empty value', () => {
+    expect(getProfileData({} as StateSchema)).toBeUndefined();
+  });
+});
+
+describe('Profile form selector', () => {
+  test('should return profile', () => {
+    expect(getProfileForm(state as StateSchema)).toEqual({
+      firstname: 'Kevin',
+      lastname: '',
+      age: 1,
+      currency: Currency.USD,
+      country: Country.ARMENIA,
+      city: 'Erevan',
+      username: 'admin',
+      avatar: '',
     });
   });
 
@@ -60,6 +90,16 @@ describe('Error selector', () => {
   });
 
   test('should work with empty value', () => {
-    expect(getProfileError({} as StateSchema)).toBe('');
+    expect(getProfileError({} as StateSchema)).toBeUndefined();
+  });
+});
+
+describe('Readonly selector', () => {
+  test('should return readonly', () => {
+    expect(getProfileReadonly(state as StateSchema)).toBe(false);
+  });
+
+  test('should work with empty value', () => {
+    expect(getProfileReadonly({} as StateSchema)).toBeUndefined();
   });
 });

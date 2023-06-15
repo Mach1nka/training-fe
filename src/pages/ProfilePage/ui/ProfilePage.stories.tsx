@@ -2,7 +2,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { Theme } from '@/app/providers/ThemeProvider';
 import { storeDecorator, themeDecorator } from '@/shared/lib/storybook/decorators';
-import { profileReducer } from '@/entities/Profile';
+import { profileReducer } from '@/features/EditProfileInfo';
 
 import ProfilePage from './ProfilePage';
 import { ReducersList } from '@/shared/hook/useDynamicReducerLoad';

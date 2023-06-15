@@ -1,7 +1,6 @@
 import { FC, useCallback, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
 
 interface Props {
@@ -17,7 +16,7 @@ export const LangSwitcher: FC<Props> = memo(({ className, short }) => {
   }, []);
 
   return (
-    <Button theme={ButtonTheme.CLEAR} className={classNames('', {}, [className])} onClick={toggle}>
+    <Button theme={ButtonTheme.CLEAR} className={className} onClick={toggle}>
       {t(short ? 'langSwitcher.shortLang' : 'langSwitcher.lang')}
     </Button>
   );

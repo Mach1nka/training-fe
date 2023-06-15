@@ -1,22 +1,16 @@
 import { FC, useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
 
-import { useAppDispatch } from '@/shared/hook/useAppDispatch';
+import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
+import { EditableProfileCard, profileReducer, fetchProfileData } from '@/features/EditProfileInfo';
 import { ReducersList, useDynamicReducerLoad } from '@/shared/hook/useDynamicReducerLoad';
-import { ProfileCard, fetchProfileData, profileReducer } from '@/entities/Profile';
+import { useAppDispatch } from '@/shared/hook/useAppDispatch';
 
 const initialReducers: ReducersList = {
   profile: profileReducer,
 };
 
-interface Props {
-  className?: string;
-}
-
-const ProfilePage: FC<Props> = ({ className }) => {
-  const { t } = useTranslation('profile');
+const ProfilePage: FC = () => {
   const dispatch = useAppDispatch();
-
   useDynamicReducerLoad(initialReducers);
 
   useEffect(() => {
@@ -24,9 +18,10 @@ const ProfilePage: FC<Props> = ({ className }) => {
   }, []);
 
   return (
-    <div>
-      <ProfileCard />
-    </div>
+    <>
+      <ProfilePageHeader />
+      <EditableProfileCard />
+    </>
   );
 };
 

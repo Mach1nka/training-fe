@@ -1,6 +1,5 @@
 import { FC, memo } from 'react';
 
-import { classNames } from '@/shared/lib/classNames/classNames';
 import { useTheme, Theme } from '@/app/providers/ThemeProvider';
 import LightIcon from '@/shared/assets/icons/theme-light.svg';
 import DarkIcon from '@/shared/assets/icons/theme-dark.svg';
@@ -15,7 +14,7 @@ export const ThemeSwitcher: FC<Props> = memo(({ className }) => {
 
   return (
     <Button
-      className={classNames('', {}, [className])}
+      className={className}
       theme={ButtonTheme.CLEAR}
       onClick={toggleTheme}
     >

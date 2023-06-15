@@ -1,7 +1,7 @@
 import { DeepPartial } from '@reduxjs/toolkit';
 
 import { userReducer, userActions } from './userSlice';
-import { User, UserSchema } from '../type';
+import { User, UserSchema } from '../types';
 
 describe('User slice', () => {
   test('set auth data', () => {
