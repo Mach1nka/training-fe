@@ -46,7 +46,7 @@ module.exports = {
       ignoreAttribute: ['data-testid', 'to'],
     }],
     'max-len': ['error', {
-      code: 100,
+      code: 105,
       ignoreComments: true,
     }],
     'no-param-reassign': 'off',
@@ -59,6 +59,7 @@ module.exports = {
   globals: {
     IS_DEV: 'readonly',
     API_URL: 'readonly',
+    PROJECT: 'readonly',
   },
   overrides: [
     {

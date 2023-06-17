@@ -30,6 +30,7 @@ declare module '*.gif' {
 
 declare const IS_DEV: boolean;
 declare const API_URL: string;
+declare const PROJECT: 'storybook' | 'jest' | 'frontend';
 
 declare type DeepPartial<T> = T extends object ? {
   [P in keyof T]?: DeepPartial<T[P]>;

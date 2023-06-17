@@ -3,9 +3,12 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Theme } from '@/app/providers/ThemeProvider';
 import { storeDecorator, themeDecorator } from '@/shared/lib/storybook/decorators';
 import { profileReducer } from '@/features/EditProfileInfo';
+import { ReducersList } from '@/shared/hook/useDynamicReducerLoad';
+import { Country } from '@/entities/Country';
+import { Currency } from '@/entities/Currency';
+import Avatar from '@/shared/assets/tests/storybookPlug.jpg';
 
 import ProfilePage from './ProfilePage';
-import { ReducersList } from '@/shared/hook/useDynamicReducerLoad';
 
 const initialReducers: ReducersList = {
   profile: profileReducer,
@@ -20,7 +23,18 @@ const Template: ComponentStory<typeof ProfilePage> = (args) => <ProfilePage {...
 
 export const Light = Template.bind({});
 Light.decorators = [storeDecorator(
-  { profile: undefined },
+  {
+    profile: {
+      form: {
+        firstname: 'name',
+        lastname: 'surname',
+        age: 35,
+        country: Country.KAZAKHSTAN,
+        currency: Currency.RUB,
+        avatar: Avatar,
+      },
+    },
+  },
   initialReducers,
 )];
 
@@ -28,6 +42,6 @@ export const Dark = Template.bind({});
 Dark.decorators = [
   themeDecorator(Theme.DARK),
   storeDecorator(
-    { profile: undefined },
+    { profile: { readonly: true } },
     initialReducers,
   )];

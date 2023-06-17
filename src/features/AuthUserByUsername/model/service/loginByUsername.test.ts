@@ -3,10 +3,10 @@ import { userActions } from '@/entities/User';
 
 import { loginByUsername } from './loginByUsername';
 
-describe('Login thunk', () => {
+describe('loginByUsername.test thunk', () => {
   const thunkArg = { username: 'guest', password: '123' };
 
-  test('success login', async () => {
+  test('success', async () => {
     const thunk = new TestAsyncThunk(loginByUsername);
     const userData = { username: 'guest', id: '1' };
     thunk.api.post.mockResolvedValue(Promise.resolve({ data: userData }));
@@ -18,7 +18,7 @@ describe('Login thunk', () => {
     expect(result.payload).toEqual(userData);
   });
 
-  test('failed login', async () => {
+  test('failed', async () => {
     const thunk = new TestAsyncThunk(loginByUsername);
     thunk.api.post.mockResolvedValue(Promise.resolve({ status: 403 }));
     const result = await thunk.callThunk(thunkArg);

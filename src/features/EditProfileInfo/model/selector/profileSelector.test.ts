@@ -3,9 +3,15 @@ import { DeepPartial } from '@reduxjs/toolkit';
 import { StateSchema } from '@/shared/config/redux/types';
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
+import { ValidateProfileError } from '@/entities/Profile';
 
 import {
-  getProfileData, getProfileError, getProfileLoading, getProfileReadonly, getProfileForm,
+  getProfileData,
+  getProfileError,
+  getProfileLoading,
+  getProfileReadonly,
+  getProfileForm,
+  getProfileValidateError,
 } from './profileSelector';
 
 const state: DeepPartial<StateSchema> = {
@@ -30,13 +36,14 @@ const state: DeepPartial<StateSchema> = {
       username: 'admin',
       avatar: '',
     },
+    validateErrors: [ValidateProfileError.NO_DATA],
     isLoading: true,
     error: 'error text',
     readonly: false,
   },
 };
 
-describe('Profile data selector', () => {
+describe('getProfileData selector', () => {
   test('should return profile', () => {
     expect(getProfileData(state as StateSchema)).toEqual({
       firstname: 'John',
@@ -55,7 +62,7 @@ describe('Profile data selector', () => {
   });
 });
 
-describe('Profile form selector', () => {
+describe('getProfileForm selector', () => {
   test('should return profile', () => {
     expect(getProfileForm(state as StateSchema)).toEqual({
       firstname: 'Kevin',
@@ -70,11 +77,11 @@ describe('Profile form selector', () => {
   });
 
   test('should work with empty value', () => {
-    expect(getProfileData({} as StateSchema)).toBeUndefined();
+    expect(getProfileForm({} as StateSchema)).toBeUndefined();
   });
 });
 
-describe('Loading selector', () => {
+describe('getProfileLoading selector', () => {
   test('should return loading', () => {
     expect(getProfileLoading(state as StateSchema)).toBe(true);
   });
@@ -84,7 +91,7 @@ describe('Loading selector', () => {
   });
 });
 
-describe('Error selector', () => {
+describe('getProfileError selector', () => {
   test('should return error message', () => {
     expect(getProfileError(state as StateSchema)).toBe('error text');
   });
@@ -94,12 +101,22 @@ describe('Error selector', () => {
   });
 });
 
-describe('Readonly selector', () => {
+describe('getProfileReadonly selector', () => {
   test('should return readonly', () => {
     expect(getProfileReadonly(state as StateSchema)).toBe(false);
   });
 
   test('should work with empty value', () => {
     expect(getProfileReadonly({} as StateSchema)).toBeUndefined();
+  });
+});
+
+describe('getProfileValidateError selector', () => {
+  test('should return readonly', () => {
+    expect(getProfileValidateError(state as StateSchema)).toEqual([ValidateProfileError.NO_DATA]);
+  });
+
+  test('should work with empty value', () => {
+    expect(getProfileValidateError({} as StateSchema)).toBeUndefined();
   });
 });

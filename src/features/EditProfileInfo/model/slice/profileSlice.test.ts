@@ -1,8 +1,10 @@
 import { DeepPartial } from '@reduxjs/toolkit';
 
 import { profileReducer, profileActions } from './profileSlice';
-import { ProfileSchema } from '@/entities/Profile';
-import { fetchProfileData } from '../service/fetchProfileData';
+import { Profile, ProfileSchema, ValidateProfileError } from '@/entities/Profile';
+import { updateProfileData } from '../service/updateProfileData/updateProfileData';
+import { Country } from '@/entities/Country';
+import { Currency } from '@/entities/Currency';
 
 describe('Profile reducers', () => {
   test('set readonly', () => {
@@ -32,10 +34,31 @@ describe('Profile reducers', () => {
 });
 
 describe('Profile extra reducers', () => {
-  const state: DeepPartial<ProfileSchema> = { isLoading: false };
+  const state: DeepPartial<ProfileSchema> = {
+    isLoading: true,
+    readonly: false,
+    validateErrors: [ValidateProfileError.INCORRECT_CURRENCY],
+  };
 
-  test('getProfileData pending', () => {
-    expect(profileReducer(state as ProfileSchema, fetchProfileData.pending))
-      .toEqual({ isLoading: true });
+  test('getProfileData fulfilled', () => {
+    const response: Profile = {
+      firstname: 'name',
+      lastname: 'surname',
+      age: 35,
+      country: Country.KAZAKHSTAN,
+      currency: Currency.RUB,
+      avatar: undefined,
+      username: 'guest',
+      city: undefined,
+    };
+
+    expect(profileReducer(state as ProfileSchema, updateProfileData.fulfilled(response, '')))
+      .toEqual({
+        isLoading: false,
+        readonly: true,
+        validateErrors: undefined,
+        data: response,
+        form: response,
+      });
   });
 });

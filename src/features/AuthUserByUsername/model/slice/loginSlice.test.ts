@@ -4,7 +4,7 @@ import { loginReducer, loginActions } from './loginSlice';
 import { LoginSchema } from '../types';
 import { loginByUsername } from '../service/loginByUsername';
 
-describe('Login slice', () => {
+describe('loginSlice slice', () => {
   test('set username', () => {
     const state: DeepPartial<LoginSchema> = { username: 'guest' };
 

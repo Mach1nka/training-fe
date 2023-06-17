@@ -4,7 +4,7 @@ import { StateSchema } from '@/shared/config/redux/types';
 
 import { getUserAuthData } from './userSelector';
 
-describe('User selector', () => {
+describe('getUserAuthData selector', () => {
   test('should return username', () => {
     const state: DeepPartial<StateSchema> = {
       user: {

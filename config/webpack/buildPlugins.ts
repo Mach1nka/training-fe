@@ -8,7 +8,9 @@ import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 
 import { BuildOptions } from './types/config';
 
-export function buildPlugins({ paths, isDev, apiUrl }: BuildOptions): WebpackPluginInstance[] {
+export function buildPlugins({
+  paths, isDev, apiUrl, project,
+}: BuildOptions): WebpackPluginInstance[] {
   const devPlugins = [
     new HotModuleReplacementPlugin(),
     new ReactRefreshWebpackPlugin(),
@@ -28,6 +30,7 @@ export function buildPlugins({ paths, isDev, apiUrl }: BuildOptions): WebpackPlu
     new DefinePlugin({
       IS_DEV: JSON.stringify(isDev),
       API_URL: JSON.stringify(apiUrl),
+      PROJECT: JSON.stringify(project),
     }),
   ].concat(isDev ? devPlugins : []);
 }

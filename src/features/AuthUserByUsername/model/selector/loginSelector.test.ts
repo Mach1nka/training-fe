@@ -3,7 +3,10 @@ import { DeepPartial } from '@reduxjs/toolkit';
 import { StateSchema } from '@/shared/config/redux/types';
 
 import {
-  getLoginUsername, getLoginPassword, getLoginLoading, getLoginError,
+  getLoginUsername,
+  getLoginPassword,
+  getLoginLoading,
+  getLoginError,
 } from './loginSelector';
 
 const state: DeepPartial<StateSchema> = {
@@ -15,7 +18,7 @@ const state: DeepPartial<StateSchema> = {
   },
 };
 
-describe('Username selector', () => {
+describe('getLoginUsername selector', () => {
   test('should return username', () => {
     expect(getLoginUsername(state as StateSchema)).toBe('guest');
   });
@@ -25,7 +28,7 @@ describe('Username selector', () => {
   });
 });
 
-describe('Password selector', () => {
+describe('getLoginPassword selector', () => {
   test('should return password', () => {
     expect(getLoginPassword(state as StateSchema)).toBe('123456');
   });
@@ -35,7 +38,7 @@ describe('Password selector', () => {
   });
 });
 
-describe('Loading selector', () => {
+describe('getLoginLoading selector', () => {
   test('should return loading', () => {
     expect(getLoginLoading(state as StateSchema)).toBe(true);
   });
@@ -45,7 +48,7 @@ describe('Loading selector', () => {
   });
 });
 
-describe('Error selector', () => {
+describe('getLoginError selector', () => {
   test('should return error message', () => {
     expect(getLoginError(state as StateSchema)).toBe('error text');
   });

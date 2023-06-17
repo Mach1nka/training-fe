@@ -14,7 +14,9 @@ const ProfilePage: FC = () => {
   useDynamicReducerLoad(initialReducers);
 
   useEffect(() => {
-    dispatch(fetchProfileData());
+    if (PROJECT !== 'storybook') {
+      dispatch(fetchProfileData());
+    }
   }, []);
 
   return (

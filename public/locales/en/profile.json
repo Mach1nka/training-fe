@@ -14,5 +14,15 @@
   "error": {
     "title": "An error happened during profile loading",
     "text": "Try to reload page"
+  },
+  "validateErrors": {
+    "firstname": "Firstname is required",
+    "lastname": "Surname is required",
+    "age": "Age isn't correct",
+    "username": "Username is required",
+    "currency": "Currency isn't selected",
+    "country": "Country isn't selected",
+    "server": "Server error during the saving",
+    "noData": "Information isn't defined"
   }
 }

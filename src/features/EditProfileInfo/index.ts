@@ -3,8 +3,8 @@ import { profileActions, profileReducer } from './model/slice/profileSlice';
 import {
   getProfileReadonly,
 } from './model/selector/profileSelector';
-import { fetchProfileData } from './model/service/fetchProfileData';
-import { updateProfileData } from './model/service/updateProfileData';
+import { fetchProfileData } from './model/service/fetchProfileData/fetchProfileData';
+import { updateProfileData } from './model/service/updateProfileData/updateProfileData';
 
 export {
   EditableProfileCard,
