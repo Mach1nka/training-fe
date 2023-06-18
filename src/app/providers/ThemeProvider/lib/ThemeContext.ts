@@ -2,7 +2,8 @@ import { createContext, Dispatch, SetStateAction } from 'react';
 
 export enum Theme {
   LIGHT = 'light',
-  DARK = 'dark'
+  DARK = 'dark',
+  PURPLE = 'purple',
 }
 
 export interface ThemeContextProps {
