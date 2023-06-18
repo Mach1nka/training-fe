@@ -15,15 +15,16 @@ export function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
     exclude: /node_modules/,
   };
 
-  //   const babelLoader = {
-  //     test: /\.(js|jsx|tsx)$/,
-  //     exclude: /node_modules/,
-  //     use: {
-  //         loader: 'babel-loader',
-  //         options: {
-  //             presets: ['@babel/preset-env'],
-  //         },
+  // const babelLoader = {
+  //   test: /\.(js|jsx|tsx)$/,
+  //   exclude: /node_modules/,
+  //   use: {
+  //     loader: 'babel-loader',
+  //     options: {
+  //       presets: ['@babel/preset-env'],
+  //       plugins: [isDev && require.resolve('react-refresh/babel')].filter(Boolean),
   //     },
+  //   },
   // };
 
   const cssLoader = {
@@ -52,7 +53,7 @@ export function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
   };
 
   const fileLoader = {
-    test: /\.(png|jpe?g|gif)$/i,
+    test: /\.(png|jpe?g|gif|woff2|woff)$/i,
     use: [
       {
         loader: 'file-loader',
