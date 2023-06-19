@@ -4,7 +4,6 @@ import { Theme } from '@/app/providers/ThemeProvider';
 import { themeDecorator } from '@/shared/lib/storybook/decorators';
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
-import Avatar from '@/shared/assets/tests/storybookPlug.jpg';
 
 import { ProfileCard } from './ProfileCard';
 
@@ -23,7 +22,7 @@ Light.args = {
     age: 35,
     country: Country.KAZAKHSTAN,
     currency: Currency.RUB,
-    avatar: Avatar,
+    avatar: 'https://t4.ftcdn.net/jpg/03/21/43/07/360_F_321430761_qQi0CU9tzI5w1k1vJgdA02LMtXtsXvJE.jpg',
   },
 };
 
@@ -45,7 +44,7 @@ Dark.args = {
     age: 35,
     country: Country.KAZAKHSTAN,
     currency: Currency.RUB,
-    avatar: Avatar,
+    avatar: 'https://t4.ftcdn.net/jpg/03/21/43/07/360_F_321430761_qQi0CU9tzI5w1k1vJgdA02LMtXtsXvJE.jpg',
   },
 };
 Dark.decorators = [themeDecorator(Theme.DARK)];

@@ -1,8 +1,14 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { Theme } from '@/app/providers/ThemeProvider';
-import { themeDecorator } from '@/shared/lib/storybook/decorators';
+import { storeDecorator, themeDecorator } from '@/shared/lib/storybook/decorators';
+import { userReducer } from '@/entities/User';
+import { ReducersList } from '@/shared/hook/useDynamicReducerLoad';
 import { Sidebar } from './Sidebar';
+
+const initialReducers: ReducersList = {
+  user: userReducer,
+};
 
 export default {
   title: 'widgets/Sidebar',
@@ -11,10 +17,11 @@ export default {
 
 const Template: ComponentStory<typeof Sidebar> = (args) => <Sidebar {...args} />;
 
-export const Light = Template.bind({});
+export const LightAuth = Template.bind({});
+LightAuth.decorators = [storeDecorator({ user: { authData: {} } }, initialReducers)];
 
 export const Dark = Template.bind({});
-Dark.decorators = [themeDecorator(Theme.DARK)];
+Dark.decorators = [themeDecorator(Theme.DARK), storeDecorator({ user: {} }, initialReducers)];
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 // More on argTypes: https://storybook.js.org/docs/react/api/argtypes

@@ -5,6 +5,7 @@ import { LOCAL_STORAGE_USER_KEY } from '@/shared/constant/localstorage';
 
 const initialState: UserSchema = {
   authData: undefined,
+  initiated: false,
 };
 
 export const userSlice = createSlice({
@@ -19,6 +20,7 @@ export const userSlice = createSlice({
         if (payload) {
           state.authData = payload;
         }
+        state.initiated = true;
       },
       prepare: () => {
         const authData = localStorage.getItem(LOCAL_STORAGE_USER_KEY);
