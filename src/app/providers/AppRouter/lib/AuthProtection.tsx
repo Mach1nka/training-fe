@@ -7,7 +7,6 @@ import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 
 export const AuthProtection: FC = () => {
   const authData = useSelector(getUserAuthData);
-  console.log(authData);
 
   if (!authData) {
     return <Navigate to={RoutePath.main} replace />;
