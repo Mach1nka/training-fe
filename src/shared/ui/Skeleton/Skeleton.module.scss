@@ -1,0 +1,13 @@
+.Skeleton {
+  background: #eeeeee;
+  background: linear-gradient(110deg, transparent 10%, var(--skeleton-color) 50%, transparent 33%);
+  background-size: 200% 100%;
+  animation: 1s shine linear infinite;
+  box-shadow: 0 2px 10px 0 var(--skeleton-shadow);
+}
+
+@keyframes shine {
+  to {
+    background-position-x: -200%;
+  }
+}

@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
@@ -9,7 +9,7 @@ interface Props {
   className?: string;
 }
 
-export const [FTName]: FC<Props> = ({ className }) => {
+export const [FTName]: FC<Props> = memo(({ className }) => {
   const { t } = useTranslation();
 
   return (
@@ -17,4 +17,4 @@ export const [FTName]: FC<Props> = ({ className }) => {
 
     </div>
   );
-};
+});

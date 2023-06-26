@@ -11,7 +11,8 @@
   "navigation": {
     "aboutPage": "О нас",
     "mainPage": "Главная страница",
-    "profilePage": "Профиль"
+    "profilePage": "Профиль",
+    "articlesPage": "Статьи"
   },
   "authForm": {
     "title": "Форма авторизации",

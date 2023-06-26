@@ -11,7 +11,8 @@
   "navigation": {
     "aboutPage": "About Us",
     "mainPage": "Main Page",
-    "profilePage": "Profile Page"
+    "profilePage": "Profile Page",
+    "articlesPage": "Articles"
   },
   "authForm": {
     "title": "Authorization Form",
