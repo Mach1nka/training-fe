@@ -1,7 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { storeDecorator, themeDecorator } from '@/shared/lib/storybook/decorators';
-import { Theme } from '@/app/providers/ThemeProvider';
+import { storeDecorator } from '@/shared/lib/storybook/decorators';
 import { ReducersList } from '@/shared/hook/useDynamicReducerLoad';
 
 import LoginForm from './LoginForm';
@@ -35,15 +34,6 @@ Loading.decorators = [storeDecorator(
   { loginForm: { isLoading: true } },
   initialReducers,
 )];
-
-export const Dark = Template.bind({});
-Dark.decorators = [
-  themeDecorator(Theme.DARK),
-  storeDecorator(
-    { loginForm: {} },
-    initialReducers,
-  ),
-];
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 // More on argTypes: https://storybook.js.org/docs/react/api/argtypes

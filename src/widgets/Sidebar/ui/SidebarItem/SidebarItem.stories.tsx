@@ -1,7 +1,7 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { Theme } from '@/app/providers/ThemeProvider';
-import { storeDecorator, themeDecorator } from '@/shared/lib/storybook/decorators';
+import { routerDecorator, storeDecorator, themeDecorator } from '@/shared/lib/storybook/decorators';
 import MainIcon from '@/shared/assets/icons/main.svg';
 import { userReducer } from '@/entities/User';
 import { ReducersList } from '@/shared/hook/useDynamicReducerLoad';
@@ -14,6 +14,7 @@ const initialReducers: ReducersList = {
 export default {
   title: 'widgets/SidebarItem',
   component: SidebarItem,
+  decorators: [routerDecorator(), storeDecorator({ user: { } }, initialReducers)],
   args: {
     item: {
       path: '/',
@@ -21,7 +22,6 @@ export default {
       Icon: MainIcon,
     },
   },
-  decorators: [storeDecorator({ user: { } }, initialReducers)],
 } as ComponentMeta<typeof SidebarItem>;
 
 const Template: ComponentStory<typeof SidebarItem> = (args) => <SidebarItem {...args} />;

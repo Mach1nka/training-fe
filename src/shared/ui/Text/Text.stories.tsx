@@ -3,7 +3,9 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Theme } from '@/app/providers/ThemeProvider';
 import { themeDecorator } from '@/shared/lib/storybook/decorators';
 
-import { Text, TextAlign, TextTheme } from './Text';
+import {
+  Text, TextAlign, TextSize, TextTheme,
+} from './Text';
 
 export default {
   title: 'shared/Text',
@@ -12,10 +14,24 @@ export default {
 
 const Template: ComponentStory<typeof Text> = (args) => <Text {...args} />;
 
-export const Light = Template.bind({});
-Light.args = {
+export const Default = Template.bind({});
+Default.args = {
   title: 'Title',
   text: 'Description',
+};
+
+export const SizeM = Template.bind({});
+SizeM.args = {
+  title: 'Title',
+  text: 'Description',
+  size: TextSize.MEDIUM,
+};
+
+export const SizeL = Template.bind({});
+SizeL.args = {
+  title: 'Title',
+  text: 'Description',
+  size: TextSize.LARGE,
 };
 
 export const AlignCenter = Template.bind({});

@@ -3,7 +3,7 @@ import { userActions } from '@/entities/User';
 
 import { loginByUsername } from './loginByUsername';
 
-describe('loginByUsername.test thunk', () => {
+describe('loginByUsername thunk', () => {
   const thunkArg = { username: 'guest', password: '123' };
 
   test('success', async () => {

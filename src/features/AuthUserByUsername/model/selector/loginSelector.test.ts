@@ -54,6 +54,6 @@ describe('getLoginError selector', () => {
   });
 
   test('should work with empty value', () => {
-    expect(getLoginError({} as StateSchema)).toBe('');
+    expect(getLoginError({} as StateSchema)).toBeUndefined();
   });
 });

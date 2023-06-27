@@ -6,7 +6,6 @@ import { profileReducer } from '@/features/EditProfileInfo';
 import { ReducersList } from '@/shared/hook/useDynamicReducerLoad';
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
-import Avatar from '@/shared/assets/tests/storybookPlug.jpg';
 
 import ProfilePage from './ProfilePage';
 
@@ -31,7 +30,7 @@ Light.decorators = [storeDecorator(
         age: 35,
         country: Country.KAZAKHSTAN,
         currency: Currency.RUB,
-        avatar: Avatar,
+        avatar: 'https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png',
       },
     },
   },

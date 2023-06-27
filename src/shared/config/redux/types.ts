@@ -4,6 +4,7 @@ import { AxiosInstance } from 'axios';
 import { UserSchema } from '@/entities/User';
 import { LoginSchema } from '@/features/AuthUserByUsername';
 import { ProfileSchema } from '@/entities/Profile';
+import { ArticleDetailsSchema } from '@/entities/Article';
 
 import { createReducerManager } from './reducerManager';
 
@@ -11,6 +12,7 @@ export interface StateSchema {
   user: UserSchema;
   loginForm?: LoginSchema;
   profile?: ProfileSchema;
+  articleDetails?: ArticleDetailsSchema;
 }
 
 export type StateSchemaKeys = keyof StateSchema;

@@ -2,7 +2,7 @@ import { DeepPartial } from '@reduxjs/toolkit';
 
 import { loginReducer, loginActions } from './loginSlice';
 import { LoginSchema } from '../types';
-import { loginByUsername } from '../service/loginByUsername';
+import { loginByUsername } from '../service/loginByUsername/loginByUsername';
 
 describe('loginSlice slice', () => {
   test('set username', () => {

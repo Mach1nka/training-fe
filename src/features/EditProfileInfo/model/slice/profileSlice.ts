@@ -6,8 +6,11 @@ import { updateProfileData } from '../service/updateProfileData/updateProfileDat
 
 const initialState: ProfileSchema = {
   data: undefined,
+  form: undefined,
   isLoading: false,
   readonly: true,
+  error: undefined,
+  validateErrors: undefined,
 };
 
 const counterSlice = createSlice({

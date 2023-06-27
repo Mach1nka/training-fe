@@ -4,6 +4,7 @@
   height: calc(100vh - var(--navbar-height));
   background-color: var(--inverted-bg-color);
   transition: width 0.3s ease-out;
+  flex-shrink: 0;
 }
 
 .switchers {

@@ -6,7 +6,7 @@ import { updateProfileData } from '../service/updateProfileData/updateProfileDat
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
 
-describe('Profile reducers', () => {
+describe('profileSlice reducers', () => {
   test('set readonly', () => {
     const state: DeepPartial<ProfileSchema> = { readonly: false };
 
@@ -33,7 +33,7 @@ describe('Profile reducers', () => {
   });
 });
 
-describe('Profile extra reducers', () => {
+describe('profileSlice extra reducers', () => {
   const state: DeepPartial<ProfileSchema> = {
     isLoading: true,
     readonly: false,

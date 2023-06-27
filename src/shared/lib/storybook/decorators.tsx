@@ -1,5 +1,5 @@
 import { Story } from '@storybook/react';
-import { BrowserRouter } from 'react-router-dom';
+import { MemoryRouter, Route, Routes } from 'react-router-dom';
 
 import { Theme, ThemeProvider } from '@/app/providers/ThemeProvider';
 import { StoreProvider } from '@/app/providers/StoreProvider';
@@ -20,10 +20,12 @@ export const themeDecorator = (theme: Theme) => (Story: Story) => (
   </ThemeProvider>
 );
 
-export const routerDecorator = (Story: Story) => (
-  <BrowserRouter>
-    <Story />
-  </BrowserRouter>
+export const routerDecorator = (initialEntries?: string[], path?: string) => (Story: Story) => (
+  <MemoryRouter initialEntries={initialEntries}>
+    <Routes>
+      <Route path={path || ''} element={<Story />} />
+    </Routes>
+  </MemoryRouter>
 );
 
 export const storeDecorator = (

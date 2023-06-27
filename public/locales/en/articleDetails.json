@@ -1,0 +1,6 @@
+{
+  "articleNotFound": "The Article isn't Found",
+  "error": {
+    "title": "An error happened during article loading"
+  }
+}

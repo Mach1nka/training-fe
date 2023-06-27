@@ -21,7 +21,7 @@ export const AppLink: FC<Props> = memo(({
   theme = AppLinkTheme.PRIMARY,
   ...props
 }) => (
-  <Link className={classNames(cls.Navbar, {}, [className, cls[theme]])} {...props}>
+  <Link className={classNames(cls.AppLink, {}, [className, cls[theme]])} {...props}>
     {children}
   </Link>
 ));

@@ -1,13 +1,14 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { Theme } from '@/app/providers/ThemeProvider';
-import { themeDecorator } from '@/shared/lib/storybook/decorators';
+import { routerDecorator, themeDecorator } from '@/shared/lib/storybook/decorators';
 import { AppLinkTheme } from '@/shared/ui/AppLink/AppLink';
 import { AppLink } from './AppLink';
 
 export default {
   title: 'shared/AppLink',
   component: AppLink,
+  decorators: [routerDecorator()],
   args: {
     to: '/',
     children: 'Text',

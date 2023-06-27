@@ -3,7 +3,7 @@ import { DeepPartial } from '@reduxjs/toolkit';
 import { userReducer, userActions } from './userSlice';
 import { User, UserSchema } from '../types';
 
-describe('User slice', () => {
+describe('userSlice slice', () => {
   test('set auth data', () => {
     const state: DeepPartial<UserSchema> = { authData: undefined };
     const user: User = { id: '1', username: 'guest' };

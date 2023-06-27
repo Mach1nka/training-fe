@@ -6,4 +6,4 @@ export const getLoginPassword = (state: StateSchema) => state.loginForm?.passwor
 
 export const getLoginLoading = (state: StateSchema) => state.loginForm?.isLoading || false;
 
-export const getLoginError = (state: StateSchema) => state.loginForm?.error || '';
+export const getLoginError = (state: StateSchema) => state.loginForm?.error;
