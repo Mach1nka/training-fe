@@ -8,10 +8,10 @@ export type ReducersList = {
   [key in StateSchemaKeys]?: Reducer;
 }
 
-export function useDynamicReducerLoad(
+export const useDynamicReducerLoad = (
   reducers: ReducersList,
   removeAfterUnmount = true,
-) {
+) => {
   const store = useStore() as ReduxStoreWithManager;
   const dispatch = useDispatch();
 
@@ -30,4 +30,4 @@ export function useDynamicReducerLoad(
       }
     };
   }, [reducers, removeAfterUnmount]);
-}
+};

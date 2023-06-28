@@ -20,5 +20,8 @@
     "password": "Введите пароль"
   },
   "login": "Войти",
-  "logout": "Выйти"
+  "logout": "Выйти",
+  "commentBlock": {
+    "noComments": "Комметарии отсутствуют"
+  }
 }

@@ -7,9 +7,9 @@ declare module '*.scss' {
 }
 
 declare module '*.svg' {
-  import React from 'react';
+  import { VFC, SVGProps } from 'react';
 
-  const SVG: React.VFC<React.SVGProps<SVGSVGElement>>;
+  const SVG: VFC<SVGProps<SVGSVGElement>>;
   export default SVG;
 }
 
@@ -19,7 +19,7 @@ declare module '*.jpg' {
 }
 
 declare module '*.png' {
-  const value: any;
+  const value: string;
   export = value;
 }
 

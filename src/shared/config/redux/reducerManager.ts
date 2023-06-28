@@ -4,7 +4,7 @@ import {
 
 import { StateSchema, StateSchemaKeys } from './types';
 
-export function createReducerManager(initialReducers: ReducersMapObject<StateSchema>) {
+export const createReducerManager = (initialReducers: ReducersMapObject<StateSchema>) => {
   const reducers = { ...initialReducers };
 
   let combinedReducer = combineReducers(reducers);
@@ -43,4 +43,4 @@ export function createReducerManager(initialReducers: ReducersMapObject<StateSch
       combinedReducer = combineReducers(reducers);
     },
   };
-}
+};

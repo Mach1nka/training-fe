@@ -2,7 +2,6 @@ import { FC, memo, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
-import { classNames } from '@/shared/lib/classNames/classNames';
 import { ReducersList, useDynamicReducerLoad } from '@/shared/hook/useDynamicReducerLoad';
 import { useAppDispatch } from '@/shared/hook/useAppDispatch';
 import {
@@ -13,6 +12,7 @@ import { Avatar } from '@/shared/ui/Avatar/Avatar';
 import CalendarIcon from '@/shared/assets/icons/calendar.svg';
 import EyeIcon from '@/shared/assets/icons/eye.svg';
 import { Icon } from '@/shared/ui/Icon/Icon';
+import { thunkMiddleware } from '@/shared/lib/redux/thunkMiddleware';
 
 import {
   getArticleDetailsIsLoading,
@@ -52,11 +52,10 @@ const initialReducers: ReducersList = {
 };
 
 interface Props {
-  className?: string;
   articleId: string;
 }
 
-export const ArticleDetails: FC<Props> = memo(({ className, articleId }) => {
+export const ArticleDetails: FC<Props> = memo(({ articleId }) => {
   const { t } = useTranslation('articleDetails');
   const dispatch = useAppDispatch();
   const isLoading = useSelector(getArticleDetailsIsLoading);
@@ -66,37 +65,33 @@ export const ArticleDetails: FC<Props> = memo(({ className, articleId }) => {
   useDynamicReducerLoad(initialReducers);
 
   useEffect(() => {
-    if (PROJECT !== 'storybook') {
-      dispatch(fetchArticleById(articleId));
-    }
+    thunkMiddleware(() => dispatch(fetchArticleById(articleId)));
   }, [articleId]);
 
   if (isLoading) {
     return (
-      <div className={classNames('', {}, [className, cls.loading])}>
+      <>
         <Skeleton width={200} height={200} borderRadius="50%" className={cls.avatar} />
         <Skeleton width={300} height={30} className={cls.title} />
         <Skeleton width={600} height={24} className={cls.skeleton} />
         <Skeleton width="100%" height={500} className={cls.skeleton} />
         <Skeleton width="100%" height={200} className={cls.skeleton} />
-      </div>
+      </>
     );
   }
 
   if (error) {
     return (
-      <div className={classNames('', {}, [className, cls.error])}>
-        <Text
-          theme={TextTheme.ERROR}
-          align={TextAlign.CENTER}
-          title={t('error.title')}
-        />
-      </div>
+      <Text
+        theme={TextTheme.ERROR}
+        align={TextAlign.CENTER}
+        title={t('error.title')}
+      />
     );
   }
 
   return (
-    <div className={className}>
+    <>
       <div className={cls.avatarWrapper}>
         <Avatar src={article?.img || ''} size={200} className={cls.avatar} />
       </div>
@@ -115,6 +110,6 @@ export const ArticleDetails: FC<Props> = memo(({ className, articleId }) => {
         <Text text={article?.createdAt} />
       </div>
       {article?.blocks.map(renderBlock)}
-    </div>
+    </>
   );
 });

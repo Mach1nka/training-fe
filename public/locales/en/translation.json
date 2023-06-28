@@ -20,5 +20,8 @@
     "password": "Enter password"
   },
   "login": "Login",
-  "logout": "Logout"
+  "logout": "Logout",
+  "commentBlock": {
+    "noComments": "There aren't comments"
+  }
 }
