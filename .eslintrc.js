@@ -53,6 +53,7 @@ module.exports = {
     'no-plusplus': 'off',
     'no-undef': 'off',
     'implicit-arrow-linebreak': 'off',
+    'react/button-has-type': 'off',
     // NOTE: Accessability
     'jsx-a11y/click-events-have-key-events': 'off',
     'jsx-a11y/no-static-element-interactions': 'off',

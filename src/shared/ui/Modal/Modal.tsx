@@ -37,7 +37,7 @@ export const Modal: FC<Props> = ({
   };
 
   const onContentClick = (e: MouseEvent) => {
-    e.preventDefault();
+    // e.preventDefault();
     e.stopPropagation();
   };
 

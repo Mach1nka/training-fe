@@ -1,4 +1,6 @@
-import { FC, memo, useCallback } from 'react';
+import {
+  FC, FormEvent, memo, useCallback,
+} from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
@@ -41,7 +43,7 @@ const LoginForm: FC<Props> = memo(({ className, onSuccess }) => {
     dispatch(loginActions.setPassword(value));
   }, []);
 
-  const onLoginClick = useCallback(async () => {
+  const onLoginSubmit = useCallback(async (e: FormEvent<HTMLFormElement>) => {
     const response = await dispatch(loginByUsername({ username, password }));
 
     if (response.meta.requestStatus === 'fulfilled') {
@@ -52,7 +54,7 @@ const LoginForm: FC<Props> = memo(({ className, onSuccess }) => {
   useDynamicReducerLoad(initialReducers);
 
   return (
-    <div className={classNames(cls.LoginForm, {}, [className])}>
+    <form onSubmit={onLoginSubmit} className={classNames(cls.LoginForm, {}, [className])}>
       <Text title={t('authForm.title')} />
       {error ? <Text text={error} theme={TextTheme.ERROR} /> : null}
       <Input
@@ -70,13 +72,13 @@ const LoginForm: FC<Props> = memo(({ className, onSuccess }) => {
         onChange={onChangePassword}
       />
       <Button
+        type="submit"
         className={cls.loginBtn}
         disabled={isLoading}
-        onClick={onLoginClick}
       >
         {t('login')}
       </Button>
-    </div>
+    </form>
   );
 });
 

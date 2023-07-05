@@ -1,8 +1,6 @@
-import { DeepPartial } from '@reduxjs/toolkit';
-
 import { StateSchema } from '@/shared/config/redux/types';
 
-import { getUserAuthData, getUserInitiated } from './userSelector';
+import { getUserAuthData, getUserId, getUserInitiated } from './userSelector';
 
 describe('getUserAuthData selector', () => {
   test('should return username', () => {
@@ -24,6 +22,28 @@ describe('getUserAuthData selector', () => {
       },
     };
     expect(getUserAuthData(state as StateSchema)).toBeUndefined();
+  });
+});
+
+describe('getUserId selector', () => {
+  test('should return id', () => {
+    const state: DeepPartial<StateSchema> = {
+      user: {
+        authData: {
+          id: '1',
+        },
+      },
+    };
+    expect(getUserId(state as StateSchema)).toEqual({ id: '1' });
+  });
+
+  test('should work with empty value', () => {
+    const state: DeepPartial<StateSchema> = {
+      user: {
+        authData: undefined,
+      },
+    };
+    expect(getUserId(state as StateSchema)).toBeUndefined();
   });
 });
 

@@ -44,7 +44,6 @@ export const ProfileCard: FC<Props> = memo(({
   onChangeCountry,
 }) => {
   const { t } = useTranslation('profile');
-  console.log(data);
 
   if (isLoading) {
     return (

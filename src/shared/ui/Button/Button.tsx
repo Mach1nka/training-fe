@@ -29,6 +29,7 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
 export const Button: FC<Props> = memo(({
   children,
   className,
+  type = 'button',
   theme = ButtonTheme.OUTLINE,
   size = ButtonSize.MEDIUM,
   square,
@@ -42,7 +43,7 @@ export const Button: FC<Props> = memo(({
 
   return (
     <button
-      type="button"
+      type={type}
       className={classNames(cls.Button, mods, [className, cls[theme], cls[size]])}
       disabled={disabled}
       {...props}

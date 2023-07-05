@@ -2,7 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import { ThunkConfig } from '@/shared/config/redux/types';
 import { Comment } from '@/entities/Comment';
-import { getUserAuthData } from '@/entities/User';
+import { getUserId } from '@/entities/User';
 import { getArticleDetailsData } from '@/entities/Article';
 
 import { fetchCommentsByArticleId } from '../fetchCommentsByArticleId/fetchCommentsByArticleId';
@@ -13,7 +13,7 @@ export const addArticleComment = createAsyncThunk<Comment, string, ThunkConfig<s
     extra, rejectWithValue, getState, dispatch,
   }) => {
     try {
-      const userId = getUserAuthData(getState())?.id;
+      const userId = getUserId(getState());
       const articleId = getArticleDetailsData(getState())?.id;
 
       if (!userId || !text || !articleId) {
