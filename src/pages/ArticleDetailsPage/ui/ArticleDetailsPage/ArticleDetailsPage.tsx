@@ -29,8 +29,8 @@ const ArticleDetailsPage: FC = memo(() => {
   return (
     <>
       <ArticleDetails articleId={id} />
-      <Text title={t('commentSection')} className={cls.commentSectionTitle} />
-      <Suspense fallback={<Loader />}>
+      <Text title={t('commentSectionTitle')} className={cls.commentSectionTitle} />
+      <Suspense fallback={<div className={cls.commentLoading}><Loader /></div>}>
         <AddCommentForm onCommentSubmit={onCommentSubmit} />
         <ArticleCommentSection articleId={id} />
       </Suspense>

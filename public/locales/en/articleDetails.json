@@ -3,7 +3,7 @@
   "error": {
     "title": "An error happened during article loading"
   },
-  "commentSection": "Comments",
+  "commentSectionTitle": "Comments",
   "commentForm": {
     "placeholder": "Enter text",
     "submitBtn": "Send"
