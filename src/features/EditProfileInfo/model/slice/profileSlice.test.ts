@@ -1,5 +1,3 @@
-import { DeepPartial } from '@reduxjs/toolkit';
-
 import { profileReducer, profileActions } from './profileSlice';
 import { Profile, ProfileSchema, ValidateProfileError } from '@/entities/Profile';
 import { updateProfileData } from '../service/updateProfileData/updateProfileData';
@@ -42,6 +40,8 @@ describe('profileSlice extra reducers', () => {
 
   test('getProfileData fulfilled', () => {
     const response: Profile = {
+      id: '1',
+      userId: '1',
       firstname: 'name',
       lastname: 'surname',
       age: 35,

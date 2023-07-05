@@ -1,4 +1,7 @@
+import { addArticleComment } from './model/service/addArticleComment/addArticleComment';
 import { ArticleCommentsSchema } from './model/types';
-import { ArticleCommentSection } from './ui/ArticleCommentSection/ArticleCommentSection';
+import {
+  ArticleCommentSectionLazy as ArticleCommentSection,
+} from './ui/ArticleCommentSection/ArticleCommentSection.lazy';
 
-export { ArticleCommentSection, ArticleCommentsSchema };
+export { ArticleCommentSection, addArticleComment, ArticleCommentsSchema };

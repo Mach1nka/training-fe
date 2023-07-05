@@ -6,6 +6,8 @@ import { validateProfileForm } from './validateProfileForm';
 
 describe('validateProfileForm', () => {
   const state: Profile = {
+    id: '1',
+    userId: '1',
     firstname: 'name',
     lastname: 'surname',
     age: 35,

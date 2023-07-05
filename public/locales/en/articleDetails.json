@@ -3,5 +3,9 @@
   "error": {
     "title": "An error happened during article loading"
   },
-  "commentSection": "Comments"
+  "commentSection": "Comments",
+  "commentForm": {
+    "placeholder": "Enter text",
+    "submitBtn": "Send"
+  }
 }

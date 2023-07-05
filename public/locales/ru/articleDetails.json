@@ -3,5 +3,9 @@
   "error": {
     "title": "Произошла ошибка при загрузке статьи"
   },
-  "commentSection": "Комментарии"
+  "commentSection": "Комментарии",
+  "commentForm": {
+    "placeholder": "Введите текст",
+    "submitBtn": "Отправить"
+  }
 }

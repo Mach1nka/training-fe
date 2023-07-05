@@ -7,6 +7,7 @@ import { ValidateProfileError } from '@/entities/Profile';
 
 import {
   getProfileData,
+  getProfileChangePermission,
   getProfileError,
   getProfileLoading,
   getProfileReadonly,
@@ -15,8 +16,16 @@ import {
 } from './profileSelector';
 
 const state: DeepPartial<StateSchema> = {
+  user: {
+    authData: {
+      id: '2',
+      username: 'user',
+    },
+  },
   profile: {
     data: {
+      id: '1',
+      userId: '1',
       firstname: 'John',
       lastname: 'Doe',
       age: 1,
@@ -27,6 +36,8 @@ const state: DeepPartial<StateSchema> = {
       avatar: 'https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg',
     },
     form: {
+      id: '1',
+      userId: '1',
       firstname: 'Kevin',
       lastname: '',
       age: 1,
@@ -45,16 +56,7 @@ const state: DeepPartial<StateSchema> = {
 
 describe('getProfileData selector', () => {
   test('should return profile', () => {
-    expect(getProfileData(state as StateSchema)).toEqual({
-      firstname: 'John',
-      lastname: 'Doe',
-      age: 1,
-      currency: 'USD',
-      country: 'Armenia',
-      city: 'Erevan',
-      username: 'admin',
-      avatar: 'https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg',
-    });
+    expect(getProfileData(state as StateSchema)).toEqual(state!.profile!.data);
   });
 
   test('should work with empty value', () => {
@@ -62,18 +64,19 @@ describe('getProfileData selector', () => {
   });
 });
 
+describe('getProfileChangePermission selector', () => {
+  test('should return userId', () => {
+    expect(getProfileChangePermission(state as StateSchema)).toBe(false);
+  });
+
+  test('should work with empty value', () => {
+    expect(getProfileChangePermission({ user: {} } as StateSchema)).toBe(true);
+  });
+});
+
 describe('getProfileForm selector', () => {
   test('should return profile', () => {
-    expect(getProfileForm(state as StateSchema)).toEqual({
-      firstname: 'Kevin',
-      lastname: '',
-      age: 1,
-      currency: Currency.USD,
-      country: Country.ARMENIA,
-      city: 'Erevan',
-      username: 'admin',
-      avatar: '',
-    });
+    expect(getProfileForm(state as StateSchema)).toEqual(state!.profile!.form);
   });
 
   test('should work with empty value', () => {

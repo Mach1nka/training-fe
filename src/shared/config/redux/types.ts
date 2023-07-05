@@ -6,6 +6,7 @@ import { LoginSchema } from '@/features/AuthUserByUsername';
 import { ProfileSchema } from '@/entities/Profile';
 import { ArticleDetailsSchema } from '@/entities/Article';
 import { ArticleCommentsSchema } from '@/features/ArticleCommentList';
+import { AddCommentFormSchema } from '@/features/AddCommentForm';
 
 import { createReducerManager } from './reducerManager';
 
@@ -15,6 +16,7 @@ export interface StateSchema {
   profile?: ProfileSchema;
   articleDetails?: ArticleDetailsSchema;
   articleComments?: ArticleCommentsSchema;
+  addCommentForm?: AddCommentFormSchema;
 }
 
 export type StateSchemaKeys = keyof StateSchema;

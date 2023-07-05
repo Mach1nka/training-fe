@@ -9,6 +9,8 @@ describe('updateProfileData thunk', () => {
   test('success', async () => {
     const thunk = new TestAsyncThunk(fetchProfileData);
     const profile: Profile = {
+      id: '1',
+      userId: '1',
       firstname: 'name',
       lastname: 'surname',
       age: 35,
@@ -18,8 +20,8 @@ describe('updateProfileData thunk', () => {
       username: 'guest',
       city: undefined,
     };
-    thunk.api.get.mockResolvedValue(Promise.resolve({ data: profile }));
-    const result = await thunk.callThunk();
+    thunk.api.get.mockResolvedValue(Promise.resolve({ data: [profile] }));
+    const result = await thunk.callThunk('1');
 
     expect(thunk.api.get).toHaveBeenCalled();
     expect(result.meta.requestStatus).toBe('fulfilled');
@@ -29,7 +31,7 @@ describe('updateProfileData thunk', () => {
   test('failed', async () => {
     const thunk = new TestAsyncThunk(fetchProfileData);
     thunk.api.get.mockResolvedValue(Promise.resolve({ status: 403 }));
-    const result = await thunk.callThunk();
+    const result = await thunk.callThunk('1');
 
     expect(thunk.api.get).toHaveBeenCalled();
     expect(result.meta.requestStatus).toBe('rejected');

@@ -59,7 +59,7 @@ export const EditableProfileCard: FC = memo(() => {
 
   const onChangeAge = useCallback((value: string) => {
     const onlyNumbers = /^\d+$/;
-    if (onlyNumbers.test(value)) {
+    if (onlyNumbers.test(value) || value === '') {
       dispatch(profileActions.updateProfile({ age: Number(value) }));
     }
   }, []);

@@ -25,7 +25,7 @@ interface Props {
   articleId: string;
 }
 
-export const ArticleCommentSection: FC<Props> = memo(({ articleId }) => {
+const ArticleCommentSection: FC<Props> = memo(({ articleId }) => {
   const dispatch = useAppDispatch();
   const comments = useSelector(getArticleCommentsData);
   const isLoading = useSelector(getArticleCommentsLoading);
@@ -39,3 +39,5 @@ export const ArticleCommentSection: FC<Props> = memo(({ articleId }) => {
 
   return <CommentList comments={comments} isLoading={isLoading} />;
 });
+
+export default ArticleCommentSection;

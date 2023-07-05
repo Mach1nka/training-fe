@@ -2,6 +2,7 @@ import { EditableProfileCard } from './ui/EditableProfileCard/EditableProfileCar
 import { profileActions, profileReducer } from './model/slice/profileSlice';
 import {
   getProfileReadonly,
+  getProfileChangePermission,
 } from './model/selector/profileSelector';
 import { fetchProfileData } from './model/service/fetchProfileData/fetchProfileData';
 import { updateProfileData } from './model/service/updateProfileData/updateProfileData';
@@ -9,6 +10,7 @@ import { updateProfileData } from './model/service/updateProfileData/updateProfi
 export {
   EditableProfileCard,
   getProfileReadonly,
+  getProfileChangePermission,
   profileReducer,
   profileActions,
   fetchProfileData,

@@ -3,17 +3,21 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from '@/shared/config/redux/types';
 import { Profile } from '@/entities/Profile';
 
-export const fetchProfileData = createAsyncThunk<Profile, void, ThunkConfig<string>>(
+export const fetchProfileData = createAsyncThunk<Profile, string, ThunkConfig<string>>(
   'profile/getProfileData',
-  async (_, { rejectWithValue, extra }) => {
+  async (userId, { rejectWithValue, extra }) => {
     try {
-      const response = await extra.api.get<Profile>('/profile');
+      const response = await extra.api.get<Profile[]>('/profiles', {
+        params: {
+          userId,
+        },
+      });
 
       if (!response.data) {
         throw new Error();
       }
 
-      return response.data;
+      return response.data[0];
     } catch (err) {
       return rejectWithValue('Credentials are incorrect');
     }

@@ -13,18 +13,18 @@ const initialState: ProfileSchema = {
   validateErrors: undefined,
 };
 
-const counterSlice = createSlice({
+const profileSlice = createSlice({
   name: 'profile',
   initialState,
   reducers: {
     setReadonly: (state, { payload }: PayloadAction<boolean>) => {
       state.readonly = payload;
     },
-    updateProfile: (state, { payload }: PayloadAction<Profile>) => {
+    updateProfile: (state, { payload }: PayloadAction<Partial<Profile>>) => {
       state.form = {
         ...state.form,
         ...payload,
-      };
+      } as Profile;
     },
     cancelEditing: (state) => {
       state.readonly = true;
@@ -65,4 +65,4 @@ const counterSlice = createSlice({
   },
 });
 
-export const { actions: profileActions, reducer: profileReducer } = counterSlice;
+export const { actions: profileActions, reducer: profileReducer } = profileSlice;

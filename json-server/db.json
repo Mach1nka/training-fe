@@ -7,7 +7,9 @@
       "img": "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png",
       "views": 10,
       "createdAt": "20.05.2020",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -74,6 +76,24 @@
       "text": "some comment3",
       "articleId": "2",
       "userId": "2"
+    },
+    {
+      "userId": "1",
+      "articleId": "1",
+      "text": "nice article",
+      "id": "4WxhoXZ"
+    },
+    {
+      "userId": "1",
+      "articleId": "1",
+      "text": "useful info",
+      "id": "yluWg0g"
+    },
+    {
+      "userId": "1",
+      "articleId": "1",
+      "text": "asdf",
+      "id": "vUpp9W2"
     }
   ],
   "users": [
@@ -86,20 +106,36 @@
     },
     {
       "id": "2",
-      "username": "guest",
+      "username": "user123",
       "password": "123",
       "role": "USER",
       "avatar": "https://img.freepik.com/free-photo/html-css-collage-concept-with-hacker_23-2150061984.jpg?w=1380&t=st=1686853323~exp=1686853923~hmac=2ea8add7a7f87e9cd928bd7e7b5237531d331d46c2ba610b3b41270dc77079c5"
     }
   ],
-  "profile": {
-    "firstname": "John",
-    "lastname": "Doe",
-    "age": 55,
-    "currency": "EUR",
-    "country": "Kazakhstan",
-    "city": "Erevan",
-    "username": "admin",
-    "avatar": "https://img.freepik.com/free-photo/html-css-collage-concept-with-hacker_23-2150061984.jpg?w=1380&t=st=1686853323~exp=1686853923~hmac=2ea8add7a7f87e9cd928bd7e7b5237531d331d46c2ba610b3b41270dc77079c5"
-  }
+  "profiles": [
+    {
+      "id": "1",
+      "userId": "1",
+      "firstname": "John",
+      "lastname": "Doe",
+      "age": 6,
+      "currency": "EUR",
+      "country": "Kazakhstan",
+      "city": "Erevan",
+      "username": "admin",
+      "avatar": "https://img.freepik.com/free-photo/html-css-collage-concept-with-hacker_23-2150061984.jpg?w=1380&t=st=1686853323~exp=1686853923~hmac=2ea8add7a7f87e9cd928bd7e7b5237531d331d46c2ba610b3b41270dc77079c5"
+    },
+    {
+      "id": "2",
+      "userId": "2",
+      "firstname": "John",
+      "lastname": "Hack",
+      "age": 25,
+      "currency": "USD",
+      "country": "Kazakhstan",
+      "city": "Erevan",
+      "username": "user123",
+      "avatar": "https://img.freepik.com/free-photo/html-css-collage-concept-with-hacker_23-2150061984.jpg?w=1380&t=st=1686853323~exp=1686853923~hmac=2ea8add7a7f87e9cd928bd7e7b5237531d331d46c2ba610b3b41270dc77079c5"
+    }
+  ]
 }

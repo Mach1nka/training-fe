@@ -11,7 +11,7 @@ import '@/app/styles/index.scss';
 
 export const styleDecorator = (Story: Story) => <Story />;
 
-// TODO: integrate global storybook addon
+// TODO: integrate storybook-addon-themes
 export const themeDecorator = (theme: Theme) => (Story: Story) => (
   <ThemeProvider initialTheme={theme}>
     <div className={`app ${theme}`}>
@@ -20,6 +20,7 @@ export const themeDecorator = (theme: Theme) => (Story: Story) => (
   </ThemeProvider>
 );
 
+// TODO: integrate storybook-addon-react-router-v6 after updating SB till v7
 export const routerDecorator = (initialEntries?: string[], path?: string) => (Story: Story) => (
   <MemoryRouter initialEntries={initialEntries}>
     <Routes>
@@ -37,7 +38,7 @@ export const storeDecorator = (
   </StoreProvider>
 );
 
-// TODO integrate react-i18next addon
+// TODO: integrate storybook-react-i18next after updating SB till v7
 // export const i18nDecorator = (Story: Story) => (
 //   <I18nextProvider i18n={i18n}>
 //     <Suspense fallback="">
