@@ -2,7 +2,6 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
-import DefaultImage from '@/shared/assets/tests/storybookPlug.jpg';
 
 import { ProfileCard } from './ProfileCard';
 
@@ -23,7 +22,7 @@ Normal.args = {
     age: 35,
     country: Country.KAZAKHSTAN,
     currency: Currency.RUB,
-    avatar: DefaultImage,
+    avatar: 'https://t4.ftcdn.net/jpg/03/21/43/07/360_F_321430761_qQi0CU9tzI5w1k1vJgdA02LMtXtsXvJE.jpg',
   },
 };
 

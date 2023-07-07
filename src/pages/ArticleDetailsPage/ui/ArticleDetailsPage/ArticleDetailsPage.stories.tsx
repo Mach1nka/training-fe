@@ -6,6 +6,8 @@ import { Article } from '@/entities/Article';
 import { articleDetailsReducer } from '@/entities/Article/model/slice/articleDetailsSlice';
 import { ArticleType, ArticleBlockType } from '@/entities/Article/model/types';
 import { ReducersList } from '@/shared/hook/useDynamicReducerLoad';
+import DefaultImage from '@/shared/assets/tests/storybookPlug.jpg';
+
 import ArticleDetailsPage from './ArticleDetailsPage';
 
 const initialReducers: ReducersList = {
@@ -20,7 +22,7 @@ const article: Article = {
   },
   title: 'Javascript - язык программирования',
   subtitle: 'Краткий пересказ всего JavaScript',
-  img: 'https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png',
+  img: DefaultImage,
   views: 10,
   createdAt: '20.05.2020',
   type: [ArticleType.ECONOMICS],

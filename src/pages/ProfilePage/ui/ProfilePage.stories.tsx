@@ -6,7 +6,6 @@ import { profileReducer } from '@/features/EditProfileInfo';
 import { ReducersList } from '@/shared/hook/useDynamicReducerLoad';
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
-import DefaultImage from '@/shared/assets/tests/storybookPlug.jpg';
 
 import ProfilePage from './ProfilePage';
 
@@ -20,7 +19,7 @@ const form = {
   age: 35,
   country: Country.KAZAKHSTAN,
   currency: Currency.RUB,
-  avatar: DefaultImage,
+  avatar: 'https://t4.ftcdn.net/jpg/03/21/43/07/360_F_321430761_qQi0CU9tzI5w1k1vJgdA02LMtXtsXvJE.jpg',
 };
 
 export default {
