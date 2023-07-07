@@ -5,7 +5,7 @@ import { UserSchema } from '@/entities/User';
 import { LoginSchema } from '@/features/AuthUserByUsername';
 import { ProfileSchema } from '@/entities/Profile';
 import { ArticleDetailsSchema } from '@/entities/Article';
-import { ArticleCommentsSchema } from '@/features/ArticleCommentList';
+import { ArticleCommentsSchema } from '@/widgets/ArticleCommentSection';
 import { AddCommentFormSchema } from '@/features/AddCommentForm';
 
 import { createReducerManager } from './reducerManager';
