@@ -34,7 +34,7 @@ describe('getUserId selector', () => {
         },
       },
     };
-    expect(getUserId(state as StateSchema)).toEqual({ id: '1' });
+    expect(getUserId(state as StateSchema)).toBe('1');
   });
 
   test('should work with empty value', () => {

@@ -3,6 +3,7 @@
   "error": {
     "title": "Произошла ошибка при загрузке статьи"
   },
+  "backToArticlesBtn": "Назад к списку",
   "commentSectionTitle": "Комментарии",
   "commentForm": {
     "placeholder": "Введите текст",

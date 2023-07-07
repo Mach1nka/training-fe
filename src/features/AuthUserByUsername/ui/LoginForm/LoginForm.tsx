@@ -44,6 +44,7 @@ const LoginForm: FC<Props> = memo(({ className, onSuccess }) => {
   }, []);
 
   const onLoginSubmit = useCallback(async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     const response = await dispatch(loginByUsername({ username, password }));
 
     if (response.meta.requestStatus === 'fulfilled') {

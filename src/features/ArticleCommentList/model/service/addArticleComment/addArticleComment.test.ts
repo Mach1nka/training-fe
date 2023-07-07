@@ -1,11 +1,10 @@
 import { TestAsyncThunk } from '@/shared/lib/jest/testAsyncThunk';
 import { StateSchema } from '@/shared/config/redux/types';
-
 import { Comment } from '@/entities/Comment';
-import { addArticleComment } from './addArticleComment';
-import { fetchCommentsByArticleId } from '../fetchCommentsByArticleId/fetchCommentsByArticleId';
 
-describe('fetchCommentsByArticleId thunk', () => {
+import { addArticleComment } from './addArticleComment';
+
+describe('addArticleComment thunk', () => {
   const state: DeepPartial<StateSchema> = {
     user: {
       authData: {

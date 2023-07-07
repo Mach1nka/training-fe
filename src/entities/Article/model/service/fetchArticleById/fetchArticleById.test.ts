@@ -7,6 +7,10 @@ describe('fetchArticleById thunk', () => {
   const thunkArg = '123';
   const article: Article = {
     id: '1',
+    user: {
+      id: '1',
+      username: 'user',
+    },
     title: 'Javascript - язык программирования',
     subtitle: 'Краткий пересказ всего JavaScript',
     img: 'https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png',

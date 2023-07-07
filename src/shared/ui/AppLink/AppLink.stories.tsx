@@ -2,7 +2,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { Theme } from '@/app/providers/ThemeProvider';
 import { routerDecorator, themeDecorator } from '@/shared/lib/storybook/decorators';
-import { AppLinkTheme } from '@/shared/ui/AppLink/AppLink';
+import { AppLinkTheme, AppLinkUnderline } from '@/shared/ui/AppLink/AppLink';
 import { AppLink } from './AppLink';
 
 export default {
@@ -25,6 +25,21 @@ Primary.args = {
 export const Secondary = Template.bind({});
 Secondary.args = {
   theme: AppLinkTheme.SECONDARY,
+};
+
+export const UnderlineAlways = Template.bind({});
+UnderlineAlways.args = {
+  underline: AppLinkUnderline.ALWAYS,
+};
+
+export const UnderlineHover = Template.bind({});
+UnderlineHover.args = {
+  underline: AppLinkUnderline.HOVER,
+};
+
+export const UnderlineNone = Template.bind({});
+UnderlineNone.args = {
+  underline: AppLinkUnderline.NONE,
 };
 
 export const PrimaryDark = Template.bind({});

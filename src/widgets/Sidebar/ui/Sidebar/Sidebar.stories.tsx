@@ -19,7 +19,7 @@ export default {
 const Template: ComponentStory<typeof Sidebar> = (args) => <Sidebar {...args} />;
 
 export const LightAuth = Template.bind({});
-LightAuth.decorators = [storeDecorator({ user: { authData: {} } }, initialReducers)];
+LightAuth.decorators = [storeDecorator({ user: { authData: { id: '1' } } }, initialReducers)];
 
 export const Dark = Template.bind({});
 Dark.decorators = [themeDecorator(Theme.DARK), storeDecorator({ user: {} }, initialReducers)];

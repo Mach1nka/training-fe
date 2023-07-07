@@ -4,10 +4,26 @@
   }
 }
 
-.primary {
+.PRIMARY {
   color: var(--primary-color);
 }
 
-.secondary {
+.SECONDARY {
   color: var(--inverted-primary-color);
+}
+
+.ALWAYS {
+  text-decoration: underline;
+}
+
+.HOVER {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.NONE {
+  text-decoration: none;
 }

@@ -6,11 +6,21 @@ import { profileReducer } from '@/features/EditProfileInfo';
 import { ReducersList } from '@/shared/hook/useDynamicReducerLoad';
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
+import DefaultImage from '@/shared/assets/tests/storybookPlug.jpg';
 
 import ProfilePage from './ProfilePage';
 
 const initialReducers: ReducersList = {
   profile: profileReducer,
+};
+
+const form = {
+  firstname: 'name',
+  lastname: 'surname',
+  age: 35,
+  country: Country.KAZAKHSTAN,
+  currency: Currency.RUB,
+  avatar: DefaultImage,
 };
 
 export default {
@@ -20,27 +30,18 @@ export default {
 
 const Template: ComponentStory<typeof ProfilePage> = (args) => <ProfilePage {...args} />;
 
-export const Light = Template.bind({});
-Light.decorators = [storeDecorator(
+export const EditMode = Template.bind({});
+EditMode.decorators = [storeDecorator(
   {
-    profile: {
-      form: {
-        firstname: 'name',
-        lastname: 'surname',
-        age: 35,
-        country: Country.KAZAKHSTAN,
-        currency: Currency.RUB,
-        avatar: 'https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png',
-      },
-    },
+    profile: { form },
   },
   initialReducers,
 )];
 
-export const Dark = Template.bind({});
-Dark.decorators = [
+export const ReadMode = Template.bind({});
+ReadMode.decorators = [
   themeDecorator(Theme.DARK),
   storeDecorator(
-    { profile: { readonly: true } },
+    { profile: { form, readonly: true } },
     initialReducers,
   )];
