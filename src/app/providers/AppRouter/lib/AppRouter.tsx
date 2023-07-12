@@ -7,17 +7,15 @@ import { AuthProtection } from './AuthProtection';
 
 export const AppRouter: FC = memo(() => {
   const renderWithProtection = ({ path, element, authOnly }: AppRouteProps) => {
-    const uiElement = <div className="page-wrapper">{element}</div>;
-
     if (authOnly) {
       return (
         <Route key={path} element={<AuthProtection />}>
-          <Route path={path} element={uiElement} />
+          <Route path={path} element={element} />
         </Route>
       );
     }
 
-    return <Route key={path} path={path} element={uiElement} />;
+    return <Route key={path} path={path} element={element} />;
   };
 
   return (

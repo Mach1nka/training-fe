@@ -23,7 +23,7 @@ describe('updateProfileData thunk', () => {
     const thunk = new TestAsyncThunk(updateProfileData, { profile: { form: formData } });
 
     thunk.api.put.mockResolvedValue(Promise.resolve({ data: formData }));
-    const result = await thunk.callThunk();
+    const result = await thunk.callThunk(undefined);
 
     expect(thunk.api.put).toHaveBeenCalled();
     expect(result.meta.requestStatus).toBe('fulfilled');
@@ -33,7 +33,7 @@ describe('updateProfileData thunk', () => {
   test('failed', async () => {
     const thunk = new TestAsyncThunk(updateProfileData, { profile: { form: formData } });
     thunk.api.put.mockResolvedValue(Promise.resolve({ status: 403 }));
-    const result = await thunk.callThunk();
+    const result = await thunk.callThunk(undefined);
 
     expect(thunk.api.put).toHaveBeenCalled();
     expect(result.meta.requestStatus).toBe('rejected');
@@ -42,7 +42,7 @@ describe('updateProfileData thunk', () => {
 
   test('validate error', async () => {
     const thunk = new TestAsyncThunk(updateProfileData, { profile: { form: { ...formData, lastname: '' } } });
-    const result = await thunk.callThunk();
+    const result = await thunk.callThunk(undefined);
 
     expect(result.meta.requestStatus).toBe('rejected');
     expect(result.payload).toEqual([ValidateProfileError.INCORRECT_LASTNAME]);

@@ -13,7 +13,7 @@ const initialReducers: ReducersList = {
   profile: profileReducer,
 };
 
-const form = {
+const state = {
   firstname: 'name',
   lastname: 'surname',
   age: 35,
@@ -32,7 +32,7 @@ const Template: ComponentStory<typeof ProfilePage> = (args) => <ProfilePage {...
 export const EditMode = Template.bind({});
 EditMode.decorators = [storeDecorator(
   {
-    profile: { form },
+    profile: { form: state },
   },
   initialReducers,
 )];
@@ -41,6 +41,6 @@ export const ReadMode = Template.bind({});
 ReadMode.decorators = [
   themeDecorator(Theme.DARK),
   storeDecorator(
-    { profile: { form, readonly: true } },
+    { profile: { form: state, readonly: true } },
     initialReducers,
   )];

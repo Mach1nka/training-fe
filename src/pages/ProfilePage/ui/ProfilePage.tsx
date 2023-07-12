@@ -5,6 +5,7 @@ import { EditableProfileCard, profileReducer, fetchProfileData } from '@/feature
 import { ReducersList, useDynamicReducerLoad } from '@/shared/hook/useDynamicReducerLoad';
 import { useAppDispatch } from '@/shared/hook/useAppDispatch';
 import { thunkMiddleware } from '@/shared/lib/redux/thunkMiddleware';
+import { Page } from '@/shared/ui/Page/Page';
 
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
@@ -25,10 +26,10 @@ const ProfilePage: FC = () => {
   }, []);
 
   return (
-    <>
+    <Page>
       <ProfilePageHeader />
       <EditableProfileCard />
-    </>
+    </Page>
   );
 };
 

@@ -10,6 +10,7 @@ import { Text } from '@/shared/ui/Text/Text';
 import { ArticleCommentSection } from '@/widgets/ArticleCommentSection';
 import { Loader } from '@/shared/ui/Loader/Loader';
 import { AppLink, AppLinkUnderline } from '@/shared/ui/AppLink/AppLink';
+import { Page } from '@/shared/ui/Page/Page';
 
 import cls from './ArticleDetailsPage.module.scss';
 
@@ -22,7 +23,7 @@ const ArticleDetailsPage: FC = memo(() => {
   }
 
   return (
-    <>
+    <Page>
       <AppLink to="/articles/" underline={AppLinkUnderline.NONE}>
         <Button>{t('backToArticlesBtn')}</Button>
       </AppLink>
@@ -31,7 +32,7 @@ const ArticleDetailsPage: FC = memo(() => {
       <Suspense fallback={<div className={cls.commentLoading}><Loader /></div>}>
         <ArticleCommentSection articleId={id} />
       </Suspense>
-    </>
+    </Page>
   );
 });
 

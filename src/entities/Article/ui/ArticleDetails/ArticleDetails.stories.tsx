@@ -2,6 +2,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { storeDecorator } from '@/shared/lib/storybook/decorators';
 import { ReducersList } from '@/shared/hook/useDynamicReducerLoad';
+import DefaultImage from '@/shared/assets/tests/storybookPlug.jpg';
 
 import { ArticleDetails } from './ArticleDetails';
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
@@ -11,7 +12,7 @@ const initialReducers: ReducersList = {
   articleDetails: articleDetailsReducer,
 };
 
-const article: Article = {
+const state: Article = {
   id: '1',
   user: {
     id: '1',
@@ -19,7 +20,7 @@ const article: Article = {
   },
   title: 'Javascript - язык программирования',
   subtitle: 'Краткий пересказ всего JavaScript',
-  img: 'https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png',
+  img: DefaultImage,
   views: 10,
   createdAt: '20.05.2020',
   type: [ArticleType.ECONOMICS],
@@ -51,7 +52,7 @@ const article: Article = {
     {
       id: '6',
       type: ArticleBlockType.IMAGE,
-      src: 'https://hsto.org/r/w1560/getpro/habr/post_images/d56/a02/ffc/d56a02ffc62949b42904ca00c63d8cc1.png',
+      src: DefaultImage,
       title: 'Рисунок 1 - скриншот сайта',
     },
     {
@@ -65,7 +66,7 @@ const article: Article = {
     {
       id: '5',
       type: ArticleBlockType.IMAGE,
-      src: 'https://hsto.org/r/w1560/getpro/habr/post_images/d56/a02/ffc/d56a02ffc62949b42904ca00c63d8cc1.png',
+      src: DefaultImage,
       title: 'Рисунок 2 - скриншот сайта',
     },
   ],
@@ -79,7 +80,7 @@ export default {
 const Template: ComponentStory<typeof ArticleDetails> = (args) => <ArticleDetails {...args} />;
 
 export const Normal = Template.bind({});
-Normal.decorators = [storeDecorator({ articleDetails: { data: article } }, initialReducers)];
+Normal.decorators = [storeDecorator({ articleDetails: { data: state } }, initialReducers)];
 
 export const Loading = Template.bind({});
 Loading.decorators = [storeDecorator({ articleDetails: { isLoading: true } }, initialReducers)];

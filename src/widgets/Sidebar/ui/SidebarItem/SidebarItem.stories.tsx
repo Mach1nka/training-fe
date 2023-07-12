@@ -14,7 +14,7 @@ const initialReducers: ReducersList = {
 export default {
   title: 'widgets/SidebarItem',
   component: SidebarItem,
-  decorators: [routerDecorator(), storeDecorator({ user: { } }, initialReducers)],
+  decorators: [routerDecorator(), storeDecorator({ user: {} }, initialReducers)],
   args: {
     item: {
       path: '/',

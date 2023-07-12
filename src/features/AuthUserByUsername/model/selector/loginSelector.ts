@@ -4,6 +4,6 @@ export const getLoginUsername = (state: StateSchema) => state.loginForm?.usernam
 
 export const getLoginPassword = (state: StateSchema) => state.loginForm?.password || '';
 
-export const getLoginLoading = (state: StateSchema) => state.loginForm?.isLoading || false;
+export const getLoginLoading = (state: StateSchema) => Boolean(state.loginForm?.isLoading);
 
 export const getLoginError = (state: StateSchema) => state.loginForm?.error;

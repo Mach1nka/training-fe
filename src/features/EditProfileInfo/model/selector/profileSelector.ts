@@ -7,7 +7,7 @@ const getProfileChangePermission = (state: StateSchema) =>
 
 const getProfileForm = (state: StateSchema) => state.profile?.form;
 
-const getProfileLoading = (state: StateSchema) => state.profile?.isLoading || false;
+const getProfileLoading = (state: StateSchema) => Boolean(state.profile?.isLoading);
 
 const getProfileError = (state: StateSchema) => state.profile?.error;
 

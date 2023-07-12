@@ -52,7 +52,7 @@ describe('profileSlice extra reducers', () => {
       city: undefined,
     };
 
-    expect(profileReducer(state as ProfileSchema, updateProfileData.fulfilled(response, '')))
+    expect(profileReducer(state as ProfileSchema, updateProfileData.fulfilled(response, '', undefined)))
       .toEqual({
         isLoading: false,
         readonly: true,

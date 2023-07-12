@@ -14,7 +14,7 @@ const initialReducers: ReducersList = {
   articleDetails: articleDetailsReducer,
 };
 
-const article: Article = {
+const state: Article = {
   id: '1',
   user: {
     id: '1',
@@ -79,7 +79,7 @@ export default {
   component: ArticleDetailsPage,
   decorators: [
     routerDecorator(['/article/1'], '/article/:id'),
-    storeDecorator({ articleDetails: { data: article } }, initialReducers),
+    storeDecorator({ articleDetails: { data: state } }, initialReducers),
   ],
 } as ComponentMeta<typeof ArticleDetailsPage>;
 
