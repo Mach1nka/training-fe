@@ -6,6 +6,7 @@ export interface WallOfArticlesSchema {
   isLoading: boolean;
   hasMore: boolean;
   page: number;
+  initialized: boolean;
   limit?: number;
   error?: string;
 }

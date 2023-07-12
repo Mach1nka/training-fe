@@ -1,7 +1,7 @@
-import { getUserAuthData, getUserId, getUserInitiated } from './model/selector/userSelector';
+import { getUserAuthData, getUserId, getUserInitialized } from './model/selector/userSelector';
 import { userReducer, userActions } from './model/slice/userSlice';
 import { UserSchema, User } from './model/types';
 
 export {
-  userReducer, userActions, getUserAuthData, getUserInitiated, getUserId, UserSchema, User,
+  userReducer, userActions, getUserAuthData, getUserInitialized, getUserId, UserSchema, User,
 };

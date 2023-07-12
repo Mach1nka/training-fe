@@ -6,6 +6,7 @@ import { ReducersList } from '@/shared/hook/useDynamicReducerLoad';
 import {
   Article, ArticleView, ArticleBlockType, ArticleType,
 } from '@/entities/Article/model/types';
+import DefaultImage from '@/shared/assets/tests/storybookPlug.jpg';
 
 import { wallOfArticlesReducer } from '../../model/slice/wallOfArticlesSlice';
 import { WallOfArticles } from './WallOfArticles';
@@ -23,7 +24,7 @@ const state: Article[] = [
     },
     title: 'Javascript - язык программирования',
     subtitle: 'Краткий пересказ всего JavaScript',
-    img: 'https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png',
+    img: DefaultImage,
     views: 10,
     createdAt: '28.05.2020',
     type: [ArticleType.IT, ArticleType.ECONOMICS, ArticleType.SCIENCE],
@@ -48,7 +49,7 @@ const state: Article[] = [
     },
     title: 'Kotlin - язык программирования',
     subtitle: 'Краткий пересказ всего Kotlin',
-    img: 'https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png',
+    img: DefaultImage,
     views: 10,
     createdAt: '20.05.2022',
     type: [ArticleType.IT],

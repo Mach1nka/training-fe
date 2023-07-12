@@ -26,21 +26,17 @@ export const createReducerManager = (initialReducers: ReducersMapObject<StateSch
       return combinedReducer(state, action);
     },
     add: (key: StateSchemaKeys, reducer: Reducer) => {
-      if (!key || reducers[key]) {
-        return;
+      if (key || !reducers[key]) {
+        reducers[key] = reducer;
+        combinedReducer = combineReducers(reducers);
       }
-
-      reducers[key] = reducer;
-      combinedReducer = combineReducers(reducers);
     },
     remove: (key: StateSchemaKeys) => {
-      if (!key || !reducers[key]) {
-        return;
+      if (key || reducers[key]) {
+        delete reducers[key];
+        keysToRemove.push(key);
+        combinedReducer = combineReducers(reducers);
       }
-
-      delete reducers[key];
-      keysToRemove.push(key);
-      combinedReducer = combineReducers(reducers);
     },
   };
 };

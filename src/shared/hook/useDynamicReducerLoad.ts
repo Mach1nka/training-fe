@@ -16,18 +16,25 @@ export const useDynamicReducerLoad = (
   const dispatch = useDispatch();
 
   useEffect(() => {
+    const initializedReducers = store.reducerManager.getReducerMap();
+
     Object.entries<Reducer>(reducers).forEach(
       ([name, reducer]) => {
-        store.reducerManager.add(name as StateSchemaKeys, reducer);
-        dispatch({ type: `@INIT ${name} reducer` });
+        if (!initializedReducers[name as StateSchemaKeys]) {
+          store.reducerManager.add(name as StateSchemaKeys, reducer);
+          dispatch({ type: `@INIT ${name} reducer` });
+        }
       },
     );
 
     return () => {
       if (removeAfterUnmount) {
         Object.entries<Reducer>(reducers)
-          .forEach(([name]) => store.reducerManager.remove(name as StateSchemaKeys));
+          .forEach(([name]) => {
+            store.reducerManager.remove(name as StateSchemaKeys);
+            dispatch({ type: `@REMOVE ${name} reducer` });
+          });
       }
     };
-  }, [reducers, removeAfterUnmount]);
+  }, [reducers, removeAfterUnmount, store.reducerManager]);
 };

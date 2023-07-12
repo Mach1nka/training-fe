@@ -12,6 +12,7 @@ const initialState: WallOfArticlesSchema = {
   isLoading: false,
   page: 1,
   hasMore: true,
+  initialized: false,
   error: undefined,
 };
 
@@ -31,6 +32,7 @@ const wallOfArticlesSlice = createSlice({
         if (payload) {
           state.view = payload;
           state.limit = payload === ArticleView.LIST ? 4 : 9;
+          state.initialized = true;
         }
       },
       prepare: () => {

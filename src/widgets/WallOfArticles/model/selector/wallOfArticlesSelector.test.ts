@@ -12,6 +12,7 @@ import {
   getWallOfArticlesLimit,
   getWallOfArticlesPage,
   getWallOfArticlesLoading,
+  getWallOfArticlesInitialized,
   getWallOfArticlesError,
 } from './wallOfArticlesSelector';
 
@@ -44,6 +45,7 @@ const state: DeepPartial<StateSchema> = {
     hasMore: true,
     limit: 20,
     isLoading: true,
+    initialized: true,
     error: 'error text',
   },
 };
@@ -105,6 +107,16 @@ describe('getWallOfArticlesLoading selector', () => {
 
   test('should work with empty value', () => {
     expect(getWallOfArticlesLoading({} as StateSchema)).toBe(false);
+  });
+});
+
+describe('getWallOfArticlesInitialized selector', () => {
+  test('should return value', () => {
+    expect(getWallOfArticlesInitialized(state as StateSchema)).toBe(true);
+  });
+
+  test('should work with empty value', () => {
+    expect(getWallOfArticlesInitialized({} as StateSchema)).toBe(false);
   });
 });
 

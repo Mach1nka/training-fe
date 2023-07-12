@@ -13,6 +13,7 @@ import { ViewSwitcher } from '@/features/SwitchWallOfArticlesView';
 import { fetchArticles } from '../../model/service/fetchArticles/fetchArticles';
 import {
   getWallOfArticlesData,
+  getWallOfArticlesInitialized,
   getWallOfArticlesLoading,
   getWallOfArticlesView,
 } from '../../model/selector/wallOfArticlesSelector';
@@ -31,16 +32,19 @@ export const WallOfArticles: FC<Props> = memo(({ className }) => {
   const articles = useSelector(getWallOfArticlesData);
   const view = useSelector(getWallOfArticlesView);
   const isLoading = useSelector(getWallOfArticlesLoading);
+  const initialized = useSelector(getWallOfArticlesInitialized);
 
   const onChangeView = useCallback((newView: ArticleView) => {
     dispatch(wallOfArticlesActions.setView(newView));
   }, []);
 
-  useDynamicReducerLoad(initialReducers);
+  useDynamicReducerLoad(initialReducers, false);
 
   useEffect(() => {
-    dispatch(wallOfArticlesActions.initWallOfArticles());
-    thunkMiddleware(() => dispatch(fetchArticles()));
+    if (!initialized) {
+      dispatch(wallOfArticlesActions.initWallOfArticles());
+      thunkMiddleware(() => dispatch(fetchArticles()));
+    }
   }, []);
 
   return (

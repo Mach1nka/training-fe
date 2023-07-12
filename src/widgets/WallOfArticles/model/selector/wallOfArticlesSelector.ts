@@ -14,4 +14,7 @@ export const getWallOfArticlesPage = (state: StateSchema) => state.wallOfArticle
 
 export const getWallOfArticlesLoading = (state: StateSchema) => Boolean(state.wallOfArticles?.isLoading);
 
+export const getWallOfArticlesInitialized = (state: StateSchema) =>
+  Boolean(state.wallOfArticles?.initialized);
+
 export const getWallOfArticlesError = (state: StateSchema) => state.wallOfArticles?.error;
