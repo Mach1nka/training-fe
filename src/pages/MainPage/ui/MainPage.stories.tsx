@@ -1,12 +1,13 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { Theme } from '@/app/providers/ThemeProvider';
-import { themeDecorator } from '@/shared/lib/storybook/decorators';
+import { routerDecorator, storeDecorator, themeDecorator } from '@/shared/lib/storybook/decorators';
 import MainPage from './MainPage';
 
 export default {
   title: 'pages/MainPage',
   component: MainPage,
+  decorators: [routerDecorator(), storeDecorator()],
 } as ComponentMeta<typeof MainPage>;
 
 const Template: ComponentStory<typeof MainPage> = (args) => <MainPage {...args} />;

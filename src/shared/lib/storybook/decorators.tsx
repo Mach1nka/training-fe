@@ -30,7 +30,7 @@ export const routerDecorator = (initialEntries?: string[], path?: string) => (St
 );
 
 export const storeDecorator = (
-  initialState: DeepPartial<StateSchema>,
+  initialState?: DeepPartial<StateSchema>,
   asyncReducers?: ReducersList,
 ) => (Story: Story) => (
   <StoreProvider initialState={initialState} asyncReducers={asyncReducers}>

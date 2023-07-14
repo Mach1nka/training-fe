@@ -1,12 +1,11 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { Theme } from '@/app/providers/ThemeProvider';
-import { storeDecorator, themeDecorator } from '@/shared/lib/storybook/decorators';
+import { routerDecorator, storeDecorator, themeDecorator } from '@/shared/lib/storybook/decorators';
 import { profileReducer } from '@/features/EditProfileInfo';
 import { ReducersList } from '@/shared/hook/useDynamicReducerLoad';
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
-import DefaultImage from '@/shared/assets/tests/storybookPlug.jpg';
 
 import ProfilePage from './ProfilePage';
 
@@ -20,12 +19,13 @@ const state = {
   age: 35,
   country: Country.KAZAKHSTAN,
   currency: Currency.RUB,
-  avatar: DefaultImage,
+  avatar: '',
 };
 
 export default {
   title: 'pages/ProfilePage',
   component: ProfilePage,
+  decorators: [routerDecorator()],
 } as ComponentMeta<typeof ProfilePage>;
 
 const Template: ComponentStory<typeof ProfilePage> = (args) => <ProfilePage {...args} />;
