@@ -8,11 +8,13 @@ import { ArticleDetailsSchema } from '@/entities/Article';
 import { ArticleCommentsSchema } from '@/widgets/ArticleCommentSection';
 import { AddCommentFormSchema } from '@/features/AddCommentForm';
 import { WallOfArticlesSchema } from '@/widgets/WallOfArticles';
+import { UIConditionSchema } from '@/features/UICondition';
 
 import { createReducerManager } from './reducerManager';
 
 export interface StateSchema {
   user: UserSchema;
+  uiCondition: UIConditionSchema;
   loginForm?: LoginSchema;
   profile?: ProfileSchema;
   articleDetails?: ArticleDetailsSchema;

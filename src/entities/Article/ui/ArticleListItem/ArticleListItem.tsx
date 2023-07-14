@@ -16,6 +16,7 @@ import {
   Article, ArticleBlockType, ArticleTextBlock, ArticleView,
 } from '../../model/types';
 import cls from './ArticleListItem.module.scss';
+import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 
 interface Props {
   className?: string;
@@ -51,7 +52,7 @@ export const ArticleListItem: FC<Props> = memo(({ className, article, view }) =>
         <img src={article.img} alt={article.title} className={cls.img} />
         {textBlock ? <ArticleTextBlockComponent block={textBlock} className={cls.textBlock} /> : null}
         <div className={cls.footer}>
-          <AppLink to={`/article/${article.id}`} underline={AppLinkUnderline.NONE}>
+          <AppLink to={`${RoutePath.articleDetails}/${article.id}`} underline={AppLinkUnderline.NONE}>
             <Button>
               {t('readMoreBtn')}
             </Button>

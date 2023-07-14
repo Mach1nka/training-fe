@@ -8,7 +8,9 @@ export type ReducersList = {
   [key in StateSchemaKeys]?: Reducer;
 }
 
-export const useDynamicReducerLoad = (
+type UseDynamicReducerLoad = (reducers: ReducersList, removeAfterUnmount?: boolean) => void;
+
+export const useDynamicReducerLoad: UseDynamicReducerLoad = (
   reducers: ReducersList,
   removeAfterUnmount = true,
 ) => {

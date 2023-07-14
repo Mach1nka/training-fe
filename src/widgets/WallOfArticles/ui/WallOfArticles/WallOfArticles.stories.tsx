@@ -83,6 +83,13 @@ Dark.decorators = [
 export const Loading = Template.bind({});
 Loading.decorators = [storeDecorator({
   wallOfArticles: {
-    data: [], view: ArticleView.TILE, hasMore: false, isLoading: true,
+    hasMore: false, isLoading: true,
+  },
+}, initialReducers)];
+
+export const Error = Template.bind({});
+Error.decorators = [storeDecorator({
+  wallOfArticles: {
+    error: 'an error',
   },
 }, initialReducers)];

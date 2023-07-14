@@ -38,7 +38,7 @@ const AddCommentForm: FC<Props> = memo(({ className, onCommentSubmit }) => {
 
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    onCommentSubmit(text || '');
+    onCommentSubmit(text);
     onChange('');
   };
 

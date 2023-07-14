@@ -9,6 +9,7 @@ import { Button } from '@/shared/ui/Button/Button';
 import { Text } from '@/shared/ui/Text/Text';
 import { ArticleCommentSection } from '@/widgets/ArticleCommentSection';
 import { Loader } from '@/shared/ui/Loader/Loader';
+import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 import { AppLink, AppLinkUnderline } from '@/shared/ui/AppLink/AppLink';
 import { Page } from '@/shared/ui/Page/Page';
 
@@ -24,7 +25,7 @@ const ArticleDetailsPage: FC = memo(() => {
 
   return (
     <Page>
-      <AppLink to="/articles/" underline={AppLinkUnderline.NONE}>
+      <AppLink to={RoutePath.articles} underline={AppLinkUnderline.NONE}>
         <Button>{t('backToArticlesBtn')}</Button>
       </AppLink>
       <ArticleDetails articleId={id} />

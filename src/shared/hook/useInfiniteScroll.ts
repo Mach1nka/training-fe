@@ -8,7 +8,7 @@ interface Props {
 
 type UseInfiniteScroll = (props: Props) => void;
 
-export const useInfiniteScroll: UseInfiniteScroll = ({ wrapperRef, triggerRef, callback }: Props) => {
+export const useInfiniteScroll: UseInfiniteScroll = ({ wrapperRef, triggerRef, callback }) => {
   useEffect(() => {
     const trigger = triggerRef.current;
     const wrapper = wrapperRef.current;

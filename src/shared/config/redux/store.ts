@@ -1,5 +1,6 @@
 import { ReducersMapObject, configureStore } from '@reduxjs/toolkit';
 
+import { uiConditionReducer } from '@/features/UICondition';
 import { userReducer } from '@/entities/User';
 import { api } from '@/shared/api/api';
 
@@ -13,6 +14,7 @@ export const createReduxStore = (
   const rootReducer: ReducersMapObject<StateSchema> = {
     ...asyncReducers,
     user: userReducer,
+    uiCondition: uiConditionReducer,
   };
 
   const extraArgs: ThunkExtraArg = {

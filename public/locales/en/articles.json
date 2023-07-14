@@ -1,3 +1,6 @@
 {
-  "readMoreBtn": "Read more..."
+  "readMoreBtn": "Read more...",
+  "error": {
+    "title": "An error happened during articles loading"
+  }
 }

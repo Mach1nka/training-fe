@@ -32,8 +32,8 @@ const wallOfArticlesSlice = createSlice({
         if (payload) {
           state.view = payload;
           state.limit = payload === ArticleView.LIST ? 4 : 9;
-          state.initialized = true;
         }
+        state.initialized = true;
       },
       prepare: () => {
         const view = localStorage.getItem(LOCAL_STORAGE_WALL_OF_ARTICLES_VIEW) as ArticleView;
