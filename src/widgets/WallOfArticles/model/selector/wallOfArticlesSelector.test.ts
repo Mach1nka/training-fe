@@ -2,7 +2,7 @@ import { DeepPartial } from '@reduxjs/toolkit';
 
 import { StateSchema } from '@/shared/config/redux/types';
 import {
-  ArticleType, ArticleBlockType, ArticleView, Article,
+  ArticleType, ArticleBlockType, ArticleView, Article, ArticleSortedField,
 } from '@/entities/Article/model/types';
 
 import {
@@ -13,6 +13,10 @@ import {
   getWallOfArticlesPage,
   getWallOfArticlesLoading,
   getWallOfArticlesInitialized,
+  getWallOfArticlesOrder,
+  getWallOfArticlesSort,
+  getWallOfArticlesSearch,
+  getWallOfArticlesTypeFilter,
   getWallOfArticlesError,
 } from './wallOfArticlesSelector';
 
@@ -44,6 +48,12 @@ const state: DeepPartial<StateSchema> = {
     view: ArticleView.TILE,
     hasMore: true,
     limit: 20,
+    order: 'desc',
+    search: 'some text',
+    sort: ArticleSortedField.TITLE,
+    filters: {
+      type: ArticleType.ECONOMICS,
+    },
     isLoading: true,
     initialized: true,
     error: 'error text',
@@ -117,6 +127,46 @@ describe('getWallOfArticlesInitialized selector', () => {
 
   test('should work with empty value', () => {
     expect(getWallOfArticlesInitialized({} as StateSchema)).toBe(false);
+  });
+});
+
+describe('getWallOfArticlesOrder selector', () => {
+  test('should return value', () => {
+    expect(getWallOfArticlesOrder(state as StateSchema)).toBe('desc');
+  });
+
+  test('should work with empty value', () => {
+    expect(getWallOfArticlesOrder({} as StateSchema)).toBe('asc');
+  });
+});
+
+describe('getWallOfArticlesSort selector', () => {
+  test('should return value', () => {
+    expect(getWallOfArticlesSort(state as StateSchema)).toBe(ArticleSortedField.TITLE);
+  });
+
+  test('should work with empty value', () => {
+    expect(getWallOfArticlesSort({} as StateSchema)).toBe(ArticleSortedField.CREATED_AT);
+  });
+});
+
+describe('getWallOfArticlesSearch selector', () => {
+  test('should return value', () => {
+    expect(getWallOfArticlesSearch(state as StateSchema)).toBe('some text');
+  });
+
+  test('should work with empty value', () => {
+    expect(getWallOfArticlesSearch({} as StateSchema)).toBe('');
+  });
+});
+
+describe('getWallOfArticlesTypeFilter selector', () => {
+  test('should return value', () => {
+    expect(getWallOfArticlesTypeFilter(state as StateSchema)).toBe(ArticleType.ECONOMICS);
+  });
+
+  test('should work with empty value', () => {
+    expect(getWallOfArticlesTypeFilter({} as StateSchema)).toBe(ArticleType.ALL);
   });
 });
 

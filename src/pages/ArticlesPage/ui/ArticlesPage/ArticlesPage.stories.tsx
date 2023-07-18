@@ -71,19 +71,41 @@ export default {
 
 const Template: ComponentStory<typeof ArticlesPage> = (args) => <ArticlesPage {...args} />;
 
-export const Light = Template.bind({});
-Light.decorators = [storeDecorator({ wallOfArticles: { data: state, view: ArticleView.TILE, hasMore: false } }, initialReducers)];
+export const TileLight = Template.bind({});
+TileLight.decorators = [storeDecorator({
+  wallOfArticles: {
+    data: state,
+    view: ArticleView.TILE,
+    hasMore: false,
+    filters: {
+      type: ArticleType.ECONOMICS,
+    },
+  },
+}, initialReducers)];
 
-export const Dark = Template.bind({});
-Dark.decorators = [
+export const ListDark = Template.bind({});
+ListDark.decorators = [
   themeDecorator(Theme.DARK),
-  storeDecorator({ wallOfArticles: { data: state, view: ArticleView.LIST, hasMore: false } }, initialReducers),
+  storeDecorator({
+    wallOfArticles: {
+      data: state,
+      view: ArticleView.LIST,
+      hasMore: false,
+      filters: {
+        type: ArticleType.ECONOMICS,
+      },
+    },
+  }, initialReducers),
 ];
 
 export const Loading = Template.bind({});
 Loading.decorators = [storeDecorator({
   wallOfArticles: {
-    hasMore: false, isLoading: true,
+    hasMore: false,
+    isLoading: true,
+    filters: {
+      type: ArticleType.ECONOMICS,
+    },
   },
 }, initialReducers)];
 
@@ -91,5 +113,8 @@ export const Error = Template.bind({});
 Error.decorators = [storeDecorator({
   wallOfArticles: {
     error: 'an error',
+    filters: {
+      type: ArticleType.ECONOMICS,
+    },
   },
 }, initialReducers)];

@@ -6,14 +6,14 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './AppLink.module.scss';
 
 export enum AppLinkTheme {
-  PRIMARY = 'PRIMARY',
-  SECONDARY = 'SECONDARY',
+  PRIMARY = 'primary',
+  SECONDARY = 'secondary',
 }
 
 export enum AppLinkUnderline {
-  ALWAYS = 'ALWAYS',
-  HOVER = 'HOVER',
-  NONE = 'NONE'
+  ALWAYS = 'always',
+  HOVER = 'hover',
+  NONE = 'none'
 }
 
 interface Props extends LinkProps {

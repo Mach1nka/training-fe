@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Theme } from '@/app/providers/ThemeProvider';
 import { themeDecorator } from '@/shared/lib/storybook/decorators';
 
-import { Card } from './Card';
+import { Card, CardTheme } from './Card';
 
 export default {
   title: 'shared/Card',
@@ -17,5 +17,9 @@ const Template: ComponentStory<typeof Card> = (args) => <Card {...args} />;
 
 export const Light = Template.bind({});
 
+export const Outline = Template.bind({});
+Outline.args = {
+  theme: CardTheme.OUTLINE,
+};
 export const Dark = Template.bind({});
 Dark.decorators = [themeDecorator(Theme.DARK)];

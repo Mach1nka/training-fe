@@ -4,19 +4,19 @@
   }
 }
 
-.PRIMARY {
+.primary {
   color: var(--primary-color);
 }
 
-.SECONDARY {
+.secondary {
   color: var(--inverted-primary-color);
 }
 
-.ALWAYS {
+.always {
   text-decoration: underline;
 }
 
-.HOVER {
+.hover {
   text-decoration: none;
 
   &:hover {
@@ -24,6 +24,6 @@
   }
 }
 
-.NONE {
+.none {
   text-decoration: none;
 }

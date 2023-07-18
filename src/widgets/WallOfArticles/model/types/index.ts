@@ -1,12 +1,24 @@
-import { Article, ArticleView } from '@/entities/Article';
+import {
+  Article,
+  ArticleSortedField,
+  ArticleType,
+  ArticleView,
+} from '@/entities/Article';
+import { SortingOrder } from '@/shared/types/common';
 
 export interface WallOfArticlesSchema {
   data: Article[];
-  view: ArticleView;
   isLoading: boolean;
+  error?: string;
+  initialized: boolean;
   hasMore: boolean;
   page: number;
-  initialized: boolean;
-  limit?: number;
-  error?: string;
+  limit: number;
+  view: ArticleView;
+  order: SortingOrder;
+  sort: ArticleSortedField;
+  filters: {
+    type: ArticleType;
+  };
+  search: string;
 }

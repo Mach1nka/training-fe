@@ -1,24 +1,24 @@
 import { TestAsyncThunk } from '@/shared/lib/jest/testAsyncThunk';
 
-import { fetchPageOfArticles } from './fetchPageOfArticles';
+import { fetchArticlesByPage } from './fetchArticlesByPage';
 import { fetchArticles } from '../fetchArticles/fetchArticles';
 
 jest.mock('../fetchArticles/fetchArticles');
 
 describe('fetchPageOfArticles thunk', () => {
   test('success', async () => {
-    const thunk = new TestAsyncThunk(fetchPageOfArticles, {
+    const thunk = new TestAsyncThunk(fetchArticlesByPage, {
       wallOfArticles: {
         limit: 4, page: 2, hasMore: true, isLoading: false,
       },
     });
     await thunk.callThunk(undefined);
 
-    expect(fetchArticles).toHaveBeenCalledWith(3);
+    expect(fetchArticles).toHaveBeenCalled();
   });
 
   test('hasMore false', async () => {
-    const thunk = new TestAsyncThunk(fetchPageOfArticles, {
+    const thunk = new TestAsyncThunk(fetchArticlesByPage, {
       wallOfArticles: {
         limit: 4, page: 2, hasMore: false,
       },
@@ -29,7 +29,7 @@ describe('fetchPageOfArticles thunk', () => {
   });
 
   test('isLoading true', async () => {
-    const thunk = new TestAsyncThunk(fetchPageOfArticles, {
+    const thunk = new TestAsyncThunk(fetchArticlesByPage, {
       wallOfArticles: {
         limit: 4, page: 2, hasMore: true, isLoading: true,
       },

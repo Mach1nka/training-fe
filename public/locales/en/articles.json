@@ -1,5 +1,20 @@
 {
   "readMoreBtn": "Read more...",
+  "sort": {
+    "label": "Sort By",
+    "asc": "Ascending",
+    "desc": "Descending",
+    "createdAt": "Date",
+    "title": "Title",
+    "views": "Views"
+  },
+  "filters": {
+    "all": "All",
+    "it": "IT",
+    "science": "Science",
+    "economics": "Economics"
+  },
+  "search": "Search",
   "error": {
     "title": "An error happened during articles loading"
   }

@@ -6,8 +6,8 @@
       "title": "Javascript - язык программирования",
       "subtitle": "Краткий пересказ всего JavaScript",
       "img": "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png",
-      "views": 10,
-      "createdAt": "20.05.2020",
+      "views": 346,
+      "createdAt": "20.07.2023",
       "type": [
         "IT"
       ],
@@ -61,11 +61,11 @@
     {
       "id": "2",
       "userId": "1",
-      "title": "Javascript - язык программирования",
+      "title": "Kotlin - язык программирования",
       "subtitle": "Краткий пересказ всего JavaScript",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png",
-      "views": 10,
-      "createdAt": "25.05.2020",
+      "img": "https://cms-assets.tutsplus.com/uploads/users/1499/posts/29590/preview_image/kotlin.jpg",
+      "views": 367,
+      "createdAt": "20.06.2023",
       "type": [
         "SCIENCE", "ECONOMICS"
       ],
@@ -103,11 +103,11 @@
     {
       "id": "3",
       "userId": "1",
-      "title": "Javascript - язык программирования",
+      "title": "Python - язык программирования",
       "subtitle": "Краткий пересказ всего JavaScript",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png",
-      "views": 10,
-      "createdAt": "28.05.2020",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png",
+      "views": 7893,
+      "createdAt": "15.05.2023",
       "type": [
         "IT", "SCIENCE", "ECONOMICS"
       ],
@@ -138,11 +138,11 @@
     {
       "id": "4",
       "userId": "1",
-      "title": "Javascript - язык программирования",
+      "title": "C++ - язык программирования",
       "subtitle": "Краткий пересказ всего JavaScript",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png",
-      "views": 10,
-      "createdAt": "28.05.2020",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/ISO_C%2B%2B_Logo.svg/800px-ISO_C%2B%2B_Logo.svg.png",
+      "views": 246,
+      "createdAt": "10.04.2023",
       "type": [
         "IT", "SCIENCE", "ECONOMICS"
       ],
@@ -167,11 +167,11 @@
     {
       "id": "5",
       "userId": "1",
-      "title": "Javascript - язык программирования",
+      "title": "C# - язык программирования",
       "subtitle": "Краткий пересказ всего JavaScript",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png",
-      "views": 10,
-      "createdAt": "28.05.2020",
+      "img": "https://static.wikia.nocookie.net/wikies/images/4/43/Logo-csharp.png/revision/latest/scale-to-width-down/500?cb=20180617092325&path-prefix=ru",
+      "views": 467,
+      "createdAt": "05.03.2023",
       "type": [
         "IT", "SCIENCE", "ECONOMICS"
       ],
@@ -196,11 +196,11 @@
     {
       "id": "6",
       "userId": "2",
-      "title": "Javascript - язык программирования",
+      "title": "VSCODE",
       "subtitle": "Краткий пересказ всего JavaScript",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png",
-      "views": 10,
-      "createdAt": "28.05.2020",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Visual_Studio_Code_1.35_icon.svg/1200px-Visual_Studio_Code_1.35_icon.svg.png",
+      "views": 129,
+      "createdAt": "05.02.2023",
       "type": [
         "IT", "SCIENCE", "ECONOMICS"
       ],
@@ -225,11 +225,11 @@
     {
       "id": "7",
       "userId": "2",
-      "title": "Javascript - язык программирования",
+      "title": "Assembler - язык программирования",
       "subtitle": "Краткий пересказ всего JavaScript",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png",
-      "views": 10,
-      "createdAt": "28.05.2020",
+      "img": "https://tech-geek.ru/wp-content/uploads/assembly.png",
+      "views": 456,
+      "createdAt": "28.01.2023",
       "type": [
         "IT", "SCIENCE", "ECONOMICS"
       ],
@@ -254,11 +254,11 @@
     {
       "id": "8",
       "userId": "2",
-      "title": "Javascript - язык программирования",
+      "title": "VSCODE",
       "subtitle": "Краткий пересказ всего JavaScript",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png",
-      "views": 10,
-      "createdAt": "28.05.2020",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Visual_Studio_Code_1.35_icon.svg/1200px-Visual_Studio_Code_1.35_icon.svg.png",
+      "views": 3126,
+      "createdAt": "20.12.2022",
       "type": [
         "IT", "SCIENCE", "ECONOMICS"
       ],
@@ -282,12 +282,12 @@
     },
     {
       "id": "9",
-      "userId": "2",
-      "title": "Javascript - язык программирования",
+      "userId": "1",
+      "title": "C++ - язык программирования",
       "subtitle": "Краткий пересказ всего JavaScript",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png",
-      "views": 10,
-      "createdAt": "28.05.2020",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/ISO_C%2B%2B_Logo.svg/800px-ISO_C%2B%2B_Logo.svg.png",
+      "views": 7864,
+      "createdAt": "15.11.2022",
       "type": [
         "IT", "SCIENCE", "ECONOMICS"
       ],
@@ -311,12 +311,12 @@
     },
     {
       "id": "10",
-      "userId": "2",
-      "title": "Javascript - язык программирования",
+      "userId": "1",
+      "title": "Python - язык программирования",
       "subtitle": "Краткий пересказ всего JavaScript",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png",
-      "views": 10,
-      "createdAt": "28.05.2020",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png",
+      "views": 1456,
+      "createdAt": "10.10.2022",
       "type": [
         "IT", "SCIENCE", "ECONOMICS"
       ],
@@ -335,17 +335,23 @@
           "id": "2",
           "type": "CODE",
           "code": "<!DOCTYPE html>\n<html>\n  <body>\n    <p id=\"hello\"></p>\n\n    <script>\n      document.getElementById(\"hello\").innerHTML = \"Hello, world!\";\n    </script>\n  </body>\n</html>;"
+        },
+        {
+          "id": "6",
+          "type": "IMAGE",
+          "src": "https://hsto.org/r/w1560/getpro/habr/post_images/d56/a02/ffc/d56a02ffc62949b42904ca00c63d8cc1.png",
+          "title": "Рисунок 1 - скриншот сайта"
         }
       ]
     },
     {
       "id": "11",
-      "userId": "2",
-      "title": "Javascript - язык программирования",
+      "userId": "1",
+      "title": "C# - язык программирования",
       "subtitle": "Краткий пересказ всего JavaScript",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png",
-      "views": 10,
-      "createdAt": "28.05.2020",
+      "img": "https://static.wikia.nocookie.net/wikies/images/4/43/Logo-csharp.png/revision/latest/scale-to-width-down/500?cb=20180617092325&path-prefix=ru",
+      "views": 649,
+      "createdAt": "05.09.2022",
       "type": [
         "IT", "SCIENCE", "ECONOMICS"
       ],
@@ -373,8 +379,8 @@
       "title": "Javascript - язык программирования",
       "subtitle": "Краткий пересказ всего JavaScript",
       "img": "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png",
-      "views": 10,
-      "createdAt": "28.05.2020",
+      "views": 3288,
+      "createdAt": "01.08.2022",
       "type": [
         "IT", "SCIENCE", "ECONOMICS"
       ],
@@ -402,8 +408,8 @@
       "title": "Javascript - язык программирования",
       "subtitle": "Краткий пересказ всего JavaScript",
       "img": "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png",
-      "views": 10,
-      "createdAt": "28.05.2020",
+      "views": 5244,
+      "createdAt": "25.07.2022",
       "type": [
         "IT", "SCIENCE", "ECONOMICS"
       ],
@@ -431,8 +437,8 @@
       "title": "Javascript - язык программирования",
       "subtitle": "Краткий пересказ всего JavaScript",
       "img": "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png",
-      "views": 10,
-      "createdAt": "28.05.2020",
+      "views": 1010,
+      "createdAt": "20.06.2022",
       "type": [
         "IT", "SCIENCE", "ECONOMICS"
       ],

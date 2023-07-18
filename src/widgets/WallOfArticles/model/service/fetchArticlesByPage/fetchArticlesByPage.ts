@@ -10,7 +10,7 @@ import {
 import { fetchArticles } from '../fetchArticles/fetchArticles';
 import { wallOfArticlesActions } from '../../slice/wallOfArticlesSlice';
 
-export const fetchPageOfArticles = createAsyncThunk<void, undefined, ThunkConfig<string>>(
+export const fetchArticlesByPage = createAsyncThunk<void, undefined, ThunkConfig<string>>(
   'wallOfArticles/fetchPageOfArticles',
   async (_, { getState, dispatch }) => {
     const page = getWallOfArticlesPage(getState());
@@ -19,7 +19,7 @@ export const fetchPageOfArticles = createAsyncThunk<void, undefined, ThunkConfig
 
     if (hasMore && !isLoading) {
       dispatch(wallOfArticlesActions.setPage(page + 1));
-      dispatch(fetchArticles(page + 1));
+      dispatch(fetchArticles({}));
     }
   },
 );

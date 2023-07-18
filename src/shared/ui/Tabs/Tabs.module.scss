@@ -1,0 +1,13 @@
+.Tabs {
+  display: flex;
+  gap: 8px;
+}
+
+.tab {
+  cursor: pointer;
+  transition: 0.3s;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}

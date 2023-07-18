@@ -1,21 +1,41 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import { ThunkConfig } from '@/shared/config/redux/types';
-import { Article } from '@/entities/Article';
-import { getWallOfArticlesLimit, getWallOfArticlesPage } from '../../selector/wallOfArticlesSelector';
+import { Article, ArticleType } from '@/entities/Article';
 
-export const fetchArticles = createAsyncThunk<Article[], number | undefined, ThunkConfig<string>>(
+import {
+  getWallOfArticlesLimit,
+  getWallOfArticlesOrder,
+  getWallOfArticlesPage,
+  getWallOfArticlesSearch,
+  getWallOfArticlesSort,
+  getWallOfArticlesTypeFilter,
+} from '../../selector/wallOfArticlesSelector';
+
+interface Props {
+  replace?: boolean;
+}
+
+export const fetchArticles = createAsyncThunk<Article[], Props, ThunkConfig<string>>(
   'wallOfArticles/fetchArticles',
-  async (page, { rejectWithValue, extra, getState }) => {
+  async (_, { rejectWithValue, extra, getState }) => {
     try {
       const limit = getWallOfArticlesLimit(getState());
-      const defaultPage = getWallOfArticlesPage(getState());
+      const page = getWallOfArticlesPage(getState());
+      const sort = getWallOfArticlesSort(getState());
+      const order = getWallOfArticlesOrder(getState());
+      const search = getWallOfArticlesSearch(getState());
+      const articleTypeFilter = getWallOfArticlesTypeFilter(getState());
 
       const response = await extra.api.get<Article[]>('/articles', {
         params: {
           _expand: 'user',
-          _page: page || defaultPage,
+          _page: page,
           _limit: limit,
+          _sort: sort,
+          _order: order,
+          q: search,
+          type: articleTypeFilter === ArticleType.ALL ? null : articleTypeFilter,
         },
       });
 

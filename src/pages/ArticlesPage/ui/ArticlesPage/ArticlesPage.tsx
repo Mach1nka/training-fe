@@ -1,16 +1,15 @@
 import { FC, memo, useCallback } from 'react';
-import { useTranslation } from 'react-i18next';
 
-import { WallOfArticles, fetchPageOfArticles } from '@/widgets/WallOfArticles';
+import { WallOfArticles, fetchArticlesByPage } from '@/widgets/WallOfArticles';
 import { Page } from '@/shared/ui/Page/Page';
 import { useAppDispatch } from '@/shared/hook/useAppDispatch';
+import { thunkMiddleware } from '@/shared/lib/redux/thunkMiddleware';
 
 const ArticlesPage: FC = memo(() => {
-  const { t } = useTranslation('articles');
   const dispatch = useAppDispatch();
 
   const onLoadNextArticlesPage = useCallback(() => {
-    dispatch(fetchPageOfArticles());
+    thunkMiddleware(() => dispatch(fetchArticlesByPage()));
   }, []);
 
   return (

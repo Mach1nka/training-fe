@@ -1,11 +1,16 @@
 import { DeepPartial } from '@reduxjs/toolkit';
 
-import { Article, ArticleView } from '@/entities/Article';
+import { MockDefaultState } from '@/shared/lib/jest/mockDefaultState';
+import {
+  Article,
+  ArticleSortedField,
+  ArticleType,
+  ArticleView,
+} from '@/entities/Article';
 
 import { wallOfArticlesActions, wallOfArticlesReducer } from './wallOfArticlesSlice';
 import { fetchArticles } from '../service/fetchArticles/fetchArticles';
 import { WallOfArticlesSchema } from '../types';
-import { MockDefaultState } from '@/shared/lib/jest/mockDefaultState';
 
 describe('wallOfArticlesSlice extra reducers', () => {
   const articles: Article[] = [
@@ -31,6 +36,14 @@ describe('wallOfArticlesSlice extra reducers', () => {
     isLoading: false,
     page: 1,
     hasMore: true,
+    initialized: false,
+    limit: 10,
+    order: 'asc',
+    search: '',
+    sort: ArticleSortedField.CREATED_AT,
+    filters: {
+      type: ArticleType.ALL,
+    },
     error: undefined,
   };
 
@@ -43,24 +56,72 @@ describe('wallOfArticlesSlice extra reducers', () => {
   test('setView', () => {
     expect(wallOfArticlesReducer(mockedData.state as WallOfArticlesSchema, wallOfArticlesActions.setView(ArticleView.LIST)))
       .toEqual({
-        data: articles,
+        ...defaultState,
         view: ArticleView.LIST,
-        isLoading: false,
-        page: 1,
-        hasMore: true,
-        error: undefined,
+      });
+  });
+
+  test('setSearch', () => {
+    expect(wallOfArticlesReducer(mockedData.state as WallOfArticlesSchema, wallOfArticlesActions.setSearch('some text')))
+      .toEqual({
+        ...defaultState,
+        search: 'some text',
+      });
+  });
+
+  test('setSortOrder', () => {
+    expect(wallOfArticlesReducer(mockedData.state as WallOfArticlesSchema, wallOfArticlesActions.setSortOrder('desc')))
+      .toEqual({
+        ...defaultState,
+        order: 'desc',
+      });
+  });
+
+  test('setSortField', () => {
+    expect(wallOfArticlesReducer(mockedData.state as WallOfArticlesSchema, wallOfArticlesActions.setSortField(ArticleSortedField.TITLE)))
+      .toEqual({
+        ...defaultState,
+        sort: ArticleSortedField.TITLE,
+      });
+  });
+
+  test('setTypeFilter', () => {
+    expect(wallOfArticlesReducer(mockedData.state as WallOfArticlesSchema, wallOfArticlesActions.setTypeFilter(ArticleType.IT)))
+      .toEqual({
+        ...defaultState,
+        filters: {
+          type: ArticleType.IT,
+        },
       });
   });
 
   test('setPage', () => {
     expect(wallOfArticlesReducer(mockedData.state as WallOfArticlesSchema, wallOfArticlesActions.setPage(23)))
       .toEqual({
-        data: articles,
-        view: ArticleView.TILE,
-        isLoading: false,
+        ...defaultState,
         page: 23,
-        hasMore: true,
-        error: undefined,
+      });
+  });
+
+  test('initWallOfArticles', () => {
+    expect(wallOfArticlesReducer(mockedData.state as WallOfArticlesSchema, wallOfArticlesActions.initWallOfArticles({
+      order: 'desc',
+      search: 'text',
+      sort: 'views',
+      type: 'SCIENCE',
+    })))
+      .toEqual({
+        ...defaultState,
+        initialized: true,
+        order: 'desc',
+        search: 'text',
+        sort: ArticleSortedField.VIEWS,
+        // TODO: implement mocked localStorage and add it to the global variables
+        view: 'LIST',
+        limit: 4,
+        filters: {
+          type: ArticleType.SCIENCE,
+        },
       });
   });
 
@@ -80,13 +141,10 @@ describe('wallOfArticlesSlice extra reducers', () => {
       blocks: [],
     }];
 
-    expect(wallOfArticlesReducer(mockedData.state as WallOfArticlesSchema, fetchArticles.fulfilled(response, '', 0)))
+    expect(wallOfArticlesReducer(mockedData.state as WallOfArticlesSchema, fetchArticles.fulfilled(response, '', {})))
       .toEqual({
+        ...defaultState,
         hasMore: false,
-        isLoading: false,
-        error: undefined,
-        page: 1,
-        view: ArticleView.TILE,
         data: articles.concat(response),
       });
   });
