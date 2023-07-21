@@ -3,6 +3,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from '@/shared/config/redux/types';
 
 import {
+  getWallOfArticlesError,
   getWallOfArticlesHasMore,
   getWallOfArticlesLoading,
   getWallOfArticlesPage,
@@ -16,10 +17,13 @@ export const fetchArticlesByPage = createAsyncThunk<void, undefined, ThunkConfig
     const page = getWallOfArticlesPage(getState());
     const hasMore = getWallOfArticlesHasMore(getState());
     const isLoading = getWallOfArticlesLoading(getState());
+    const error = getWallOfArticlesError(getState());
 
-    if (hasMore && !isLoading) {
-      dispatch(wallOfArticlesActions.setPage(page + 1));
-      dispatch(fetchArticles({}));
+    if (!error) {
+      if (hasMore && !isLoading) {
+        dispatch(wallOfArticlesActions.setPage(page + 1));
+        dispatch(fetchArticles({}));
+      }
     }
   },
 );

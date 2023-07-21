@@ -15,9 +15,9 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
 }
 
 export const Card: FC<Props> = ({
-  className, theme = CardTheme.NORMAL, children, ...otherProps
+  className, theme = CardTheme.NORMAL, children, ...props
 }) => (
-  <div className={classNames(cls.Card, {}, [className, cls[theme]])} {...otherProps}>
+  <div className={classNames(cls.Card, {}, [className, cls[theme]])} {...props}>
     {children}
   </div>
 );

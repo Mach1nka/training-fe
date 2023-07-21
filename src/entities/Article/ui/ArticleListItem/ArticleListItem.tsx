@@ -1,4 +1,4 @@
-import { FC, memo } from 'react';
+import { HTMLAttributeAnchorTarget, FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
@@ -20,11 +20,14 @@ import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 
 interface Props {
   className?: string;
+  target?: HTMLAttributeAnchorTarget;
   article: Article;
-  view: ArticleView
+  view: ArticleView;
 }
 
-export const ArticleListItem: FC<Props> = memo(({ className, article, view }) => {
+export const ArticleListItem: FC<Props> = memo(({
+  className, article, view, target,
+}) => {
   const { t } = useTranslation('articles');
 
   const articleTypes = <Text text={article.type.join(', ')} className={cls.type} />;
@@ -52,7 +55,11 @@ export const ArticleListItem: FC<Props> = memo(({ className, article, view }) =>
         <img src={article.img} alt={article.title} className={cls.img} />
         {textBlock ? <ArticleTextBlockComponent block={textBlock} className={cls.textBlock} /> : null}
         <div className={cls.footer}>
-          <AppLink to={`${RoutePath.articleDetails}/${article.id}`} underline={AppLinkUnderline.NONE}>
+          <AppLink
+            target={target}
+            to={`${RoutePath.articleDetails}/${article.id}`}
+            underline={AppLinkUnderline.NONE}
+          >
             <Button>
               {t('readMoreBtn')}
             </Button>
@@ -64,7 +71,11 @@ export const ArticleListItem: FC<Props> = memo(({ className, article, view }) =>
   }
 
   return (
-    <AppLink to={`/article/${article.id}`} underline={AppLinkUnderline.NONE}>
+    <AppLink
+      target={target}
+      to={`${RoutePath.articleDetails}/${article.id}`}
+      underline={AppLinkUnderline.NONE}
+    >
       <Card className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
         <div className={cls.imageWrapper}>
           <img src={article.img} alt={article.title} className={cls.img} />

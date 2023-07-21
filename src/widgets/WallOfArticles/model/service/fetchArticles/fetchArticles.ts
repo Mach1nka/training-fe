@@ -35,7 +35,7 @@ export const fetchArticles = createAsyncThunk<Article[], Props, ThunkConfig<stri
           _sort: sort,
           _order: order,
           q: search,
-          type: articleTypeFilter === ArticleType.ALL ? null : articleTypeFilter,
+          type_like: articleTypeFilter === ArticleType.ALL ? null : articleTypeFilter,
         },
       });
 

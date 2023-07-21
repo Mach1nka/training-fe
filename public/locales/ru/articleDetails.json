@@ -5,6 +5,7 @@
   },
   "backToArticlesBtn": "Назад к списку",
   "commentSectionTitle": "Комментарии",
+  "recommendationsSectionTitle": "Рекомендации",
   "commentForm": {
     "placeholder": "Введите текст",
     "submitBtn": "Отправить"

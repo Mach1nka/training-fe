@@ -2,10 +2,10 @@ import { useEffect } from 'react';
 import { Reducer } from '@reduxjs/toolkit';
 import { useDispatch, useStore } from 'react-redux';
 
-import { ReduxStoreWithManager, StateSchemaKeys } from '@/shared/config/redux/types';
+import { ReduxStoreWithManager, StateSchema, StateSchemaKeys } from '@/shared/config/redux/types';
 
 export type ReducersList = {
-  [key in StateSchemaKeys]?: Reducer;
+  [key in StateSchemaKeys]?: Reducer<NonNullable<StateSchema[key]>>;
 }
 
 type UseDynamicReducerLoad = (reducers: ReducersList, removeAfterUnmount?: boolean) => void;

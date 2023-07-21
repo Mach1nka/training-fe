@@ -27,7 +27,6 @@ const initialReducers: ReducersList = {
 interface Props {
   className?: string;
   articleId: string;
-  onCommentSubmit: (text: string) => void;
 }
 
 const ArticleCommentSection: FC<Props> = memo(({ articleId }) => {
@@ -44,7 +43,7 @@ const ArticleCommentSection: FC<Props> = memo(({ articleId }) => {
 
   useEffect(() => {
     thunkMiddleware(() => dispatch(fetchCommentsByArticleId(articleId)));
-  }, []);
+  }, [articleId]);
 
   return (
     <>

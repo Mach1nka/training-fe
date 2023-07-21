@@ -9,6 +9,7 @@ import { ArticleCommentsSchema } from '@/widgets/ArticleCommentSection';
 import { AddCommentFormSchema } from '@/features/AddCommentForm';
 import { WallOfArticlesSchema } from '@/widgets/WallOfArticles';
 import { UIConditionSchema } from '@/features/UICondition';
+import { ArticleRecommendationsSchema } from '@/widgets/ArticleRecommendationsSection';
 
 import { createReducerManager } from './reducerManager';
 
@@ -19,6 +20,7 @@ export interface StateSchema {
   profile?: ProfileSchema;
   articleDetails?: ArticleDetailsSchema;
   articleComments?: ArticleCommentsSchema;
+  articleRecommendations?: ArticleRecommendationsSchema;
   addCommentForm?: AddCommentFormSchema;
   wallOfArticles?: WallOfArticlesSchema;
 }

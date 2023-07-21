@@ -5,6 +5,7 @@
   },
   "backToArticlesBtn": "Back to articles",
   "commentSectionTitle": "Comments",
+  "recommendationsSectionTitle": "Recommendations",
   "commentForm": {
     "placeholder": "Enter text",
     "submitBtn": "Send"
