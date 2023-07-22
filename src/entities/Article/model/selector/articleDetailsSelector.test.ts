@@ -1,11 +1,10 @@
-import { DeepPartial } from '@reduxjs/toolkit';
-
 import { StateSchema } from '@/shared/config/redux/types';
 
 import {
   getArticleDetailsData,
   getArticleDetailsError,
   getArticleDetailsIsLoading,
+  getCanBeArticleEdited,
 } from './articleDetailsSelector';
 import { Article } from '../types';
 
@@ -30,6 +29,12 @@ const state: DeepPartial<StateSchema> = {
     isLoading: true,
     error: 'error text',
   },
+  user: {
+    authData: {
+      id: '1',
+    },
+    initialized: true,
+  },
 };
 
 describe('getArticleDetailsData selector', () => {
@@ -39,6 +44,16 @@ describe('getArticleDetailsData selector', () => {
 
   test('should work with empty value', () => {
     expect(getArticleDetailsData({} as StateSchema)).toBeUndefined();
+  });
+});
+
+describe('getCanBeArticleEdited selector', () => {
+  test('should return data', () => {
+    expect(getCanBeArticleEdited(state as StateSchema)).toBe(true);
+  });
+
+  test('should work with empty value', () => {
+    expect(getCanBeArticleEdited({ user: { authData: undefined, initialized: false } } as StateSchema)).toBe(false);
   });
 });
 

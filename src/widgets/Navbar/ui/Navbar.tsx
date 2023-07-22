@@ -7,7 +7,10 @@ import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
 import { LoginModal } from '@/features/AuthUserByUsername';
+import { AppLink, AppLinkUnderline } from '@/shared/ui/AppLink/AppLink';
+import { Text, TextTheme } from '@/shared/ui/Text/Text';
 import { getUserAuthData, userActions } from '@/entities/User';
+import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 import { useAppDispatch } from '@/shared/hook/useAppDispatch';
 
 import cls from './Navbar.module.scss';
@@ -37,12 +40,18 @@ export const Navbar: FC<Props> = memo(({ className }) => {
   if (authData) {
     return (
       <header className={classNames(cls.Navbar, {}, [className])}>
+        <Text className={cls.appName} theme={TextTheme.INVERTED} title={t('appName')} />
+        <AppLink underline={AppLinkUnderline.NONE} to={RoutePath.articleCreate}>
+          <Button theme={ButtonTheme.CLEAR_INVERTED}>
+            {t('header.createArticle')}
+          </Button>
+        </AppLink>
         <Button
           className={cls.links}
           theme={ButtonTheme.CLEAR_INVERTED}
           onClick={onLogout}
         >
-          {t('logout')}
+          {t('header.logout')}
         </Button>
       </header>
     );
@@ -55,7 +64,7 @@ export const Navbar: FC<Props> = memo(({ className }) => {
         theme={ButtonTheme.CLEAR_INVERTED}
         onClick={onOpenModal}
       >
-        {t('login')}
+        {t('header.login')}
       </Button>
       <LoginModal isOpen={isOpenModal} onClose={onCloseModal} />
     </header>

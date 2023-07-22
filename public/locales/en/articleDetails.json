@@ -4,6 +4,7 @@
     "title": "An error happened during article loading"
   },
   "backToArticlesBtn": "Back to articles",
+  "editArticleBtn": "Edit",
   "commentSectionTitle": "Comments",
   "recommendationsSectionTitle": "Recommendations",
   "commentForm": {

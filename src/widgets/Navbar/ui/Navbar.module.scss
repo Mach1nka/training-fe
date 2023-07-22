@@ -10,3 +10,8 @@
 .links {
   margin-left: auto;
 }
+
+.appName {
+  width: calc(var(--sidebar-width) - 30px);
+  margin-left: 10px;
+}

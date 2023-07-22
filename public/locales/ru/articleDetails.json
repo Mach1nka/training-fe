@@ -4,6 +4,7 @@
     "title": "Произошла ошибка при загрузке статьи"
   },
   "backToArticlesBtn": "Назад к списку",
+  "editArticleBtn": "Редактировать",
   "commentSectionTitle": "Комментарии",
   "recommendationsSectionTitle": "Рекомендации",
   "commentForm": {

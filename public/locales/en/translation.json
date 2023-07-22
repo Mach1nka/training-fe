@@ -1,4 +1,7 @@
 {
+  "appName": "AppName",
+  "editPage": "Article Edit Page",
+  "createPage": "Article Create Page",
   "langSwitcher": {
     "lang": "English",
     "shortLang": "En"
@@ -19,8 +22,11 @@
     "username": "Enter username",
     "password": "Enter password"
   },
-  "login": "Login",
-  "logout": "Logout",
+  "header": {
+    "createArticle": "Create New Article",
+    "login": "Login",
+    "logout": "Logout"
+  },
   "commentBlock": {
     "noComments": "There aren't comments"
   }

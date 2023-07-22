@@ -1,4 +1,7 @@
 {
+  "appName": "AppName",
+  "editPage": "Article Edit Page",
+  "createPage": "Article Create Page",
   "langSwitcher": {
     "lang": "Русский",
     "shortLang": "Ru"
@@ -19,8 +22,11 @@
     "username": "Введите имя",
     "password": "Введите пароль"
   },
-  "login": "Войти",
-  "logout": "Выйти",
+  "header": {
+    "createArticle": "Создать новую статью",
+    "login": "Войти",
+    "logout": "Выйти"
+  },
   "commentBlock": {
     "noComments": "Комметарии отсутствуют"
   }
