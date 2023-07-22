@@ -16,7 +16,7 @@ const emptyState: DeepPartial<StateSchema> = {
   },
 };
 
-describe('getUserAuthData selector', () => {
+describe('getScrollPositionByPath selector', () => {
   test('should return scroll position', () => {
     expect(getScrollPositionByPath('/about')(state as StateSchema)).toBe(500);
   });

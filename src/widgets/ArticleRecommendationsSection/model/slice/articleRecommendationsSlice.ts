@@ -16,8 +16,7 @@ const initialState: ArticleRecommendationsSchema = {
 const articleRecommendationsSlice = createSlice({
   name: 'articleRecommendations',
   initialState,
-  reducers: {
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(fetchArticleRecommendations.pending, (state) => {

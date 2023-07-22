@@ -37,6 +37,13 @@ const state: DeepPartial<StateSchema> = {
   },
 };
 
+const emptyState: DeepPartial<StateSchema> = {
+  user: {
+    authData: undefined,
+    initialized: false,
+  },
+};
+
 describe('getArticleDetailsData selector', () => {
   test('should return data', () => {
     expect(getArticleDetailsData(state as StateSchema)).toEqual(article);
@@ -53,7 +60,7 @@ describe('getCanBeArticleEdited selector', () => {
   });
 
   test('should work with empty value', () => {
-    expect(getCanBeArticleEdited({ user: { authData: undefined, initialized: false } } as StateSchema)).toBe(false);
+    expect(getCanBeArticleEdited(emptyState as StateSchema)).toBe(false);
   });
 });
 
