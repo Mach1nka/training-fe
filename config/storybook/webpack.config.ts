@@ -5,7 +5,7 @@ import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin';
 import { BuildPaths } from '../webpack/types/config';
 
 export default ({ config }: {config: Configuration}) => {
-  const paths: BuildPaths = {
+  const paths: Omit<BuildPaths, 'locales' | 'buildLocales'> = {
     build: '',
     html: '',
     entry: '',
