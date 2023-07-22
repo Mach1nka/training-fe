@@ -5,7 +5,6 @@ import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { useSearchParams } from 'react-router-dom';
 
-import { classNames } from '@/shared/lib/classNames/classNames';
 import {
   ArticleList,
   ArticleSortedField,
@@ -17,6 +16,7 @@ import { useAppDispatch } from '@/shared/hook/useAppDispatch';
 import { thunkMiddleware } from '@/shared/lib/redux/thunkMiddleware';
 import { Text, TextTheme } from '@/shared/ui/Text/Text';
 import { SortingOrder } from '@/shared/types/common';
+import { useDebounce } from '@/shared/hook/useDebounce';
 import { ArticlesFiltrationSection } from '@/features/FilterArticles';
 
 import { fetchArticles } from '../../model/service/fetchArticles/fetchArticles';
@@ -33,7 +33,6 @@ import {
 } from '../../model/selector/wallOfArticlesSelector';
 import { wallOfArticlesReducer, wallOfArticlesActions } from '../../model/slice/wallOfArticlesSlice';
 import cls from './WallOfArticles.module.scss';
-import { useDebounce } from '@/shared/hook/useDebounce';
 
 const initialReducers: ReducersList = {
   wallOfArticles: wallOfArticlesReducer,
@@ -108,14 +107,14 @@ export const WallOfArticles: FC<Props> = memo(({ className }) => {
 
   if (error) {
     return (
-      <div className={classNames('', {}, [className])}>
+      <div className={className}>
         <Text theme={TextTheme.ERROR} title={t('error.title')} />
       </div>
     );
   }
 
   return (
-    <div className={classNames('', {}, [className])}>
+    <div className={className}>
       <ArticlesFiltrationSection
         className={cls.filters}
         sort={sort}
@@ -130,7 +129,7 @@ export const WallOfArticles: FC<Props> = memo(({ className }) => {
         onChangeView={onChangeView}
       />
       <ArticleList
-        isLoading={Boolean(isLoading)}
+        isLoading={isLoading}
         view={view}
         articles={articles}
       />

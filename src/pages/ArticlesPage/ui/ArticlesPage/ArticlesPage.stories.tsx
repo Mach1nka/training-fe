@@ -1,7 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { Theme } from '@/app/providers/ThemeProvider';
-import { routerDecorator, storeDecorator, themeDecorator } from '@/shared/lib/storybook/decorators';
+import { routerDecorator, storeDecorator } from '@/shared/lib/storybook/decorators';
 import {
   Article, ArticleBlockType, ArticleType, ArticleView,
 } from '@/entities/Article/model/types';
@@ -25,7 +24,7 @@ const state: Article[] = [
     title: 'Javascript - язык программирования',
     subtitle: 'Краткий пересказ всего JavaScript',
     img: DefaultImage,
-    views: 10,
+    views: 15,
     createdAt: '28.05.2020',
     type: [ArticleType.IT, ArticleType.ECONOMICS, ArticleType.SCIENCE],
     blocks: [
@@ -52,7 +51,7 @@ const state: Article[] = [
     img: DefaultImage,
     views: 10,
     createdAt: '20.05.2022',
-    type: [ArticleType.IT],
+    type: [ArticleType.IT, ArticleType.ECONOMICS],
     blocks: [
       {
         id: '1',
@@ -71,28 +70,27 @@ export default {
 
 const Template: ComponentStory<typeof ArticlesPage> = (args) => <ArticlesPage {...args} />;
 
-export const TileLight = Template.bind({});
-TileLight.decorators = [storeDecorator({
+export const Tile = Template.bind({});
+Tile.decorators = [storeDecorator({
   wallOfArticles: {
     data: state,
     view: ArticleView.TILE,
     hasMore: false,
     filters: {
-      type: ArticleType.ECONOMICS,
+      type: ArticleType.ALL,
     },
   },
 }, initialReducers)];
 
-export const ListDark = Template.bind({});
-ListDark.decorators = [
-  themeDecorator(Theme.DARK),
+export const List = Template.bind({});
+List.decorators = [
   storeDecorator({
     wallOfArticles: {
       data: state,
       view: ArticleView.LIST,
       hasMore: false,
       filters: {
-        type: ArticleType.ECONOMICS,
+        type: ArticleType.ALL,
       },
     },
   }, initialReducers),
@@ -104,7 +102,7 @@ Loading.decorators = [storeDecorator({
     hasMore: false,
     isLoading: true,
     filters: {
-      type: ArticleType.ECONOMICS,
+      type: ArticleType.ALL,
     },
   },
 }, initialReducers)];
@@ -114,7 +112,7 @@ Error.decorators = [storeDecorator({
   wallOfArticles: {
     error: 'an error',
     filters: {
-      type: ArticleType.ECONOMICS,
+      type: ArticleType.ALL,
     },
   },
 }, initialReducers)];
