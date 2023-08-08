@@ -1,7 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import { ThunkConfig } from '@/shared/config/redux/types';
-import { Article } from '@/entities/Article';
+
+import { Article } from '../../types';
 
 export const fetchArticleById = createAsyncThunk<Article, string, ThunkConfig<string>>(
   'articleDetails/fetchArticleById',

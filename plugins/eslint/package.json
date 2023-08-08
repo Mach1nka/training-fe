@@ -1,0 +1,16 @@
+{
+  "name": "eslint-plugin-fsd",
+  "version": "1.0.0",
+  "description": "Check application imports",
+  "main": "index.js",
+  "scripts": {
+    "test": "eslint ."
+  },
+  "author": "Mach1nka",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^8.46.0",
+    "eslint-plugin-eslint-plugin": "^5.1.1",
+    "mocha": "^10.2.0"
+  }
+}

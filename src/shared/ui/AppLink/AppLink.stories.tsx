@@ -2,8 +2,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { Theme } from '@/app/providers/ThemeProvider';
 import { routerDecorator, themeDecorator } from '@/shared/lib/storybook/decorators';
-import { AppLinkTheme, AppLinkUnderline } from '@/shared/ui/AppLink/AppLink';
-import { AppLink } from './AppLink';
+import { AppLink, AppLinkTheme, AppLinkUnderline } from './AppLink';
 
 export default {
   title: 'shared/AppLink',
