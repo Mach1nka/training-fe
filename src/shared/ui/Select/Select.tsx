@@ -1,5 +1,5 @@
 import {
-  ChangeEvent, FC, memo, useMemo,
+  ChangeEvent, memo, useMemo,
 } from 'react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';

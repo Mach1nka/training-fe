@@ -2,7 +2,6 @@ import { FC, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
-import { classNames } from '@/shared/lib/classNames/classNames';
 import { Text } from '@/shared/ui/Text/Text';
 import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
 import {
@@ -12,8 +11,7 @@ import {
   getProfileChangePermission,
 } from '@/features/EditProfileInfo';
 import { useAppDispatch } from '@/shared/hook/useAppDispatch';
-
-import cls from './ProfilePageHeader.module.scss';
+import { Flex } from '@/shared/ui/Flex/Flex';
 
 interface Props {
   className?: string;
@@ -38,28 +36,24 @@ export const ProfilePageHeader: FC<Props> = memo(({ className }) => {
   }, []);
 
   const controlBlock = readonly ? (
-    <Button className={cls.editBtn} onClick={onEdit}>
+    <Button onClick={onEdit}>
       {t('edit')}
     </Button>
   ) : (
-    <>
-      <Button
-        theme={ButtonTheme.OUTLINE_RED}
-        className={cls.editBtn}
-        onClick={onCancelEditing}
-      >
+    <Flex gap={12} isGrown={false}>
+      <Button theme={ButtonTheme.OUTLINE_RED} onClick={onCancelEditing}>
         {t('cancel')}
       </Button>
       <Button onClick={onSave}>
         {t('save')}
       </Button>
-    </>
+    </Flex>
   );
 
   return (
-    <div className={classNames(cls.ProfilePageHeader, {}, [className])}>
+    <Flex justify="space-between" className={className}>
       <Text title={t('title')} />
       {canBeEdited ? controlBlock : null}
-    </div>
+    </Flex>
   );
 });

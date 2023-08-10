@@ -1,5 +1,6 @@
 import { FC, HTMLAttributeAnchorTarget, memo } from 'react';
 
+import { Flex } from '@/shared/ui/Flex/Flex';
 import { classNames } from '@/shared/lib/classNames/classNames';
 
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
@@ -25,14 +26,27 @@ export const ArticleList: FC<Props> = memo(({
   const renderArticles = (article: Article) =>
     <ArticleListItem key={article.id} target={target} article={article} view={view} />;
 
+  if (view === ArticleView.TILE) {
+    return (
+      <Flex gap={32} wrap="wrap" className={classNames('', {}, [className])}>
+        {
+          articles.length ? articles.map(renderArticles) : null
+        }
+        {
+          isLoading ? getSkeletons(view) : null
+        }
+      </Flex>
+    );
+  }
+
   return (
-    <div className={classNames('', {}, [className, cls[view]])}>
+    <Flex gap={32} direction="column" className={classNames('', {}, [className])}>
       {
         articles.length ? articles.map(renderArticles) : null
       }
       {
         isLoading ? getSkeletons(view) : null
       }
-    </div>
+    </Flex>
   );
 });

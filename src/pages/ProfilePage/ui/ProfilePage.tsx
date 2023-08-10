@@ -8,6 +8,7 @@ import { thunkMiddleware } from '@/shared/lib/redux/thunkMiddleware';
 import { Page } from '@/shared/ui/Page/Page';
 
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
+import cls from './ProfilePage.module.scss';
 
 const initialReducers: ReducersList = {
   profile: profileReducer,
@@ -27,7 +28,7 @@ const ProfilePage: FC = () => {
 
   return (
     <Page>
-      <ProfilePageHeader />
+      <ProfilePageHeader className={cls.header} />
       <EditableProfileCard />
     </Page>
   );

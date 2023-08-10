@@ -19,6 +19,7 @@ import {
   fetchCommentsByArticleId,
 } from '../../model/service/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { addArticleComment } from '../../model/service/addArticleComment/addArticleComment';
+import cls from './ArticleCommentSection.module.scss';
 
 const initialReducers: ReducersList = {
   articleComments: articleCommentsReducer,
@@ -47,7 +48,7 @@ const ArticleCommentSection: FC<Props> = memo(({ articleId }) => {
 
   return (
     <>
-      <AddCommentForm onCommentSubmit={onCommentSubmit} />
+      <AddCommentForm className={cls.commentForm} onCommentSubmit={onCommentSubmit} />
       <CommentList comments={comments} isLoading={isLoading} />
     </>
   );

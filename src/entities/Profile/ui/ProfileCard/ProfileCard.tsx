@@ -8,6 +8,7 @@ import { Loader } from '@/shared/ui/Loader/Loader';
 import { Avatar } from '@/shared/ui/Avatar/Avatar';
 import { Currency, CurrencySelect } from '@/entities/Currency';
 import { CountrySelect, Country } from '@/entities/Country';
+import { Flex } from '@/shared/ui/Flex/Flex';
 
 import { Profile } from '../../model/types';
 import cls from './ProfileCard.module.scss';
@@ -47,22 +48,30 @@ export const ProfileCard: FC<Props> = memo(({
 
   if (isLoading) {
     return (
-      <div className={classNames(cls.ProfileCard, {}, [className, cls.loading])}>
+      <Flex
+        justify="center"
+        align="center"
+        className={classNames(cls.ProfileCard, {}, [className, cls.loading])}
+      >
         <Loader />
-      </div>
+      </Flex>
     );
   }
 
   if (error) {
     return (
-      <div className={classNames(cls.ProfileCard, {}, [className, cls.error])}>
+      <Flex
+        justify="center"
+        align="center"
+        className={classNames(cls.ProfileCard, {}, [className, cls.error])}
+      >
         <Text
           theme={TextTheme.ERROR}
           align={TextAlign.CENTER}
           title={t('error.title')}
           text={t('error.text')}
         />
-      </div>
+      </Flex>
     );
   }
 
@@ -71,62 +80,58 @@ export const ProfileCard: FC<Props> = memo(({
   };
 
   return (
-    <div className={classNames(cls.ProfileCard, mods, [className])}>
-      {data?.avatar && <div className={cls.avatarWrapper}><Avatar src={data?.avatar} /></div> }
+    <Flex
+      gap={12}
+      direction="column"
+      className={classNames(cls.ProfileCard, mods, [className])}
+    >
+      {data?.avatar && <Flex justify="center"><Avatar src={data?.avatar} /></Flex> }
       <Input
         value={data?.firstname}
         placeholder={t('firstname')}
         readonly={readonly}
-        className={cls.input}
         onChange={onChangeFirstname}
       />
       <Input
         value={data?.lastname}
         placeholder={t('lastname')}
         readonly={readonly}
-        className={cls.input}
         onChange={onChangeLastname}
       />
       <Input
         value={data?.age}
         placeholder={t('age')}
         readonly={readonly}
-        className={cls.input}
         onChange={onChangeAge}
       />
       <Input
         value={data?.city}
         placeholder={t('city')}
         readonly={readonly}
-        className={cls.input}
         onChange={onChangeCity}
       />
       <Input
         value={data?.username}
         placeholder={t('username')}
         readonly={readonly}
-        className={cls.input}
         onChange={onChangeUsername}
       />
       <Input
         value={data?.avatar}
         placeholder={t('avatar')}
         readonly={readonly}
-        className={cls.input}
         onChange={onChangeAvatar}
       />
       <CurrencySelect
         value={data?.currency}
         readonly={readonly}
-        className={cls.input}
         onChange={onChangeCurrency}
       />
       <CountrySelect
         value={data?.country}
         readonly={readonly}
-        className={cls.input}
         onChange={onChangeCountry}
       />
-    </div>
+    </Flex>
   );
 });

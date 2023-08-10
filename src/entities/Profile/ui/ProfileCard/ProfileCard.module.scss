@@ -7,19 +7,7 @@
   border: 2px solid var(--inverted-primary-color);
 }
 
-.input {
-  margin-top: 10px;
-}
-
 .loading,
 .error {
-  display: flex;
   height: 300px;
-  justify-content: center;
-  align-items: center;
-}
-
-.avatarWrapper {
-  display: flex;
-  justify-content: center;
 }

@@ -33,7 +33,7 @@ export const ArticleListItemSkeleton: FC<Props> = memo(({ className, view }) => 
   return (
     <Card className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
       <div className={cls.imageWrapper}>
-        <Skeleton width={200} height={200} />
+        <Skeleton width="100%" height={200} />
       </div>
       <div className={cls.infoWrapper}>
         <Skeleton width={110} height={24} />

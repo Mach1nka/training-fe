@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { ThemeSwitcher } from '@/features/SwitchTheme';
 import { LangSwitcher } from '@/features/SwitchLang';
+import { Flex } from '@/shared/ui/Flex/Flex';
 import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/Button/Button';
 
 import { getSidebarItemsList } from '../../model/selector/sidebarItemsSelector';
@@ -39,7 +40,7 @@ export const Sidebar: FC<Props> = memo(({ className }) => {
       >
         {collapsed ? '>' : '<'}
       </Button>
-      <div className={classNames(cls.items)}>
+      <Flex gap={4} direction="column" className={classNames(cls.items)}>
         {sidebarItemList.map((item) => (
           <SidebarItem
             key={item.path}
@@ -47,7 +48,7 @@ export const Sidebar: FC<Props> = memo(({ className }) => {
             collapsed={collapsed}
           />
         ))}
-      </div>
+      </Flex>
       <div className={cls.switchers}>
         <ThemeSwitcher />
         <LangSwitcher short={collapsed} className={cls.lang} />

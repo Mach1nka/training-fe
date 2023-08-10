@@ -9,9 +9,10 @@ import { Text } from '@/shared/ui/Text/Text';
 import { ArticleRecommendationsSection } from '@/widgets/ArticleRecommendationsSection';
 import { ArticleCommentSection } from '@/widgets/ArticleCommentSection';
 import { Loader } from '@/shared/ui/Loader/Loader';
-import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
-
+import { Flex } from '@/shared/ui/Flex/Flex';
 import { Page } from '@/shared/ui/Page/Page';
+
+import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 
 import cls from './ArticleDetailsPage.module.scss';
 
@@ -28,11 +29,11 @@ const ArticleDetailsPage: FC = memo(() => {
       <ArticleDetailsPageHeader />
       <ArticleDetails articleId={id} />
       <Text title={t('recommendationsSectionTitle')} className={cls.recommendationsSectionTitle} />
-      <Suspense fallback={<div className={cls.loader}><Loader /></div>}>
+      <Suspense fallback={<Flex direction="column" align="center"><Loader /></Flex>}>
         <ArticleRecommendationsSection />
       </Suspense>
       <Text title={t('commentSectionTitle')} className={cls.commentSectionTitle} />
-      <Suspense fallback={<div className={cls.loader}><Loader /></div>}>
+      <Suspense fallback={<Flex direction="column" align="center"><Loader /></Flex>}>
         <ArticleCommentSection articleId={id} />
       </Suspense>
     </Page>

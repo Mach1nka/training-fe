@@ -7,8 +7,7 @@ import { Button } from '@/shared/ui/Button/Button';
 import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 import { AppLink, AppLinkUnderline } from '@/shared/ui/AppLink/AppLink';
 import { getArticleDetailsData, getCanBeArticleEdited } from '@/entities/Article';
-
-import cls from './ArticleDetailsPageHeader.module.scss';
+import { Flex } from '@/shared/ui/Flex/Flex';
 
 interface Props {
   className?: string;
@@ -20,7 +19,7 @@ export const ArticleDetailsPageHeader: FC<Props> = memo(({ className }) => {
   const article = useSelector(getArticleDetailsData);
 
   return (
-    <div className={classNames(cls.ArticleDetailsPageHeader, {}, [className])}>
+    <Flex align="center" justify="space-between" className={classNames('', {}, [className])}>
       <AppLink to={RoutePath.articles} underline={AppLinkUnderline.NONE}>
         <Button>{t('backToArticlesBtn')}</Button>
       </AppLink>
@@ -36,6 +35,6 @@ export const ArticleDetailsPageHeader: FC<Props> = memo(({ className }) => {
           </AppLink>
         ) : null
       }
-    </div>
+    </Flex>
   );
 });
