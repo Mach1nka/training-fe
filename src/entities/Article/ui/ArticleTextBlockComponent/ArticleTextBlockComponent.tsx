@@ -11,10 +11,10 @@ interface Props {
 }
 
 export const ArticleTextBlockComponent: FC<Props> = memo(({ className, block }) => (
-  <div className={className}>
+  <article className={className}>
     {block.title && <Text title={block.title} className={cls.title} />}
     {
       block.paragraphs.map((text, idx) => <Text key={idx} text={text} />)
     }
-  </div>
+  </article>
 ));

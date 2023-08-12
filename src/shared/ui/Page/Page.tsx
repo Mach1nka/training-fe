@@ -37,9 +37,9 @@ export const Page: FC<Props> = ({ className, children, onScrollEnd }) => {
   useInfiniteScroll({ wrapperRef, triggerRef, callback: onScrollEnd });
 
   return (
-    <section ref={wrapperRef} onScroll={onScroll} className={classNames(cls.Page, {}, [className])}>
+    <main ref={wrapperRef} onScroll={onScroll} className={classNames(cls.Page, {}, [className])}>
       {children}
       {onScrollEnd ? <div style={{ height: '120px' }} ref={triggerRef} /> : null}
-    </section>
+    </main>
   );
 };

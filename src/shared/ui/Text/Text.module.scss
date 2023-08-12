@@ -40,6 +40,16 @@
   text-align: left;
 }
 
+.small {
+  .title {
+    font: var(--font-m);
+  }
+
+  .text {
+    font: var(--font-s);
+  }
+}
+
 .medium {
   .title {
     font: var(--font-l);

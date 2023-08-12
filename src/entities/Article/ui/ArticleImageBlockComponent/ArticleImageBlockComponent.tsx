@@ -10,8 +10,8 @@ interface Props {
 }
 
 export const ArticleImageBlockComponent: FC<Props> = memo(({ className, block }) => (
-  <div className={className}>
+  <article className={className}>
     <img src={block.src} alt={block.title} className={cls.img} />
     {block.title && <Text align={TextAlign.CENTER} text={block.title} />}
-  </div>
+  </article>
 ));

@@ -14,10 +14,11 @@ export default {
 
 const Template: ComponentStory<typeof Text> = (args) => <Text {...args} />;
 
-export const Default = Template.bind({});
-Default.args = {
+export const SizeS = Template.bind({});
+SizeS.args = {
   title: 'Title',
   text: 'Description',
+  size: TextSize.SMALL,
 };
 
 export const SizeM = Template.bind({});

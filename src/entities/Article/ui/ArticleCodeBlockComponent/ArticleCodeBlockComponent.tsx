@@ -10,5 +10,7 @@ interface Props {
 }
 
 export const ArticleCodeBlockComponent: FC<Props> = memo(({ className, block }) => (
-  <Code text={block.code} className={className} />
+  <article className={className}>
+    <Code text={block.code} />
+  </article>
 ));

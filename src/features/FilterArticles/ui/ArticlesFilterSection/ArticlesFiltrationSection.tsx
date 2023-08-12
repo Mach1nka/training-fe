@@ -6,11 +6,11 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { Card } from '@/shared/ui/Card/Card';
 import { SortingOrder } from '@/shared/types/common';
 import { Input } from '@/shared/ui/Input/Input';
+import { Flex } from '@/shared/ui/Flex/Flex';
 
 import { FilterTabs } from '../FilterTabs/FilterTabs';
 import { SortSelector } from '../SortSelector/SortSelector';
 import { ViewSwitcher } from '../ViewSwitcher/ViewSwitcher';
-import cls from './ArticlesFiltrationSection.module.scss';
 
 interface Props {
   className?: string;
@@ -42,8 +42,8 @@ export const ArticlesFiltrationSection: FC<Props> = memo(({
   const { t } = useTranslation('articles');
 
   return (
-    <div className={classNames('', {}, [className])}>
-      <div className={cls.switcherWrapper}>
+    <Flex gap={12} direction="column" className={classNames('', {}, [className])}>
+      <Flex justify="space-between">
         <SortSelector
           sort={sort}
           order={order}
@@ -51,11 +51,11 @@ export const ArticlesFiltrationSection: FC<Props> = memo(({
           onChangeSort={onChangeSort}
         />
         <ViewSwitcher view={view} onChangeView={onChangeView} />
-      </div>
-      <Card className={cls.search}>
+      </Flex>
+      <Card>
         <Input placeholder={t('search')} value={search} onChange={onChangeSearch} />
       </Card>
       <FilterTabs articleTypeFilter={articleTypeFilter} onChangeTypeFilter={onChangeTypeFilter} />
-    </div>
+    </Flex>
   );
 });
