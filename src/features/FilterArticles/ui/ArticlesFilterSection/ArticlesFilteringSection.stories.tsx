@@ -4,7 +4,7 @@ import { Theme } from '@/app/providers/ThemeProvider';
 import { routerDecorator, themeDecorator } from '@/shared/lib/storybook/decorators';
 
 import { ArticlesFiltrationSection } from './ArticlesFiltrationSection';
-import { ArticleType } from '@/entities/Article';
+import { ArticleSortedField, ArticleType } from '@/entities/Article';
 
 export default {
   title: 'features/ArticlesFilterSection',
@@ -13,6 +13,8 @@ export default {
   args: {
     articleTypeFilter: ArticleType.ALL,
     search: 'search text',
+    sort: ArticleSortedField.TITLE,
+    order: 'asc',
   },
 } as ComponentMeta<typeof ArticlesFiltrationSection>;
 

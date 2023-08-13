@@ -1,7 +1,7 @@
 import { FC, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Select } from '@/shared/ui/Select/Select';
+import { Select, SelectOption } from '@/shared/ui/Select/Select';
 
 import { Country } from '../../model/types';
 
@@ -12,7 +12,7 @@ interface Props {
   onChange: (value: Country) => void;
 }
 
-const options = Object.entries(Country)
+const options: SelectOption<Country>[] = Object.entries(Country)
   .map((country) => ({ label: country[0], value: country[1] }));
 
 export const CountrySelect: FC<Props> = memo(({
@@ -27,7 +27,8 @@ export const CountrySelect: FC<Props> = memo(({
   return (
     <Select
       value={value}
-      label={t('country')}
+      defaultValue={Country.ARMENIA}
+      placeholder={t('country')}
       options={options}
       readonly={readonly}
       className={className}

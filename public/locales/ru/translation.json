@@ -23,7 +23,7 @@
     "password": "Введите пароль"
   },
   "header": {
-    "createArticle": "Создать новую статью",
+    "createArticle": "Создать статью",
     "login": "Войти",
     "logout": "Выйти"
   },

@@ -2,13 +2,19 @@
   display: flex;
   width: 100%;
   height: var(--navbar-height);
+  justify-content: space-between;
   align-items: center;
   padding: 20px;
   background-color: var(--inverted-bg-color);
 }
 
-.links {
+.link {
   margin-left: auto;
+}
+
+.menuButton {
+  display: flex;
+  align-items: center;
 }
 
 .appName {

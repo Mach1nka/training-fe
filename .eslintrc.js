@@ -53,7 +53,10 @@ module.exports = {
     'no-undef': 'off',
     'i18next/no-literal-string': ['error', {
       markupOnly: true,
-      ignoreAttribute: ['data-testid', 'to', 'target', 'justify', 'align', 'direction', 'wrap'],
+      ignoreAttribute: [
+        'data-testid',
+        'to',
+        'target', 'justify', 'align', 'direction', 'wrap', 'as', 'directionH', 'directionV'],
     }],
     'max-len': ['error', {
       code: 105,

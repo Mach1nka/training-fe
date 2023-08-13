@@ -1,0 +1,28 @@
+.Menu {
+  position: relative;
+}
+
+.list {
+  position: absolute;
+  left: 0;
+  overflow: hidden;
+  background-color: var(--card-bg);
+  z-index: 100;
+  border: 1px solid var(--primary-color);
+  border-radius: 8px;
+  list-style: none;
+
+  &.top {
+    bottom: 100%;
+    margin-bottom: 4px;
+  }
+
+  &.bottom {
+    margin-top: 4px;
+  }
+
+  &.right {
+    left: auto;
+    right: 0;
+  }
+}

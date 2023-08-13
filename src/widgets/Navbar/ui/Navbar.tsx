@@ -1,17 +1,20 @@
 import {
-  FC, useState, useCallback, memo,
+  FC, useState, useCallback, memo, useMemo,
 } from 'react';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
+import { Button, ButtonForwardedRef, ButtonTheme } from '@/shared/ui/Button/Button';
 import { LoginModal } from '@/features/AuthUserByUsername';
-import { AppLink, AppLinkUnderline } from '@/shared/ui/AppLink/AppLink';
 import { Text, TextTheme } from '@/shared/ui/Text/Text';
 import { getUserAuthData, userActions } from '@/entities/User';
 import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 import { useAppDispatch } from '@/shared/hook/useAppDispatch';
+import { DropdownItem, Menu } from '@/shared/ui/Menu/Menu';
+import { Avatar } from '@/shared/ui/Avatar/Avatar';
+
+import DefaultImage from '@/shared/assets/tests/storybookPlug.jpg';
 
 import cls from './Navbar.module.scss';
 
@@ -37,22 +40,30 @@ export const Navbar: FC<Props> = memo(({ className }) => {
     dispatch(userActions.logout());
   }, []);
 
+  const menuOptions = useMemo<DropdownItem[]>(() => ([
+    {
+      content: t('header.createArticle'),
+      href: RoutePath.articleCreate,
+    },
+    {
+      content: t('header.logout'),
+      onClick: onLogout,
+    },
+  ]), [onLogout]);
+
   if (authData) {
     return (
       <header className={classNames(cls.Navbar, {}, [className])}>
         <Text className={cls.appName} theme={TextTheme.INVERTED} title={t('appName')} />
-        <AppLink underline={AppLinkUnderline.NONE} to={RoutePath.articleCreate}>
-          <Button theme={ButtonTheme.CLEAR_INVERTED}>
-            {t('header.createArticle')}
-          </Button>
-        </AppLink>
-        <Button
-          className={cls.links}
-          theme={ButtonTheme.CLEAR_INVERTED}
-          onClick={onLogout}
-        >
-          {t('header.logout')}
-        </Button>
+        <Menu
+          label={(
+            <ButtonForwardedRef className={cls.menuButton} theme={ButtonTheme.CLEAR}>
+              <Avatar src={authData.avatar || DefaultImage} size={30} />
+            </ButtonForwardedRef>
+          )}
+          directionH="right"
+          options={menuOptions}
+        />
       </header>
     );
   }
@@ -60,7 +71,7 @@ export const Navbar: FC<Props> = memo(({ className }) => {
   return (
     <header className={classNames(cls.Navbar, {}, [className])}>
       <Button
-        className={cls.links}
+        className={cls.link}
         theme={ButtonTheme.CLEAR_INVERTED}
         onClick={onOpenModal}
       >

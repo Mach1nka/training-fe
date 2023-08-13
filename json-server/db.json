@@ -67,7 +67,8 @@
       "views": 367,
       "createdAt": "20.06.2023",
       "type": [
-        "SCIENCE", "ECONOMICS"
+        "SCIENCE",
+        "ECONOMICS"
       ],
       "blocks": [
         {
@@ -109,7 +110,9 @@
       "views": 7893,
       "createdAt": "15.05.2023",
       "type": [
-        "IT", "SCIENCE", "ECONOMICS"
+        "IT",
+        "SCIENCE",
+        "ECONOMICS"
       ],
       "blocks": [
         {
@@ -144,7 +147,9 @@
       "views": 246,
       "createdAt": "10.04.2023",
       "type": [
-        "IT", "SCIENCE", "ECONOMICS"
+        "IT",
+        "SCIENCE",
+        "ECONOMICS"
       ],
       "blocks": [
         {
@@ -173,7 +178,9 @@
       "views": 467,
       "createdAt": "05.03.2023",
       "type": [
-        "IT", "SCIENCE", "ECONOMICS"
+        "IT",
+        "SCIENCE",
+        "ECONOMICS"
       ],
       "blocks": [
         {
@@ -202,7 +209,9 @@
       "views": 129,
       "createdAt": "05.02.2023",
       "type": [
-        "IT", "SCIENCE", "ECONOMICS"
+        "IT",
+        "SCIENCE",
+        "ECONOMICS"
       ],
       "blocks": [
         {
@@ -231,7 +240,9 @@
       "views": 456,
       "createdAt": "28.01.2023",
       "type": [
-        "IT", "SCIENCE", "ECONOMICS"
+        "IT",
+        "SCIENCE",
+        "ECONOMICS"
       ],
       "blocks": [
         {
@@ -260,7 +271,9 @@
       "views": 3126,
       "createdAt": "20.12.2022",
       "type": [
-        "IT", "SCIENCE", "ECONOMICS"
+        "IT",
+        "SCIENCE",
+        "ECONOMICS"
       ],
       "blocks": [
         {
@@ -289,7 +302,9 @@
       "views": 7864,
       "createdAt": "15.11.2022",
       "type": [
-        "IT", "SCIENCE", "ECONOMICS"
+        "IT",
+        "SCIENCE",
+        "ECONOMICS"
       ],
       "blocks": [
         {
@@ -318,7 +333,9 @@
       "views": 1456,
       "createdAt": "10.10.2022",
       "type": [
-        "IT", "SCIENCE", "ECONOMICS"
+        "IT",
+        "SCIENCE",
+        "ECONOMICS"
       ],
       "blocks": [
         {
@@ -353,7 +370,9 @@
       "views": 649,
       "createdAt": "05.09.2022",
       "type": [
-        "IT", "SCIENCE", "ECONOMICS"
+        "IT",
+        "SCIENCE",
+        "ECONOMICS"
       ],
       "blocks": [
         {
@@ -382,7 +401,9 @@
       "views": 3288,
       "createdAt": "01.08.2022",
       "type": [
-        "IT", "SCIENCE", "ECONOMICS"
+        "IT",
+        "SCIENCE",
+        "ECONOMICS"
       ],
       "blocks": [
         {
@@ -411,7 +432,9 @@
       "views": 5244,
       "createdAt": "25.07.2022",
       "type": [
-        "IT", "SCIENCE", "ECONOMICS"
+        "IT",
+        "SCIENCE",
+        "ECONOMICS"
       ],
       "blocks": [
         {
@@ -440,7 +463,9 @@
       "views": 1010,
       "createdAt": "20.06.2022",
       "type": [
-        "IT", "SCIENCE", "ECONOMICS"
+        "IT",
+        "SCIENCE",
+        "ECONOMICS"
       ],
       "blocks": [
         {
@@ -528,8 +553,8 @@
       "firstname": "John",
       "lastname": "Doe",
       "age": 6,
-      "currency": "EUR",
-      "country": "Kazakhstan",
+      "currency": "USD",
+      "country": "Armenia",
       "city": "Erevan",
       "username": "admin",
       "avatar": "https://img.freepik.com/free-photo/html-css-collage-concept-with-hacker_23-2150061984.jpg?w=1380&t=st=1686853323~exp=1686853923~hmac=2ea8add7a7f87e9cd928bd7e7b5237531d331d46c2ba610b3b41270dc77079c5"

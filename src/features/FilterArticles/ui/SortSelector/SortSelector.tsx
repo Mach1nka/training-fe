@@ -44,7 +44,7 @@ export const SortSelector: FC<Props> = memo(({
   return (
     <div className={classNames(cls.SortSelector, {}, [className])}>
       <Select
-        label={t('sort.label')}
+        placeholder={t('sort.label')}
         value={sort}
         options={sortFieldOptions}
         onChange={onChangeSort}

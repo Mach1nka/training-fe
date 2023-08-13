@@ -27,7 +27,8 @@ export const CurrencySelect: FC<Props> = memo(({
   return (
     <Select
       value={value}
-      label={t('currency')}
+      defaultValue={Currency.EUR}
+      placeholder={t('currency')}
       options={options}
       readonly={readonly}
       className={className}

@@ -1,24 +1,71 @@
-.Wrapper {
+.Listbox {
   display: flex;
+  align-items: center;
 }
 
 .label {
-  margin-right: 5px;
+  margin-right: 8px;
 }
 
 .select {
-  background-color: none;
-  outline: none;
-  color: var(--primary-color);
-  padding: 2px 10px 2px 2px;
-  border: 1px solid var(--primary-color);
+  position: relative;
 }
 
-.option {
-  color: var(--inverted-primary-color);
-  background-color: var(--inverted-bg-color);
+.button {
+  padding: 4px 32px;
+}
+
+.list {
+  position: absolute;
+  left: 0;
+  z-index: 100;
+  padding: 5px 0;
+  background-color: var(--select-bg);
+  border: 1px solid var(--primary-color);
+  border-radius: 8px;
+  list-style: none;
+
+  &.top {
+    bottom: 100%;
+    margin-bottom: 4px;
+  }
+
+  &.bottom {
+    margin-top: 4px;
+  }
+
+  &.right {
+    left: auto;
+    right: 0;
+  }
+}
+
+.item {
+  display: flex;
+  position: relative;
+  width: 100%;
+  align-items: center;
+  padding: 4px 32px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.checkIcon {
+  position: absolute;
+  left: 8px;
+  transform: scale(0.7);
 }
 
 .readonly {
   opacity: 0.7;
+}
+
+.active {
+  background-color: var(--inverted-primary-color);
+}
+
+.selected {
+  background-color: var(--inverted-primary-color);
 }

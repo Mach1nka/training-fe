@@ -1,4 +1,4 @@
-import { FC, memo } from 'react';
+import { FC, forwardRef, memo } from 'react';
 import { Link, LinkProps } from 'react-router-dom';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
@@ -22,7 +22,7 @@ interface Props extends LinkProps {
   underline?: AppLinkUnderline;
 }
 
-export const AppLink: FC<Props> = memo(({
+export const AppLinkComponent: FC<Props> = ({
   children,
   className,
   theme = AppLinkTheme.PRIMARY,
@@ -32,4 +32,23 @@ export const AppLink: FC<Props> = memo(({
   <Link className={classNames(cls.AppLink, {}, [className, cls[theme], cls[underline]])} {...props}>
     {children}
   </Link>
+);
+
+export const AppLinkForwardedRefComponent = forwardRef<HTMLAnchorElement, Props>(({
+  children,
+  className,
+  theme = AppLinkTheme.PRIMARY,
+  underline = AppLinkUnderline.ALWAYS,
+  ...props
+}, ref) => (
+  <Link
+    ref={ref}
+    className={classNames(cls.AppLink, {}, [className, cls[theme], cls[underline]])}
+    {...props}
+  >
+    {children}
+  </Link>
 ));
+
+export const AppLink = memo(AppLinkComponent);
+export const AppLinkForwardedRef = memo(AppLinkForwardedRefComponent);

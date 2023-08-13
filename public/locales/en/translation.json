@@ -23,7 +23,7 @@
     "password": "Enter password"
   },
   "header": {
-    "createArticle": "Create New Article",
+    "createArticle": "Create Article",
     "login": "Login",
     "logout": "Logout"
   },
