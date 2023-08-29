@@ -41,6 +41,7 @@ const initialReducers: ReducersList = {
 
 interface Props {
   id: string;
+  dataTestId?: string;
 }
 
 export const EditableProfileCard: FC<Props> = memo(({ id }) => {
@@ -58,6 +59,7 @@ export const EditableProfileCard: FC<Props> = memo(({ id }) => {
         key={error}
         theme={TextTheme.ERROR}
         text={validateErrorMapper(t)[error]}
+        dataTestId="EditableProfileCardError"
       />
     ))
   ), [validateErrors]);
@@ -114,6 +116,7 @@ export const EditableProfileCard: FC<Props> = memo(({ id }) => {
         isLoading={isLoading}
         error={error}
         readonly={readonly}
+        dataTestId="ProfileCard"
         onChangeFirstname={onChangeFirstname}
         onChangeLastname={onChangeLastname}
         onChangeAge={onChangeAge}

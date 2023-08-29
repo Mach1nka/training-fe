@@ -1,5 +1,5 @@
 export const thunkMiddleware = (asyncThunk: () => void) => {
-  if (PROJECT !== 'storybook') {
+  if (PROJECT !== 'storybook' && PROJECT !== 'jest') {
     asyncThunk();
   }
 };

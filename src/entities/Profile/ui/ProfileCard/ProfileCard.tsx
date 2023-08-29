@@ -19,6 +19,7 @@ interface Props {
   className?: string;
   data?: Profile;
   error?: string;
+  dataTestId?: string;
   onChangeFirstname: (value: string) => void;
   onChangeLastname: (value: string) => void;
   onChangeCity: (value: string) => void;
@@ -35,6 +36,7 @@ export const ProfileCard: FC<Props> = memo(({
   isLoading,
   error,
   readonly,
+  dataTestId = '',
   onChangeFirstname,
   onChangeLastname,
   onChangeCity,
@@ -91,46 +93,54 @@ export const ProfileCard: FC<Props> = memo(({
         placeholder={t('firstname')}
         readonly={readonly}
         onChange={onChangeFirstname}
+        data-testid={`${dataTestId}.firstname`}
       />
       <Input
         value={data?.lastname}
         placeholder={t('lastname')}
         readonly={readonly}
         onChange={onChangeLastname}
+        data-testid={`${dataTestId}.lastname`}
       />
       <Input
         value={data?.age}
         placeholder={t('age')}
         readonly={readonly}
         onChange={onChangeAge}
+        data-testid={`${dataTestId}.age`}
       />
       <Input
         value={data?.city}
         placeholder={t('city')}
         readonly={readonly}
         onChange={onChangeCity}
+        data-testid={`${dataTestId}.city`}
       />
       <Input
         value={data?.username}
         placeholder={t('username')}
         readonly={readonly}
         onChange={onChangeUsername}
+        data-testid={`${dataTestId}.username`}
       />
       <Input
         value={data?.avatar}
         placeholder={t('avatar')}
         readonly={readonly}
         onChange={onChangeAvatar}
+        data-testid={`${dataTestId}.avatar`}
       />
       <CurrencySelect
         value={data?.currency}
         readonly={readonly}
         onChange={onChangeCurrency}
+        data-testid={`${dataTestId}.currency`}
       />
       <CountrySelect
         value={data?.country}
         readonly={readonly}
         onChange={onChangeCountry}
+        data-testid={`${dataTestId}.country`}
       />
     </Flex>
   );

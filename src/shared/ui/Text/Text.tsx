@@ -37,17 +37,29 @@ interface Props {
   theme?: TextTheme;
   align?: TextAlign;
   size?: TextSize;
+  dataTestId?: string;
 }
 
 export const Text: FC<Props> = memo(({
-  className, title, text, size = TextSize.MEDIUM, theme = TextTheme.PRIMARY, align = TextAlign.LEFT,
+  className,
+  title,
+  text,
+  size = TextSize.MEDIUM,
+  theme = TextTheme.PRIMARY,
+  align = TextAlign.LEFT,
+  dataTestId = '',
 }) => {
-  const HeaderTag = mapSizeToHeaderTag[size];
+  const HeadingTag = mapSizeToHeaderTag[size];
 
   return (
     <div className={classNames(cls.Text, {}, [className, cls[theme], cls[align], cls[size]])}>
-      {title ? <HeaderTag className={cls.title}>{title}</HeaderTag> : null}
-      {text ? <p className={cls.text}>{text}</p> : null}
+      {title
+        ? (
+          <HeadingTag data-testid={`${dataTestId}.heading`} className={cls.title}>
+            {title}
+          </HeadingTag>
+        ) : null}
+      {text ? <p data-testid={`${dataTestId}.paragraph`} className={cls.text}>{text}</p> : null}
     </div>
   );
 });

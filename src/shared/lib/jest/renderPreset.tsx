@@ -7,18 +7,20 @@ import { DeepPartial } from '@reduxjs/toolkit';
 import i18nForTests from '@/shared/config/i18n/i18nForTests';
 import { StoreProvider } from '@/app/providers/StoreProvider';
 import { StateSchema } from '@/shared/config/redux/types';
+import { ReducersList } from '@/shared/hook/useDynamicReducerLoad';
 
 export interface Options {
   route?: string;
   initialState?: DeepPartial<StateSchema>;
+  asyncReducers?: ReducersList;
 }
 
 export const renderPreset = (
   component: ReactNode,
-  { route = '/', initialState }: Options = {},
+  { route = '/', initialState, asyncReducers }: Options = {},
 ) => {
   render(
-    <StoreProvider initialState={initialState as StateSchema}>
+    <StoreProvider initialState={initialState as StateSchema} asyncReducers={asyncReducers}>
       <MemoryRouter initialEntries={[route]}>
         <I18nextProvider i18n={i18nForTests}>
           {component}
