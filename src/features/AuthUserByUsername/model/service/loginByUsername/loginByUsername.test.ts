@@ -1,5 +1,5 @@
 import { TestAsyncThunk } from '@/shared/lib/jest/testAsyncThunk';
-import { userActions } from '@/entities/User';
+import { UserRole, userActions } from '@/entities/User';
 
 import { loginByUsername } from './loginByUsername';
 
@@ -8,7 +8,7 @@ describe('loginByUsername thunk', () => {
 
   test('success', async () => {
     const thunk = new TestAsyncThunk(loginByUsername);
-    const userData = { username: 'guest', id: '1' };
+    const userData = { username: 'guest', id: '1', role: [UserRole.ADMIN] };
     thunk.api.post.mockResolvedValue(Promise.resolve({ data: userData }));
     const result = await thunk.callThunk(thunkArg);
 

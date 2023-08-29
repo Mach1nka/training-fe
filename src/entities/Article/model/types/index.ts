@@ -50,7 +50,7 @@ export type ArticleBlock = ArticleTextBlock | ArticleCodeBlock | ArticleImageBlo
 
 export interface Article {
   id: string;
-  user: User;
+  user: Omit<User, 'role'>;
   title: string;
   subtitle: string;
   img: string;

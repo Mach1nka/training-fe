@@ -4,6 +4,7 @@ import { StateSchema } from '@/shared/config/redux/types';
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
 import { ValidateProfileError } from '@/entities/Profile';
+import { UserRole } from '@/entities/User';
 
 import {
   getProfileData,
@@ -20,6 +21,7 @@ const state: DeepPartial<StateSchema> = {
     authData: {
       id: '2',
       username: 'user',
+      role: [UserRole.ADMIN],
     },
   },
   profile: {

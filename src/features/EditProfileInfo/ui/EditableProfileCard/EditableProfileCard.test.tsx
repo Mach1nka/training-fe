@@ -8,6 +8,7 @@ import { Profile } from '@/entities/Profile';
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
 import { api } from '@/shared/api/api';
+import { UserRole } from '@/entities/User';
 
 import { profileReducer } from '../../model/slice/profileSlice';
 import { EditableProfileCard } from './EditableProfileCard';
@@ -38,6 +39,7 @@ describe('EditableProfileCard', () => {
           authData: {
             id: '1',
             username: '',
+            role: [UserRole.ADMIN],
           },
         },
       },

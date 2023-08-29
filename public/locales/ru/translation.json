@@ -7,6 +7,7 @@
     "shortLang": "Ru"
   },
   "pageNotFound": "Страница не найдена",
+  "forbiddenPage": "У вас нет доступа",
   "errorBoundary": {
     "title": "Произошла ошибка",
     "button": "Перезагрузить страницу"
@@ -23,6 +24,7 @@
     "password": "Введите пароль"
   },
   "header": {
+    "adminPanel": "Панель Администратора",
     "createArticle": "Создать статью",
     "login": "Войти",
     "logout": "Выйти"

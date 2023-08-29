@@ -8,7 +8,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button, ButtonForwardedRef, ButtonTheme } from '@/shared/ui/Button/Button';
 import { LoginModal } from '@/features/AuthUserByUsername';
 import { Text, TextTheme } from '@/shared/ui/Text/Text';
-import { getUserAuthData, userActions } from '@/entities/User';
+import { getUserAuthData, isUserAdmin, userActions } from '@/entities/User';
 import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 import { useAppDispatch } from '@/shared/hook/useAppDispatch';
 import { DropdownItem, Menu } from '@/shared/ui/Menu/Menu';
@@ -25,6 +25,7 @@ interface Props {
 export const Navbar: FC<Props> = memo(({ className }) => {
   const { t } = useTranslation();
   const authData = useSelector(getUserAuthData);
+  const isAdmin = useSelector(isUserAdmin);
   const dispatch = useAppDispatch();
   const [isOpenModal, setIsOpenModal] = useState(false);
 
@@ -41,6 +42,10 @@ export const Navbar: FC<Props> = memo(({ className }) => {
   }, []);
 
   const menuOptions = useMemo<DropdownItem[]>(() => ([
+    ...(isAdmin ? [{
+      content: t('header.adminPanel'),
+      href: RoutePath.adminPanel,
+    }] : []),
     {
       content: t('header.createArticle'),
       href: RoutePath.articleCreate,
@@ -49,7 +54,7 @@ export const Navbar: FC<Props> = memo(({ className }) => {
       content: t('header.logout'),
       onClick: onLogout,
     },
-  ]), [onLogout]);
+  ]), [isAdmin, onLogout]);
 
   if (authData) {
     return (
