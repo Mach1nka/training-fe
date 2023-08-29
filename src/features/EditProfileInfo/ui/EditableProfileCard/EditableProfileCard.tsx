@@ -1,13 +1,16 @@
 import {
-  FC, memo, useCallback, useMemo,
+  FC, memo, useCallback, useEffect, useMemo,
 } from 'react';
 import { useSelector } from 'react-redux';
 import { TFunction, useTranslation } from 'react-i18next';
 
 import { ProfileCard, ValidateProfileError } from '@/entities/Profile';
-import { useAppDispatch } from '@/shared/hook/useAppDispatch';
 import { Currency } from '@/entities/Currency';
 import { Country } from '@/entities/Country';
+import { ReducersList, useDynamicReducerLoad } from '@/shared/hook/useDynamicReducerLoad';
+import { useAppDispatch } from '@/shared/hook/useAppDispatch';
+import { thunkMiddleware } from '@/shared/lib/redux/thunkMiddleware';
+import { Text, TextTheme } from '@/shared/ui/Text/Text';
 
 import {
   getProfileForm,
@@ -16,8 +19,10 @@ import {
   getProfileReadonly,
   getProfileValidateError,
 } from '../../model/selector/profileSelector';
-import { profileActions } from '../../model/slice/profileSlice';
-import { Text, TextTheme } from '@/shared/ui/Text/Text';
+import { profileActions, profileReducer } from '../../model/slice/profileSlice';
+import { fetchProfileData } from '../../model/service/fetchProfileData/fetchProfileData';
+import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
+import cls from './EditableProfileCard.module.scss';
 
 const validateErrorMapper = (t: TFunction) => ({
   [ValidateProfileError.INCORRECT_FIRSTNAME]: t('validateErrors.firstname'),
@@ -30,7 +35,15 @@ const validateErrorMapper = (t: TFunction) => ({
   [ValidateProfileError.NO_DATA]: t('validateErrors.noData'),
 });
 
-export const EditableProfileCard: FC = memo(() => {
+const initialReducers: ReducersList = {
+  profile: profileReducer,
+};
+
+interface Props {
+  id: string;
+}
+
+export const EditableProfileCard: FC<Props> = memo(({ id }) => {
   const dispatch = useAppDispatch();
   const { t } = useTranslation('profile');
   const formData = useSelector(getProfileForm);
@@ -84,8 +97,17 @@ export const EditableProfileCard: FC = memo(() => {
     dispatch(profileActions.updateProfile({ country }));
   }, []);
 
+  useDynamicReducerLoad(initialReducers);
+
+  useEffect(() => {
+    if (id) {
+      thunkMiddleware(() => dispatch(fetchProfileData(id)));
+    }
+  }, [id]);
+
   return (
     <>
+      <EditableProfileCardHeader className={cls.header} />
       {errors}
       <ProfileCard
         data={formData}

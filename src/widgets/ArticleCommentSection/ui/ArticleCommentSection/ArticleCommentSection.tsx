@@ -1,29 +1,17 @@
 import {
-  FC, memo, useCallback, useEffect,
+  FC, memo, useCallback,
 } from 'react';
 import { useSelector } from 'react-redux';
 
 import { CommentList } from '@/entities/Comment';
-import { useAppDispatch } from '@/shared/hook/useAppDispatch';
-import { ReducersList, useDynamicReducerLoad } from '@/shared/hook/useDynamicReducerLoad';
-import { thunkMiddleware } from '@/shared/lib/redux/thunkMiddleware';
 import { AddCommentForm } from '@/features/AddCommentForm';
+import { getUserId } from '@/entities/User';
 
-import { articleCommentsReducer } from '../../model/slice/articleCommentSlice';
 import {
-  getArticleCommentsData,
-  getArticleCommentsError,
-  getArticleCommentsLoading,
-} from '../../model/selector/articleCommentSelector';
-import {
-  fetchCommentsByArticleId,
-} from '../../model/service/fetchCommentsByArticleId/fetchCommentsByArticleId';
-import { addArticleComment } from '../../model/service/addArticleComment/addArticleComment';
+  useFetchArticleCommentsQuery,
+  useAddArticleCommentMutation,
+} from '../../api/articleCommentsApi';
 import cls from './ArticleCommentSection.module.scss';
-
-const initialReducers: ReducersList = {
-  articleComments: articleCommentsReducer,
-};
 
 interface Props {
   className?: string;
@@ -31,25 +19,20 @@ interface Props {
 }
 
 const ArticleCommentSection: FC<Props> = memo(({ articleId }) => {
-  const dispatch = useAppDispatch();
-  const comments = useSelector(getArticleCommentsData);
-  const isLoading = useSelector(getArticleCommentsLoading);
-  const error = useSelector(getArticleCommentsError);
+  const userId = useSelector(getUserId);
+  const { isLoading, data: comments } = useFetchArticleCommentsQuery(articleId);
+  const [addArticleComment] = useAddArticleCommentMutation();
 
   const onCommentSubmit = useCallback((text: string) => {
-    dispatch(addArticleComment(text));
-  }, []);
-
-  useDynamicReducerLoad(initialReducers);
-
-  useEffect(() => {
-    thunkMiddleware(() => dispatch(fetchCommentsByArticleId(articleId)));
-  }, [articleId]);
+    if (userId && articleId && text) {
+      addArticleComment({ userId, articleId, text });
+    }
+  }, [addArticleComment, articleId, userId]);
 
   return (
     <>
       <AddCommentForm className={cls.commentForm} onCommentSubmit={onCommentSubmit} />
-      <CommentList comments={comments} isLoading={isLoading} />
+      <CommentList comments={comments || []} isLoading={isLoading} />
     </>
   );
 });

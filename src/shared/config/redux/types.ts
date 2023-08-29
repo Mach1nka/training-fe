@@ -5,22 +5,20 @@ import { UserSchema } from '@/entities/User';
 import { LoginSchema } from '@/features/AuthUserByUsername';
 import { ProfileSchema } from '@/entities/Profile';
 import { ArticleDetailsSchema } from '@/entities/Article';
-import { ArticleCommentsSchema } from '@/widgets/ArticleCommentSection';
 import { AddCommentFormSchema } from '@/features/AddCommentForm';
 import { WallOfArticlesSchema } from '@/widgets/WallOfArticles';
 import { UIConditionSchema } from '@/features/UICondition';
-import { ArticleRecommendationsSchema } from '@/widgets/ArticleRecommendationsSection';
 
 import { createReducerManager } from './reducerManager';
+import { rtkApi } from '@/shared/api/rtkApi';
 
 export interface StateSchema {
   user: UserSchema;
   uiCondition: UIConditionSchema;
+  [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>;
   loginForm?: LoginSchema;
   profile?: ProfileSchema;
   articleDetails?: ArticleDetailsSchema;
-  articleComments?: ArticleCommentsSchema;
-  articleRecommendations?: ArticleRecommendationsSchema;
   addCommentForm?: AddCommentFormSchema;
   wallOfArticles?: WallOfArticlesSchema;
 }

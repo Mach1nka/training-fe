@@ -4,20 +4,21 @@ import { useSelector } from 'react-redux';
 
 import { Text } from '@/shared/ui/Text/Text';
 import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
-import {
-  getProfileReadonly,
-  updateProfileData,
-  profileActions,
-  getProfileChangePermission,
-} from '@/features/EditProfileInfo';
 import { useAppDispatch } from '@/shared/hook/useAppDispatch';
 import { Flex } from '@/shared/ui/Flex/Flex';
+
+import { profileActions } from '../../model/slice/profileSlice';
+import { updateProfileData } from '../../model/service/updateProfileData/updateProfileData';
+import {
+  getProfileReadonly,
+  getProfileChangePermission,
+} from '../../model/selector/profileSelector';
 
 interface Props {
   className?: string;
 }
 
-export const ProfilePageHeader: FC<Props> = memo(({ className }) => {
+export const EditableProfileCardHeader: FC<Props> = memo(({ className }) => {
   const { t } = useTranslation('profile');
   const dispatch = useAppDispatch();
   const readonly = useSelector(getProfileReadonly);

@@ -13,7 +13,8 @@
   "country": "Country",
   "error": {
     "title": "An error happened during profile loading",
-    "text": "Try to reload page"
+    "text": "Try to reload page",
+    "notFound": "Profile doesn't exist"
   },
   "validateErrors": {
     "firstname": "Firstname is required",

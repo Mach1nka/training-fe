@@ -1,35 +1,22 @@
-import { FC, useEffect } from 'react';
+import { FC } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 
-import { EditableProfileCard, profileReducer, fetchProfileData } from '@/features/EditProfileInfo';
-import { ReducersList, useDynamicReducerLoad } from '@/shared/hook/useDynamicReducerLoad';
-import { useAppDispatch } from '@/shared/hook/useAppDispatch';
-import { thunkMiddleware } from '@/shared/lib/redux/thunkMiddleware';
+import { EditableProfileCard } from '@/features/EditProfileInfo';
 import { Page } from '@/shared/ui/Page/Page';
-
-import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
-import cls from './ProfilePage.module.scss';
-
-const initialReducers: ReducersList = {
-  profile: profileReducer,
-};
+import { Text, TextTheme } from '@/shared/ui/Text/Text';
 
 const ProfilePage: FC = () => {
-  const dispatch = useAppDispatch();
+  const { t } = useTranslation('profile');
   const { id } = useParams();
 
-  useDynamicReducerLoad(initialReducers);
-
-  useEffect(() => {
-    if (id) {
-      thunkMiddleware(() => dispatch(fetchProfileData(id)));
-    }
-  }, []);
+  if (!id) {
+    return <Text theme={TextTheme.ERROR} title={t('error.notFound')} />;
+  }
 
   return (
     <Page>
-      <ProfilePageHeader className={cls.header} />
-      <EditableProfileCard />
+      <EditableProfileCard id={id} />
     </Page>
   );
 };

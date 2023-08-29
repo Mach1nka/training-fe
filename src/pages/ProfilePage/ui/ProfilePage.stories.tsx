@@ -2,11 +2,11 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { Theme } from '@/app/providers/ThemeProvider';
 import { routerDecorator, storeDecorator, themeDecorator } from '@/shared/lib/storybook/decorators';
-import { profileReducer } from '@/features/EditProfileInfo';
 import { ReducersList } from '@/shared/hook/useDynamicReducerLoad';
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
 
+import { profileReducer } from '../../../features/EditProfileInfo/model/slice/profileSlice';
 import ProfilePage from './ProfilePage';
 
 const initialReducers: ReducersList = {

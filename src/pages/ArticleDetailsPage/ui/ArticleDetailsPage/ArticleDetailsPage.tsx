@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 
 import { ArticleDetails } from '@/entities/Article';
-import { Text } from '@/shared/ui/Text/Text';
+import { Text, TextTheme } from '@/shared/ui/Text/Text';
 import { ArticleRecommendationsSection } from '@/widgets/ArticleRecommendationsSection';
 import { ArticleCommentSection } from '@/widgets/ArticleCommentSection';
 import { Loader } from '@/shared/ui/Loader/Loader';
@@ -21,7 +21,7 @@ const ArticleDetailsPage: FC = memo(() => {
   const { id } = useParams();
 
   if (!id) {
-    return t('articleNotFound');
+    return <Text theme={TextTheme.ERROR} title={t('articleNotFound')} />;
   }
 
   return (
