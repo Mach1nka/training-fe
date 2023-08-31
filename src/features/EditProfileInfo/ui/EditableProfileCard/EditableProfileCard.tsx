@@ -2,7 +2,8 @@ import {
   FC, memo, useCallback, useEffect, useMemo,
 } from 'react';
 import { useSelector } from 'react-redux';
-import { TFunction, useTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
+import type { TFunction } from 'i18next';
 
 import { ProfileCard, ValidateProfileError } from '@/entities/Profile';
 import { Currency } from '@/entities/Currency';

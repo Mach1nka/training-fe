@@ -1,4 +1,4 @@
-import { FC, CSSProperties } from 'react';
+import { FC, CSSProperties, PropsWithChildren } from 'react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
 
@@ -16,7 +16,7 @@ type Direction = Extract<CSSProperties['flexDirection'], 'row' | 'column'>;
 type Wrap = Extract<CSSProperties['flexWrap'], 'wrap' | 'nowrap'>;
 type Gap = 4 | 8 | 12 | 16 | 20 | 32;
 
-interface Props {
+interface Props extends PropsWithChildren {
   className?: string;
   justify?: Justify;
   align?: Align;

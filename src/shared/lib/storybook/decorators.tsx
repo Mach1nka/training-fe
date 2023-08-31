@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import { Story } from '@storybook/react';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
 
@@ -36,6 +37,12 @@ export const storeDecorator = (
   <StoreProvider initialState={initialState} asyncReducers={asyncReducers}>
     <Story />
   </StoreProvider>
+);
+
+export const suspenseDecorator = () => (Story: Story) => (
+  <Suspense fallback={null}>
+    <Story />
+  </Suspense>
 );
 
 // TODO: integrate storybook-react-i18next after updating SB till v7

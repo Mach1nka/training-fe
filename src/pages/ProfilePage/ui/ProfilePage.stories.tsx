@@ -25,7 +25,7 @@ const state = {
 export default {
   title: 'pages/ProfilePage',
   component: ProfilePage,
-  decorators: [routerDecorator()],
+  decorators: [routerDecorator(['/profile/1'], '/profile/:id')],
 } as ComponentMeta<typeof ProfilePage>;
 
 const Template: ComponentStory<typeof ProfilePage> = (args) => <ProfilePage {...args} />;

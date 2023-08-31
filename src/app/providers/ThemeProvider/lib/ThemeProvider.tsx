@@ -1,5 +1,5 @@
 import {
-  FC, useEffect, useMemo, useState,
+  FC, useEffect, useMemo, useState, PropsWithChildren,
 } from 'react';
 
 import { LOCAL_STORAGE_THEME_KEY } from '@/shared/constant/localstorage';
@@ -8,7 +8,7 @@ import { Theme, ThemeContext } from './ThemeContext';
 
 const defaultTheme = localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme || Theme.LIGHT;
 
-interface Props {
+interface Props extends PropsWithChildren {
   initialTheme?: Theme
 }
 

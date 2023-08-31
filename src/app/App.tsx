@@ -18,7 +18,7 @@ const App: FC = () => {
 
   return (
     <div className={classNames('app')}>
-      <Suspense fallback="">
+      <Suspense fallback={null}>
         <Navbar />
         <div className="content-page">
           <Sidebar />

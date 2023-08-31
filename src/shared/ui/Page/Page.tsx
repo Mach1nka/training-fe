@@ -1,5 +1,5 @@
 import {
-  FC, MutableRefObject, UIEvent, useEffect, useRef,
+  FC, MutableRefObject, PropsWithChildren, UIEvent, useEffect, useRef,
 } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
@@ -12,7 +12,7 @@ import { getScrollPositionByPath, uiConditionActions } from '@/features/UICondit
 
 import cls from './Page.module.scss';
 
-interface Props {
+interface Props extends PropsWithChildren {
   className?: string;
   onScrollEnd?: () => void;
 }
