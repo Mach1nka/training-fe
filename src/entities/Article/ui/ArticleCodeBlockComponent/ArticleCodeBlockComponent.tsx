@@ -1,8 +1,9 @@
-import { FC, memo } from 'react';
+import type { FC } from 'react';
+import { memo } from 'react';
 
 import { Code } from '@/shared/ui/Code/Code';
 
-import { ArticleCodeBlock } from '../../model/types';
+import type { ArticleCodeBlock } from '../../model/types';
 
 interface Props {
   className?: string;

@@ -1,8 +1,8 @@
-import { DeepPartial } from '@reduxjs/toolkit';
+import type { DeepPartial } from '@reduxjs/toolkit';
 
 import { MockDefaultState } from '@/shared/lib/jest/mockDefaultState';
+import type { Article } from '@/entities/Article';
 import {
-  Article,
   ArticleSortedField,
   ArticleType,
   ArticleView,
@@ -10,7 +10,7 @@ import {
 
 import { wallOfArticlesActions, wallOfArticlesReducer } from './wallOfArticlesSlice';
 import { fetchArticles } from '../service/fetchArticles/fetchArticles';
-import { WallOfArticlesSchema } from '../types';
+import type { WallOfArticlesSchema } from '../types';
 
 describe('wallOfArticlesSlice extra reducers', () => {
   const articles: Article[] = [

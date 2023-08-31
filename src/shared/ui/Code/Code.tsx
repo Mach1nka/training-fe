@@ -1,4 +1,5 @@
-import { FC, memo, useCallback } from 'react';
+import type { FC } from 'react';
+import { memo, useCallback } from 'react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button, ButtonTheme } from '@/shared/ui/Button/Button';

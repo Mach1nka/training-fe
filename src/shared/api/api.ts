@@ -1,4 +1,5 @@
-import axios, { AxiosRequestConfig } from 'axios';
+import type { AxiosRequestConfig } from 'axios';
+import axios from 'axios';
 
 import { LOCAL_STORAGE_USER_KEY } from '../constant/localstorage';
 

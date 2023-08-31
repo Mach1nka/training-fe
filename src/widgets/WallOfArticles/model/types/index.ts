@@ -1,10 +1,10 @@
-import {
+import type {
   Article,
   ArticleSortedField,
   ArticleType,
   ArticleView,
 } from '@/entities/Article';
-import { SortingOrder } from '@/shared/types/common';
+import type { SortingOrder } from '@/shared/types/common';
 
 export interface WallOfArticlesSchema {
   data: Article[];

@@ -1,9 +1,9 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import DefaultImage from '@/shared/assets/tests/storybookPlug.jpg';
 
 import { ArticleList } from './ArticleList';
-import { ArticleType, ArticleView } from '../../model/types';
+import { ArticleType, ArticleView } from '../../model/const';
 import { routerDecorator } from '@/shared/lib/storybook/decorators';
 
 export default {

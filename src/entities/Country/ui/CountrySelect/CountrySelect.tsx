@@ -1,9 +1,11 @@
-import { FC, memo, useCallback } from 'react';
+import type { FC } from 'react';
+import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Select, SelectOption } from '@/shared/ui/Select/Select';
+import type { SelectOption } from '@/shared/ui/Select/Select';
+import { Select } from '@/shared/ui/Select/Select';
 
-import { Country } from '../../model/types';
+import { Country } from '../../model/const';
 
 interface Props {
   className?: string;

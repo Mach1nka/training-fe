@@ -1,4 +1,4 @@
-import { StateSchema } from '@/shared/config/redux/types';
+import type { StateSchema } from '@/shared/config/redux/types';
 
 export const getLoginUsername = (state: StateSchema) => state.loginForm?.username ?? '';
 

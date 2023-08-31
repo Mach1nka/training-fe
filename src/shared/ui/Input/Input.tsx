@@ -1,5 +1,6 @@
+import type { InputHTMLAttributes, ChangeEvent, FC } from 'react';
 import {
-  memo, InputHTMLAttributes, ChangeEvent, FC,
+  memo,
 } from 'react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';

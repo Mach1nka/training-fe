@@ -1,14 +1,16 @@
+import type { FC } from 'react';
 import {
-  FC, memo, useCallback, useEffect, useMemo,
+  memo, useCallback, useEffect, useMemo,
 } from 'react';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import type { TFunction } from 'i18next';
 
 import { ProfileCard, ValidateProfileError } from '@/entities/Profile';
-import { Currency } from '@/entities/Currency';
-import { Country } from '@/entities/Country';
-import { ReducersList, useDynamicReducerLoad } from '@/shared/hook/useDynamicReducerLoad';
+import type { Currency } from '@/entities/Currency';
+import type { Country } from '@/entities/Country';
+import type { ReducersList } from '@/shared/hook/useDynamicReducerLoad';
+import { useDynamicReducerLoad } from '@/shared/hook/useDynamicReducerLoad';
 import { useAppDispatch } from '@/shared/hook/useAppDispatch';
 import { thunkMiddleware } from '@/shared/lib/redux/thunkMiddleware';
 import { Text, TextTheme } from '@/shared/ui/Text/Text';

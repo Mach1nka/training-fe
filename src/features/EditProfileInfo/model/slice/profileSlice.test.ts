@@ -1,5 +1,6 @@
 import { profileReducer, profileActions } from './profileSlice';
-import { Profile, ProfileSchema, ValidateProfileError } from '@/entities/Profile';
+import type { Profile, ProfileSchema } from '@/entities/Profile';
+import { ValidateProfileError } from '@/entities/Profile';
 import { updateProfileData } from '../service/updateProfileData/updateProfileData';
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';

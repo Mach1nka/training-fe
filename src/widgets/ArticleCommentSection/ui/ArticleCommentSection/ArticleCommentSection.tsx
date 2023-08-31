@@ -1,6 +1,5 @@
-import {
-  FC, memo, useCallback,
-} from 'react';
+import type { FC } from 'react';
+import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 
 import { CommentList } from '@/entities/Comment';

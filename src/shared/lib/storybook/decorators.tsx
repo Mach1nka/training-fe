@@ -1,12 +1,13 @@
 import { Suspense } from 'react';
-import { Story } from '@storybook/react';
+import type { Story } from '@storybook/react';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
 
-import { Theme, ThemeProvider } from '@/app/providers/ThemeProvider';
+import type { Theme } from '@/app/providers/ThemeProvider';
+import { ThemeProvider } from '@/app/providers/ThemeProvider';
 import { StoreProvider } from '@/app/providers/StoreProvider';
-import { ReducersList } from '@/shared/hook/useDynamicReducerLoad';
+import type { ReducersList } from '@/shared/hook/useDynamicReducerLoad';
 
-import { StateSchema } from '../../config/redux/types';
+import type { StateSchema } from '../../config/redux/types';
 
 import '@/app/styles/index.scss';
 

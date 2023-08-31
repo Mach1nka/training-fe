@@ -1,6 +1,7 @@
-import {
-  FC, MutableRefObject, PropsWithChildren, UIEvent, useEffect, useRef,
+import type {
+  FC, MutableRefObject, PropsWithChildren, UIEvent,
 } from 'react';
+import { useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 

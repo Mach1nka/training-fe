@@ -1,4 +1,5 @@
-import { FC, memo } from 'react';
+import type { FC } from 'react';
+import { memo } from 'react';
 
 import { useTheme, Theme } from '@/app/providers/ThemeProvider';
 import LightIcon from '@/shared/assets/icons/theme-light.svg';

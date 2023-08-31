@@ -1,6 +1,5 @@
-import {
-  FC, Suspense, memo,
-} from 'react';
+import type { FC } from 'react';
+import { Suspense, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 

@@ -1,13 +1,13 @@
-import {
-  FC, memo, useCallback, FormEvent,
-} from 'react';
+import type { FC, FormEvent } from 'react';
+import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Input } from '@/shared/ui/Input/Input';
 import { Button } from '@/shared/ui/Button/Button';
-import { ReducersList, useDynamicReducerLoad } from '@/shared/hook/useDynamicReducerLoad';
+import type { ReducersList } from '@/shared/hook/useDynamicReducerLoad';
+import { useDynamicReducerLoad } from '@/shared/hook/useDynamicReducerLoad';
 import { useAppDispatch } from '@/shared/hook/useAppDispatch';
 
 import {

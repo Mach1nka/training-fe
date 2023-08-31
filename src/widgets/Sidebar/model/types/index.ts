@@ -1,7 +1,7 @@
-import { VFC, SVGProps } from 'react';
+import type { ReactElement, SVGProps } from 'react';
 
 export interface SidebarItemType {
   path: string;
   text: string;
-  Icon: VFC<SVGProps<SVGSVGElement>>;
+  Icon: (props: SVGProps<SVGSVGElement>) => ReactElement ;
 }

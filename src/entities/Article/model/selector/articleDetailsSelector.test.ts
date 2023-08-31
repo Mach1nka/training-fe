@@ -1,4 +1,4 @@
-import { StateSchema } from '@/shared/config/redux/types';
+import type { StateSchema } from '@/shared/config/redux/types';
 
 import {
   getArticleDetailsData,
@@ -6,7 +6,7 @@ import {
   getArticleDetailsIsLoading,
   getCanBeArticleEdited,
 } from './articleDetailsSelector';
-import { Article } from '../types';
+import type { Article } from '../types';
 
 const article: Article = {
   id: '1',

@@ -1,10 +1,13 @@
-import { UIConditionSchema } from './model/types';
+import type { UIConditionSchema } from './model/types';
 import { uiConditionReducer, uiConditionActions } from './model/slice/uiConditionSlice';
 import { getScrollPositionByPath } from './model/selector/uiConditionSelector';
+
+export type {
+  UIConditionSchema,
+};
 
 export {
   getScrollPositionByPath,
   uiConditionReducer,
   uiConditionActions,
-  UIConditionSchema,
 };

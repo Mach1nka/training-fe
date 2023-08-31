@@ -1,16 +1,16 @@
-import { EnhancedStore } from '@reduxjs/toolkit';
-import { AxiosInstance } from 'axios';
+import type { EnhancedStore } from '@reduxjs/toolkit';
+import type { AxiosInstance } from 'axios';
 
-import { UserSchema } from '@/entities/User';
-import { LoginSchema } from '@/features/AuthUserByUsername';
-import { ProfileSchema } from '@/entities/Profile';
-import { ArticleDetailsSchema } from '@/entities/Article';
-import { AddCommentFormSchema } from '@/features/AddCommentForm';
-import { WallOfArticlesSchema } from '@/widgets/WallOfArticles';
-import { UIConditionSchema } from '@/features/UICondition';
+import type { UserSchema } from '@/entities/User';
+import type { LoginSchema } from '@/features/AuthUserByUsername';
+import type { ProfileSchema } from '@/entities/Profile';
+import type { ArticleDetailsSchema } from '@/entities/Article';
+import type { AddCommentFormSchema } from '@/features/AddCommentForm';
+import type { WallOfArticlesSchema } from '@/widgets/WallOfArticles';
+import type { UIConditionSchema } from '@/features/UICondition';
 
-import { createReducerManager } from './reducerManager';
-import { rtkApi } from '@/shared/api/rtkApi';
+import type { createReducerManager } from './reducerManager';
+import type { rtkApi } from '@/shared/api/rtkApi';
 
 export interface StateSchema {
   user: UserSchema;

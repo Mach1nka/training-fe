@@ -1,4 +1,4 @@
-import { UIConditionSchema } from '../types';
+import type { UIConditionSchema } from '../types';
 import { uiConditionReducer, uiConditionActions } from './uiConditionSlice';
 
 describe('profileSlice reducers', () => {

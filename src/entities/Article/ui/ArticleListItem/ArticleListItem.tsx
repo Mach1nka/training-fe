@@ -1,4 +1,5 @@
-import { HTMLAttributeAnchorTarget, FC, memo } from 'react';
+import type { HTMLAttributeAnchorTarget, FC } from 'react';
+import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
@@ -12,9 +13,8 @@ import { Avatar } from '@/shared/ui/Avatar/Avatar';
 import EyeIcon from '@/shared/assets/icons/eye.svg';
 import DefaultAvatar from '@/shared/assets/icons/avatar-default.png';
 
-import {
-  Article, ArticleBlockType, ArticleTextBlock, ArticleView,
-} from '../../model/types';
+import type { Article, ArticleTextBlock } from '../../model/types';
+import { ArticleBlockType, ArticleView } from '../../model/const';
 import cls from './ArticleListItem.module.scss';
 import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 

@@ -1,4 +1,4 @@
-import { Article } from '@/entities/Article';
+import type { Article } from '@/entities/Article';
 import { rtkApi } from '@/shared/api/rtkApi';
 
 const { useFetchArticleRecommendationsQuery } = rtkApi.injectEndpoints({

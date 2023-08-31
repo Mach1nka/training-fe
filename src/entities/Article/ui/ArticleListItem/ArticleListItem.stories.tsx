@@ -1,10 +1,10 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { routerDecorator } from '@/shared/lib/storybook/decorators';
 import DefaultImage from '@/shared/assets/tests/storybookPlug.jpg';
 
 import { ArticleListItem } from './ArticleListItem';
-import { ArticleType, ArticleView } from '../../model/types';
+import { ArticleType, ArticleView } from '../../model/const';
 
 export default {
   title: 'entities/ArticleListItem',

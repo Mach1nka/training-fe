@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';

@@ -1,10 +1,9 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { routerDecorator, storeDecorator } from '@/shared/lib/storybook/decorators';
-import {
-  Article, ArticleBlockType, ArticleType, ArticleView,
-} from '@/entities/Article/model/types';
-import { ReducersList } from '@/shared/hook/useDynamicReducerLoad';
+import type { Article } from '@/entities/Article';
+import { ArticleBlockType, ArticleType, ArticleView } from '@/entities/Article/model/const';
+import type { ReducersList } from '@/shared/hook/useDynamicReducerLoad';
 import { wallOfArticlesReducer } from '@/widgets/WallOfArticles/model/slice/wallOfArticlesSlice';
 import DefaultImage from '@/shared/assets/tests/storybookPlug.jpg';
 

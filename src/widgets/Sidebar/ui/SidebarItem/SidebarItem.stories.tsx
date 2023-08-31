@@ -1,10 +1,10 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { Theme } from '@/app/providers/ThemeProvider';
 import { routerDecorator, storeDecorator, themeDecorator } from '@/shared/lib/storybook/decorators';
 import MainIcon from '@/shared/assets/icons/main.svg';
 import { userReducer } from '@/entities/User';
-import { ReducersList } from '@/shared/hook/useDynamicReducerLoad';
+import type { ReducersList } from '@/shared/hook/useDynamicReducerLoad';
 import { SidebarItem } from './SidebarItem';
 
 const initialReducers: ReducersList = {

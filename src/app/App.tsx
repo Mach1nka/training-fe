@@ -1,4 +1,5 @@
-import { Suspense, FC, useEffect } from 'react';
+import type { FC } from 'react';
+import { Suspense, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
 import { classNames } from '@/shared/lib/classNames/classNames';

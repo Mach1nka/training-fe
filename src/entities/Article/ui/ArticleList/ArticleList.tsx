@@ -1,12 +1,13 @@
-import { FC, HTMLAttributeAnchorTarget, memo } from 'react';
+import type { FC, HTMLAttributeAnchorTarget } from 'react';
+import { memo } from 'react';
 
 import { Flex } from '@/shared/ui/Flex/Flex';
 import { classNames } from '@/shared/lib/classNames/classNames';
 
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
-import { Article, ArticleView } from '../../model/types';
-import cls from './ArticleList.module.scss';
+import type { Article } from '../../model/types';
+import { ArticleView } from '../../model/const';
 
 const getSkeletons = (view: ArticleView) => new Array(view === ArticleView.TILE ? 10 : 2)
   .fill(undefined)

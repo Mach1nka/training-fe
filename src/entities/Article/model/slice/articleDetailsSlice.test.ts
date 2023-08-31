@@ -1,7 +1,7 @@
-import { DeepPartial } from '@reduxjs/toolkit';
+import type { DeepPartial } from '@reduxjs/toolkit';
 
 import { articleDetailsReducer } from './articleDetailsSlice';
-import { Article, ArticleDetailsSchema } from '../types';
+import type { Article, ArticleDetailsSchema } from '../types';
 import { fetchArticleById } from '../service/fetchArticleById/fetchArticleById';
 
 describe('articleDetailsSlice extra reducers', () => {

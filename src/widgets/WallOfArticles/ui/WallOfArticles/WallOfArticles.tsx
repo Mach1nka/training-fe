@@ -1,21 +1,23 @@
-import {
-  FC, memo, useCallback, useEffect,
-} from 'react';
+import type { FC } from 'react';
+import { memo, useCallback, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { useSearchParams } from 'react-router-dom';
 
-import {
-  ArticleList,
+import type {
   ArticleSortedField,
   ArticleType,
   ArticleView,
 } from '@/entities/Article';
-import { ReducersList, useDynamicReducerLoad } from '@/shared/hook/useDynamicReducerLoad';
+import {
+  ArticleList,
+} from '@/entities/Article';
+import type { ReducersList } from '@/shared/hook/useDynamicReducerLoad';
+import { useDynamicReducerLoad } from '@/shared/hook/useDynamicReducerLoad';
 import { useAppDispatch } from '@/shared/hook/useAppDispatch';
 import { thunkMiddleware } from '@/shared/lib/redux/thunkMiddleware';
 import { Text, TextTheme } from '@/shared/ui/Text/Text';
-import { SortingOrder } from '@/shared/types/common';
+import type { SortingOrder } from '@/shared/types/common';
 import { useDebounce } from '@/shared/hook/useDebounce';
 import { ArticlesFiltrationSection } from '@/features/FilterArticles';
 

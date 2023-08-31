@@ -1,4 +1,4 @@
-import { StateSchema } from '@/shared/config/redux/types';
+import type { StateSchema } from '@/shared/config/redux/types';
 
 import { getUserAuthData, getUserId, getUserInitialized } from './userSelector';
 

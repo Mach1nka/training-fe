@@ -1,7 +1,8 @@
-import { DeepPartial } from '@reduxjs/toolkit';
+import type { DeepPartial } from '@reduxjs/toolkit';
 
 import { userReducer, userActions } from './userSlice';
-import { User, UserSchema, UserRole } from '../types';
+import { UserRole } from '../const';
+import type { User, UserSchema } from '../types';
 
 const user: User = { id: '1', username: 'guest', role: [UserRole.ADMIN] };
 

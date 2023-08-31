@@ -12,6 +12,7 @@ module.exports = {
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
+    project: 'tsconfig.json',
     ecmaFeatures: {
       jsx: true,
     },
@@ -64,6 +65,8 @@ module.exports = {
       ignoreComments: true,
     }],
     'implicit-arrow-linebreak': 'off',
+    "@typescript-eslint/consistent-type-exports": "error",
+    "@typescript-eslint/consistent-type-imports": "error",
     // NOTE: Accessability
     'jsx-a11y/click-events-have-key-events': 'off',
     'jsx-a11y/no-static-element-interactions': 'off',

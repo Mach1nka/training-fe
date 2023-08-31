@@ -1,6 +1,7 @@
-import { PayloadAction, createSlice } from '@reduxjs/toolkit';
+import type { PayloadAction } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 
-import { UIConditionSchema } from '../types';
+import type { UIConditionSchema } from '../types';
 
 const initialState: UIConditionSchema = {
   scroll: {},

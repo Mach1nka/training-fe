@@ -8,7 +8,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import CheckIcon from '@/shared/assets/icons/confirm.svg';
 import { Icon } from '@/shared/ui/Icon/Icon';
 import { ButtonForwardedRef } from '@/shared/ui/Button/Button';
-import { DropdownVerticalDirection, DropdownHorizontalDirection } from '@/shared/types/common';
+import type { DropdownVerticalDirection, DropdownHorizontalDirection } from '@/shared/types/common';
 
 import cls from './Select.module.scss';
 

@@ -1,9 +1,10 @@
-import { DeepPartial } from '@reduxjs/toolkit';
+import type { DeepPartial } from '@reduxjs/toolkit';
 
-import { StateSchema } from '@/shared/config/redux/types';
+import type { StateSchema } from '@/shared/config/redux/types';
+import type { Article } from '@/entities/Article';
 import {
-  ArticleType, ArticleBlockType, ArticleView, Article, ArticleSortedField,
-} from '@/entities/Article/model/types';
+  ArticleType, ArticleBlockType, ArticleView, ArticleSortedField,
+} from '@/entities/Article/model/const';
 
 import {
   getWallOfArticlesData,

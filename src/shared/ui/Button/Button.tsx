@@ -1,8 +1,10 @@
-import {
+import type {
   ButtonHTMLAttributes,
+  FC,
+} from 'react';
+import {
   memo,
   forwardRef,
-  FC,
 } from 'react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';

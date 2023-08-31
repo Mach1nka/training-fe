@@ -1,5 +1,5 @@
 import { TestAsyncThunk } from '@/shared/lib/jest/testAsyncThunk';
-import { Profile } from '@/entities/Profile';
+import type { Profile } from '@/entities/Profile';
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
 

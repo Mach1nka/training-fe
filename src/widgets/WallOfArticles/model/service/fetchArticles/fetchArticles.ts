@@ -1,7 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-import { ThunkConfig } from '@/shared/config/redux/types';
-import { Article, ArticleType } from '@/entities/Article';
+import type { ThunkConfig } from '@/shared/config/redux/types';
+import type { Article } from '@/entities/Article';
+import { ArticleType } from '@/entities/Article';
 
 import {
   getWallOfArticlesLimit,

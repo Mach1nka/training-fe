@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-import { ThunkConfig } from '@/shared/config/redux/types';
+import type { ThunkConfig } from '@/shared/config/redux/types';
 
 import {
   getWallOfArticlesError,

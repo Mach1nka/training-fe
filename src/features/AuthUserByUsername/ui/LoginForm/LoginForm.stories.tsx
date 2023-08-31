@@ -1,7 +1,7 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { storeDecorator } from '@/shared/lib/storybook/decorators';
-import { ReducersList } from '@/shared/hook/useDynamicReducerLoad';
+import type { ReducersList } from '@/shared/hook/useDynamicReducerLoad';
 
 import LoginForm from './LoginForm';
 import { loginReducer } from '../../model/slice/loginSlice';

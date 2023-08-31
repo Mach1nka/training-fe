@@ -1,12 +1,13 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { storeDecorator } from '@/shared/lib/storybook/decorators';
-import { ReducersList } from '@/shared/hook/useDynamicReducerLoad';
+import type { ReducersList } from '@/shared/hook/useDynamicReducerLoad';
 import DefaultImage from '@/shared/assets/tests/storybookPlug.jpg';
 
 import { ArticleDetails } from './ArticleDetails';
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
-import { Article, ArticleBlockType, ArticleType } from '../../model/types';
+import { ArticleBlockType, ArticleType } from '../../model/const';
+import type { Article } from '../../model/types';
 
 const initialReducers: ReducersList = {
   articleDetails: articleDetailsReducer,

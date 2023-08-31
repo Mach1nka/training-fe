@@ -1,6 +1,5 @@
-import {
-  FC, useEffect, useMemo, useState, PropsWithChildren,
-} from 'react';
+import type { FC, PropsWithChildren } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
 import { LOCAL_STORAGE_THEME_KEY } from '@/shared/constant/localstorage';
 

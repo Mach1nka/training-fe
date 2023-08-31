@@ -1,11 +1,12 @@
-import { ReducersMapObject, configureStore } from '@reduxjs/toolkit';
+import type { ReducersMapObject } from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit';
 
 import { uiConditionReducer } from '@/features/UICondition';
 import { userReducer } from '@/entities/User';
 import { api } from '@/shared/api/api';
 import { rtkApi } from '@/shared/api/rtkApi';
 
-import { StateSchema, ThunkExtraArg } from './types';
+import type { StateSchema, ThunkExtraArg } from './types';
 import { createReducerManager } from './reducerManager';
 
 export const createReduxStore = (

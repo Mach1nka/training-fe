@@ -1,4 +1,4 @@
-import { Comment } from '@/entities/Comment';
+import type { Comment } from '@/entities/Comment';
 import { rtkApi } from '@/shared/api/rtkApi';
 
 interface AddCommentBody {

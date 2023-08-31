@@ -1,10 +1,9 @@
-import {
-  FC, Fragment, ReactNode, memo, useMemo,
-} from 'react';
+import type { FC, ReactNode } from 'react';
+import { Fragment, memo, useMemo } from 'react';
 import { Menu as Dropdown } from '@headlessui/react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { DropdownVerticalDirection, DropdownHorizontalDirection } from '@/shared/types/common';
+import type { DropdownVerticalDirection, DropdownHorizontalDirection } from '@/shared/types/common';
 
 import { MenuItem } from './MenuItem/MenuItem';
 import cls from './Menu.module.scss';

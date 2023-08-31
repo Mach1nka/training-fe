@@ -1,4 +1,5 @@
-import { FC, memo, useCallback } from 'react';
+import type { FC } from 'react';
+import { memo, useCallback } from 'react';
 
 import { WallOfArticles, fetchArticlesByPage } from '@/widgets/WallOfArticles';
 import { Page } from '@/shared/ui/Page/Page';

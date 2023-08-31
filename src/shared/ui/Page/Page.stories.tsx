@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { routerDecorator, storeDecorator } from '@/shared/lib/storybook/decorators';
 

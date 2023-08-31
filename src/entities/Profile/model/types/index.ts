@@ -1,16 +1,7 @@
-import { Country } from '@/entities/Country';
-import { Currency } from '@/entities/Currency';
+import type { Country } from '@/entities/Country';
+import type { Currency } from '@/entities/Currency';
 
-export enum ValidateProfileError {
-  INCORRECT_FIRSTNAME = 'INCORRECT_FIRSTNAME',
-  INCORRECT_LASTNAME = 'INCORRECT_LASTNAME',
-  INCORRECT_USERNAME = 'INCORRECT_USERNAME',
-  INCORRECT_AGE = 'INCORRECT_AGE',
-  INCORRECT_COUNTRY = 'INCORRECT_COUNTRY',
-  INCORRECT_CURRENCY = 'INCORRECT_CURRENCY',
-  SERVER_ERROR = 'SERVER_ERROR',
-  NO_DATA = 'NO_DATA'
-}
+import type { ValidateProfileError } from '../const';
 
 export interface Profile {
   id: string;

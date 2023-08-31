@@ -1,5 +1,6 @@
 /* eslint-disable i18next/no-literal-string */
-import { FC, useEffect, useState } from 'react';
+import type { FC } from 'react';
+import { useEffect, useState } from 'react';
 
 import { Button } from '@/shared/ui/Button/Button';
 

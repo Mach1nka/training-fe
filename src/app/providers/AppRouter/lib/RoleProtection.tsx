@@ -1,8 +1,9 @@
-import { FC } from 'react';
+import type { FC } from 'react';
 import { useSelector } from 'react-redux';
 import { Outlet, Navigate } from 'react-router-dom';
 
-import { UserRole, getUserRole } from '@/entities/User';
+import type { UserRole } from '@/entities/User';
+import { getUserRole } from '@/entities/User';
 import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 
 interface Props {

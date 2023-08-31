@@ -1,6 +1,5 @@
-import {
-  FC, ReactNode, MouseEvent, useState, useRef, useEffect,
-} from 'react';
+import type { FC, ReactNode, MouseEvent } from 'react';
+import { useState, useRef, useEffect } from 'react';
 
 import { Portal } from '@/shared/ui/Portal/Portal';
 import { classNames } from '@/shared/lib/classNames/classNames';

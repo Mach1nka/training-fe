@@ -1,10 +1,11 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import type { PayloadAction } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 
 import { LOCAL_STORAGE_WALL_OF_ARTICLES_VIEW } from '@/shared/constant/localstorage';
-import { SortingOrder } from '@/shared/types/common';
+import type { SortingOrder } from '@/shared/types/common';
 import { ArticleSortedField, ArticleType, ArticleView } from '@/entities/Article';
 
-import { WallOfArticlesSchema } from '../types';
+import type { WallOfArticlesSchema } from '../types';
 import { fetchArticles } from '../service/fetchArticles/fetchArticles';
 
 const initialState: WallOfArticlesSchema = {

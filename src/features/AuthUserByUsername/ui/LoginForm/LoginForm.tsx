@@ -1,6 +1,5 @@
-import {
-  FC, FormEvent, memo, useCallback,
-} from 'react';
+import type { FC, FormEvent } from 'react';
+import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
@@ -8,7 +7,8 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button } from '@/shared/ui/Button/Button';
 import { Input } from '@/shared/ui/Input/Input';
 import { Text, TextTheme } from '@/shared/ui/Text/Text';
-import { ReducersList, useDynamicReducerLoad } from '@/shared/hook/useDynamicReducerLoad';
+import type { ReducersList } from '@/shared/hook/useDynamicReducerLoad';
+import { useDynamicReducerLoad } from '@/shared/hook/useDynamicReducerLoad';
 import { useAppDispatch } from '@/shared/hook/useAppDispatch';
 
 import { loginActions, loginReducer } from '../../model/slice/loginSlice';

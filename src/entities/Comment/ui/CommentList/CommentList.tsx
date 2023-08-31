@@ -1,11 +1,12 @@
-import { FC, memo } from 'react';
+import type { FC } from 'react';
+import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Text } from '@/shared/ui/Text/Text';
 import { Flex } from '@/shared/ui/Flex/Flex';
 
-import { Comment } from '../../model/types';
+import type { Comment } from '../../model/types';
 import { CommentCard } from '../CommentCard/CommentCard';
 
 interface Props {

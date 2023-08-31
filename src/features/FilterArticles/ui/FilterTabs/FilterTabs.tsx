@@ -1,10 +1,10 @@
-import {
-  FC, memo, useCallback, useMemo,
-} from 'react';
+import type { FC } from 'react';
+import { memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { ArticleType } from '@/entities/Article';
-import { TabItem, Tabs } from '@/shared/ui/Tabs/Tabs';
+import type { TabItem } from '@/shared/ui/Tabs/Tabs';
+import { Tabs } from '@/shared/ui/Tabs/Tabs';
 
 interface Props {
   className?: string;

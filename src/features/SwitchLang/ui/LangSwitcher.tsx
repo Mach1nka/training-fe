@@ -1,4 +1,5 @@
-import { FC, useCallback, memo } from 'react';
+import type { FC } from 'react';
+import { useCallback, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { Button, ButtonTheme } from '@/shared/ui/Button/Button';

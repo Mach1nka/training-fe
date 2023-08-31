@@ -4,7 +4,7 @@ import userEvent from '@testing-library/user-event';
 import {
   renderPreset,
 } from '@/shared/lib/jest/renderPreset';
-import { Profile } from '@/entities/Profile';
+import type { Profile } from '@/entities/Profile';
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
 import { api } from '@/shared/api/api';

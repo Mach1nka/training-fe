@@ -1,4 +1,4 @@
-import { StateSchema } from '@/shared/config/redux/types';
+import type { StateSchema } from '@/shared/config/redux/types';
 
 const getProfileData = (state: StateSchema) => state.profile?.data;
 

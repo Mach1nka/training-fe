@@ -1,4 +1,5 @@
-import { FC, Suspense } from 'react';
+import type { FC } from 'react';
+import { Suspense } from 'react';
 
 import { Modal } from '@/shared/ui/Modal/Modal';
 import { Loader } from '@/shared/ui/Loader/Loader';

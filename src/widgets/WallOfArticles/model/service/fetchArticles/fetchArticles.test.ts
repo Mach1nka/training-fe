@@ -1,5 +1,6 @@
 import { TestAsyncThunk } from '@/shared/lib/jest/testAsyncThunk';
-import { Article, ArticleType } from '@/entities/Article';
+import type { Article } from '@/entities/Article';
+import { ArticleType } from '@/entities/Article';
 
 import { fetchArticles } from './fetchArticles';
 

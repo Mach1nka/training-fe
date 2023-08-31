@@ -1,4 +1,4 @@
-import { AddCommentFormSchema } from '../types';
+import type { AddCommentFormSchema } from '../types';
 import { addCommentFormActions, addCommentFormReducer } from './addCommentFormSlice';
 
 describe('articleCommentSlice extra reducers', () => {

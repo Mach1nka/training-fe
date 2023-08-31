@@ -1,7 +1,7 @@
 import { TestAsyncThunk } from '@/shared/lib/jest/testAsyncThunk';
 
 import { fetchArticleById } from './fetchArticleById';
-import { Article } from '../../types';
+import type { Article } from '../../types';
 
 describe('fetchArticleById thunk', () => {
   const thunkArg = '123';

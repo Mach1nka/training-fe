@@ -1,10 +1,11 @@
-import { FC, memo } from 'react';
+import type { FC } from 'react';
+import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { ArticleSortedField, ArticleType, ArticleView } from '@/entities/Article';
+import type { ArticleSortedField, ArticleType, ArticleView } from '@/entities/Article';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Card } from '@/shared/ui/Card/Card';
-import { SortingOrder } from '@/shared/types/common';
+import type { SortingOrder } from '@/shared/types/common';
 import { Input } from '@/shared/ui/Input/Input';
 import { Flex } from '@/shared/ui/Flex/Flex';
 
@@ -25,7 +26,7 @@ interface Props {
   onChangeSort: (newField: ArticleSortedField) => void;
   onChangeSearch: (value: string) => void;
 }
-
+export { ViewSwitcher };
 export const ArticlesFiltrationSection: FC<Props> = memo(({
   className,
   view,

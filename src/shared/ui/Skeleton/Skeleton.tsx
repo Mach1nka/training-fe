@@ -1,4 +1,4 @@
-import { CSSProperties, FC } from 'react';
+import type { CSSProperties, FC } from 'react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
 

@@ -1,9 +1,9 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import { Theme } from '@/app/providers/ThemeProvider';
 import { storeDecorator, themeDecorator } from '@/shared/lib/storybook/decorators';
-import { ReducersList } from '@/shared/hook/useDynamicReducerLoad';
+import type { ReducersList } from '@/shared/hook/useDynamicReducerLoad';
 import { addCommentFormReducer } from '../../model/slice/addCommentFormSlice';
 
 import AddCommentForm from './AddCommentForm';

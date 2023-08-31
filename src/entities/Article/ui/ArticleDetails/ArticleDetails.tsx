@@ -1,8 +1,10 @@
-import { FC, memo, useEffect } from 'react';
+import type { FC } from 'react';
+import { memo, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
-import { ReducersList, useDynamicReducerLoad } from '@/shared/hook/useDynamicReducerLoad';
+import type { ReducersList } from '@/shared/hook/useDynamicReducerLoad';
+import { useDynamicReducerLoad } from '@/shared/hook/useDynamicReducerLoad';
 import { useAppDispatch } from '@/shared/hook/useAppDispatch';
 import {
   Text, TextAlign, TextSize, TextTheme,
@@ -22,9 +24,10 @@ import {
 } from '../../model/selector/articleDetailsSelector';
 import { fetchArticleById } from '../../model/service/fetchArticleById/fetchArticleById';
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
-import {
-  ArticleBlock, ArticleBlockType, ArticleCodeBlock, ArticleImageBlock, ArticleTextBlock,
+import type {
+  ArticleBlock, ArticleCodeBlock, ArticleImageBlock, ArticleTextBlock,
 } from '../../model/types';
+import { ArticleBlockType } from '../../model/const';
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
 import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';

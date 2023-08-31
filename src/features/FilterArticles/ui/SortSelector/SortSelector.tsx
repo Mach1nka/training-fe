@@ -1,12 +1,12 @@
-import {
-  FC, memo, useMemo,
-} from 'react';
+import type { FC } from 'react';
+import { memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { ArticleSortedField } from '@/entities/Article';
-import { Select, SelectOption } from '@/shared/ui/Select/Select';
+import type { SelectOption } from '@/shared/ui/Select/Select';
+import { Select } from '@/shared/ui/Select/Select';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { SortingOrder } from '@/shared/types/common';
+import type { SortingOrder } from '@/shared/types/common';
 
 import cls from './SortSelector.module.scss';
 

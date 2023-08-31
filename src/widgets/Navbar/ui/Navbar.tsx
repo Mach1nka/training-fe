@@ -1,5 +1,6 @@
+import type { FC } from 'react';
 import {
-  FC, useState, useCallback, memo, useMemo,
+  useState, useCallback, memo, useMemo,
 } from 'react';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
@@ -11,7 +12,8 @@ import { Text, TextTheme } from '@/shared/ui/Text/Text';
 import { getUserAuthData, isUserAdmin, userActions } from '@/entities/User';
 import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 import { useAppDispatch } from '@/shared/hook/useAppDispatch';
-import { DropdownItem, Menu } from '@/shared/ui/Menu/Menu';
+import type { DropdownItem } from '@/shared/ui/Menu/Menu';
+import { Menu } from '@/shared/ui/Menu/Menu';
 import { Avatar } from '@/shared/ui/Avatar/Avatar';
 
 import DefaultImage from '@/shared/assets/tests/storybookPlug.jpg';

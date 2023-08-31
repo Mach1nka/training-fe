@@ -7,7 +7,7 @@ import ArticleIcon from '@/shared/assets/icons/article.svg';
 import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 import { getUserId } from '@/entities/User';
 
-import { SidebarItemType } from '../types';
+import type { SidebarItemType } from '../types';
 
 const configureSidebarList = (userId?: string): SidebarItemType[] => {
   const items: SidebarItemType[] = [

@@ -1,4 +1,5 @@
-import { FC, memo } from 'react';
+import type { FC } from 'react';
+import { memo } from 'react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Avatar } from '@/shared/ui/Avatar/Avatar';
@@ -9,7 +10,7 @@ import { Flex } from '@/shared/ui/Flex/Flex';
 import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
 
-import { Comment } from '../../model/types';
+import type { Comment } from '../../model/types';
 
 import cls from './CommentCard.module.scss';
 

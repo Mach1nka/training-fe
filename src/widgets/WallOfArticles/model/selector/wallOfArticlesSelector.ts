@@ -1,5 +1,5 @@
 import { ArticleSortedField, ArticleType, ArticleView } from '@/entities/Article';
-import { StateSchema } from '@/shared/config/redux/types';
+import type { StateSchema } from '@/shared/config/redux/types';
 
 export const getWallOfArticlesData = (state: StateSchema) => state.wallOfArticles?.data || [];
 
