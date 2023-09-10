@@ -22,7 +22,6 @@ interface Props {
   className?: string;
   data?: Profile;
   error?: string;
-  dataTestId?: string;
   onChangeFirstname: (value: string) => void;
   onChangeLastname: (value: string) => void;
   onChangeCity: (value: string) => void;
@@ -39,7 +38,6 @@ export const ProfileCard: FC<Props> = memo(({
   isLoading,
   error,
   readonly,
-  dataTestId = '',
   onChangeFirstname,
   onChangeLastname,
   onChangeCity,
@@ -96,54 +94,54 @@ export const ProfileCard: FC<Props> = memo(({
         placeholder={t('firstname')}
         readonly={readonly}
         onChange={onChangeFirstname}
-        data-testid={`${dataTestId}.firstname`}
+        data-testid="ProfileCard.firstname"
       />
       <Input
         value={data?.lastname}
         placeholder={t('lastname')}
         readonly={readonly}
         onChange={onChangeLastname}
-        data-testid={`${dataTestId}.lastname`}
+        data-testid="ProfileCard.lastname"
       />
       <Input
         value={data?.age}
         placeholder={t('age')}
         readonly={readonly}
         onChange={onChangeAge}
-        data-testid={`${dataTestId}.age`}
+        data-testid="ProfileCard.age"
       />
       <Input
         value={data?.city}
         placeholder={t('city')}
         readonly={readonly}
         onChange={onChangeCity}
-        data-testid={`${dataTestId}.city`}
+        data-testid="ProfileCard.city"
       />
       <Input
         value={data?.username}
         placeholder={t('username')}
         readonly={readonly}
         onChange={onChangeUsername}
-        data-testid={`${dataTestId}.username`}
+        data-testid="ProfileCard.username"
       />
       <Input
         value={data?.avatar}
         placeholder={t('avatar')}
         readonly={readonly}
         onChange={onChangeAvatar}
-        data-testid={`${dataTestId}.avatar`}
+        data-testid="ProfileCard.avatar"
       />
       <CurrencySelect
         value={data?.currency}
         readonly={readonly}
         onChange={onChangeCurrency}
-        data-testid={`${dataTestId}.currency`}
+        data-testid="ProfileCard.currency"
       />
       <CountrySelect
         value={data?.country}
         readonly={readonly}
         onChange={onChangeCountry}
-        data-testid={`${dataTestId}.country`}
+        data-testid="ProfileCard.country"
       />
     </Flex>
   );

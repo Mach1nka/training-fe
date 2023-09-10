@@ -4,28 +4,52 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import type { BuildOptions } from './types/config';
 
 export function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
-  const typescriptLoader = {
-    test: /\.tsx?$/,
-    use: {
-      loader: 'ts-loader',
-      options: {
-        // transpileOnly: true,
-      },
-    },
-    exclude: /node_modules/,
-  };
-
-  // const babelLoader = {
-  //   test: /\.(js|jsx|tsx)$/,
-  //   exclude: /node_modules/,
+  // const typescriptLoader = {
+  //   test: /\.tsx?$/,
   //   use: {
-  //     loader: 'babel-loader',
+  //     loader: 'ts-loader',
   //     options: {
-  //       presets: ['@babel/preset-env'],
-  //       plugins: [isDev && require.resolve('react-refresh/babel')].filter(Boolean),
+  //       // transpileOnly: true,
   //     },
   //   },
+  //   exclude: /node_modules/,
   // };
+
+  const babelLoaderTsx = {
+    test: /\.(jsx|tsx)$/,
+    exclude: /node_modules/,
+    use: {
+      loader: 'babel-loader',
+      options: {
+        presets: [
+          '@babel/preset-env',
+          ["@babel/preset-react", {"runtime": "automatic"}],
+          "@babel/preset-typescript"],
+        plugins: [
+          [
+            "@babel/plugin-transform-typescript",
+            { isTsx: true }
+          ],
+          "@babel/plugin-transform-runtime",
+          isDev && require.resolve('react-refresh/babel')].filter(Boolean),
+      },
+    },
+  };
+
+  const babelLoader = {
+    test: /\.(js|ts)$/,
+    exclude: /node_modules/,
+    use: {
+      loader: 'babel-loader',
+      options: {
+        presets: ['@babel/preset-env', "@babel/preset-react", "@babel/preset-typescript"],
+        plugins: [
+          "@babel/plugin-transform-typescript",
+          "@babel/plugin-transform-runtime",
+          isDev && require.resolve('react-refresh/babel')].filter(Boolean),
+      },
+    },
+  };
 
   const cssLoader = {
     test: /\.s[ac]ss$/i,
@@ -62,8 +86,9 @@ export function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
   };
 
   return [
-    // babelLoader,
-    typescriptLoader,
+    babelLoader,
+    babelLoaderTsx,
+    // typescriptLoader,
     cssLoader,
     svgLoader,
     fileLoader,
