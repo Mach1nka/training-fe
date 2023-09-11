@@ -2,7 +2,6 @@ import type { FC } from 'react';
 import { Suspense, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
-import { classNames } from '@/shared/lib/classNames/classNames';
 import { AppRouter } from '@/app/providers/AppRouter';
 import { Navbar } from '@/widgets/Navbar';
 import { Sidebar } from '@/widgets/Sidebar';
@@ -18,7 +17,7 @@ const App: FC = () => {
   }, []);
 
   return (
-    <div className={classNames('app')}>
+    <div className="app">
       <Suspense fallback={null}>
         <Navbar />
         <div className="content-page">

@@ -1,25 +1,24 @@
-import type { FC, ReactNode } from 'react';
+import { memo } from 'react';
+import type { FC, PropsWithChildren } from 'react';
 
-import { Portal } from '@/shared/ui/Portal/Portal';
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { Portal } from '@/shared/ui/Portal/Portal';
 import { Overlay } from '@/shared/ui/Overlay/Overlay';
-
-import cls from './Modal.module.scss';
 import { useModal } from '@/shared/hook/useModal';
 
-interface Props {
+import cls from './Drawer.module.scss';
+
+interface Props extends PropsWithChildren {
   className?: string;
-  children: ReactNode;
   isOpen: boolean;
   onClose: () => void;
   lazy?: boolean;
 }
 
-// TODO: fix opening animation
-export const Modal: FC<Props> = ({
-  children, className, isOpen, onClose, lazy,
+export const Drawer: FC<Props> = memo(({
+  className, children, isOpen, onClose, lazy,
 }) => {
-  const { isClosing, isMounted, close } = useModal(isOpen, 300, onClose);
+  const { isMounted, isClosing, close } = useModal(isOpen, 300, onClose);
 
   const mods = {
     [cls.opened]: isOpen,
@@ -32,7 +31,7 @@ export const Modal: FC<Props> = ({
 
   return (
     <Portal>
-      <div className={classNames(cls.Modal, mods, [className])}>
+      <div className={classNames(cls.Drawer, mods, [className])}>
         <Overlay onClick={close} />
         <div className={cls.content}>
           {children}
@@ -40,4 +39,4 @@ export const Modal: FC<Props> = ({
       </div>
     </Portal>
   );
-};
+});
