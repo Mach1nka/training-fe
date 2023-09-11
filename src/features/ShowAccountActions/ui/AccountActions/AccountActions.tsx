@@ -1,0 +1,56 @@
+import { memo, useMemo, useCallback } from 'react';
+import type { FC } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
+
+import DefaultImage from '@/shared/assets/tests/storybookPlug.jpg';
+import { isUserAdmin, userActions } from '@/entities/User';
+import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
+import { Avatar } from '@/shared/ui/Avatar/Avatar';
+import { ButtonForwardedRef, ButtonTheme } from '@/shared/ui/Button/Button';
+import { Menu } from '@/shared/ui/Popups/ui/Menu/Menu';
+import type { DropdownItem } from '@/shared/ui/Popups/ui/Menu/Menu';
+import { useAppDispatch } from '@/shared/hook/useAppDispatch';
+
+import cls from './AccountActions.module.scss';
+
+interface Props {
+  avatar: string | undefined;
+}
+
+export const AccountActions: FC<Props> = memo(({ avatar }) => {
+  const { t } = useTranslation();
+  const dispatch = useAppDispatch();
+  const isAdmin = useSelector(isUserAdmin);
+
+  const onLogout = useCallback(() => {
+    dispatch(userActions.logout());
+  }, []);
+
+  const menuOptions = useMemo<DropdownItem[]>(() => ([
+    ...(isAdmin ? [{
+      content: t('header.adminPanel'),
+      href: RoutePath.adminPanel,
+    }] : []),
+    {
+      content: t('header.createArticle'),
+      href: RoutePath.articleCreate,
+    },
+    {
+      content: t('header.logout'),
+      onClick: onLogout,
+    },
+  ]), [isAdmin, onLogout]);
+
+  return (
+    <Menu
+      label={(
+        <ButtonForwardedRef className={cls.menuTrigger} theme={ButtonTheme.CLEAR}>
+          <Avatar src={avatar || DefaultImage} size={30} />
+        </ButtonForwardedRef>
+      )}
+      directionH="right"
+      options={menuOptions}
+    />
+  );
+});

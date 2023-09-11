@@ -15,7 +15,7 @@ export enum AppLinkTheme {
 export enum AppLinkUnderline {
   ALWAYS = 'always',
   HOVER = 'hover',
-  NONE = 'none'
+  NEVER = 'never'
 }
 
 interface Props extends LinkProps {

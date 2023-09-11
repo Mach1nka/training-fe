@@ -1,0 +1,12 @@
+.popoverTrigger {
+  display: flex;
+  height: 100%;
+  align-items: center;
+}
+
+.notifications {
+  width: 220px;
+  min-height: 150px;
+  max-height: 510px;
+  overflow-y: auto;
+}

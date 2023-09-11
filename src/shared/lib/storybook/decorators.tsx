@@ -1,4 +1,5 @@
 import { Suspense } from 'react';
+import type { CSSProperties } from 'react';
 import type { Story } from '@storybook/react';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
 
@@ -11,7 +12,10 @@ import type { StateSchema } from '../../config/redux/types';
 
 import '@/app/styles/index.scss';
 
-export const styleDecorator = (Story: Story) => <Story />;
+export const commonStyleDecorator = (Story: Story) => <Story />;
+
+export const styleDecorator = (styles: CSSProperties) =>
+  (Story: Story) => <div style={styles}><Story /></div>;
 
 // TODO: integrate storybook-addon-themes
 export const themeDecorator = (theme: Theme) => (Story: Story) => (

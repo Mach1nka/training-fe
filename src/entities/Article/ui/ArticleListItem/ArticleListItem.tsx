@@ -58,7 +58,7 @@ export const ArticleListItem: FC<Props> = memo(({
           <AppLink
             target={target}
             to={`${RoutePath.articleDetails}/${article.id}`}
-            underline={AppLinkUnderline.NONE}
+            underline={AppLinkUnderline.NEVER}
           >
             <Button>
               {t('readMoreBtn')}
@@ -74,7 +74,7 @@ export const ArticleListItem: FC<Props> = memo(({
     <AppLink
       target={target}
       to={`${RoutePath.articleDetails}/${article.id}`}
-      underline={AppLinkUnderline.NONE}
+      underline={AppLinkUnderline.NEVER}
     >
       <Card className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
         <div className={cls.imageWrapper}>

@@ -1,15 +1,18 @@
-import type { FC, SVGProps, VFC } from 'react';
+import type { FC, ReactElement, SVGProps } from 'react';
 import { memo } from 'react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
 
 import cls from './Icon.module.scss';
 
+export type IconTheme = 'primary' | 'inverted';
+
 interface Props {
   className?: string;
-  Svg: VFC<SVGProps<SVGSVGElement>>
+  theme?: IconTheme;
+  Svg: (props: SVGProps<SVGElement>) => ReactElement;
 }
 
-export const Icon: FC<Props> = memo(({ className, Svg }) => (
-  <Svg className={classNames(cls.Icon, {}, [className])} />
+export const Icon: FC<Props> = memo(({ className, theme = 'primary', Svg }) => (
+  <Svg className={classNames(cls.Icon, {}, [className, cls[theme]])} />
 ));

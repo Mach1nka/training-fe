@@ -58,7 +58,8 @@ module.exports = {
         'dataTestId',
         'data-testid',
         'to',
-        'target', 'justify', 'align', 'direction', 'wrap', 'as', 'directionH', 'directionV'],
+        'target', 'justify', 'align', 'direction', 'wrap', 'as', 'directionH', 'directionV', 'theme'
+      ],
     }],
     'max-len': ['error', {
       code: 105,

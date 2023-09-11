@@ -1,14 +1,14 @@
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { Theme } from '@/app/providers/ThemeProvider';
-import { themeDecorator } from '@/shared/lib/storybook/decorators';
+import { themeDecorator, styleDecorator } from '@/shared/lib/storybook/decorators';
 
 import { Select } from './Select';
 
 export default {
   title: 'shared/Select',
   component: Select,
-  decorators: [(Story) => <div style={{ padding: '150px 150px' }}><Story /></div>],
+  decorators: [styleDecorator({ padding: '150px' })],
   args: {
     placeholder: 'Select a value',
     options: [

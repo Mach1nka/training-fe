@@ -36,9 +36,9 @@ UnderlineHover.args = {
   underline: AppLinkUnderline.HOVER,
 };
 
-export const UnderlineNone = Template.bind({});
-UnderlineNone.args = {
-  underline: AppLinkUnderline.NONE,
+export const UnderlineNever = Template.bind({});
+UnderlineNever.args = {
+  underline: AppLinkUnderline.NEVER,
 };
 
 export const PrimaryDark = Template.bind({});

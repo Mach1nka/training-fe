@@ -9,17 +9,19 @@ import { Icon } from './Icon';
 export default {
   title: 'shared/Icon',
   component: Icon,
+  args: {
+    Svg: EyeIcon,
+  },
 } as ComponentMeta<typeof Icon>;
 
 const Template: ComponentStory<typeof Icon> = (args) => <Icon {...args} />;
 
-export const Light = Template.bind({});
-Light.args = {
-  Svg: EyeIcon,
+export const Primary = Template.bind({});
+
+export const Inverted = Template.bind({});
+Primary.args = {
+  theme: 'inverted',
 };
 
 export const Dark = Template.bind({});
-Dark.args = {
-  Svg: EyeIcon,
-};
 Dark.decorators = [themeDecorator(Theme.DARK)];

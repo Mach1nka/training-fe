@@ -11,6 +11,7 @@ import { ButtonForwardedRef } from '@/shared/ui/Button/Button';
 import type { DropdownVerticalDirection, DropdownHorizontalDirection } from '@/shared/types/common';
 
 import cls from './Select.module.scss';
+import popupCls from '../../styles/popups.module.scss';
 
 export interface SelectOption<T extends string> {
   label: string;
@@ -49,7 +50,7 @@ const SelectComponent = <T extends string>({
   );
 
   const listClasses = useMemo(() => ([
-    cls[directionV], cls[directionH],
+    popupCls.list, popupCls[directionV], popupCls[directionH],
   ]), [directionV, directionH]);
 
   const onSelectChange = useCallback((option: SelectOption<T>) => {
@@ -67,7 +68,13 @@ const SelectComponent = <T extends string>({
       >
         {({ active, selected }) => (
           <li
-            className={classNames(cls.item, { [cls.active]: active, [cls.selected]: selected })}
+            className={
+              classNames(
+                cls.item,
+                { [popupCls.active]: active, [cls.selected]: selected },
+                [popupCls.item],
+              )
+            }
           >
             {selected && <Icon Svg={CheckIcon} className={cls.checkIcon} />}
             {option.label}

@@ -7,6 +7,7 @@ import type { DropdownVerticalDirection, DropdownHorizontalDirection } from '@/s
 
 import { MenuItem } from './MenuItem/MenuItem';
 import cls from './Menu.module.scss';
+import popupCls from '../../styles/popups.module.scss';
 
 export interface DropdownItem {
   content: string;
@@ -35,7 +36,7 @@ export const Menu: FC<Props> = memo(({
   ), [options]);
 
   const listClasses = useMemo(() => ([
-    cls[directionV], cls[directionH],
+    popupCls.list, popupCls[directionV], popupCls[directionH],
   ]), [directionV, directionH]);
 
   return (

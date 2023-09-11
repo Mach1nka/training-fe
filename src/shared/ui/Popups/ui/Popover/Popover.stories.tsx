@@ -3,14 +3,14 @@ import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Theme } from '@/app/providers/ThemeProvider';
 import { themeDecorator } from '@/shared/lib/storybook/decorators';
 
-import { [FTName] } from './[FTName]';
+import { AppPopover as Popover } from './Popover';
 
 export default {
-  title: '/[FTName]',
-  component: [FTName],
-} as ComponentMeta<typeof [FTName]>;
+  title: 'shared/Popup',
+  component: Popover,
+} as ComponentMeta<typeof Popover>;
 
-const Template: ComponentStory<typeof [FTName]> = (args) => <[FTName] {...args} />;
+const Template: ComponentStory<typeof Popover> = (args) => <Popover {...args} />;
 
 export const Light = Template.bind({});
 

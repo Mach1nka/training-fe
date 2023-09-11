@@ -1,12 +1,6 @@
-.Menu {
-  position: relative;
-}
-
 .list {
   position: absolute;
   left: 0;
-  overflow: hidden;
-  background-color: var(--card-bg);
   z-index: 100;
   border: 1px solid var(--primary-color);
   border-radius: 8px;
@@ -25,4 +19,18 @@
     left: auto;
     right: 0;
   }
+}
+
+.item {
+  display: flex;
+  width: 100%;
+  padding: 4px 32px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.active {
+  background-color: var(--inverted-primary-color);
 }

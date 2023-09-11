@@ -7,7 +7,7 @@ import { AppLinkForwardedRef, AppLinkUnderline } from '@/shared/ui/AppLink/AppLi
 import { ButtonForwardedRef, ButtonTheme } from '@/shared/ui/Button/Button';
 
 import type { DropdownItem } from '../Menu';
-import cls from './MenuItem.module.scss';
+import popupCls from '../../../styles/popups.module.scss';
 
 interface Props extends DropdownItem {
   className?: string;
@@ -26,8 +26,8 @@ export const MenuItem: FC<Props> = memo(({
           <AppLinkForwardedRef
             to={href}
             onClick={onClick}
-            underline={AppLinkUnderline.NONE}
-            className={classNames(cls.item, { [cls.active]: active })}
+            underline={AppLinkUnderline.NEVER}
+            className={classNames(popupCls.item, { [popupCls.active]: active })}
           >
             {content}
           </AppLinkForwardedRef>
@@ -39,7 +39,7 @@ export const MenuItem: FC<Props> = memo(({
           theme={ButtonTheme.CLEAR}
           disabled={disabled}
           onClick={onClick}
-          className={classNames(cls.item, { [cls.active]: active })}
+          className={classNames(popupCls.item, { [popupCls.active]: active })}
         >
           {content}
         </ButtonForwardedRef>
