@@ -1,6 +1,7 @@
 import type { RuleSetRule } from 'webpack';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
+import babelRemovePropsPlugin from '../../plugins/babel/removePropsPlugin';
 import type { BuildOptions } from './types/config';
 
 export function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
@@ -21,16 +22,11 @@ export function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
     use: {
       loader: 'babel-loader',
       options: {
-        presets: [
-          '@babel/preset-env',
-          ["@babel/preset-react", {"runtime": "automatic"}],
-          "@babel/preset-typescript"],
         plugins: [
           [
-            "@babel/plugin-transform-typescript",
-            { isTsx: true }
+            babelRemovePropsPlugin,
+            { props : ['data-testid', 'dataTestId'] }
           ],
-          "@babel/plugin-transform-runtime",
           isDev && require.resolve('react-refresh/babel')].filter(Boolean),
       },
     },
@@ -42,10 +38,7 @@ export function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
     use: {
       loader: 'babel-loader',
       options: {
-        presets: ['@babel/preset-env', "@babel/preset-react", "@babel/preset-typescript"],
         plugins: [
-          "@babel/plugin-transform-typescript",
-          "@babel/plugin-transform-runtime",
           isDev && require.resolve('react-refresh/babel')].filter(Boolean),
       },
     },
