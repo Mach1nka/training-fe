@@ -5,7 +5,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 
 import cls from './Icon.module.scss';
 
-export type IconTheme = 'primary' | 'inverted';
+export type IconTheme = 'primary' | 'secondary' | 'inverted';
 
 interface Props {
   className?: string;

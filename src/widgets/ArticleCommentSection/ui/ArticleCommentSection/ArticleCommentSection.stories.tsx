@@ -3,33 +3,36 @@ import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Theme } from '@/app/providers/ThemeProvider';
 import { themeDecorator, storeDecorator, routerDecorator } from '@/shared/lib/storybook/decorators';
 
-import { NotificationList } from './NotificationList';
+import ArticleCommentSection from './ArticleCommentSection';
 
-const notification = {
+const comment = {
   id: '1',
-  title: 'notification',
-  description: 'description',
+  text: 'text',
+  user: {
+    id: '1',
+    username: 'username',
+  },
 };
 
 export default {
-  title: 'entities/NotificationList',
-  component: NotificationList,
+  title: 'widgets/ArticleCommentSection',
+  component: ArticleCommentSection,
   decorators: [storeDecorator(), routerDecorator()],
   parameters: {
     mockData: [{
-      url: `${API_URL}/notifications?_limit=4`,
+      url: `${API_URL}/comments?_expand=user`,
       method: 'GET',
       status: 200,
       response: [
-        { ...notification },
-        { ...notification, id: '2' },
-        { ...notification, id: '3', href: 'link' },
+        { ...comment },
+        { ...comment, id: '2' },
+        { ...comment, id: '3' },
       ],
     }],
   },
-} as ComponentMeta<typeof NotificationList>;
+} as ComponentMeta<typeof ArticleCommentSection>;
 
-const Template: ComponentStory<typeof NotificationList> = (args) => <NotificationList {...args} />;
+const Template: ComponentStory<typeof ArticleCommentSection> = (args) => <ArticleCommentSection {...args} />;
 
 export const Light = Template.bind({});
 

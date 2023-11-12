@@ -34,7 +34,7 @@ export const ArticleListItem: FC<Props> = memo(({
   const views = (
     <>
       <Text text={article.views.toString()} className={cls.views} />
-      <Icon Svg={EyeIcon} />
+      <Icon theme="secondary" Svg={EyeIcon} />
     </>
   );
 

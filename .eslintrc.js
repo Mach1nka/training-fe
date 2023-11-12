@@ -67,7 +67,11 @@ module.exports = {
     }],
     'implicit-arrow-linebreak': 'off',
     "@typescript-eslint/consistent-type-exports": "error",
-    "@typescript-eslint/consistent-type-imports": "error",
+    "@typescript-eslint/consistent-type-imports": ['error', {
+       disallowTypeAnnotations: false,
+        fixStyle: 'separate-type-imports' 
+      }
+    ],
     // NOTE: Accessability
     'jsx-a11y/click-events-have-key-events': 'off',
     'jsx-a11y/no-static-element-interactions': 'off',

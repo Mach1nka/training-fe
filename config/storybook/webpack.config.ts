@@ -57,7 +57,8 @@ export default ({ config }: {config: Configuration}) => {
 
   config.plugins!.push(new DefinePlugin({
     IS_DEV: JSON.stringify(true),
-    API_URL: JSON.stringify(''),
+    // @NOTE: The URL is pointless and it's only necessary for correct running storybook-addon-mock.
+    API_URL: JSON.stringify('http://fakeapi'),
     PROJECT: JSON.stringify('storybook'),
   }));
 
