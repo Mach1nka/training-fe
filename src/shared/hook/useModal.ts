@@ -2,33 +2,35 @@ import {
   useCallback, useEffect, useRef, useState,
 } from 'react';
 
-type UseModal = (isOpen: boolean, animationDelay: number, onClose: () => void) => {
-  isClosing: boolean;
+type UseModal = (shouldOpen: boolean, animationDelay: number, onClose: () => void) => {
+  showing: boolean;
+  closing: boolean;
   isMounted: boolean;
-  close: () => void;
+  onModalClose: () => void;
 };
 
-export const useModal: UseModal = (isOpen, animationDelay, onClose) => {
-  const [isClosing, setIsClosing] = useState(false);
+export const useModal: UseModal = (shouldOpen, animationDelay, onClose) => {
+  const [showing, setShowing] = useState(false);
+  const [closing, setClosing] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
   const timerRef = useRef<ReturnType<typeof setTimeout>>();
 
-  const close = useCallback(() => {
-    setIsClosing(true);
+  const onModalClose = useCallback(() => {
+    setClosing(true);
     timerRef.current = setTimeout(() => {
       onClose();
-      setIsClosing(false);
+      setClosing(false);
     }, animationDelay);
   }, [animationDelay, onClose]);
 
   const onKeyDown = useCallback((e: KeyboardEvent) => {
     if (e.key === 'Escape') {
-      close();
+      onModalClose();
     }
-  }, [close]);
+  }, [onModalClose]);
 
   useEffect(() => {
-    if (isOpen) {
+    if (shouldOpen) {
       setIsMounted(true);
       window.addEventListener('keydown', onKeyDown);
     }
@@ -38,9 +40,19 @@ export const useModal: UseModal = (isOpen, animationDelay, onClose) => {
       window.removeEventListener('keydown', onKeyDown);
       clearTimeout(timerRef.current);
     };
-  }, [isOpen, onKeyDown]);
+  }, [shouldOpen, onKeyDown]);
+
+  useEffect(() => {
+    if (isMounted) {
+      setShowing(true);
+    }
+
+    return () => {
+      setShowing(false);
+    };
+  }, [isMounted]);
 
   return {
-    isClosing, isMounted, close,
+    showing, closing, isMounted, onModalClose,
   };
 };

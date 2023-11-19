@@ -6,7 +6,7 @@
   inset: 0;
   z-index: var(--modal-z-index);
   pointer-events: none;
-  opacity: 0;
+  visibility: hidden;
 }
 
 .content {
@@ -20,14 +20,14 @@
 
 .opened {
   pointer-events: auto;
-  opacity: 1;
+  visibility: visible;
 
   .content {
     transform: scale(1);
   }
 }
 
-.closing {
+.closed {
   .content {
     transform: scale(0.3);
   }

@@ -6,8 +6,14 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { AppLinkForwardedRef, AppLinkUnderline } from '@/shared/ui/AppLink/AppLink';
 import { ButtonForwardedRef, ButtonTheme } from '@/shared/ui/Button/Button';
 
-import type { DropdownItem } from '../Menu';
 import popupCls from '../../../styles/popups.module.scss';
+
+export interface DropdownItem {
+  content: string;
+  disabled?: boolean;
+  onClick?: () => void;
+  href?: string;
+}
 
 interface Props extends DropdownItem {
   className?: string;

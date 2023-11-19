@@ -6,15 +6,9 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import type { DropdownVerticalDirection, DropdownHorizontalDirection } from '@/shared/types/common';
 
 import { MenuItem } from './MenuItem/MenuItem';
+import type { DropdownItem } from './MenuItem/MenuItem';
 import cls from './Menu.module.scss';
 import popupCls from '../../styles/popups.module.scss';
-
-export interface DropdownItem {
-  content: string;
-  disabled?: boolean;
-  onClick?: () => void;
-  href?: string;
-}
 
 interface Props {
   className?: string;

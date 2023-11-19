@@ -15,15 +15,16 @@ interface Props {
   lazy?: boolean;
 }
 
-// TODO: fix opening animation
 export const Modal: FC<Props> = ({
   children, className, isOpen, onClose, lazy,
 }) => {
-  const { isClosing, isMounted, close } = useModal(isOpen, 300, onClose);
+  const {
+    showing, closing, isMounted, onModalClose,
+  } = useModal(isOpen, 300, onClose);
 
   const mods = {
-    [cls.opened]: isOpen,
-    [cls.closing]: isClosing,
+    [cls.opened]: showing,
+    [cls.closed]: closing,
   };
 
   if (lazy && !isMounted) {
@@ -33,7 +34,7 @@ export const Modal: FC<Props> = ({
   return (
     <Portal>
       <div className={classNames(cls.Modal, mods, [className])}>
-        <Overlay onClick={close} />
+        <Overlay onClick={onModalClose} />
         <div className={cls.content}>
           {children}
         </div>

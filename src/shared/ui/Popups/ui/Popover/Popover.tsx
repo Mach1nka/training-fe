@@ -1,4 +1,4 @@
-import { Fragment, memo, useMemo } from 'react';
+import { Fragment, useMemo } from 'react';
 import type { FC, PropsWithChildren, ReactNode } from 'react';
 import { Popover } from '@headlessui/react';
 
@@ -16,7 +16,7 @@ interface Props extends PropsWithChildren {
   unmount?: boolean;
 }
 
-export const AppPopover: FC<Props> = memo(({
+export const AppPopover: FC<Props> = ({
   className,
   children,
   label,
@@ -36,4 +36,4 @@ export const AppPopover: FC<Props> = memo(({
       </Popover.Panel>
     </Popover>
   );
-});
+};

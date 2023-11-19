@@ -26,7 +26,7 @@ interface Props {
   onChangeSort: (newField: ArticleSortedField) => void;
   onChangeSearch: (value: string) => void;
 }
-export { ViewSwitcher };
+
 export const ArticlesFiltrationSection: FC<Props> = memo(({
   className,
   view,

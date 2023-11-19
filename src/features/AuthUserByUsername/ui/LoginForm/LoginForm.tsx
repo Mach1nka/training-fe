@@ -50,7 +50,7 @@ const LoginForm: FC<Props> = memo(({ className, onSuccess }) => {
     if (response.meta.requestStatus === 'fulfilled') {
       onSuccess();
     }
-  }, [username, password]);
+  }, [username, password, onSuccess]);
 
   useDynamicReducerLoad(initialReducers);
 

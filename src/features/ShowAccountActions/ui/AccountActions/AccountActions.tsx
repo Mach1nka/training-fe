@@ -8,8 +8,8 @@ import { isUserAdmin, userActions } from '@/entities/User';
 import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 import { Avatar } from '@/shared/ui/Avatar/Avatar';
 import { ButtonForwardedRef, ButtonTheme } from '@/shared/ui/Button/Button';
-import { Menu } from '@/shared/ui/Popups/ui/Menu/Menu';
-import type { DropdownItem } from '@/shared/ui/Popups/ui/Menu/Menu';
+import { Menu } from '@/shared/ui/Popups';
+import type { DropdownItem } from '@/shared/ui/Popups';
 import { useAppDispatch } from '@/shared/hook/useAppDispatch';
 
 import cls from './AccountActions.module.scss';

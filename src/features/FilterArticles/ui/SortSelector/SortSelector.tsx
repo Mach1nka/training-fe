@@ -3,8 +3,8 @@ import { memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { ArticleSortedField } from '@/entities/Article';
-import type { SelectOption } from '@/shared/ui/Popups/ui/Select/Select';
-import { Select } from '@/shared/ui/Popups/ui/Select/Select';
+import type { SelectOption } from '@/shared/ui/Popups';
+import { Select } from '@/shared/ui/Popups';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import type { SortingOrder } from '@/shared/types/common';
 
