@@ -39,13 +39,18 @@ export const AccountActions: FC<Props> = memo(({ avatar }) => {
     {
       content: t('header.logout'),
       onClick: onLogout,
+      'data-testid': 'AccountActions.logout',
     },
   ]), [isAdmin, onLogout]);
 
   return (
     <Menu
       label={(
-        <ButtonForwardedRef className={cls.menuTrigger} theme={ButtonTheme.CLEAR}>
+        <ButtonForwardedRef
+          className={cls.menuTrigger}
+          theme={ButtonTheme.CLEAR}
+          data-testid="AccountActions"
+        >
           <Avatar src={avatar || DefaultImage} size={30} />
         </ButtonForwardedRef>
       )}

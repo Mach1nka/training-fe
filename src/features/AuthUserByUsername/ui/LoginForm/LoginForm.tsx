@@ -64,6 +64,7 @@ const LoginForm: FC<Props> = memo(({ className, onSuccess }) => {
         className={cls.input}
         value={username}
         onChange={onChangeUsername}
+        data-testid="LoginForm.username"
       />
       <Input
         placeholder={t('authForm.password')}
@@ -71,11 +72,13 @@ const LoginForm: FC<Props> = memo(({ className, onSuccess }) => {
         className={cls.input}
         value={password}
         onChange={onChangePassword}
+        data-testid="LoginForm.password"
       />
       <Button
         type="submit"
         className={cls.loginBtn}
         disabled={isLoading}
+        data-testid="LoginForm.submit"
       >
         {t('login')}
       </Button>

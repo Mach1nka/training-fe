@@ -1,6 +1,6 @@
 import type { FC } from 'react';
 import {
-  useState, useCallback, memo,
+  useState, useCallback, memo, Suspense,
 } from 'react';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
@@ -36,10 +36,12 @@ export const Navbar: FC<Props> = memo(({ className }) => {
 
   if (authData) {
     return (
-      <header className={classNames(cls.Navbar, {}, [className])}>
+      <header className={classNames(cls.Navbar, {}, [className])} data-testid="Navbar">
         <Text className={cls.appName} theme={TextTheme.INVERTED} title={t('appName')} />
-        <Flex justify="flex-end" gap={16}>
-          <NotificationButton />
+        <Flex justify="flex-end" align="center" gap={16}>
+          <Suspense fallback={null}>
+            <NotificationButton />
+          </Suspense>
           <AccountActions avatar={authData.avatar} />
         </Flex>
       </header>
@@ -47,11 +49,13 @@ export const Navbar: FC<Props> = memo(({ className }) => {
   }
 
   return (
-    <header className={classNames(cls.Navbar, {}, [className])}>
+    <header className={classNames(cls.Navbar, {}, [className])} data-testid="Navbar">
+      <Text className={cls.appName} theme={TextTheme.INVERTED} title={t('appName')} />
       <Button
         className={cls.loginBtn}
         theme={ButtonTheme.CLEAR_INVERTED}
         onClick={onOpenModal}
+        data-testid="Navbar.login"
       >
         {t('header.login')}
       </Button>

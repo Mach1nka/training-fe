@@ -38,7 +38,7 @@ interface Props {
   theme?: TextTheme;
   align?: TextAlign;
   size?: TextSize;
-  dataTestId?: string;
+  'data-testid'?: string;
 }
 
 export const Text: FC<Props> = memo(({
@@ -48,7 +48,7 @@ export const Text: FC<Props> = memo(({
   size = TextSize.MEDIUM,
   theme = TextTheme.PRIMARY,
   align = TextAlign.LEFT,
-  dataTestId = '',
+  'data-testid': dataTestId = '',
 }) => {
   const HeadingTag = mapSizeToHeaderTag[size];
 

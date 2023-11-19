@@ -31,6 +31,7 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   theme?: ButtonTheme;
   square?: boolean,
   size?: ButtonSize,
+  'data-testid'?: string;
 }
 
 const ButtonComponent: FC<Props> = ({
@@ -41,6 +42,7 @@ const ButtonComponent: FC<Props> = ({
   size = ButtonSize.MEDIUM,
   square,
   disabled,
+  'data-testid': dataTestId = '',
   ...props
 }) => {
   const mods = {
@@ -53,6 +55,7 @@ const ButtonComponent: FC<Props> = ({
       type={type}
       className={classNames(cls.Button, mods, [className, cls[theme], cls[size]])}
       disabled={disabled}
+      data-testid={`${dataTestId}.button`}
       {...props}
     >
       {children}
@@ -68,6 +71,7 @@ const ButtonForwardedRefComponent = forwardRef<HTMLButtonElement, Props>(({
   size = ButtonSize.MEDIUM,
   square,
   disabled,
+  'data-testid': dataTestId = '',
   ...props
 }: Props, ref) => {
   const mods = {
@@ -81,6 +85,7 @@ const ButtonForwardedRefComponent = forwardRef<HTMLButtonElement, Props>(({
       type={type}
       className={classNames(cls.Button, mods, [className, cls[theme], cls[size]])}
       disabled={disabled}
+      data-testid={`${dataTestId}.button`}
       {...props}
     >
       {children}

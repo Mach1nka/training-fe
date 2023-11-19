@@ -38,19 +38,19 @@ export const EditableProfileCardHeader: FC<Props> = memo(({ className }) => {
   }, []);
 
   const controlBlock = readonly ? (
-    <Button data-testid="EditableProfileCardHeader.editBtn" onClick={onEdit}>
+    <Button data-testid="EditableProfileCardHeader.edit" onClick={onEdit}>
       {t('edit')}
     </Button>
   ) : (
     <Flex gap={12} isGrown={false}>
       <Button
-        data-testid="EditableProfileCardHeader.cancelBtn"
+        data-testid="EditableProfileCardHeader.cancel"
         theme={ButtonTheme.OUTLINE_RED}
         onClick={onCancelEditing}
       >
         {t('cancel')}
       </Button>
-      <Button data-testid="EditableProfileCardHeader.saveBtn" onClick={onSave}>
+      <Button data-testid="EditableProfileCardHeader.save" onClick={onSave}>
         {t('save')}
       </Button>
     </Flex>

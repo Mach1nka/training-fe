@@ -8,13 +8,13 @@ import {
 describe('Sidebar', () => {
   test('Test render', () => {
     renderPreset(<Sidebar />);
-    expect(screen.getByTestId('sidebar')).toBeInTheDocument();
+    expect(screen.getByTestId('Sidebar')).toBeInTheDocument();
   });
 
-  test('Test render', () => {
+  test('Test collapse menu', () => {
     renderPreset(<Sidebar />);
-    const toggleBtn = screen.getByTestId('sidebar-toggle');
+    const toggleBtn = screen.getByTestId('Sidebar.toggle.button');
     fireEvent.click(toggleBtn);
-    expect(screen.getByTestId('sidebar')).toHaveClass('collapsed');
+    expect(screen.getByTestId('Sidebar')).toHaveClass('collapsed');
   });
 });

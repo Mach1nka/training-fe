@@ -26,11 +26,11 @@ export const Sidebar: FC<Props> = memo(({ className }) => {
 
   return (
     <nav
-      data-testid="sidebar"
+      data-testid="Sidebar"
       className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}
     >
       <Button
-        data-testid="sidebar-toggle"
+        data-testid="Sidebar.toggle"
         theme={ButtonTheme.BACKGROUND_INVERTED}
         size={ButtonSize.LARGE}
         square

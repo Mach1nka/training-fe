@@ -48,37 +48,37 @@ describe('EditableProfileCard', () => {
   });
 
   test('Test edit btn', async () => {
-    await userEvent.click(screen.getByTestId('EditableProfileCardHeader.editBtn'));
+    await userEvent.click(screen.getByTestId('EditableProfileCardHeader.edit.button'));
 
-    expect(screen.getByTestId('EditableProfileCardHeader.saveBtn')).toBeInTheDocument();
+    expect(screen.getByTestId('EditableProfileCardHeader.save.button')).toBeInTheDocument();
   });
 
   test('Test cancel btn', async () => {
-    await userEvent.click(screen.getByTestId('EditableProfileCardHeader.editBtn'));
+    await userEvent.click(screen.getByTestId('EditableProfileCardHeader.edit.button'));
     await userEvent.clear(screen.getByTestId('ProfileCard.firstname'));
     await userEvent.clear(screen.getByTestId('ProfileCard.lastname'));
-    await userEvent.click(screen.getByTestId('EditableProfileCardHeader.cancelBtn'));
+    await userEvent.click(screen.getByTestId('EditableProfileCardHeader.cancel.button'));
 
-    expect(screen.getByTestId('EditableProfileCardHeader.editBtn')).toBeInTheDocument();
+    expect(screen.getByTestId('EditableProfileCardHeader.edit.button')).toBeInTheDocument();
     expect(screen.getByTestId('ProfileCard.firstname')).toHaveValue('name');
     expect(screen.getByTestId('ProfileCard.lastname')).toHaveValue('surname');
   });
 
   test('Test validation', async () => {
-    await userEvent.click(screen.getByTestId('EditableProfileCardHeader.editBtn'));
+    await userEvent.click(screen.getByTestId('EditableProfileCardHeader.edit.button'));
     await userEvent.clear(screen.getByTestId('ProfileCard.firstname'));
     await userEvent.clear(screen.getByTestId('ProfileCard.lastname'));
-    await userEvent.click(screen.getByTestId('EditableProfileCardHeader.saveBtn'));
+    await userEvent.click(screen.getByTestId('EditableProfileCardHeader.save.button'));
 
     expect(screen.getAllByTestId('EditableProfileCardError.paragraph').length).toBeGreaterThanOrEqual(1);
   });
 
   test('Test success scenario', async () => {
     const mockedRequest = jest.spyOn(api, 'put');
-    await userEvent.click(screen.getByTestId('EditableProfileCardHeader.editBtn'));
+    await userEvent.click(screen.getByTestId('EditableProfileCardHeader.edit.button'));
     await userEvent.type(screen.getByTestId('ProfileCard.firstname'), 'name1');
     await userEvent.type(screen.getByTestId('ProfileCard.lastname'), 'lastname1');
-    await userEvent.click(screen.getByTestId('EditableProfileCardHeader.saveBtn'));
+    await userEvent.click(screen.getByTestId('EditableProfileCardHeader.save.button'));
 
     expect(mockedRequest).toHaveBeenCalled();
   });

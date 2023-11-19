@@ -61,7 +61,7 @@ export const EditableProfileCard: FC<Props> = memo(({ id }) => {
         key={error}
         theme={TextTheme.ERROR}
         text={validateErrorMapper(t)[error]}
-        dataTestId="EditableProfileCardError"
+        data-testid="EditableProfileCardError"
       />
     ))
   ), [validateErrors]);

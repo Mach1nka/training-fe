@@ -6,6 +6,8 @@ import { Portal } from '@/shared/ui/Portal/Portal';
 import { Overlay } from '@/shared/ui/Overlay/Overlay';
 import { useModal } from '@/shared/hook/useModal';
 
+import { useLoadAnimationLibrary } from '@/shared/hook/useAnimationLibrary';
+
 import cls from './Drawer.module.scss';
 
 interface Props extends PropsWithChildren {
@@ -18,12 +20,19 @@ interface Props extends PropsWithChildren {
 export const Drawer: FC<Props> = memo(({
   className, children, isOpen, onClose, lazy,
 }) => {
-  const { isMounted, isClosing, close } = useModal(isOpen, 300, onClose);
+  const {
+    showing, closing, isMounted, onModalClose,
+  } = useModal(isOpen, 300, onClose);
+  // const { isLoaded, Gesture, Spring } = useLoadAnimationLibrary();
 
   const mods = {
-    [cls.opened]: isOpen,
-    [cls.closing]: isClosing,
+    [cls.opened]: showing,
+    [cls.closing]: closing,
   };
+
+  // if (!isLoaded) {
+  //   return null;
+  // }
 
   if (lazy && !isMounted) {
     return null;
@@ -32,7 +41,7 @@ export const Drawer: FC<Props> = memo(({
   return (
     <Portal>
       <div className={classNames(cls.Drawer, mods, [className])}>
-        <Overlay onClick={close} />
+        <Overlay onClick={onModalClose} />
         <div className={cls.content}>
           {children}
         </div>

@@ -13,6 +13,7 @@ export interface DropdownItem {
   disabled?: boolean;
   onClick?: () => void;
   href?: string;
+  'data-testid'?: string;
 }
 
 interface Props extends DropdownItem {
@@ -20,7 +21,7 @@ interface Props extends DropdownItem {
 }
 
 export const MenuItem: FC<Props> = memo(({
-  content, disabled, href, onClick,
+  content, disabled, href, onClick, 'data-testid': dataTestId,
 }) => (
   <Dropdown.Item
     disabled={disabled}
@@ -46,6 +47,7 @@ export const MenuItem: FC<Props> = memo(({
           disabled={disabled}
           onClick={onClick}
           className={classNames(popupCls.item, { [popupCls.active]: active })}
+          data-testid={dataTestId}
         >
           {content}
         </ButtonForwardedRef>
