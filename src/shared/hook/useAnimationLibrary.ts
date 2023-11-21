@@ -5,7 +5,7 @@ import {
 type GestureType = typeof import('@use-gesture/react');
 type SpringType = typeof import('@react-spring/web');
 
-type UseAnimationLibrary = () => {
+export type UseAnimationLibrary = () => {
   isLoaded: boolean,
   Gesture?: GestureType,
   Spring?: SpringType
