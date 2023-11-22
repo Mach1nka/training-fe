@@ -1,4 +1,5 @@
 import path from 'path';
+import 'dotenv/config';
 
 import { buildWebpackConfig } from './config/webpack/buildWebpackConfig';
 import type { BuildEnv, BuildPaths } from './config/webpack/types/config';
@@ -12,18 +13,18 @@ export default (env: BuildEnv) => {
     locales: path.resolve(__dirname, 'public', 'locales'),
     buildLocales: path.resolve(__dirname, 'build', 'locales'),
   };
-
-  const mode = env.mode || 'development';
+ 
+  const mode = env.mode || process.env.MODE;
   const isDev = mode === 'development';
-  const PORT = env.port || 3000;
-  const apiUrl = env.apiUrl || 'http://localhost:8000';
+  const port = env.port || Number(process.env.PORT);
+  const apiUrl = process.env.API_URL as string;
   const project = 'frontend';
 
   return buildWebpackConfig({
     mode,
     paths,
     isDev,
-    port: PORT,
+    port,
     apiUrl,
     project,
   });
