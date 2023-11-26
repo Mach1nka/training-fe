@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom';
 import { ArticleDetails } from '@/entities/Article';
 import { Text, TextTheme } from '@/shared/ui/Text/Text';
 import { ArticleRecommendationsSection } from '@/widgets/ArticleRecommendationsSection';
-import { ArticleCommentSection } from '@/widgets/ArticleCommentSection';
+import { CommentArticle } from '@/features/CommentArticle';
 import { Loader } from '@/shared/ui/Loader/Loader';
 import { Flex } from '@/shared/ui/Flex/Flex';
 import { Page } from '@/shared/ui/Page/Page';
@@ -33,7 +33,7 @@ const ArticleDetailsPage: FC = memo(() => {
       </Suspense>
       <Text title={t('commentSectionTitle')} className={cls.commentSectionTitle} />
       <Suspense fallback={<Flex direction="column" align="center"><Loader /></Flex>}>
-        <ArticleCommentSection articleId={id} />
+        <CommentArticle articleId={id} />
       </Suspense>
     </Page>
   );

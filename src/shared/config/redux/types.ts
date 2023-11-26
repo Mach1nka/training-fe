@@ -5,7 +5,7 @@ import type { UserSchema } from '@/entities/User';
 import type { LoginSchema } from '@/features/AuthUserByUsername';
 import type { ProfileSchema } from '@/entities/Profile';
 import type { ArticleDetailsSchema } from '@/entities/Article';
-import type { AddCommentFormSchema } from '@/features/AddCommentForm';
+import type { CommentArticleSchema } from '@/features/CommentArticle';
 import type { WallOfArticlesSchema } from '@/widgets/WallOfArticles';
 import type { UIConditionSchema } from '@/features/UICondition';
 
@@ -19,7 +19,7 @@ export interface StateSchema {
   loginForm?: LoginSchema;
   profile?: ProfileSchema;
   articleDetails?: ArticleDetailsSchema;
-  addCommentForm?: AddCommentFormSchema;
+  commentArticle?: CommentArticleSchema;
   wallOfArticles?: WallOfArticlesSchema;
 }
 

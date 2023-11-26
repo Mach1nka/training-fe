@@ -7,12 +7,14 @@ import cls from './Icon.module.scss';
 
 export type IconTheme = 'primary' | 'secondary' | 'inverted';
 
-interface Props {
+interface Props extends SVGProps<SVGElement> {
   className?: string;
   theme?: IconTheme;
   Svg: (props: SVGProps<SVGElement>) => ReactElement;
 }
 
-export const Icon: FC<Props> = memo(({ className, theme = 'primary', Svg }) => (
-  <Svg className={classNames(cls.Icon, {}, [className, cls[theme]])} />
+export const Icon: FC<Props> = memo(({
+  className, theme = 'primary', Svg, ...props
+}) => (
+  <Svg className={classNames(cls.Icon, {}, [className, cls[theme]])} {...props} />
 ));

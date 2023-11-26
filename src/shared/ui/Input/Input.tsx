@@ -17,7 +17,7 @@ interface Props extends HTMLInputProps {
 }
 
 export const Input: FC<Props> = memo(({
-  className, value, onChange, placeholder, type = 'text', readonly = false, ...props
+  className, id, value, onChange, placeholder, type = 'text', readonly = false, ...props
 }) => {
   const onInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     onChange?.(e.target.value);
@@ -26,11 +26,12 @@ export const Input: FC<Props> = memo(({
   return (
     <div className={classNames(cls.InputWrapper, { [cls.readonly]: readonly }, [className])}>
       {placeholder && (
-        <div className={cls.placeholder}>
+        <label htmlFor={id} className={cls.placeholder}>
           {`${placeholder}>`}
-        </div>
+        </label>
       )}
       <input
+        id={id}
         className={cls.input}
         type={type}
         value={value}
@@ -39,6 +40,5 @@ export const Input: FC<Props> = memo(({
         {...props}
       />
     </div>
-
   );
 });
