@@ -10,5 +10,12 @@
   "commentForm": {
     "placeholder": "Enter text",
     "submitBtn": "Send"
+  },
+  "ratingSection": {
+    "title": "Rate the article!",
+    "feedbackModalTitle": "Share your opinion",
+    "feedbackPlaceholder": "Review",
+    "sendBtn": "Share",
+    "cancelBtn": "Cancel"
   }
 }

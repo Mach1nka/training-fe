@@ -18,7 +18,7 @@ import {
   useFetchArticleCommentsQuery,
   useAddArticleCommentMutation,
 } from '../../api/articleCommentsApi';
-import cls from './CommentArticle.module.scss';
+import cls from './ArticleCommentSection.module.scss';
 
 const initialReducers: ReducersList = {
   commentArticle: commentArticleReducer,
@@ -28,7 +28,7 @@ interface Props {
   articleId: string;
 }
 
-const CommentArticle: FC<Props> = memo(({ articleId }) => {
+const ArticleCommentSection: FC<Props> = memo(({ articleId }) => {
   const { t } = useTranslation('articleDetails');
   const dispatch = useAppDispatch();
   const commentHintId = useId();
@@ -67,4 +67,4 @@ const CommentArticle: FC<Props> = memo(({ articleId }) => {
   );
 });
 
-export default CommentArticle;
+export default ArticleCommentSection;

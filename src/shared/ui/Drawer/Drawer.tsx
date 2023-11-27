@@ -39,7 +39,7 @@ const Drawer: FC<EnrichedProps> = ({
 
   const closeDrawer = useCallback((velocity = 0) => {
     api.start({ y: height, immediate: false, config: { ...Spring.config.stiff, velocity } });
-  }, [api]);
+  }, [api, Spring.config.stiff]);
 
   const onOverlayClose = useCallback(() => {
     closeDrawer(y.velocity);

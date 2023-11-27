@@ -6,7 +6,7 @@ import type { ReducersList } from '@/shared/hook/useDynamicReducerLoad';
 
 import { commentArticleReducer } from '../../model/slice/commentArticleSlice';
 
-import CommentArticle from './CommentArticle';
+import ArticleCommentSection from './ArticleCommentSection';
 
 const initialReducers: ReducersList = {
   commentArticle: commentArticleReducer,
@@ -23,7 +23,7 @@ const comment = {
 
 export default {
   title: 'features/CommentArticle',
-  component: CommentArticle,
+  component: ArticleCommentSection,
   args: {
     articleId: '1',
   },
@@ -40,9 +40,9 @@ export default {
       ],
     }],
   },
-} as ComponentMeta<typeof CommentArticle>;
+} as ComponentMeta<typeof ArticleCommentSection>;
 
-const Template: ComponentStory<typeof CommentArticle> = (args) => <CommentArticle {...args} />;
+const Template: ComponentStory<typeof ArticleCommentSection> = (args) => <ArticleCommentSection {...args} />;
 
 export const Light = Template.bind({});
 

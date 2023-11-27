@@ -1,0 +1,25 @@
+.Rating {
+  display: flex;
+  width: min-content;
+  gap: 12px;
+}
+
+.star {
+  cursor: pointer;
+
+  // NOTE: Possible approach to hover stars through the CSS.
+  // &:hover {
+  //   fill: var(--primary-color);
+  // }
+  // &:has(~:hover) {
+  //   fill: var(--primary-color);
+  // }
+}
+
+.hovered {
+  fill: var(--primary-color);
+}
+
+.rated {
+  fill: var(--primary-color);
+}

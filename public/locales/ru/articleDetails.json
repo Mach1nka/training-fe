@@ -10,5 +10,12 @@
   "commentForm": {
     "placeholder": "Введите текст",
     "submitBtn": "Отправить"
+  },
+  "ratingSection": {
+    "title": "Оцените статью!",
+    "feedbackModalTitle": "Поделитесь мнением",
+    "feedbackPlaceholder": "Ваш отзыв",
+    "sendBtn": "Поделиться",
+    "cancelBtn": "Отменить"
   }
 }

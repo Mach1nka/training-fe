@@ -1,5 +1,7 @@
 import type { CommentArticleSchema } from './model/types';
-import { CommentArticleLazy as CommentArticle } from './ui/CommentArticle/CommentArticle.lazy';
+import {
+  ArticleCommentSectionLazy as ArticleCommentSection,
+} from './ui/ArticleCommentSection/ArticleCommentSection.lazy';
 
 export type { CommentArticleSchema };
-export { CommentArticle };
+export { ArticleCommentSection };
