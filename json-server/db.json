@@ -551,19 +551,32 @@
       "id": "eRiqwcl"
     }
   ],
+  "article-ratings": [
+    {
+      "id": "eRiqwcl",
+      "rating": 5,
+      "feedback": "fafaf",
+      "userId": "1",
+      "articleId": "1"
+    }
+  ],
   "users": [
     {
       "id": "1",
       "username": "admin",
       "password": "123",
-      "role": ["ADMIN"],
+      "role": [
+        "ADMIN"
+      ],
       "avatar": "https://img.freepik.com/free-photo/html-css-collage-concept-with-hacker_23-2150061984.jpg?w=1380&t=st=1686853323~exp=1686853923~hmac=2ea8add7a7f87e9cd928bd7e7b5237531d331d46c2ba610b3b41270dc77079c5"
     },
     {
       "id": "2",
       "username": "user123",
       "password": "123",
-      "role": ["USER"],
+      "role": [
+        "USER"
+      ],
       "avatar": "https://img.freepik.com/free-photo/html-css-collage-concept-with-hacker_23-2150061984.jpg?w=1380&t=st=1686853323~exp=1686853923~hmac=2ea8add7a7f87e9cd928bd7e7b5237531d331d46c2ba610b3b41270dc77079c5"
     }
   ],

@@ -12,7 +12,8 @@
     "submitBtn": "Send"
   },
   "ratingSection": {
-    "title": "Rate the article!",
+    "appeal": "Rate the article!",
+    "gratitude": "Thank you for your opinion!",
     "feedbackModalTitle": "Share your opinion",
     "feedbackPlaceholder": "Review",
     "sendBtn": "Share",

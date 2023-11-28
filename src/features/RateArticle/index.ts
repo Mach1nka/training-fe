@@ -1,3 +1,5 @@
-import { ArticleRatingSection } from './ui/ArticleRatingSection/ArticleRatingSection';
+import {
+  ArticleRatingSectionLazy as ArticleRatingSection,
+} from './ui/ArticleRatingSection/ArticleRatingSection.lazy';
 
 export { ArticleRatingSection };

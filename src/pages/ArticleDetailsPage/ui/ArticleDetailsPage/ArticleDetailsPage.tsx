@@ -10,6 +10,7 @@ import { ArticleCommentSection } from '@/features/CommentArticle';
 import { Loader } from '@/shared/ui/Loader/Loader';
 import { Flex } from '@/shared/ui/Flex/Flex';
 import { Page } from '@/shared/ui/Page/Page';
+import { ArticleRatingSection } from '@/features/RateArticle';
 
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 
@@ -27,6 +28,9 @@ const ArticleDetailsPage: FC = memo(() => {
     <Page>
       <ArticleDetailsPageHeader />
       <ArticleDetails articleId={id} />
+      <Suspense fallback={<Flex direction="column" align="center"><Loader /></Flex>}>
+        <ArticleRatingSection className={cls.ratingSection} articleId={id} />
+      </Suspense>
       <Text title={t('recommendationsSectionTitle')} className={cls.recommendationsSectionTitle} />
       <Suspense fallback={<Flex direction="column" align="center"><Loader /></Flex>}>
         <ArticleRecommendationsSection />

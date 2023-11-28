@@ -3,7 +3,7 @@ import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Theme } from '@/app/providers/ThemeProvider';
 import { themeDecorator } from '@/shared/lib/storybook/decorators';
 
-import { ArticleRatingSection } from './ArticleRatingSection';
+import ArticleRatingSection from './ArticleRatingSection';
 
 export default {
   title: 'features/ArticleRatingSection',

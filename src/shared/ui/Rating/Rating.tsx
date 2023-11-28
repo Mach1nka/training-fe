@@ -24,16 +24,21 @@ export const Rating: FC<Props> = memo(({
   const [isHovered, { onMouseEnter, onMouseLeave }] = useHover();
 
   const onStarClick = (rating: number) => () => {
-    onChange(rating);
+    if (!value) {
+      onChange(rating);
+    }
   };
 
   const onHover = (rating: number) => () => {
-    setHoveredItem(rating);
+    if (!value) {
+      setHoveredItem(rating);
+    }
   };
 
   const mods = (rating: number) => ({
     [cls.hovered]: isHovered && rating <= hoveredItem,
     [cls.rated]: rating <= Number(value),
+    [cls.disabled]: Boolean(value),
   });
 
   return (
@@ -42,15 +47,15 @@ export const Rating: FC<Props> = memo(({
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
-      {ratingRange.map((rate) => (
+      {ratingRange.map((value) => (
         <Icon
-          key={rate}
-          className={classNames(cls.star, mods(rate))}
+          key={value}
+          className={classNames(cls.star, mods(value))}
           Svg={StarIcon}
           width={size}
           height={size}
-          onClick={onStarClick(rate)}
-          onMouseEnter={onHover(rate)}
+          onClick={onStarClick(value)}
+          onMouseEnter={onHover(value)}
         />
       ))}
     </div>
