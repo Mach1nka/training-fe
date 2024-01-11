@@ -22,3 +22,7 @@ export interface WallOfArticlesSchema {
   };
   search: string;
 }
+
+export type SearchURLParamsMapper = (state: WallOfArticlesSchema) => {
+   [key: string]: (value: string) => void;
+};

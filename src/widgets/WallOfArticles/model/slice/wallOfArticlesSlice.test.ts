@@ -105,10 +105,13 @@ describe('wallOfArticlesSlice extra reducers', () => {
 
   test('initWallOfArticles', () => {
     expect(wallOfArticlesReducer(mockedData.state as WallOfArticlesSchema, wallOfArticlesActions.initWallOfArticles({
-      order: 'desc',
-      search: 'text',
-      sort: 'views',
-      type: 'SCIENCE',
+      searchURLParams: {
+        order: 'desc',
+        search: 'text',
+        sort: 'views',
+        type: 'SCIENCE',
+      },
+      view: ArticleView.LIST,
     })))
       .toEqual({
         ...defaultState,
@@ -116,7 +119,6 @@ describe('wallOfArticlesSlice extra reducers', () => {
         order: 'desc',
         search: 'text',
         sort: ArticleSortedField.VIEWS,
-        // TODO: implement mocked localStorage and add it to the global variables
         view: 'LIST',
         limit: 4,
         filters: {

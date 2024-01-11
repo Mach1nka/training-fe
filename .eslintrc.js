@@ -52,6 +52,7 @@ module.exports = {
     'no-param-reassign': 'off',
     'no-plusplus': 'off',
     'no-undef': 'off',
+    'no-void': 'off',
     'i18next/no-literal-string': ['error', {
       markupOnly: true,
       ignoreAttribute: [

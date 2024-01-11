@@ -20,6 +20,7 @@ import { Text, TextTheme } from '@/shared/ui/Text/Text';
 import type { SortingOrder } from '@/shared/types/common';
 import { useDebounce } from '@/shared/hook/useDebounce';
 import { ArticlesFiltrationSection } from '@/features/FilterArticles';
+import { LOCAL_STORAGE_WALL_OF_ARTICLES_VIEW } from '@/shared/constant/localstorage';
 
 import { fetchArticles } from '../../model/service/fetchArticles/fetchArticles';
 import {
@@ -61,7 +62,8 @@ export const WallOfArticles: FC<Props> = memo(({ className }) => {
 
   const onChangeView = useCallback((newView: ArticleView) => {
     dispatch(wallOfArticlesActions.setView(newView));
-  }, []);
+    localStorage.setItem(LOCAL_STORAGE_WALL_OF_ARTICLES_VIEW, newView);
+  }, [dispatch]);
 
   const onChangeSortOrder = useCallback((newOrder: SortingOrder) => {
     dispatch(wallOfArticlesActions.setSortOrder(newOrder));
@@ -69,7 +71,7 @@ export const WallOfArticles: FC<Props> = memo(({ className }) => {
     searchParams.set('order', newOrder);
     setSearchParams(searchParams);
     thunkMiddleware(() => dispatch(fetchArticles({ replace: true })));
-  }, []);
+  }, [dispatch, searchParams, setSearchParams]);
 
   const onChangeSort = useCallback((newField: ArticleSortedField) => {
     dispatch(wallOfArticlesActions.setSortField(newField));
@@ -77,7 +79,7 @@ export const WallOfArticles: FC<Props> = memo(({ className }) => {
     searchParams.set('sort', newField);
     setSearchParams(searchParams);
     thunkMiddleware(() => dispatch(fetchArticles({ replace: true })));
-  }, []);
+  }, [dispatch, searchParams, setSearchParams]);
 
   const onChangeSearch = useCallback((value: string) => {
     dispatch(wallOfArticlesActions.setPage(1));
@@ -85,7 +87,7 @@ export const WallOfArticles: FC<Props> = memo(({ className }) => {
     searchParams.set('search', value);
     setSearchParams(searchParams);
     thunkMiddleware(() => dispatch(debouncedSearch));
-  }, []);
+  }, [dispatch, searchParams, setSearchParams, debouncedSearch]);
 
   const onChangeTypeFilter = useCallback((value: ArticleType) => {
     dispatch(wallOfArticlesActions.setTypeFilter(value));
@@ -93,7 +95,7 @@ export const WallOfArticles: FC<Props> = memo(({ className }) => {
     searchParams.set('type', value);
     setSearchParams(searchParams);
     thunkMiddleware(() => dispatch(fetchArticles({ replace: true })));
-  }, []);
+  }, [dispatch, searchParams, setSearchParams]);
 
   useDynamicReducerLoad(initialReducers, false);
 
@@ -101,8 +103,9 @@ export const WallOfArticles: FC<Props> = memo(({ className }) => {
     if (!initialized) {
       const searchParamsObj: Record<string, string> = {};
       searchParams.forEach((value, key) => { searchParamsObj[key] = value; });
+      const view = localStorage.getItem(LOCAL_STORAGE_WALL_OF_ARTICLES_VIEW) as ArticleView;
 
-      dispatch(wallOfArticlesActions.initWallOfArticles(searchParamsObj));
+      dispatch(wallOfArticlesActions.initWallOfArticles({ searchURLParams: searchParamsObj, view }));
       thunkMiddleware(() => dispatch(fetchArticles({})));
     }
   }, []);

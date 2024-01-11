@@ -5,6 +5,8 @@
 
 import path from 'path';
 
+import { LocalStorageMock } from '../../src/shared/lib/jest/localStorageMock';
+
 export default {
   // All imported modules in your tests should be mocked automatically
   // automock: false,
@@ -71,6 +73,7 @@ export default {
     IS_DEV: true,
     API_URL: '',
     PROJECT: 'jest',
+    localStorage: new LocalStorageMock(),
   },
 
   reporters: [
