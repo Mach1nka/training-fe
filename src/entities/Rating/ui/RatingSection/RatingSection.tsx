@@ -56,11 +56,11 @@ export const RatingSection: FC<Props> = memo(({
     setIsFormOpen(false);
   }, [rating, onCancel]);
 
-  // useEffect(() => {
-  //   if (data?.[0]?.rating) {
-  //     setRating(data[0].rating);
-  //   }
-  // }, [data]);
+  useEffect(() => {
+    if (ratingValue) {
+      setRating(ratingValue);
+    }
+  }, [ratingValue]);
 
   return (
     <>
