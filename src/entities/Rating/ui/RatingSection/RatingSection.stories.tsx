@@ -3,14 +3,14 @@ import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Theme } from '@/app/providers/ThemeProvider';
 import { themeDecorator } from '@/shared/lib/storybook/decorators';
 
-import ArticleRatingSection from './ArticleRatingSection';
+import { RatingSection } from './RatingSection';
 
 export default {
-  title: 'features/ArticleRatingSection',
-  component: ArticleRatingSection,
-} as ComponentMeta<typeof ArticleRatingSection>;
+  title: 'entities/RatingSection',
+  component: RatingSection,
+} as ComponentMeta<typeof RatingSection>;
 
-const Template: ComponentStory<typeof ArticleRatingSection> = (args) => <ArticleRatingSection {...args} />;
+const Template: ComponentStory<typeof RatingSection> = (args) => <RatingSection {...args} />;
 
 export const Light = Template.bind({});
 

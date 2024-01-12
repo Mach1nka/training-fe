@@ -14,9 +14,9 @@
   "ratingSection": {
     "appeal": "Rate the article!",
     "gratitude": "Thank you for your opinion!",
-    "feedbackModalTitle": "Share your opinion",
+    "feedbackPopupTitle": "Share your opinion",
     "feedbackPlaceholder": "Review",
-    "sendBtn": "Share",
+    "acceptBtn": "Share",
     "cancelBtn": "Cancel"
   }
 }

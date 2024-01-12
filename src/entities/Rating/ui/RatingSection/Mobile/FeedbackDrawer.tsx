@@ -1,6 +1,5 @@
-import { memo } from 'react';
+import { memo, useCallback, useState } from 'react';
 import type { FC } from 'react';
-import { useTranslation } from 'react-i18next';
 
 import { Drawer } from '@/shared/ui/Drawer/Drawer';
 import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
@@ -10,37 +9,45 @@ import { Text } from '@/shared/ui/Text/Text';
 
 interface Props {
   isOpen: boolean;
-  feedback: string;
-  onAccept: () => void;
+  title: string;
+  placeholder: string;
+  acceptBtnText: string;
+  cancelBtnText: string;
+  onAccept: (feedback: string) => void;
   onCancel: () => void;
-  onFeedbackChange: (text: string) => void;
 }
 
 const FeedbackDrawer: FC<Props> = memo(({
   isOpen,
-  feedback,
+  title,
+  placeholder,
+  acceptBtnText,
+  cancelBtnText,
   onAccept,
   onCancel,
-  onFeedbackChange,
 }) => {
-  const { t } = useTranslation('articleDetails');
+  const [feedback, setFeedback] = useState('');
+
+  const onFeedbackChange = useCallback((text: string) => {
+    setFeedback(text);
+  }, []);
 
   return (
     <Drawer isOpen={isOpen} onClose={onCancel}>
       <Flex direction="column" gap={32}>
-        <Text title={t('ratingSection.feedbackModalTitle')} />
+        <Text title={title} />
         <Input
           value={feedback}
-          placeholder={t('ratingSection.feedbackPlaceholder')}
+          placeholder={placeholder}
           onChange={onFeedbackChange}
         />
         <Flex justify="space-between">
-          <Button onClick={onAccept}>{t('ratingSection.sendBtn')}</Button>
+          <Button onClick={() => onAccept(feedback)}>{acceptBtnText}</Button>
           <Button
             theme={ButtonTheme.OUTLINE_RED}
             onClick={onCancel}
           >
-            {t('ratingSection.cancelBtn')}
+            {cancelBtnText}
           </Button>
         </Flex>
       </Flex>

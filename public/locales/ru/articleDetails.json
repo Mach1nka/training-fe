@@ -14,9 +14,9 @@
   "ratingSection": {
     "appeal": "Оцените статью!",
     "gratitude": "Спасибо за отзыв!",
-    "feedbackModalTitle": "Поделитесь мнением",
+    "feedbackPopupTitle": "Поделитесь мнением",
     "feedbackPlaceholder": "Ваш отзыв",
-    "sendBtn": "Поделиться",
+    "acceptBtn": "Поделиться",
     "cancelBtn": "Отменить"
   }
 }
