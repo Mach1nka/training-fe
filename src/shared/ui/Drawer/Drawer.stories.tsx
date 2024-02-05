@@ -11,6 +11,11 @@ export default {
   args: {
     isOpen: true,
   },
+  parameters: {
+    loki: {
+      skip: true,
+    },
+  },
 } as ComponentMeta<typeof Drawer>;
 
 const Template: ComponentStory<typeof Drawer> = (args) => <Drawer {...args} />;

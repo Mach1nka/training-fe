@@ -2,13 +2,14 @@ import type { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { Theme } from '@/app/providers/ThemeProvider';
 import { themeDecorator, styleDecorator } from '@/shared/lib/storybook/decorators';
+import { centerContentStorybook } from '@/shared/lib/storybook/constants';
 
 import { Select } from './Select';
 
 export default {
   title: 'shared/Select',
   component: Select,
-  decorators: [styleDecorator({ padding: '150px' })],
+  decorators: [styleDecorator(centerContentStorybook)],
   args: {
     placeholder: 'Select a value',
     options: [

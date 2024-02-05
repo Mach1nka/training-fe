@@ -10,6 +10,9 @@ export default {
   title: 'entities/CommentForm',
   component: CommentForm,
   args: {
+    commentHintId: 'id',
+    placeholder: 'Comment',
+    label: 'Send',
     onCommentSubmit: action('onCommentSubmit'),
   },
 } as ComponentMeta<typeof CommentForm>;

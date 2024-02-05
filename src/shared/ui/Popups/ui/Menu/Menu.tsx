@@ -1,6 +1,6 @@
 import type { FC, ReactNode } from 'react';
 import { Fragment, memo, useMemo } from 'react';
-import { Menu as Dropdown } from '@headlessui/react';
+import { Menu as HMenu } from '@headlessui/react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
 import type { DropdownVerticalDirection, DropdownHorizontalDirection } from '@/shared/types/common';
@@ -26,7 +26,7 @@ export const Menu: FC<Props> = memo(({
   directionH = 'left',
 }) => {
   const optionsList = useMemo(() => (
-    options.map((option, idx) => <MenuItem key={idx} {...option} />)
+    options.map((option, idx) => <MenuItem key={idx} className={cls.item} {...option} />)
   ), [options]);
 
   const listClasses = useMemo(() => ([
@@ -34,13 +34,13 @@ export const Menu: FC<Props> = memo(({
   ]), [directionV, directionH]);
 
   return (
-    <Dropdown as="div" className={classNames(cls.Menu, {}, [className])}>
-      <Dropdown.Button as={Fragment}>
+    <HMenu as="div" className={classNames(cls.Menu, {}, [className])}>
+      <HMenu.Button as={Fragment}>
         {label}
-      </Dropdown.Button>
-      <Dropdown.Items className={classNames(cls.list, {}, listClasses)}>
+      </HMenu.Button>
+      <HMenu.Items className={classNames(cls.list, {}, listClasses)}>
         {optionsList}
-      </Dropdown.Items>
-    </Dropdown>
+      </HMenu.Items>
+    </HMenu>
   );
 });

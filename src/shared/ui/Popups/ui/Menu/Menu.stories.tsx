@@ -1,15 +1,16 @@
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { Theme } from '@/app/providers/ThemeProvider';
-import { themeDecorator, routerDecorator } from '@/shared/lib/storybook/decorators';
+import { themeDecorator, routerDecorator, styleDecorator } from '@/shared/lib/storybook/decorators';
+import { Button } from '@/shared/ui/Button/Button';
+import { centerContentStorybook } from '@/shared/lib/storybook/constants';
 
 import { Menu } from './Menu';
-import { Button } from '@/shared/ui/Button/Button';
 
 export default {
   title: 'shared/Menu',
   component: Menu,
-  decorators: [routerDecorator()],
+  decorators: [styleDecorator(centerContentStorybook), routerDecorator()],
   args: {
     label: <Button>Options</Button>,
     options: [

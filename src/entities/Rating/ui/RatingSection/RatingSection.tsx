@@ -35,7 +35,8 @@ export const RatingSection: FC<Props> = memo(({
   feedbackPlaceholderText,
   feedbackAcceptBtnText,
   feedbackCancelBtnText,
-  onAccept, onCancel,
+  onAccept,
+  onCancel,
 }) => {
   const [rating, setRating] = useState(ratingValue || 0);
   const [isFormOpen, setIsFormOpen] = useState(false);
@@ -57,10 +58,10 @@ export const RatingSection: FC<Props> = memo(({
   }, [rating, onCancel]);
 
   useEffect(() => {
-    if (ratingValue) {
+    if (ratingValue && !rating) {
       setRating(ratingValue);
     }
-  }, [ratingValue]);
+  }, [ratingValue, rating]);
 
   return (
     <>

@@ -1,14 +1,15 @@
 import type { FC } from 'react';
 import { Fragment, memo } from 'react';
-import { Menu as Dropdown } from '@headlessui/react';
+import { Menu as HMenu } from '@headlessui/react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { AppLinkForwardedRef, AppLinkUnderline } from '@/shared/ui/AppLink/AppLink';
-import { ButtonForwardedRef, ButtonTheme } from '@/shared/ui/Button/Button';
+import { AppLink, AppLinkUnderline } from '@/shared/ui/AppLink/AppLink';
+import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
 
 import popupCls from '../../../styles/popups.module.scss';
 
 export interface DropdownItem {
+  className?: string;
   content: string;
   disabled?: boolean;
   onClick?: () => void;
@@ -21,37 +22,37 @@ interface Props extends DropdownItem {
 }
 
 export const MenuItem: FC<Props> = memo(({
-  content, disabled, href, onClick, 'data-testid': dataTestId,
+  content, disabled, href, onClick, 'data-testid': dataTestId, className,
 }) => (
-  <Dropdown.Item
+  <HMenu.Item
     disabled={disabled}
     as={Fragment}
   >
     {({ active }) => {
       if (href) {
         return (
-          <AppLinkForwardedRef
+          <AppLink
             to={href}
             onClick={onClick}
             underline={AppLinkUnderline.NEVER}
-            className={classNames(popupCls.item, { [popupCls.active]: active })}
+            className={classNames(popupCls.item, { [popupCls.active]: active }, [className])}
           >
             {content}
-          </AppLinkForwardedRef>
+          </AppLink>
         );
       }
 
       return (
-        <ButtonForwardedRef
+        <Button
           theme={ButtonTheme.CLEAR}
           disabled={disabled}
           onClick={onClick}
-          className={classNames(popupCls.item, { [popupCls.active]: active })}
+          className={classNames(popupCls.item, { [popupCls.active]: active }, [className])}
           data-testid={dataTestId}
         >
           {content}
-        </ButtonForwardedRef>
+        </Button>
       );
     }}
-  </Dropdown.Item>
+  </HMenu.Item>
 ));

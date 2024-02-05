@@ -38,3 +38,11 @@
 .selected {
   background-color: var(--inverted-primary-color);
 }
+
+.disabled {
+  opacity: 0.5;
+
+  &:hover {
+    cursor: default;
+  }
+}

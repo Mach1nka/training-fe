@@ -1,6 +1,6 @@
 import { Fragment, useMemo } from 'react';
 import type { FC, PropsWithChildren, ReactNode } from 'react';
-import { Popover } from '@headlessui/react';
+import { Popover as HPopover } from '@headlessui/react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
 import type { DropdownVerticalDirection, DropdownHorizontalDirection } from '@/shared/types/common';
@@ -16,7 +16,7 @@ interface Props extends PropsWithChildren {
   unmount?: boolean;
 }
 
-export const AppPopover: FC<Props> = ({
+export const Popover: FC<Props> = ({
   className,
   children,
   label,
@@ -29,11 +29,11 @@ export const AppPopover: FC<Props> = ({
   ]), [directionV, directionH]);
 
   return (
-    <Popover className={classNames(cls.Popover, {}, [className])}>
-      <Popover.Button as={Fragment}>{label}</Popover.Button>
-      <Popover.Panel unmount={unmount} className={classNames(cls.content, {}, listClasses)}>
+    <HPopover className={classNames(cls.Popover, {}, [className])}>
+      <HPopover.Button as={Fragment}>{label}</HPopover.Button>
+      <HPopover.Panel unmount={unmount} className={classNames(cls.content, {}, listClasses)}>
         {children}
-      </Popover.Panel>
-    </Popover>
+      </HPopover.Panel>
+    </HPopover>
   );
 };

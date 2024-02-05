@@ -7,6 +7,8 @@ import {
   themeDecorator,
   styleDecorator,
 } from '@/shared/lib/storybook/decorators';
+import { centerContentStorybook } from '@/shared/lib/storybook/constants';
+
 import { AccountActions } from './AccountActions';
 
 export default {
@@ -15,7 +17,7 @@ export default {
   decorators: [
     routerDecorator(),
     storeDecorator({ user: { authData: { id: '1', username: 'guest' } } }),
-    styleDecorator({ display: 'flex', padding: '0 250px' }),
+    styleDecorator(centerContentStorybook),
   ],
 } as ComponentMeta<typeof AccountActions>;
 

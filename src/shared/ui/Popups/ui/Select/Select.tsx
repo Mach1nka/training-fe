@@ -5,10 +5,10 @@ import {
 import { Listbox } from '@headlessui/react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { Button } from '@/shared/ui/Button/Button';
+import type { DropdownVerticalDirection, DropdownHorizontalDirection } from '@/shared/types/common';
 import CheckIcon from '@/shared/assets/icons/confirm.svg';
 import { Icon } from '@/shared/ui/Icon/Icon';
-import { ButtonForwardedRef } from '@/shared/ui/Button/Button';
-import type { DropdownVerticalDirection, DropdownHorizontalDirection } from '@/shared/types/common';
 
 import cls from './Select.module.scss';
 import popupCls from '../../styles/popups.module.scss';
@@ -53,11 +53,6 @@ const SelectComponent = <T extends string>({
     popupCls.list, popupCls[directionV], popupCls[directionH],
   ]), [directionV, directionH]);
 
-  const onSelectChange = useCallback((option: SelectOption<T>) => {
-    setItem(option);
-    onChange(option.value);
-  }, [onChange]);
-
   const optionsList = useMemo(() => (
     options.map((option) => (
       <Listbox.Option
@@ -71,7 +66,11 @@ const SelectComponent = <T extends string>({
             className={
               classNames(
                 cls.item,
-                { [popupCls.active]: active, [cls.selected]: selected },
+                {
+                  [popupCls.active]: active,
+                  [cls.selected]: selected,
+                  [cls.disabled]: option.disabled,
+                },
                 [popupCls.item],
               )
             }
@@ -84,6 +83,11 @@ const SelectComponent = <T extends string>({
     ))
   ), [options]);
 
+  const onSelectChange = useCallback((option: SelectOption<T>) => {
+    setItem(option);
+    onChange(option.value);
+  }, [onChange]);
+
   return (
     <Listbox
       disabled={readonly}
@@ -95,9 +99,9 @@ const SelectComponent = <T extends string>({
       {placeholder && <Listbox.Label className={cls.label}>{`${placeholder}>`}</Listbox.Label>}
       <div className={cls.select}>
         <Listbox.Button as={Fragment}>
-          <ButtonForwardedRef disabled={readonly} className={cls.button}>
+          <Button disabled={readonly} className={cls.button}>
             {item?.label}
-          </ButtonForwardedRef>
+          </Button>
         </Listbox.Button>
         <Listbox.Options className={classNames(cls.list, {}, listClasses)}>
           {optionsList}

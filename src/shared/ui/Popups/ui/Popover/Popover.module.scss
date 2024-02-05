@@ -1,8 +1,11 @@
 .Popover {
+  display: flex;
   position: relative;
+  width: min-content;
 }
 
 .content {
+  width: max-content;
   padding: 8px 12px;
   background-color: var(--card-bg);
 }

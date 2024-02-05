@@ -558,6 +558,13 @@
       "feedback": "fafaf",
       "userId": "1",
       "articleId": "1"
+    },
+    {
+      "articleId": "6",
+      "userId": "1",
+      "rating": 5,
+      "feedback": "",
+      "id": "J8rWak7"
     }
   ],
   "users": [
