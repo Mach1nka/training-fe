@@ -1,19 +1,7 @@
 const { toNamespacedPath } = require('path');
+const { LAYERS, isPathRelative } = require('../utils/index.js');
 
-const layers = {
-  app: 'app',
-  pages: 'pages',
-  widgets: 'widgets',
-  features: 'features',
-  entities: 'entities',
-  shared: 'shared',
-};
-
-function isPathRelative(path) {
-  return path === '.' || path.startsWith('./') || path.startsWith('../');
-}
-
-function shouldBeRelative(importPath, filePath) {
+function shouldBeRelative(importPath, sourceFilePath) {
   if (isPathRelative(importPath)) {
     return false;
   }
@@ -22,23 +10,23 @@ function shouldBeRelative(importPath, filePath) {
   const layerOfImport = parsedImportPath[1];
   const sliceOfImport = parsedImportPath[2];
 
-  if (!layers[layerOfImport]) {
+  if (!LAYERS[layerOfImport]) {
     return false;
   }
 
-  const normalizedPath = toNamespacedPath(filePath);
+  const normalizedPath = toNamespacedPath(sourceFilePath);
   const srcDirectory = normalizedPath.split('src')[1];
   const parsedFilePath = srcDirectory.split('\\');
   // [0] element is \\
   const layerOfFile = parsedFilePath[1];
   const sliceOfFile = parsedFilePath[2];
 
-  if (!layers[layerOfFile]) {
+  if (!LAYERS[layerOfFile]) {
     return false;
   }
 
   // NOTE: Imports among shared modules must be absolute.
-  if (layerOfImport === layers.shared && layerOfFile === layers.shared) {
+  if (layerOfImport === LAYERS.shared && layerOfFile === LAYERS.shared) {
     return false;
   }
 
@@ -54,14 +42,25 @@ module.exports = {
       url: null,
     },
     fixable: 'code',
+    schema: [
+      {
+        type: 'object',
+        properties: {
+          alias: {
+            type: 'string'
+          },
+        },
+      },
+    ],
   },
   create(ctx) {
     return {
-      ImportDeclaration(node)  {
-        const importFrom = node.source.value;
+      ImportDeclaration(node) {
+        const alias = ctx.options[0]?.alias || '';
+        const importPath = alias ? node.source.value.replace(`${alias}/`) : node.source.value;
         const filename = ctx.getFilename();
 
-        if (shouldBeRelative(importFrom, filename)) {
+        if (shouldBeRelative(importPath, filename)) {
           ctx.report(node, 'Imports must be relative in the same slice');
         }
       }

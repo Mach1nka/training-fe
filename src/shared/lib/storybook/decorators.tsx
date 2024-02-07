@@ -3,13 +3,13 @@ import type { CSSProperties } from 'react';
 import type { Story } from '@storybook/react';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
 
-import type { Theme } from '@/app/providers/ThemeProvider';
-import { ThemeProvider } from '@/app/providers/ThemeProvider';
-import { StoreProvider } from '@/app/providers/StoreProvider';
+import { ThemeProvider, StoreProvider } from '@/app/providers';
+import type { Theme } from '@/app/providers';
 import type { ReducersList } from '@/shared/hook/useDynamicReducerLoad';
 
 import type { StateSchema } from '../../config/redux/types';
 
+// eslint-disable-next-line fsd/public-api-module-encapsulation
 import '@/app/styles/index.scss';
 
 export const commonStyleDecorator = (Story: Story) => <Story />;

@@ -2,7 +2,7 @@ import type { FC } from 'react';
 import { Suspense, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
-import { AppRouter } from '@/app/providers/AppRouter';
+import { AppRouter } from '@/app/providers';
 import { Navbar } from '@/widgets/Navbar';
 import { Sidebar } from '@/widgets/Sidebar';
 import { getUserInitialized, userActions } from '@/entities/User';
@@ -14,7 +14,7 @@ const App: FC = () => {
 
   useEffect(() => {
     dispatch(userActions.initAuthData());
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="app">

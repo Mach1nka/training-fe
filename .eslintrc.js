@@ -76,7 +76,8 @@ module.exports = {
     'jsx-a11y/click-events-have-key-events': 'off',
     'jsx-a11y/no-static-element-interactions': 'off',
     // NOTE: Custom plugins' rules
-    'fsd/public-api-imports': 'error',
+    'fsd/public-api-imports': ['error', { alias: '@' }],
+    'fsd/public-api-module-encapsulation': ['error', { alias: '@', ignorePatterns: ['**/*.{test,stories}.{ts,tsx}'] }],
   },
   globals: {
     IS_DEV: 'readonly',
