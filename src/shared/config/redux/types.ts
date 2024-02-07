@@ -8,9 +8,9 @@ import type { ArticleDetailsSchema } from '@/entities/Article';
 import type { CommentArticleSchema } from '@/features/CommentArticle';
 import type { WallOfArticlesSchema } from '@/widgets/WallOfArticles';
 import type { UIConditionSchema } from '@/features/UICondition';
+import type { rtkApi } from '@/shared/api/rtkApi';
 
 import type { createReducerManager } from './reducerManager';
-import type { rtkApi } from '@/shared/api/rtkApi';
 
 export interface StateSchema {
   user: UserSchema;

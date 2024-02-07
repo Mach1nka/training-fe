@@ -7,7 +7,7 @@ import { Text } from '@/shared/ui/Text/Text';
 import DefaultAvatar from '@/shared/assets/icons/avatar-default.png';
 import { AppLink } from '@/shared/ui/AppLink/AppLink';
 import { Flex } from '@/shared/ui/Flex/Flex';
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
+import { RoutePath } from '@/shared/constant/router';
 import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
 
 import type { Comment } from '../../model/types';

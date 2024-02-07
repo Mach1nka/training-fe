@@ -12,11 +12,11 @@ import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleT
 import { Avatar } from '@/shared/ui/Avatar/Avatar';
 import EyeIcon from '@/shared/assets/icons/eye.svg';
 import DefaultAvatar from '@/shared/assets/icons/avatar-default.png';
+import { RoutePath } from '@/shared/constant/router';
 
 import type { Article, ArticleTextBlock } from '../../model/types';
 import { ArticleBlockType, ArticleView } from '../../model/const';
 import cls from './ArticleListItem.module.scss';
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 
 interface Props {
   className?: string;

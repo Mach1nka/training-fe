@@ -3,9 +3,9 @@ import type { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
-import DefaultImage from '@/shared/assets/tests/storybookPlug.jpg';
 import { isUserAdmin, userActions } from '@/entities/User';
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
+import DefaultImage from '@/shared/assets/tests/storybookPlug.jpg';
+import { RoutePath } from '@/shared/constant/router';
 import { Avatar } from '@/shared/ui/Avatar/Avatar';
 import { ButtonForwardedRef, ButtonTheme } from '@/shared/ui/Button/Button';
 import { Menu } from '@/shared/ui/Popups';

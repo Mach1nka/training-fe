@@ -4,7 +4,7 @@ import { Outlet, Navigate } from 'react-router-dom';
 
 import type { UserRole } from '@/entities/User';
 import { getUserRole } from '@/entities/User';
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
+import { RoutePath } from '@/shared/constant/router';
 
 interface Props {
   allowedRoles?: UserRole[];

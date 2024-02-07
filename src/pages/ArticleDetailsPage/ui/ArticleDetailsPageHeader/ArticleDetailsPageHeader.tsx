@@ -5,10 +5,10 @@ import { useSelector } from 'react-redux';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button } from '@/shared/ui/Button/Button';
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
+import { RoutePath } from '@/shared/constant/router';
 import { AppLink, AppLinkUnderline } from '@/shared/ui/AppLink/AppLink';
-import { getArticleDetailsData, getCanBeArticleEdited } from '@/entities/Article';
 import { Flex } from '@/shared/ui/Flex/Flex';
+import { getArticleDetailsData, getCanBeArticleEdited } from '@/entities/Article';
 
 interface Props {
   className?: string;
