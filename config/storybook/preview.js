@@ -4,7 +4,7 @@ import {
   commonStyleDecorator,
   themeDecorator,
 } from '../../src/shared/lib/storybook/decorators';
-import { Theme } from '../../src/app/providers/ThemeProvider/lib/ThemeContext';
+import { Theme } from '../../src/shared/constant/theme';
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },

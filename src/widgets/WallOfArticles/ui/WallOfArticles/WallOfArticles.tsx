@@ -108,7 +108,7 @@ export const WallOfArticles: FC<Props> = memo(({ className }) => {
       dispatch(wallOfArticlesActions.initWallOfArticles({ searchURLParams: searchParamsObj, view }));
       thunkMiddleware(() => dispatch(fetchArticles({})));
     }
-  }, []);
+  }, [dispatch]);
 
   if (error) {
     return (

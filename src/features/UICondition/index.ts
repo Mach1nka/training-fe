@@ -1,13 +1,12 @@
 import type { UIConditionSchema } from './model/types';
-import { uiConditionReducer, uiConditionActions } from './model/slice/uiConditionSlice';
-import { getScrollPositionByPath } from './model/selector/uiConditionSelector';
+import { uiConditionReducer } from './model/slice/uiConditionSlice';
+import { InfiniteScrollPage } from './ui/InfiniteScrollPage/InfiniteScrollPage';
 
 export type {
   UIConditionSchema,
 };
 
 export {
-  getScrollPositionByPath,
   uiConditionReducer,
-  uiConditionActions,
+  InfiniteScrollPage,
 };

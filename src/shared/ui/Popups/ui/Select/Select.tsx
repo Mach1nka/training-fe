@@ -5,7 +5,7 @@ import {
 import { Listbox } from '@headlessui/react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Button } from '@/shared/ui/Button/Button';
+import { Button, ButtonForwardedRef } from '@/shared/ui/Button/Button';
 import type { DropdownVerticalDirection, DropdownHorizontalDirection } from '@/shared/types/common';
 import CheckIcon from '@/shared/assets/icons/confirm.svg';
 import { Icon } from '@/shared/ui/Icon/Icon';
@@ -99,9 +99,9 @@ const SelectComponent = <T extends string>({
       {placeholder && <Listbox.Label className={cls.label}>{`${placeholder}>`}</Listbox.Label>}
       <div className={cls.select}>
         <Listbox.Button as={Fragment}>
-          <Button disabled={readonly} className={cls.button}>
+          <ButtonForwardedRef disabled={readonly} className={cls.button}>
             {item?.label}
-          </Button>
+          </ButtonForwardedRef>
         </Listbox.Button>
         <Listbox.Options className={classNames(cls.list, {}, listClasses)}>
           {optionsList}

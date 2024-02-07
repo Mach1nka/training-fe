@@ -1,6 +1,6 @@
 import type { DeepPartial } from '@reduxjs/toolkit';
 
-import type { StateSchema } from '@/shared/config/redux/types';
+import type { StateSchema } from '@/app/providers/StoreProvider';
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
 import { ValidateProfileError } from '@/entities/Profile';

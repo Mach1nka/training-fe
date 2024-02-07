@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import type { Reducer } from '@reduxjs/toolkit';
 import { useDispatch, useStore } from 'react-redux';
 
-import type { ReduxStoreWithManager, StateSchema, StateSchemaKeys } from '@/shared/config/redux/types';
+import type { ReduxStoreWithManager, StateSchema, StateSchemaKeys } from '@/app/providers/StoreProvider';
 
 export type ReducersList = {
   [key in StateSchemaKeys]?: Reducer<NonNullable<StateSchema[key]>>;
@@ -38,5 +38,5 @@ export const useDynamicReducerLoad: UseDynamicReducerLoad = (
           });
       }
     };
-  }, [reducers, removeAfterUnmount, store.reducerManager]);
+  }, [dispatch, reducers, removeAfterUnmount, store.reducerManager]);
 };

@@ -1,46 +1,17 @@
-import type {
-  FC, MutableRefObject, PropsWithChildren, UIEvent,
-} from 'react';
-import { useEffect, useRef } from 'react';
-import { useLocation } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { forwardRef } from 'react';
+import type { PropsWithChildren, UIEvent } from 'react';
 
-import { useAppDispatch } from '@/shared/hook/useAppDispatch';
-import { useInfiniteScroll } from '@/shared/hook/useInfiniteScroll';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { useThrottle } from '@/shared/hook/useThrottle';
-import { getScrollPositionByPath, uiConditionActions } from '@/features/UICondition';
 
 import cls from './Page.module.scss';
 
 interface Props extends PropsWithChildren {
   className?: string;
-  onScrollEnd?: () => void;
+  onScroll?: () => void;
 }
 
-export const Page: FC<Props> = ({ className, children, onScrollEnd }) => {
-  const dispatch = useAppDispatch();
-  const { pathname } = useLocation();
-  const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>;
-  const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
-  const scrollTop = useSelector(getScrollPositionByPath(pathname));
-
-  const onScroll = useThrottle((e: UIEvent<HTMLDivElement>) => {
-    dispatch(uiConditionActions.setPageScrollPosition({
-      path: pathname, position: e.currentTarget.scrollTop,
-    }));
-  }, 1000);
-
-  useEffect(() => {
-    wrapperRef.current.scrollTo({ top: scrollTop, behavior: 'smooth' });
-  }, []);
-
-  useInfiniteScroll({ wrapperRef, triggerRef, callback: onScrollEnd });
-
-  return (
-    <main ref={wrapperRef} onScroll={onScroll} className={classNames(cls.Page, {}, [className])}>
-      {children}
-      {onScrollEnd ? <div style={{ height: '120px' }} ref={triggerRef} /> : null}
-    </main>
-  );
-};
+export const Page = forwardRef<HTMLDivElement, Props>(({ className, children, onScroll }, ref) => (
+  <main ref={ref} onScroll={onScroll} className={classNames(cls.Page, {}, [className])}>
+    {children}
+  </main>
+));

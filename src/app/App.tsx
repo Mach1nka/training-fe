@@ -2,11 +2,12 @@ import type { FC } from 'react';
 import { Suspense, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
-import { AppRouter } from '@/app/providers';
 import { Navbar } from '@/widgets/Navbar';
 import { Sidebar } from '@/widgets/Sidebar';
 import { getUserInitialized, userActions } from '@/entities/User';
 import { useAppDispatch } from '@/shared/hook/useAppDispatch';
+
+import { AppRouter } from './providers/AppRouter';
 
 const App: FC = () => {
   const dispatch = useAppDispatch();

@@ -2,7 +2,7 @@ import type { FC } from 'react';
 import { memo, useCallback } from 'react';
 
 import { WallOfArticles, fetchArticlesByPage } from '@/widgets/WallOfArticles';
-import { Page } from '@/shared/ui/Page/Page';
+import { InfiniteScrollPage } from '@/features/UICondition';
 import { useAppDispatch } from '@/shared/hook/useAppDispatch';
 import { thunkMiddleware } from '@/shared/lib/redux/thunkMiddleware';
 
@@ -14,9 +14,9 @@ const ArticlesPage: FC = memo(() => {
   }, []);
 
   return (
-    <Page onScrollEnd={onLoadNextArticlesPage}>
+    <InfiniteScrollPage onScrollEndPage={onLoadNextArticlesPage}>
       <WallOfArticles />
-    </Page>
+    </InfiniteScrollPage>
   );
 });
 

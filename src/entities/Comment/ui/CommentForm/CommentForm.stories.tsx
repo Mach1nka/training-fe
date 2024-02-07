@@ -1,7 +1,7 @@
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
-import { Theme } from '@/app/providers/ThemeProvider';
+import { Theme } from '@/shared/constant/theme';
 import { themeDecorator } from '@/shared/lib/storybook/decorators';
 
 import { CommentForm } from './CommentForm';

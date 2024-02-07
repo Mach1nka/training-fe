@@ -5,32 +5,31 @@ function shouldBeRelative(importPath, sourceFilePath) {
   if (isPathRelative(importPath)) {
     return false;
   }
-  // [0] element is \\
-  const parsedImportPath = importPath.replace('@', '').split('/');
-  const layerOfImport = parsedImportPath[1];
-  const sliceOfImport = parsedImportPath[2];
+
+  const parsedImportPath = importPath.split('/');
+  const layerOfImport = parsedImportPath[0];
+  const sliceOfImport = parsedImportPath[1];
 
   if (!LAYERS[layerOfImport]) {
     return false;
   }
 
-  const normalizedPath = toNamespacedPath(sourceFilePath);
-  const srcDirectory = normalizedPath.split('src')[1];
+  const srcDirectory = sourceFilePath.split('src')[1];
   const parsedFilePath = srcDirectory.split('\\');
-  // [0] element is \\
-  const layerOfFile = parsedFilePath[1];
-  const sliceOfFile = parsedFilePath[2];
+  // [0] element is ''
+  const layerOfSourceFile = parsedFilePath[1];
+  const sliceOfSourceFile = parsedFilePath[2];
 
-  if (!LAYERS[layerOfFile]) {
+  if (!LAYERS[layerOfSourceFile]) {
     return false;
   }
 
   // NOTE: Imports among shared modules must be absolute.
-  if (layerOfImport === LAYERS.shared && layerOfFile === LAYERS.shared) {
+  if (layerOfImport === LAYERS.shared && layerOfSourceFile === LAYERS.shared) {
     return false;
   }
 
-  return sliceOfImport === sliceOfFile && layerOfFile === layerOfImport;
+  return sliceOfImport === sliceOfSourceFile && layerOfSourceFile === layerOfImport;
 }
 
 module.exports = {
@@ -57,8 +56,8 @@ module.exports = {
     return {
       ImportDeclaration(node) {
         const alias = ctx.options[0]?.alias || '';
-        const importPath = alias ? node.source.value.replace(`${alias}/`) : node.source.value;
-        const filename = ctx.getFilename();
+        const importPath = alias ? node.source.value.replace(`${alias}/`, '') : node.source.value;
+        const filename = toNamespacedPath(ctx.filename);
 
         if (shouldBeRelative(importPath, filename)) {
           ctx.report(node, 'Imports must be relative in the same slice');

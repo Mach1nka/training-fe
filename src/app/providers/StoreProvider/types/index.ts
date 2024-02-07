@@ -1,6 +1,7 @@
 import type { EnhancedStore } from '@reduxjs/toolkit';
 import type { AxiosInstance } from 'axios';
 
+import type { createReducerManager } from '../lib/reducerManager';
 import type { UserSchema } from '@/entities/User';
 import type { LoginSchema } from '@/features/AuthUserByUsername';
 import type { ProfileSchema } from '@/entities/Profile';
@@ -9,8 +10,6 @@ import type { CommentArticleSchema } from '@/features/CommentArticle';
 import type { WallOfArticlesSchema } from '@/widgets/WallOfArticles';
 import type { UIConditionSchema } from '@/features/UICondition';
 import type { rtkApi } from '@/shared/api/rtkApi';
-
-import type { createReducerManager } from './reducerManager';
 
 export interface StateSchema {
   user: UserSchema;

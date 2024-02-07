@@ -4,9 +4,9 @@ import { MemoryRouter } from 'react-router-dom';
 import { I18nextProvider } from 'react-i18next';
 import type { DeepPartial } from '@reduxjs/toolkit';
 
-import { StoreProvider } from '@/app/providers';
+import { StoreProvider } from '@/app/providers/StoreProvider';
 import i18nForTests from '@/shared/config/i18n/i18nForTests';
-import type { StateSchema } from '@/shared/config/redux/types';
+import type { StateSchema } from '@/app/providers/StoreProvider';
 import type { ReducersList } from '@/shared/hook/useDynamicReducerLoad';
 
 export interface Options {

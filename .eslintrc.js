@@ -78,6 +78,13 @@ module.exports = {
     // NOTE: Custom plugins' rules
     'fsd/public-api-imports': ['error', { alias: '@' }],
     'fsd/public-api-module-encapsulation': ['error', { alias: '@', ignorePatterns: ['**/*.{test,stories}.{ts,tsx}'] }],
+    'fsd/imports-among-layers': [
+      'error',
+      { 
+        alias: '@',
+        ignorePatterns: ['**/*.{test,stories}.{ts,tsx}'],
+        ignoreImportPatterns: ['**/StoreProvider']
+      }],
   },
   globals: {
     IS_DEV: 'readonly',

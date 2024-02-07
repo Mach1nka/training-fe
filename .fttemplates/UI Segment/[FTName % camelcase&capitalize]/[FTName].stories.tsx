@@ -1,6 +1,6 @@
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { Theme } from '@/app/providers';
+import { Theme } from '@/shared/constant/theme;
 import { themeDecorator } from '@/shared/lib/storybook/decorators';
 
 import { [FTName] } from './[FTName]';

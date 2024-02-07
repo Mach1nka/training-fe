@@ -1,6 +1,6 @@
 import type { DeepPartial } from '@reduxjs/toolkit';
 
-import type { StateSchema } from '@/shared/config/redux/types';
+import type { StateSchema } from '@/app/providers/StoreProvider';
 import type { Article } from '@/entities/Article';
 import {
   ArticleType, ArticleBlockType, ArticleView, ArticleSortedField,

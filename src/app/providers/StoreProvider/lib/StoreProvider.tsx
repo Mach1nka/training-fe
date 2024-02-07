@@ -2,8 +2,9 @@ import type { FC, ReactNode } from 'react';
 import { Provider } from 'react-redux';
 import type { ReducersMapObject } from '@reduxjs/toolkit';
 
-import { createReduxStore } from '@/shared/config/redux/store';
-import type { StateSchema } from '@/shared/config/redux/types';
+import type { StateSchema } from '../types';
+
+import { createReduxStore } from '../config/storeConfig';
 
 interface Props {
   children: ReactNode;

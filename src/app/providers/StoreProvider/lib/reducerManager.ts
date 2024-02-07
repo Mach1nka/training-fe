@@ -3,7 +3,7 @@ import {
   combineReducers,
 } from '@reduxjs/toolkit';
 
-import type { StateSchema, StateSchemaKeys } from './types';
+import type { StateSchema, StateSchemaKeys } from '../types';
 
 export const createReducerManager = (initialReducers: ReducersMapObject<StateSchema>) => {
   const reducers = { ...initialReducers };

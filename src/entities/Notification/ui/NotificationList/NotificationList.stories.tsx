@@ -1,6 +1,6 @@
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { Theme } from '@/app/providers/ThemeProvider';
+import { Theme } from '@/shared/constant/theme';
 import { themeDecorator, storeDecorator, routerDecorator } from '@/shared/lib/storybook/decorators';
 
 import { NotificationList } from './NotificationList';

@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-import type { ThunkConfig } from '@/shared/config/redux/types';
+import type { ThunkConfig } from '@/app/providers/StoreProvider';
 import type { Profile } from '@/entities/Profile';
 import { ValidateProfileError } from '@/entities/Profile';
 

@@ -6,8 +6,8 @@ import { userReducer } from '@/entities/User';
 import { api } from '@/shared/api/api';
 import { rtkApi } from '@/shared/api/rtkApi';
 
-import type { StateSchema, ThunkExtraArg } from './types';
-import { createReducerManager } from './reducerManager';
+import type { StateSchema, ThunkExtraArg } from '../types';
+import { createReducerManager } from '../lib/reducerManager';
 
 export const createReduxStore = (
   initialState?: StateSchema,

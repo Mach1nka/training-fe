@@ -1,4 +1,4 @@
-import type { StateSchema } from '@/shared/config/redux/types';
+import type { StateSchema } from '@/app/providers/StoreProvider';
 
 const getCommentArticleText = (state: StateSchema) => state.commentArticle?.text ?? '';
 

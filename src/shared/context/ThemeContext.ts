@@ -1,11 +1,7 @@
 import type { Dispatch, SetStateAction } from 'react';
 import { createContext } from 'react';
 
-export enum Theme {
-  LIGHT = 'light',
-  DARK = 'dark',
-  PURPLE = 'purple',
-}
+import type { Theme } from '@/shared/constant/theme';
 
 export interface ThemeContextProps {
   theme?: Theme;
