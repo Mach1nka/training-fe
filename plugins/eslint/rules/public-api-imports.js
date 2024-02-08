@@ -1,6 +1,8 @@
 const { toNamespacedPath } = require('path');
 const { LAYERS, isPathRelative } = require('../utils/index.js');
 
+const RELATIVE_IMPORT_ERROR = 'RELATIVE_IMPORT_ERROR';
+
 function shouldBeRelative(importPath, sourceFilePath) {
   if (isPathRelative(importPath)) {
     return false;
@@ -40,7 +42,10 @@ module.exports = {
       description: 'Enforce follow public Api methodology',
       url: null,
     },
-    fixable: 'code',
+    fixable: null,
+    messages: {
+      [RELATIVE_IMPORT_ERROR]: 'Imports must be relative in the same slice.'
+    },
     schema: [
       {
         type: 'object',
@@ -60,7 +65,11 @@ module.exports = {
         const filename = toNamespacedPath(ctx.filename);
 
         if (shouldBeRelative(importPath, filename)) {
-          ctx.report(node, 'Imports must be relative in the same slice');
+          ctx.report({
+            node,
+            messageId: RELATIVE_IMPORT_ERROR,
+            // NOTE: create fixer
+          });
         }
       }
     };

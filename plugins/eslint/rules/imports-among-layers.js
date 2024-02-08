@@ -2,6 +2,8 @@ const { isMatch } = require('micromatch');
 const { toNamespacedPath } = require('path');
 const { LAYERS, LAYERS_IMPORT_RULES, isPathRelative } = require('../utils');
 
+const IMPORT_AMONG_LAYERS_ERROR = 'IMPORT_AMONG_LAYERS_ERROR';
+
 function getSourceFileLayer(filePath) {
   const srcDirectory = filePath.split('src')?.[1];
   // [0] element is ''
@@ -20,7 +22,10 @@ module.exports = {
       description: 'Enforce follow public Api methodology',
       url: null,
     },
-    fixable: 'code',
+    fixable: null,
+    messages: {
+      [IMPORT_AMONG_LAYERS_ERROR]: "Layer '{{ importedFileLayer }}' mustn't be imported into '{{ sourceFileLayer }}'."
+    },
     schema: [
       {
         type: 'object',
@@ -68,7 +73,14 @@ module.exports = {
           return;
         }
 
-        ctx.report(node, `Layer ${importedFileLayer} mustn't be imported into ${sourceFileLayer}.`);
+        ctx.report({
+          node,
+          messageId: IMPORT_AMONG_LAYERS_ERROR,
+          data: {
+            importedFileLayer,
+            sourceFileLayer,
+          },
+        });
       }
     };
   },
