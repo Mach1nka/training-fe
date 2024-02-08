@@ -7,6 +7,7 @@ import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
 
 import { profileReducer } from '../../../features/EditProfileInfo/model/slice/profileSlice';
+
 import ProfilePage from './ProfilePage';
 
 const initialReducers: ReducersList = {

@@ -31,6 +31,7 @@ import { ArticleBlockType } from '../../model/const';
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
 import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
+
 import cls from './ArticleDetails.module.scss';
 
 const renderBlock = (block: ArticleBlock) => ({

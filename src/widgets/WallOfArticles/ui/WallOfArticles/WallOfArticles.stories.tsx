@@ -7,6 +7,7 @@ import type { ReducersList } from '@/shared/hook/useDynamicReducerLoad';
 import DefaultImage from '@/shared/assets/tests/storybookPlug.jpg';
 
 import { wallOfArticlesReducer } from '../../model/slice/wallOfArticlesSlice';
+
 import { WallOfArticles } from './WallOfArticles';
 
 const initialReducers: ReducersList = {

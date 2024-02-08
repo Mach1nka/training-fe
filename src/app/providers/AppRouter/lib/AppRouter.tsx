@@ -6,6 +6,7 @@ import { PageLoader } from '@/widgets/PageLoader';
 
 import type { AppRouteProps } from '../config/routeConfig';
 import { routeConfig } from '../config/routeConfig';
+
 import { AuthProtection } from './AuthProtection';
 import { RoleProtection } from './RoleProtection';
 

@@ -5,8 +5,9 @@ import { Popover as HPopover } from '@headlessui/react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import type { DropdownVerticalDirection, DropdownHorizontalDirection } from '@/shared/types/common';
 
-import cls from './Popover.module.scss';
 import popupCls from '../../styles/popups.module.scss';
+
+import cls from './Popover.module.scss';
 
 interface Props extends PropsWithChildren {
   className?: string;

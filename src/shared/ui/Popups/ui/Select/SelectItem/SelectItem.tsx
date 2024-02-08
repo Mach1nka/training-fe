@@ -5,8 +5,9 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { Icon } from '@/shared/ui/Icon/Icon';
 import CheckIcon from '@/shared/assets/icons/confirm.svg';
 
-import cls from './SelectItem.module.scss';
 import popupCls from '../../../styles/popups.module.scss';
+
+import cls from './SelectItem.module.scss';
 
 interface Props {
   className?: string;

@@ -8,9 +8,10 @@ import {
   ArticleView,
 } from '@/entities/Article';
 
-import { wallOfArticlesActions, wallOfArticlesReducer } from './wallOfArticlesSlice';
 import { fetchArticles } from '../service/fetchArticles/fetchArticles';
 import type { WallOfArticlesSchema } from '../types';
+
+import { wallOfArticlesActions, wallOfArticlesReducer } from './wallOfArticlesSlice';
 
 describe('wallOfArticlesSlice extra reducers', () => {
   const articles: Article[] = [

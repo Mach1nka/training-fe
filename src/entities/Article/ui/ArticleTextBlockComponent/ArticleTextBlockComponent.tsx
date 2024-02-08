@@ -4,6 +4,7 @@ import { memo } from 'react';
 import { Text } from '@/shared/ui/Text/Text';
 
 import type { ArticleTextBlock } from '../../model/types';
+
 import cls from './ArticleTextBlockComponent.module.scss';
 
 interface Props {

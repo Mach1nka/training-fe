@@ -11,6 +11,7 @@ import { api } from '@/shared/api/api';
 import { UserRole } from '@/entities/User';
 
 import { profileReducer } from '../../model/slice/profileSlice';
+
 import { EditableProfileCard } from './EditableProfileCard';
 
 const profile: Profile = {

@@ -1,8 +1,9 @@
 import type { DeepPartial } from '@reduxjs/toolkit';
 
-import { articleDetailsReducer } from './articleDetailsSlice';
 import type { Article, ArticleDetailsSchema } from '../types';
 import { fetchArticleById } from '../service/fetchArticleById/fetchArticleById';
+
+import { articleDetailsReducer } from './articleDetailsSlice';
 
 describe('articleDetailsSlice extra reducers', () => {
   const state: DeepPartial<ArticleDetailsSchema> = {

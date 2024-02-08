@@ -4,10 +4,11 @@ import { storeDecorator } from '@/shared/lib/storybook/decorators';
 import type { ReducersList } from '@/shared/hook/useDynamicReducerLoad';
 import DefaultImage from '@/shared/assets/tests/storybookPlug.jpg';
 
-import { ArticleDetails } from './ArticleDetails';
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
 import { ArticleBlockType, ArticleType } from '../../model/const';
 import type { Article } from '../../model/types';
+
+import { ArticleDetails } from './ArticleDetails';
 
 const initialReducers: ReducersList = {
   articleDetails: articleDetailsReducer,

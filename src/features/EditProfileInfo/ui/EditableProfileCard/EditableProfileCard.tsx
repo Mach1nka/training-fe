@@ -25,6 +25,7 @@ import {
 import { profileActions, profileReducer } from '../../model/slice/profileSlice';
 import { fetchProfileData } from '../../model/service/fetchProfileData/fetchProfileData';
 import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
+
 import cls from './EditableProfileCard.module.scss';
 
 const validateErrorMapper = (t: TFunction) => ({

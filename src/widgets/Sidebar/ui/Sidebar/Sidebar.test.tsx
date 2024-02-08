@@ -1,9 +1,10 @@
 import { screen, fireEvent } from '@testing-library/react';
 
-import { Sidebar } from './Sidebar';
 import {
   renderPreset,
 } from '@/shared/lib/jest/renderPreset';
+
+import { Sidebar } from './Sidebar';
 
 describe('Sidebar', () => {
   test('Test render', () => {

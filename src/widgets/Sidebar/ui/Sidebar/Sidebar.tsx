@@ -10,6 +10,7 @@ import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/Button/Button';
 
 import { getSidebarItemsList } from '../../model/selector/sidebarItemsSelector';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
+
 import cls from './Sidebar.module.scss';
 
 interface Props {

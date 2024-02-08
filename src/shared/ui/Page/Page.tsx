@@ -1,5 +1,5 @@
 import { forwardRef } from 'react';
-import type { PropsWithChildren, UIEvent } from 'react';
+import type { PropsWithChildren } from 'react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
 

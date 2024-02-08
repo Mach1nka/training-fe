@@ -1,12 +1,13 @@
 import type { StateSchema } from '@/app/providers/StoreProvider';
 
+import type { Article } from '../types';
+
 import {
   getArticleDetailsData,
   getArticleDetailsError,
   getArticleDetailsIsLoading,
   getCanBeArticleEdited,
 } from './articleDetailsSelector';
-import type { Article } from '../types';
 
 const article: Article = {
   id: '1',

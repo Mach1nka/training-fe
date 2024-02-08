@@ -8,14 +8,15 @@ import { Card } from '@/shared/ui/Card/Card';
 import { Icon } from '@/shared/ui/Icon/Icon';
 import { Button } from '@/shared/ui/Button/Button';
 import { AppLink, AppLinkUnderline } from '@/shared/ui/AppLink/AppLink';
-import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import { Avatar } from '@/shared/ui/Avatar/Avatar';
 import EyeIcon from '@/shared/assets/icons/eye.svg';
 import DefaultAvatar from '@/shared/assets/icons/avatar-default.png';
 import { RoutePath } from '@/shared/constant/router';
 
+import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import type { Article, ArticleTextBlock } from '../../model/types';
 import { ArticleBlockType, ArticleView } from '../../model/const';
+
 import cls from './ArticleListItem.module.scss';
 
 interface Props {

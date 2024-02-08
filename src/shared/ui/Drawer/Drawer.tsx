@@ -5,7 +5,6 @@ import type { AnimationResult, SpringValue, Lookup } from '@react-spring/web';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Portal } from '@/shared/ui/Portal/Portal';
 import { Overlay } from '@/shared/ui/Overlay/Overlay';
-
 import { useLoadAnimationLibrary } from '@/shared/hook/useAnimationLibrary';
 import type { UseAnimationLibrary } from '@/shared/hook/useAnimationLibrary';
 

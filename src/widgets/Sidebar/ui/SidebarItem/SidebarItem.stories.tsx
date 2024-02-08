@@ -5,6 +5,7 @@ import { routerDecorator, storeDecorator, themeDecorator } from '@/shared/lib/st
 import MainIcon from '@/shared/assets/icons/main.svg';
 import { userReducer } from '@/entities/User';
 import type { ReducersList } from '@/shared/hook/useDynamicReducerLoad';
+
 import { SidebarItem } from './SidebarItem';
 
 const initialReducers: ReducersList = {

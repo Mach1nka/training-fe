@@ -4,6 +4,7 @@ import { Theme } from '@/shared/constant/theme';
 import { routerDecorator, storeDecorator, themeDecorator } from '@/shared/lib/storybook/decorators';
 import { userReducer } from '@/entities/User';
 import type { ReducersList } from '@/shared/hook/useDynamicReducerLoad';
+
 import { Sidebar } from './Sidebar';
 
 const initialReducers: ReducersList = {

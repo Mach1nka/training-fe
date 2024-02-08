@@ -1,9 +1,11 @@
 import type { FC } from 'react';
 import { memo } from 'react';
 
-import type { ArticleImageBlock } from '../../model/types';
-import cls from './ArticleImageBlockComponent.module.scss';
 import { Text, TextAlign } from '@/shared/ui/Text/Text';
+
+import type { ArticleImageBlock } from '../../model/types';
+
+import cls from './ArticleImageBlockComponent.module.scss';
 
 interface Props {
   className?: string;

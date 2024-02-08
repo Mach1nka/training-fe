@@ -24,6 +24,7 @@ module.exports = {
     '@typescript-eslint',
     'i18next',
     'react-hooks',
+    'unused-imports',
     'fsd',
   ],
   rules: {
@@ -46,6 +47,26 @@ module.exports = {
     'import/no-extraneous-dependencies': 'off',
     'import/no-unresolved': 'off',
     'import/prefer-default-export': 'off',
+    'import/order': [
+      'error',
+      {
+        'newlines-between': 'always',
+        'pathGroups': [
+          {
+            'pattern': '@/**',
+            "group": "internal",
+          }
+        ],
+        'groups': [
+          'builtin',
+          'external',
+          'internal',
+          'parent',
+          'sibling',
+        ],
+        'pathGroupsExcludedImportTypes': ['builtin', 'external', 'internal', 'parent', 'sibling', 'index']
+      }
+    ],
     'no-unused-vars': 'warn',
     'no-underscore-dangle': 'off',
     'no-shadow': 'off',
@@ -72,6 +93,7 @@ module.exports = {
         fixStyle: 'separate-type-imports' 
       }
     ],
+    "unused-imports/no-unused-imports": "error",
     // NOTE: Accessability
     'jsx-a11y/click-events-have-key-events': 'off',
     'jsx-a11y/no-static-element-interactions': 'off',

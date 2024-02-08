@@ -3,7 +3,6 @@ import { Provider } from 'react-redux';
 import type { ReducersMapObject } from '@reduxjs/toolkit';
 
 import type { StateSchema } from '../types';
-
 import { createReduxStore } from '../config/storeConfig';
 
 interface Props {

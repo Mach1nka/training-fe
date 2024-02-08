@@ -5,10 +5,11 @@ import { Menu as HMenu } from '@headlessui/react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import type { DropdownVerticalDirection, DropdownHorizontalDirection } from '@/shared/types/common';
 
+import popupCls from '../../styles/popups.module.scss';
+
 import { MenuItem } from './MenuItem/MenuItem';
 import type { DropdownItem } from './MenuItem/MenuItem';
 import cls from './Menu.module.scss';
-import popupCls from '../../styles/popups.module.scss';
 
 interface Props {
   className?: string;

@@ -6,6 +6,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink/AppLink';
 
 import type { SidebarItemType } from '../../model/types';
+
 import cls from './SidebarItem.module.scss';
 
 interface Props {

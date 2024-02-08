@@ -5,6 +5,7 @@ import { ArticleList } from '@/entities/Article';
 import { classNames } from '@/shared/lib/classNames/classNames';
 
 import { useFetchArticleRecommendationsQuery } from '../../api/articleRecommendationsApi';
+
 import cls from './ArticleRecommendationsSection.module.scss';
 
 interface Props {

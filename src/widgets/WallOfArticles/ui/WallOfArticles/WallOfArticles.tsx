@@ -35,6 +35,7 @@ import {
   getWallOfArticlesView,
 } from '../../model/selector/wallOfArticlesSelector';
 import { wallOfArticlesReducer, wallOfArticlesActions } from '../../model/slice/wallOfArticlesSlice';
+
 import cls from './WallOfArticles.module.scss';
 
 const initialReducers: ReducersList = {

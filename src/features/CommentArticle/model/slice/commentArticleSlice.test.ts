@@ -1,4 +1,5 @@
 import type { CommentArticleSchema } from '../types';
+
 import { commentArticleActions, commentArticleReducer } from './commentArticleSlice';
 
 describe('commentArticleSlice extra reducers', () => {

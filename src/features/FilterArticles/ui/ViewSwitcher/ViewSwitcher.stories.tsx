@@ -2,9 +2,9 @@ import type { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { Theme } from '@/shared/constant/theme';
 import { themeDecorator } from '@/shared/lib/storybook/decorators';
+import { ArticleView } from '@/entities/Article';
 
 import { ViewSwitcher } from './ViewSwitcher';
-import { ArticleView } from '@/entities/Article';
 
 export default {
   title: 'features/ViewSwitcher',

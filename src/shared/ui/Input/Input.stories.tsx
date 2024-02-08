@@ -2,6 +2,7 @@ import type { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { Theme } from '@/shared/constant/theme';
 import { themeDecorator } from '@/shared/lib/storybook/decorators';
+
 import { Input } from './Input';
 
 export default {

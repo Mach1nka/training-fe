@@ -3,8 +3,9 @@ import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import { storeDecorator } from '@/shared/lib/storybook/decorators';
 import type { ReducersList } from '@/shared/hook/useDynamicReducerLoad';
 
-import LoginForm from './LoginForm';
 import { loginReducer } from '../../model/slice/loginSlice';
+
+import LoginForm from './LoginForm';
 
 const initialReducers: ReducersList = {
   loginForm: loginReducer,

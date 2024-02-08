@@ -14,6 +14,7 @@ import { CountrySelect } from '@/entities/Country';
 import { Flex } from '@/shared/ui/Flex/Flex';
 
 import type { Profile } from '../../model/types';
+
 import cls from './ProfileCard.module.scss';
 
 interface Props {

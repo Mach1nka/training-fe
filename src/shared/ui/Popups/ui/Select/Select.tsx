@@ -5,13 +5,14 @@ import {
 import { Listbox } from '@headlessui/react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Button, ButtonForwardedRef } from '@/shared/ui/Button/Button';
+import { ButtonForwardedRef } from '@/shared/ui/Button/Button';
 import type { DropdownVerticalDirection, DropdownHorizontalDirection } from '@/shared/types/common';
 import CheckIcon from '@/shared/assets/icons/confirm.svg';
 import { Icon } from '@/shared/ui/Icon/Icon';
 
-import cls from './Select.module.scss';
 import popupCls from '../../styles/popups.module.scss';
+
+import cls from './Select.module.scss';
 
 export interface SelectOption<T extends string> {
   label: string;
