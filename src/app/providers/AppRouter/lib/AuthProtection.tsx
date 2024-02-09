@@ -9,7 +9,7 @@ export const AuthProtection: FC = () => {
   const authData = useSelector(getUserAuthData);
 
   if (!authData) {
-    return <Navigate to={RoutePath.main} replace />;
+    return <Navigate to={RoutePath.main()} replace />;
   }
 
   return <Outlet />;

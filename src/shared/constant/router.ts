@@ -8,18 +8,18 @@ export enum AppRoutes {
   ARTICLE_CREATE = 'articleCreate',
   ADMIN_PANEL = 'adminPanel',
   FORBIDDEN = 'forbidden',
-  NOT_FOUND = 'notFound'
+  NOT_FOUND = 'notFound',
 }
 
-export const RoutePath: Record<AppRoutes, string> = {
-  [AppRoutes.MAIN]: '/',
-  [AppRoutes.ABOUT]: '/about',
-  [AppRoutes.PROFILE]: '/profile',
-  [AppRoutes.ARTICLES]: '/articles',
-  [AppRoutes.ARTICLE_DETAILS]: '/article',
-  [AppRoutes.ARTICLE_EDIT]: '/article/:id/edit',
-  [AppRoutes.ARTICLE_CREATE]: '/article/new',
-  [AppRoutes.ADMIN_PANEL]: '/admin-panel',
-  [AppRoutes.FORBIDDEN]: '/forbidden',
-  [AppRoutes.NOT_FOUND]: '*',
-};
+export const RoutePath = {
+  [AppRoutes.MAIN]: () => '/',
+  [AppRoutes.ABOUT]: () => '/about',
+  [AppRoutes.PROFILE]: (id: string) => `/profile/${id}`,
+  [AppRoutes.ARTICLES]: () => '/articles',
+  [AppRoutes.ARTICLE_DETAILS]: (id: string) => `/article/${id}`,
+  [AppRoutes.ARTICLE_EDIT]: (id: string) => `/article/${id}/edit`,
+  [AppRoutes.ARTICLE_CREATE]: () => '/article/new',
+  [AppRoutes.ADMIN_PANEL]: () => '/admin-panel',
+  [AppRoutes.FORBIDDEN]: () => '/forbidden',
+  [AppRoutes.NOT_FOUND]: () => '*',
+} as const;

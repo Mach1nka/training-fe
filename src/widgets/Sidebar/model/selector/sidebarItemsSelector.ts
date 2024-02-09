@@ -12,12 +12,12 @@ import type { SidebarItemType } from '../types';
 const configureSidebarList = (userId?: string): SidebarItemType[] => {
   const items: SidebarItemType[] = [
     {
-      path: RoutePath.main,
+      path: RoutePath.main(),
       text: 'navigation.mainPage',
       Icon: MainIcon,
     },
     {
-      path: RoutePath.about,
+      path: RoutePath.about(),
       text: 'navigation.aboutPage',
       Icon: AboutIcon,
     },
@@ -26,12 +26,12 @@ const configureSidebarList = (userId?: string): SidebarItemType[] => {
   if (userId) {
     items.push(
       {
-        path: `${RoutePath.profile}/${userId}`,
+        path: RoutePath.profile(userId),
         text: 'navigation.profilePage',
         Icon: ProfileIcon,
       },
       {
-        path: RoutePath.articles,
+        path: RoutePath.articles(),
         text: 'navigation.articlesPage',
         Icon: ArticleIcon,
       },

@@ -20,50 +20,50 @@ export interface AppRouteProps extends RouteProps {
 
 export const routeConfig: Record<AppRoutes, AppRouteProps> = {
   [AppRoutes.MAIN]: {
-    path: RoutePath.main,
+    path: RoutePath.main(),
     element: <MainPage />,
   },
   [AppRoutes.ABOUT]: {
-    path: RoutePath.about,
+    path: RoutePath.about(),
     element: <AboutPage />,
   },
   [AppRoutes.PROFILE]: {
-    path: `${RoutePath.profile}/:id`,
+    path: RoutePath.profile(':id'),
     element: <ProfilePage />,
     authOnly: true,
   },
   [AppRoutes.ARTICLES]: {
-    path: RoutePath.articles,
+    path: RoutePath.articles(),
     element: <ArticlesPage />,
     authOnly: true,
   },
   [AppRoutes.ARTICLE_DETAILS]: {
-    path: `${RoutePath.articleDetails}/:id`,
+    path: RoutePath.articleDetails(':id'),
     element: <ArticleDetailsPage />,
     authOnly: true,
   },
   [AppRoutes.ARTICLE_EDIT]: {
-    path: RoutePath.articleEdit,
+    path: RoutePath.articleEdit(':id'),
     element: <ArticleEditPage />,
     authOnly: true,
   },
   [AppRoutes.ARTICLE_CREATE]: {
-    path: RoutePath.articleCreate,
+    path: RoutePath.articleCreate(),
     element: <ArticleCreatePage />,
     authOnly: true,
   },
   [AppRoutes.ADMIN_PANEL]: {
-    path: RoutePath.adminPanel,
+    path: RoutePath.adminPanel(),
     element: <AdminPanelPage />,
     authOnly: true,
     allowedRoles: [UserRole.ADMIN],
   },
   [AppRoutes.FORBIDDEN]: {
-    path: RoutePath.forbidden,
+    path: RoutePath.forbidden(),
     element: <ForbiddenPage />,
   },
   [AppRoutes.NOT_FOUND]: {
-    path: RoutePath.notFound,
+    path: RoutePath.notFound(),
     element: <NotFoundPage />,
   },
 };

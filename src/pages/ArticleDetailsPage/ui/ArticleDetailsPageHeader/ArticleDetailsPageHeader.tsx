@@ -21,13 +21,13 @@ export const ArticleDetailsPageHeader: FC<Props> = memo(({ className }) => {
 
   return (
     <Flex align="center" justify="space-between" className={classNames('', {}, [className])}>
-      <AppLink to={RoutePath.articles} underline={AppLinkUnderline.NEVER}>
+      <AppLink to={RoutePath.articles()} underline={AppLinkUnderline.NEVER}>
         <Button>{t('backToArticlesBtn')}</Button>
       </AppLink>
       {
         canBeEdited ? (
           <AppLink
-            to={`${RoutePath.articleDetails}/${article?.id}/edit`}
+            to={RoutePath.articleDetails(article?.id ?? '')}
             underline={AppLinkUnderline.NEVER}
           >
             <Button>

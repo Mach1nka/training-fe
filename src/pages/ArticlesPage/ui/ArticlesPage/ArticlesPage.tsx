@@ -11,7 +11,7 @@ const ArticlesPage: FC = memo(() => {
 
   const onLoadNextArticlesPage = useCallback(() => {
     thunkMiddleware(() => dispatch(fetchArticlesByPage()));
-  }, []);
+  }, [dispatch]);
 
   return (
     <InfiniteScrollPage onScrollEndPage={onLoadNextArticlesPage}>

@@ -30,18 +30,18 @@ export const AccountActions: FC<Props> = memo(({ avatar }) => {
   const menuOptions = useMemo<DropdownItem[]>(() => ([
     ...(isAdmin ? [{
       content: t('header.adminPanel'),
-      href: RoutePath.adminPanel,
+      href: RoutePath.adminPanel(),
     }] : []),
     {
       content: t('header.createArticle'),
-      href: RoutePath.articleCreate,
+      href: RoutePath.articleCreate(),
     },
     {
       content: t('header.logout'),
       onClick: onLogout,
       'data-testid': 'AccountActions.logout',
     },
-  ]), [isAdmin, onLogout]);
+  ]), [isAdmin, t, onLogout]);
 
   return (
     <Menu

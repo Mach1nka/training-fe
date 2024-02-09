@@ -43,13 +43,13 @@ export const SortSelector: FC<Props> = memo(({
 
   return (
     <div className={classNames(cls.SortSelector, {}, [className])}>
-      <Select
+      <Select<ArticleSortedField>
         placeholder={t('sort.label')}
         value={sort}
         options={sortFieldOptions}
         onChange={onChangeSort}
       />
-      <Select options={orderOptions} value={order} onChange={onChangeOrder} />
+      <Select<SortingOrder> options={orderOptions} value={order} onChange={onChangeOrder} />
     </div>
   );
 });

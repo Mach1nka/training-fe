@@ -58,7 +58,7 @@ export const ArticleListItem: FC<Props> = memo(({
         <div className={cls.footer}>
           <AppLink
             target={target}
-            to={`${RoutePath.articleDetails}/${article.id}`}
+            to={RoutePath.articleDetails(article.id)}
             underline={AppLinkUnderline.NEVER}
           >
             <Button>
@@ -74,7 +74,7 @@ export const ArticleListItem: FC<Props> = memo(({
   return (
     <AppLink
       target={target}
-      to={`${RoutePath.articleDetails}/${article.id}`}
+      to={RoutePath.articleDetails(article.id)}
       underline={AppLinkUnderline.NEVER}
     >
       <Card className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>

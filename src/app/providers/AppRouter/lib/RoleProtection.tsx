@@ -18,7 +18,7 @@ export const RoleProtection: FC<Props> = ({ allowedRoles }) => {
   }
 
   if (!allowedRoles.every((el) => userRole?.includes(el))) {
-    return <Navigate to={RoutePath.forbidden} replace />;
+    return <Navigate to={RoutePath.forbidden()} replace />;
   }
 
   return <Outlet />;
