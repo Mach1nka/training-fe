@@ -1,4 +1,4 @@
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react';
 
 import { storeDecorator } from '@/shared/lib/storybook/decorators';
 import type { ReducersList } from '@/shared/hook/useDynamicReducerLoad';
@@ -74,18 +74,21 @@ const state: Article = {
   ],
 };
 
+type Story = StoryObj<typeof ArticleDetails>;
+
 export default {
   title: 'entities/ArticleDetails',
   component: ArticleDetails,
-} as ComponentMeta<typeof ArticleDetails>;
+} as Meta<typeof ArticleDetails>;
 
-const Template: ComponentStory<typeof ArticleDetails> = (args) => <ArticleDetails {...args} />;
+export const Normal: Story = {
+  decorators: [storeDecorator({ articleDetails: { data: state } }, initialReducers)],
+};
 
-export const Normal = Template.bind({});
-Normal.decorators = [storeDecorator({ articleDetails: { data: state } }, initialReducers)];
+export const Loading: Story = {
+  decorators: [storeDecorator({ articleDetails: { isLoading: true } }, initialReducers)],
+};
 
-export const Loading = Template.bind({});
-Loading.decorators = [storeDecorator({ articleDetails: { isLoading: true } }, initialReducers)];
-
-export const Error = Template.bind({});
-Error.decorators = [storeDecorator({ articleDetails: { error: 'Error message' } }, initialReducers)];
+export const Error: Story = {
+  decorators: [storeDecorator({ articleDetails: { error: 'Error message' } }, initialReducers)],
+};

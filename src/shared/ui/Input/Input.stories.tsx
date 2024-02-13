@@ -1,9 +1,10 @@
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react';
 
 import { Theme } from '@/shared/constant/theme';
-import { themeDecorator } from '@/shared/lib/storybook/decorators';
 
 import { Input } from './Input';
+
+type Story = StoryObj<typeof Input>;
 
 export default {
   title: 'shared/Input',
@@ -12,16 +13,20 @@ export default {
     placeholder: 'Type text',
     value: 'text example',
   },
-} as ComponentMeta<typeof Input>;
+} as Meta<typeof Input>;
 
-const Template: ComponentStory<typeof Input> = (args) => <Input {...args} />;
+export const Light: Story = {};
 
-export const Light = Template.bind({});
-
-export const Readonly = Template.bind({});
-Readonly.args = {
-  readonly: true,
+export const Readonly: Story = {
+  args: {
+    readonly: true,
+  },
 };
 
-export const Dark = Template.bind({});
-Dark.decorators = [themeDecorator(Theme.DARK)];
+export const Dark: Story = {
+  parameters: {
+    themes: {
+      themeOverride: Theme.DARK,
+    },
+  },
+};

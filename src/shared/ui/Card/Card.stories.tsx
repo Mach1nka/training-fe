@@ -1,9 +1,10 @@
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react';
 
 import { Theme } from '@/shared/constant/theme';
-import { themeDecorator } from '@/shared/lib/storybook/decorators';
 
 import { Card, CardTheme } from './Card';
+
+type Story = StoryObj<typeof Card>;
 
 export default {
   title: 'shared/Card',
@@ -11,15 +12,20 @@ export default {
   args: {
     children: <p>some content</p>,
   },
-} as ComponentMeta<typeof Card>;
+} as Meta<typeof Card>;
 
-const Template: ComponentStory<typeof Card> = (args) => <Card {...args} />;
+export const Light: Story = {};
 
-export const Light = Template.bind({});
-
-export const Outline = Template.bind({});
-Outline.args = {
-  theme: CardTheme.OUTLINE,
+export const Outline: Story = {
+  args: {
+    theme: CardTheme.OUTLINE,
+  },
 };
-export const Dark = Template.bind({});
-Dark.decorators = [themeDecorator(Theme.DARK)];
+
+export const Dark: Story = {
+  parameters: {
+    themes: {
+      themeOverride: Theme.DARK,
+    },
+  },
+};

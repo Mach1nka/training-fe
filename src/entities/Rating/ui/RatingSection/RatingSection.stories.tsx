@@ -1,9 +1,10 @@
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react';
 
 import { Theme } from '@/shared/constant/theme';
-import { themeDecorator } from '@/shared/lib/storybook/decorators';
 
 import { RatingSection } from './RatingSection';
+
+type Story = StoryObj<typeof RatingSection>;
 
 export default {
   title: 'entities/RatingSection',
@@ -16,16 +17,20 @@ export default {
     feedbackAcceptBtnText: 'Accept',
     feedbackCancelBtnText: 'Cancel',
   },
-} as ComponentMeta<typeof RatingSection>;
+} as Meta<typeof RatingSection>;
 
-const Template: ComponentStory<typeof RatingSection> = (args) => <RatingSection {...args} />;
+export const Light: Story = {};
 
-export const Light = Template.bind({});
-
-export const Rated = Template.bind({});
-Rated.args = {
-  ratingValue: 3,
+export const Rated: Story = {
+  args: {
+    ratingValue: 3,
+  },
 };
 
-export const Dark = Template.bind({});
-Dark.decorators = [themeDecorator(Theme.DARK)];
+export const Dark: Story = {
+  parameters: {
+    themes: {
+      themeOverride: Theme.DARK,
+    },
+  },
+};

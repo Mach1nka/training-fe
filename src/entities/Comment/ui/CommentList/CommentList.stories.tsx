@@ -1,9 +1,11 @@
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react';
 
 import { Theme } from '@/shared/constant/theme';
-import { routerDecorator, themeDecorator } from '@/shared/lib/storybook/decorators';
+import { routerDecorator } from '@/shared/lib/storybook/decorators';
 
 import { CommentList } from './CommentList';
+
+type Story = StoryObj<typeof CommentList>;
 
 export default {
   title: 'entities/CommentList',
@@ -29,16 +31,20 @@ export default {
     ],
   },
   decorators: [routerDecorator()],
-} as ComponentMeta<typeof CommentList>;
+} as Meta<typeof CommentList>;
 
-const Template: ComponentStory<typeof CommentList> = (args) => <CommentList {...args} />;
+export const Light: Story = {};
 
-export const Light = Template.bind({});
-
-export const Loading = Template.bind({});
-Loading.args = {
-  isLoading: true,
+export const Loading: Story = {
+  args: {
+    isLoading: true,
+  },
 };
 
-export const Dark = Template.bind({});
-Dark.decorators = [themeDecorator(Theme.DARK)];
+export const Dark: Story = {
+  parameters: {
+    themes: {
+      themeOverride: Theme.DARK,
+    },
+  },
+};

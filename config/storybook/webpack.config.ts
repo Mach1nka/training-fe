@@ -48,7 +48,7 @@ export default ({ config }: {config: Configuration}) => {
 
   // @ts-ignore
   // eslint-disable-next-line
-  config.module!.rules!.filter((rule) => rule.test.test('.svg')).forEach((rule) => rule.exclude = /\.svg$/i);
+  config.module!.rules!.filter((rule) => rule.test?.test('.svg')).forEach((rule) => rule.exclude = /\.svg$/i);
 
   config.module!.rules!.push({
     test: /\.svg$/,

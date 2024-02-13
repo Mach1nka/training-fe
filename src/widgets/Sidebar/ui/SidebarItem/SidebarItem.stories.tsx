@@ -1,7 +1,7 @@
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react';
 
 import { Theme } from '@/shared/constant/theme';
-import { routerDecorator, storeDecorator, themeDecorator } from '@/shared/lib/storybook/decorators';
+import { routerDecorator, storeDecorator } from '@/shared/lib/storybook/decorators';
 import MainIcon from '@/shared/assets/icons/main.svg';
 import { userReducer } from '@/entities/User';
 import type { ReducersList } from '@/shared/hook/useDynamicReducerLoad';
@@ -11,6 +11,8 @@ import { SidebarItem } from './SidebarItem';
 const initialReducers: ReducersList = {
   user: userReducer,
 };
+
+type Story = StoryObj<typeof SidebarItem>;
 
 export default {
   title: 'widgets/SidebarItem',
@@ -23,17 +25,22 @@ export default {
       Icon: MainIcon,
     },
   },
-} as ComponentMeta<typeof SidebarItem>;
+} as Meta<typeof SidebarItem>;
 
-const Template: ComponentStory<typeof SidebarItem> = (args) => <SidebarItem {...args} />;
-
-export const LightCollapsed = Template.bind({});
-LightCollapsed.args = {
-  collapsed: true,
+export const LightCollapsed: Story = {
+  args: {
+    collapsed: true,
+  },
 };
 
-export const Dark = Template.bind({});
-Dark.args = {
-  collapsed: false,
+export const Dark: Story = {
+  args: {
+    collapsed: false,
+  },
+
+  parameters: {
+    themes: {
+      themeOverride: Theme.DARK,
+    },
+  },
 };
-Dark.decorators = [themeDecorator(Theme.DARK)];

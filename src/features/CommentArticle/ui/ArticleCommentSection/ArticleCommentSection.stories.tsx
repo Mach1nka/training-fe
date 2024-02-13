@@ -1,7 +1,7 @@
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react';
 
 import { Theme } from '@/shared/constant/theme';
-import { routerDecorator, storeDecorator, themeDecorator } from '@/shared/lib/storybook/decorators';
+import { routerDecorator, storeDecorator } from '@/shared/lib/storybook/decorators';
 import type { ReducersList } from '@/shared/hook/useDynamicReducerLoad';
 
 import { commentArticleReducer } from '../../model/slice/commentArticleSlice';
@@ -21,6 +21,8 @@ const comment = {
   },
 };
 
+type Story = StoryObj<typeof ArticleCommentSection>;
+
 export default {
   title: 'features/CommentArticle',
   component: ArticleCommentSection,
@@ -29,22 +31,23 @@ export default {
   },
   decorators: [storeDecorator({}, initialReducers), routerDecorator()],
   parameters: {
-    mockData: [{
-      url: `${API_URL}/comments?_expand=user`,
-      method: 'GET',
-      status: 200,
-      response: [
-        { ...comment },
-        { ...comment, id: '2' },
-        { ...comment, id: '3' },
-      ],
-    }],
+    mockData: [
+      {
+        url: `${API_URL}/comments?_expand=user`,
+        method: 'GET',
+        status: 200,
+        response: [{ ...comment }, { ...comment, id: '2' }, { ...comment, id: '3' }],
+      },
+    ],
   },
-} as ComponentMeta<typeof ArticleCommentSection>;
+} as Meta<typeof ArticleCommentSection>;
 
-const Template: ComponentStory<typeof ArticleCommentSection> = (args) => <ArticleCommentSection {...args} />;
+export const Light: Story = {};
 
-export const Light = Template.bind({});
-
-export const Dark = Template.bind({});
-Dark.decorators = [themeDecorator(Theme.DARK)];
+export const Dark: Story = {
+  parameters: {
+    themes: {
+      themeOverride: Theme.DARK,
+    },
+  },
+};

@@ -1,7 +1,7 @@
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react';
 
 import { Theme } from '@/shared/constant/theme';
-import { routerDecorator, storeDecorator, themeDecorator } from '@/shared/lib/storybook/decorators';
+import { routerDecorator, storeDecorator } from '@/shared/lib/storybook/decorators';
 import { userReducer } from '@/entities/User';
 import type { ReducersList } from '@/shared/hook/useDynamicReducerLoad';
 
@@ -11,16 +11,23 @@ const initialReducers: ReducersList = {
   user: userReducer,
 };
 
+type Story = StoryObj<typeof Sidebar>;
+
 export default {
   title: 'widgets/Sidebar',
   component: Sidebar,
   decorators: [routerDecorator()],
-} as ComponentMeta<typeof Sidebar>;
+} as Meta<typeof Sidebar>;
 
-const Template: ComponentStory<typeof Sidebar> = (args) => <Sidebar {...args} />;
+export const LightAuth: Story = {
+  decorators: [storeDecorator({ user: { authData: { id: '1' } } }, initialReducers)],
+};
 
-export const LightAuth = Template.bind({});
-LightAuth.decorators = [storeDecorator({ user: { authData: { id: '1' } } }, initialReducers)];
-
-export const Dark = Template.bind({});
-Dark.decorators = [themeDecorator(Theme.DARK), storeDecorator({ user: {} }, initialReducers)];
+export const Dark: Story = {
+  decorators: [storeDecorator({ user: {} }, initialReducers)],
+  parameters: {
+    themes: {
+      themeOverride: Theme.DARK,
+    },
+  },
+};

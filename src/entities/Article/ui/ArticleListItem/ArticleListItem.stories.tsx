@@ -1,4 +1,4 @@
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react';
 
 import { routerDecorator } from '@/shared/lib/storybook/decorators';
 import DefaultImage from '@/shared/assets/tests/storybookPlug.jpg';
@@ -6,6 +6,8 @@ import DefaultImage from '@/shared/assets/tests/storybookPlug.jpg';
 import { ArticleType, ArticleView } from '../../model/const';
 
 import { ArticleListItem } from './ArticleListItem';
+
+type Story = StoryObj<typeof ArticleListItem>;
 
 export default {
   title: 'entities/ArticleListItem',
@@ -22,33 +24,28 @@ export default {
       img: DefaultImage,
       views: 10,
       createdAt: '20.05.2020',
-      type: [
-        ArticleType.IT, ArticleType.ECONOMICS, ArticleType.SCIENCE,
-      ],
+      type: [ArticleType.IT, ArticleType.ECONOMICS, ArticleType.SCIENCE],
       blocks: [
         {
           id: '1',
           type: 'TEXT',
           title: 'title',
-          paragraphs: [
-            'paragraph 1',
-            'paragraph 2',
-          ],
+          paragraphs: ['paragraph 1', 'paragraph 2'],
         },
       ],
     },
   },
   decorators: [routerDecorator()],
-} as ComponentMeta<typeof ArticleListItem>;
+} as Meta<typeof ArticleListItem>;
 
-const Template: ComponentStory<typeof ArticleListItem> = (args) => <ArticleListItem {...args} />;
-
-export const List = Template.bind({});
-List.args = {
-  view: ArticleView.LIST,
+export const List: Story = {
+  args: {
+    view: ArticleView.LIST,
+  },
 };
 
-export const Tile = Template.bind({});
-Tile.args = {
-  view: ArticleView.TILE,
+export const Tile: Story = {
+  args: {
+    view: ArticleView.TILE,
+  },
 };

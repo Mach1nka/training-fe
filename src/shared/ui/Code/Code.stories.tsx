@@ -1,9 +1,10 @@
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react';
 
 import { Theme } from '@/shared/constant/theme';
-import { themeDecorator } from '@/shared/lib/storybook/decorators';
 
 import { Code } from './Code';
+
+type Story = StoryObj<typeof Code>;
 
 export default {
   title: 'shared/Code',
@@ -12,13 +13,16 @@ export default {
     text: `export default {
   title: 'shared/Code',
   component: Code,
-} as ComponentMeta<typeof Code>;`,
+} as Meta<typeof Code>;`,
   },
-} as ComponentMeta<typeof Code>;
+} as Meta<typeof Code>;
 
-const Template: ComponentStory<typeof Code> = (args) => <Code {...args} />;
+export const Light: Story = {};
 
-export const Light = Template.bind({});
-
-export const Dark = Template.bind({});
-Dark.decorators = [themeDecorator(Theme.DARK)];
+export const Dark: Story = {
+  parameters: {
+    themes: {
+      themeOverride: Theme.DARK,
+    },
+  },
+};

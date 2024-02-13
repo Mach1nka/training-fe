@@ -1,11 +1,13 @@
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react';
 
 import { Theme } from '@/shared/constant/theme';
-import { styleDecorator, themeDecorator } from '@/shared/lib/storybook/decorators';
+import { styleDecorator } from '@/shared/lib/storybook/decorators';
 import { Button } from '@/shared/ui/Button/Button';
 import { centerContentStorybook } from '@/shared/lib/storybook/constants';
 
 import { Popover } from './Popover';
+
+type Story = StoryObj<typeof Popover>;
 
 export default {
   title: 'shared/Popover',
@@ -17,13 +19,17 @@ export default {
       <div>
         <p>Some Content</p>
         <p>Some Content 2</p>
-      </div>),
+      </div>
+    ),
   },
-} as ComponentMeta<typeof Popover>;
+} as Meta<typeof Popover>;
 
-const Template: ComponentStory<typeof Popover> = (args) => <Popover {...args} />;
+export const Light: Story = {};
 
-export const Light = Template.bind({});
-
-export const Dark = Template.bind({});
-Dark.decorators = [themeDecorator(Theme.DARK)];
+export const Dark: Story = {
+  parameters: {
+    themes: {
+      themeOverride: Theme.DARK,
+    },
+  },
+};

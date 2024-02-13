@@ -1,7 +1,7 @@
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react';
 
 import { Theme } from '@/shared/constant/theme';
-import { routerDecorator, storeDecorator, themeDecorator } from '@/shared/lib/storybook/decorators';
+import { routerDecorator, storeDecorator } from '@/shared/lib/storybook/decorators';
 import type { Article } from '@/entities/Article';
 import { articleDetailsReducer } from '@/entities/Article/model/slice/articleDetailsSlice';
 import { ArticleType, ArticleBlockType } from '@/entities/Article/model/const';
@@ -74,6 +74,8 @@ const state: Article = {
   ],
 };
 
+type Story = StoryObj<typeof ArticleDetailsPage>;
+
 export default {
   title: 'pages/ArticleDetailsPage',
   component: ArticleDetailsPage,
@@ -81,11 +83,14 @@ export default {
     routerDecorator(['/article/1'], '/article/:id'),
     storeDecorator({ articleDetails: { data: state } }, initialReducers),
   ],
-} as ComponentMeta<typeof ArticleDetailsPage>;
+} as Meta<typeof ArticleDetailsPage>;
 
-const Template: ComponentStory<typeof ArticleDetailsPage> = (args) => <ArticleDetailsPage {...args} />;
+export const Light: Story = {};
 
-export const Light = Template.bind({});
-
-export const Dark = Template.bind({});
-Dark.decorators = [themeDecorator(Theme.DARK)];
+export const Dark: Story = {
+  parameters: {
+    themes: {
+      themeOverride: Theme.DARK,
+    },
+  },
+};

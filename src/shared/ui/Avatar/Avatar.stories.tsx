@@ -1,8 +1,10 @@
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react';
 
-import Image from '../../assets/tests/storybookPlug.jpg';
+import Image from '@/shared/assets/tests/storybookPlug.jpg';
 
 import { Avatar } from './Avatar';
+
+type Story = StoryObj<typeof Avatar>;
 
 export default {
   title: 'shared/Avatar',
@@ -10,13 +12,12 @@ export default {
   args: {
     src: Image,
   },
-} as ComponentMeta<typeof Avatar>;
+} as Meta<typeof Avatar>;
 
-const Template: ComponentStory<typeof Avatar> = (args) => <Avatar {...args} />;
+export const Primary: Story = {};
 
-export const Primary = Template.bind({});
-
-export const Big = Template.bind({});
-Big.args = {
-  size: 200,
+export const Big: Story = {
+  args: {
+    size: 200,
+  },
 };

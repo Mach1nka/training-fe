@@ -1,8 +1,10 @@
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react';
 
 import { routerDecorator, storeDecorator } from '@/shared/lib/storybook/decorators';
 
 import { Page } from './Page';
+
+type Story = StoryObj<typeof Page>;
 
 export default {
   title: 'shared/Page',
@@ -11,8 +13,6 @@ export default {
     children: <p>page content</p>,
   },
   decorators: [routerDecorator(), storeDecorator()],
-} as ComponentMeta<typeof Page>;
+} as Meta<typeof Page>;
 
-const Template: ComponentStory<typeof Page> = (args) => <Page {...args} />;
-
-export const Light = Template.bind({});
+export const Light: Story = {};

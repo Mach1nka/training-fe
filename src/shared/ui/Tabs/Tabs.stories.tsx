@@ -1,10 +1,11 @@
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import { Theme } from '@/shared/constant/theme';
-import { themeDecorator } from '@/shared/lib/storybook/decorators';
 
 import { Tabs } from './Tabs';
+
+type Story = StoryObj<typeof Tabs>;
 
 export default {
   title: 'shared/Tabs',
@@ -23,11 +24,14 @@ export default {
     ],
     onTabClick: action('onTabClick'),
   },
-} as ComponentMeta<typeof Tabs>;
+} as Meta<typeof Tabs>;
 
-const Template: ComponentStory<typeof Tabs> = (args) => <Tabs {...args} />;
+export const Light: Story = {};
 
-export const Light = Template.bind({});
-
-export const Dark = Template.bind({});
-Dark.decorators = [themeDecorator(Theme.DARK)];
+export const Dark: Story = {
+  parameters: {
+    themes: {
+      themeOverride: Theme.DARK,
+    },
+  },
+};

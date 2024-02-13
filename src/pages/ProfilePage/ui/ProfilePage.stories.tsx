@@ -1,7 +1,7 @@
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react';
 
 import { Theme } from '@/shared/constant/theme';
-import { routerDecorator, storeDecorator, themeDecorator } from '@/shared/lib/storybook/decorators';
+import { routerDecorator, storeDecorator } from '@/shared/lib/storybook/decorators';
 import type { ReducersList } from '@/shared/hook/useDynamicReducerLoad';
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
@@ -23,26 +23,32 @@ const state = {
   avatar: '',
 };
 
+type Story = StoryObj<typeof ProfilePage>;
+
 export default {
   title: 'pages/ProfilePage',
   component: ProfilePage,
   decorators: [routerDecorator(['/profile/1'], '/profile/:id')],
-} as ComponentMeta<typeof ProfilePage>;
+} as Meta<typeof ProfilePage>;
 
-const Template: ComponentStory<typeof ProfilePage> = (args) => <ProfilePage {...args} />;
+export const EditMode: Story = {
+  decorators: [
+    storeDecorator(
+      {
+        profile: { form: state },
+      },
+      initialReducers,
+    ),
+  ],
+};
 
-export const EditMode = Template.bind({});
-EditMode.decorators = [storeDecorator(
-  {
-    profile: { form: state },
+export const ReadMode: Story = {
+  decorators: [
+    storeDecorator({ profile: { form: state, readonly: true } }, initialReducers),
+  ],
+  parameters: {
+    themes: {
+      themeOverride: Theme.DARK,
+    },
   },
-  initialReducers,
-)];
-
-export const ReadMode = Template.bind({});
-ReadMode.decorators = [
-  themeDecorator(Theme.DARK),
-  storeDecorator(
-    { profile: { form: state, readonly: true } },
-    initialReducers,
-  )];
+};

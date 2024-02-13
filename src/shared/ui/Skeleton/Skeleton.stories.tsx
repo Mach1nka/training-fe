@@ -1,9 +1,10 @@
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react';
 
 import { Theme } from '@/shared/constant/theme';
-import { themeDecorator } from '@/shared/lib/storybook/decorators';
 
 import { Skeleton } from './Skeleton';
+
+type Story = StoryObj<typeof Skeleton>;
 
 export default {
   title: 'shared/Skeleton',
@@ -12,22 +13,32 @@ export default {
     width: 100,
     height: 100,
   },
-} as ComponentMeta<typeof Skeleton>;
+} as Meta<typeof Skeleton>;
 
-const Template: ComponentStory<typeof Skeleton> = (args) => <Skeleton {...args} />;
+export const Square: Story = {};
 
-export const Square = Template.bind({});
-
-export const Circle = Template.bind({});
-Circle.args = {
-  borderRadius: '50%',
+export const Circle: Story = {
+  args: {
+    borderRadius: '50%',
+  },
 };
 
-export const SquareDark = Template.bind({});
-SquareDark.decorators = [themeDecorator(Theme.DARK)];
-
-export const CircleDark = Template.bind({});
-CircleDark.args = {
-  borderRadius: '50%',
+export const SquareDark: Story = {
+  parameters: {
+    themes: {
+      themeOverride: Theme.DARK,
+    },
+  },
 };
-CircleDark.decorators = [themeDecorator(Theme.DARK)];
+
+export const CircleDark: Story = {
+  args: {
+    borderRadius: '50%',
+  },
+
+  parameters: {
+    themes: {
+      themeOverride: Theme.DARK,
+    },
+  },
+};

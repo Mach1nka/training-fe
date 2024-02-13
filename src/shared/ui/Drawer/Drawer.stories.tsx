@@ -1,9 +1,10 @@
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react';
 
 import { Theme } from '@/shared/constant/theme';
-import { themeDecorator } from '@/shared/lib/storybook/decorators';
 
 import { Drawer } from './Drawer';
+
+type Story = StoryObj<typeof Drawer>;
 
 export default {
   title: 'shared/Drawer',
@@ -16,11 +17,14 @@ export default {
       skip: true,
     },
   },
-} as ComponentMeta<typeof Drawer>;
+} as Meta<typeof Drawer>;
 
-const Template: ComponentStory<typeof Drawer> = (args) => <Drawer {...args} />;
+export const Light: Story = {};
 
-export const Light = Template.bind({});
-
-export const Dark = Template.bind({});
-Dark.decorators = [themeDecorator(Theme.DARK)];
+export const Dark: Story = {
+  parameters: {
+    themes: {
+      themeOverride: Theme.DARK,
+    },
+  },
+};

@@ -1,4 +1,4 @@
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react';
 
 import { ArticleView, ArticleBlockType, ArticleType } from '@/entities/Article/model/const';
 import type { Article } from '@/entities/Article';
@@ -62,55 +62,77 @@ const state: Article[] = [
   },
 ];
 
+type Story = StoryObj<typeof WallOfArticles>;
+
 export default {
   title: 'widgets/WallOfArticles',
   component: WallOfArticles,
   decorators: [routerDecorator()],
-} as ComponentMeta<typeof WallOfArticles>;
+} as Meta<typeof WallOfArticles>;
 
-const Template: ComponentStory<typeof WallOfArticles> = (args) => <WallOfArticles {...args} />;
-
-export const Tile = Template.bind({});
-Tile.decorators = [storeDecorator({
-  wallOfArticles: {
-    data: state,
-    view: ArticleView.TILE,
-    filters: {
-      type: ArticleType.ALL,
-    },
-  },
-}, initialReducers)];
-
-export const List = Template.bind({});
-List.decorators = [
-  storeDecorator({
-    wallOfArticles: {
-      data: state,
-      view: ArticleView.LIST,
-      filters: {
-        type: ArticleType.ALL,
+export const Tile: Story = {
+  decorators: [
+    storeDecorator(
+      {
+        wallOfArticles: {
+          data: state,
+          view: ArticleView.TILE,
+          filters: {
+            type: ArticleType.ALL,
+          },
+        },
       },
-    },
-  }, initialReducers),
-];
+      initialReducers,
+    ),
+  ],
+};
 
-export const Loading = Template.bind({});
-Loading.decorators = [storeDecorator({
-  wallOfArticles: {
-    hasMore: false,
-    isLoading: true,
-    filters: {
-      type: ArticleType.ALL,
-    },
-  },
-}, initialReducers)];
+export const List: Story = {
+  decorators: [
+    storeDecorator(
+      {
+        wallOfArticles: {
+          data: state,
+          view: ArticleView.LIST,
+          filters: {
+            type: ArticleType.ALL,
+          },
+        },
+      },
+      initialReducers,
+    ),
+  ],
+};
 
-export const Error = Template.bind({});
-Error.decorators = [storeDecorator({
-  wallOfArticles: {
-    error: 'error text',
-    filters: {
-      type: ArticleType.ALL,
-    },
-  },
-}, initialReducers)];
+export const Loading: Story = {
+  decorators: [
+    storeDecorator(
+      {
+        wallOfArticles: {
+          hasMore: false,
+          isLoading: true,
+          filters: {
+            type: ArticleType.ALL,
+          },
+        },
+      },
+      initialReducers,
+    ),
+  ],
+};
+
+export const Error: Story = {
+  decorators: [
+    storeDecorator(
+      {
+        wallOfArticles: {
+          error: 'error text',
+          filters: {
+            type: ArticleType.ALL,
+          },
+        },
+      },
+      initialReducers,
+    ),
+  ],
+};

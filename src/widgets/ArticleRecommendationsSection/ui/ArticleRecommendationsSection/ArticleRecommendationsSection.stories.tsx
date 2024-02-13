@@ -1,7 +1,7 @@
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react';
 
 import { Theme } from '@/shared/constant/theme';
-import { routerDecorator, storeDecorator, themeDecorator } from '@/shared/lib/storybook/decorators';
+import { routerDecorator, storeDecorator } from '@/shared/lib/storybook/decorators';
 import DefaultImage from '@/shared/assets/tests/storybookPlug.jpg';
 
 import ArticleRecommendationsSection from './ArticleRecommendationsSection';
@@ -21,27 +21,30 @@ const article = {
   blocks: [],
 };
 
+type Story = StoryObj<typeof ArticleRecommendationsSection>;
+
 export default {
   title: 'widgets/ArticleRecommendationsSection',
   component: ArticleRecommendationsSection,
   decorators: [storeDecorator(), routerDecorator()],
   parameters: {
-    mockData: [{
-      url: `${API_URL}/articles?_limit=4&_expand=user`,
-      method: 'GET',
-      status: 200,
-      response: [
-        { ...article },
-        { ...article, id: '2' },
-        { ...article, id: '3' },
-      ],
-    }],
+    mockData: [
+      {
+        url: `${API_URL}/articles?_limit=4&_expand=user`,
+        method: 'GET',
+        status: 200,
+        response: [{ ...article }, { ...article, id: '2' }, { ...article, id: '3' }],
+      },
+    ],
   },
-} as ComponentMeta<typeof ArticleRecommendationsSection>;
+} as Meta<typeof ArticleRecommendationsSection>;
 
-const Template: ComponentStory<typeof ArticleRecommendationsSection> = (args) => <ArticleRecommendationsSection {...args} />;
+export const Light: Story = {};
 
-export const Light = Template.bind({});
-
-export const Dark = Template.bind({});
-Dark.decorators = [themeDecorator(Theme.DARK)];
+export const Dark: Story = {
+  parameters: {
+    themes: {
+      themeOverride: Theme.DARK,
+    },
+  },
+};

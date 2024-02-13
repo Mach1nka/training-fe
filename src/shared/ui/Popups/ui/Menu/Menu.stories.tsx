@@ -1,11 +1,13 @@
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react';
 
 import { Theme } from '@/shared/constant/theme';
-import { themeDecorator, routerDecorator, styleDecorator } from '@/shared/lib/storybook/decorators';
+import { routerDecorator, styleDecorator } from '@/shared/lib/storybook/decorators';
 import { Button } from '@/shared/ui/Button/Button';
 import { centerContentStorybook } from '@/shared/lib/storybook/constants';
 
 import { Menu } from './Menu';
+
+type Story = StoryObj<typeof Menu>;
 
 export default {
   title: 'shared/Menu',
@@ -19,11 +21,14 @@ export default {
       { content: 'Option 3' },
     ],
   },
-} as ComponentMeta<typeof Menu>;
+} as Meta<typeof Menu>;
 
-const Template: ComponentStory<typeof Menu> = (args) => <Menu {...args} />;
+export const Light: Story = {};
 
-export const Light = Template.bind({});
-
-export const Dark = Template.bind({});
-Dark.decorators = [themeDecorator(Theme.DARK)];
+export const Dark: Story = {
+  parameters: {
+    themes: {
+      themeOverride: Theme.DARK,
+    },
+  },
+};

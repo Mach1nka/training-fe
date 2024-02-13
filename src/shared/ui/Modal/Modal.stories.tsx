@@ -1,31 +1,34 @@
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react';
 
 import { Theme } from '@/shared/constant/theme';
-import { themeDecorator } from '@/shared/lib/storybook/decorators';
 
 import { Modal } from './Modal';
+
+type Story = StoryObj<typeof Modal>;
 
 export default {
   title: 'shared/Modal',
   component: Modal,
   args: {
-    children: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam nesciunt sequi porro recusandae, fugit fugiat eius hic officia veritatis vero harum magnam dolores sint tempore molestias veniam? Perferendis, consectetur recusandae.',
+    children:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam nesciunt sequi porro recusandae, fugit fugiat eius hic officia veritatis vero harum magnam dolores sint tempore molestias veniam? Perferendis, consectetur recusandae.',
   },
-} as ComponentMeta<typeof Modal>;
+} as Meta<typeof Modal>;
 
-const Template: ComponentStory<typeof Modal> = (args) => <Modal {...args} />;
-
-export const Light = Template.bind({});
-Light.args = {
-  isOpen: true,
+export const Light: Story = {
+  args: {
+    isOpen: true,
+  },
 };
 
-export const Dark = Template.bind({});
-Dark.args = {
-  isOpen: true,
-};
-Dark.decorators = [themeDecorator(Theme.DARK)];
+export const Dark: Story = {
+  args: {
+    isOpen: true,
+  },
 
-// More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-// More on argTypes: https://storybook.js.org/docs/react/api/argtypes
-// More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
+  parameters: {
+    themes: {
+      themeOverride: Theme.DARK,
+    },
+  },
+};

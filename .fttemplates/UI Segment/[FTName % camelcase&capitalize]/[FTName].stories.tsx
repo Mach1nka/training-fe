@@ -1,18 +1,23 @@
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react';
 
 import { Theme } from '@/shared/constant/theme;
-import { themeDecorator } from '@/shared/lib/storybook/decorators';
+
 
 import { [FTName] } from './[FTName]';
+
+type Story = StoryObj<typeof [FTName]>;
 
 export default {
   title: '/[FTName]',
   component: [FTName],
-} as ComponentMeta<typeof [FTName]>;
+} as Meta<typeof [FTName]>;
 
-const Template: ComponentStory<typeof [FTName]> = (args) => <[FTName] {...args} />;
+export const Light: Story = {};
 
-export const Light = Template.bind({});
-
-export const Dark = Template.bind({});
-Dark.decorators = [themeDecorator(Theme.DARK)];
+export const Dark: Story = {
+  parameters: {
+    themes: {
+      themeOverride: Theme.DARK,
+    },
+  },
+};

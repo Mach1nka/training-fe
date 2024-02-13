@@ -1,22 +1,22 @@
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react';
 
 import { Theme } from '@/shared/constant/theme';
-import { themeDecorator } from '@/shared/lib/storybook/decorators';
 
 import { PageError } from './PageError';
+
+type Story = StoryObj<typeof PageError>;
 
 export default {
   title: 'widgets/PageError',
   component: PageError,
-} as ComponentMeta<typeof PageError>;
+} as Meta<typeof PageError>;
 
-const Template: ComponentStory<typeof PageError> = (args) => <PageError {...args} />;
+export const Light: Story = {};
 
-export const Light = Template.bind({});
-
-export const Dark = Template.bind({});
-Dark.decorators = [themeDecorator(Theme.DARK)];
-
-// More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-// More on argTypes: https://storybook.js.org/docs/react/api/argtypes
-// More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
+export const Dark: Story = {
+  parameters: {
+    themes: {
+      themeOverride: Theme.DARK,
+    },
+  },
+};

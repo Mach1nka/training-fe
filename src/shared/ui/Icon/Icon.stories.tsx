@@ -1,10 +1,11 @@
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react';
 
 import { Theme } from '@/shared/constant/theme';
-import { themeDecorator } from '@/shared/lib/storybook/decorators';
 import EyeIcon from '@/shared/assets/icons/eye.svg';
 
 import { Icon } from './Icon';
+
+type Story = StoryObj<typeof Icon>;
 
 export default {
   title: 'shared/Icon',
@@ -12,16 +13,20 @@ export default {
   args: {
     Svg: EyeIcon,
   },
-} as ComponentMeta<typeof Icon>;
+} as Meta<typeof Icon>;
 
-const Template: ComponentStory<typeof Icon> = (args) => <Icon {...args} />;
-
-export const Primary = Template.bind({});
-
-export const Inverted = Template.bind({});
-Primary.args = {
-  theme: 'inverted',
+export const Primary: Story = {
+  args: {
+    theme: 'inverted',
+  },
 };
 
-export const Dark = Template.bind({});
-Dark.decorators = [themeDecorator(Theme.DARK)];
+export const Inverted: Story = {};
+
+export const Dark: Story = {
+  parameters: {
+    themes: {
+      themeOverride: Theme.DARK,
+    },
+  },
+};

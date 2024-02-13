@@ -1,18 +1,22 @@
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react';
 
 import { Theme } from '@/shared/constant/theme';
-import { themeDecorator } from '@/shared/lib/storybook/decorators';
 
 import { PageLoader } from './PageLoader';
+
+type Story = StoryObj<typeof PageLoader>;
 
 export default {
   title: 'widgets/PageLoader',
   component: PageLoader,
-} as ComponentMeta<typeof PageLoader>;
+} as Meta<typeof PageLoader>;
 
-const Template: ComponentStory<typeof PageLoader> = (args) => <PageLoader {...args} />;
+export const Light: Story = {};
 
-export const Light = Template.bind({});
-
-export const Dark = Template.bind({});
-Dark.decorators = [themeDecorator(Theme.DARK)];
+export const Dark: Story = {
+  parameters: {
+    themes: {
+      themeOverride: Theme.DARK,
+    },
+  },
+};

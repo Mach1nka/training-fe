@@ -1,22 +1,22 @@
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react';
 
 import { Theme } from '@/shared/constant/theme';
-import { themeDecorator } from '@/shared/lib/storybook/decorators';
 
 import { Loader } from './Loader';
+
+type Story = StoryObj<typeof Loader>;
 
 export default {
   title: 'shared/Loader',
   component: Loader,
-} as ComponentMeta<typeof Loader>;
+} as Meta<typeof Loader>;
 
-const Template: ComponentStory<typeof Loader> = (args) => <Loader {...args} />;
+export const Light: Story = {};
 
-export const Light = Template.bind({});
-
-export const Dark = Template.bind({});
-Dark.decorators = [themeDecorator(Theme.DARK)];
-
-// More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-// More on argTypes: https://storybook.js.org/docs/react/api/argtypes
-// More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
+export const Dark: Story = {
+  parameters: {
+    themes: {
+      themeOverride: Theme.DARK,
+    },
+  },
+};

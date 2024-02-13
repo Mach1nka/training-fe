@@ -1,79 +1,103 @@
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react';
 
 import { Theme } from '@/shared/constant/theme';
-import { themeDecorator } from '@/shared/lib/storybook/decorators';
 
 import {
   Text, TextAlign, TextSize, TextTheme,
 } from './Text';
 
+type Story = StoryObj<typeof Text>;
+
 export default {
   title: 'shared/Text',
   component: Text,
-} as ComponentMeta<typeof Text>;
+} as Meta<typeof Text>;
 
-const Template: ComponentStory<typeof Text> = (args) => <Text {...args} />;
-
-export const SizeS = Template.bind({});
-SizeS.args = {
-  title: 'Title',
-  text: 'Description',
-  size: TextSize.SMALL,
+export const SizeS: Story = {
+  args: {
+    title: 'Title',
+    text: 'Description',
+    size: TextSize.SMALL,
+  },
 };
 
-export const SizeM = Template.bind({});
-SizeM.args = {
-  title: 'Title',
-  text: 'Description',
-  size: TextSize.MEDIUM,
+export const SizeM: Story = {
+  args: {
+    title: 'Title',
+    text: 'Description',
+    size: TextSize.MEDIUM,
+  },
 };
 
-export const SizeL = Template.bind({});
-SizeL.args = {
-  title: 'Title',
-  text: 'Description',
-  size: TextSize.LARGE,
+export const SizeL: Story = {
+  args: {
+    title: 'Title',
+    text: 'Description',
+    size: TextSize.LARGE,
+  },
 };
 
-export const AlignCenter = Template.bind({});
-AlignCenter.args = {
-  title: 'Title',
-  text: 'Description',
-  align: TextAlign.CENTER,
+export const AlignCenter: Story = {
+  args: {
+    title: 'Title',
+    text: 'Description',
+    align: TextAlign.CENTER,
+  },
 };
 
-export const Error = Template.bind({});
-Error.args = {
-  title: 'Title',
-  text: 'Description',
-  theme: TextTheme.ERROR,
+export const Error: Story = {
+  args: {
+    title: 'Title',
+    text: 'Description',
+    theme: TextTheme.ERROR,
+  },
 };
 
-export const TitleLight = Template.bind({});
-TitleLight.args = {
-  title: 'Title',
+export const TitleLight: Story = {
+  args: {
+    title: 'Title',
+  },
 };
 
-export const TextLight = Template.bind({});
-TextLight.args = {
-  text: 'Description',
+export const TextLight: Story = {
+  args: {
+    text: 'Description',
+  },
 };
 
-export const Dark = Template.bind({});
-Dark.args = {
-  title: 'Title',
-  text: 'Description',
-};
-Dark.decorators = [themeDecorator(Theme.DARK)];
+export const Dark: Story = {
+  args: {
+    title: 'Title',
+    text: 'Description',
+  },
 
-export const TitleDark = Template.bind({});
-TitleDark.args = {
-  title: 'Title',
+  parameters: {
+    themes: {
+      themeOverride: Theme.DARK,
+    },
+  },
 };
-TitleDark.decorators = [themeDecorator(Theme.DARK)];
 
-export const TextDark = Template.bind({});
-TextDark.args = {
-  text: 'Description',
+export const TitleDark: Story = {
+  args: {
+    title: 'Title',
+  },
+
+  parameters: {
+    themes: {
+      themeOverride: Theme.DARK,
+    },
+  },
 };
-TextDark.decorators = [themeDecorator(Theme.DARK)];
+
+export const TextDark: Story = {
+  args: {
+    text: 'Description',
+  },
+
+  parameters: {
+    themes: {
+      themeOverride: Theme.DARK,
+    },
+  },
+};

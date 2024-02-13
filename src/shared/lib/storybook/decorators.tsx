@@ -1,33 +1,23 @@
-/* eslint-disable fsd/imports-among-layers */
 import { Suspense } from 'react';
 import type { CSSProperties } from 'react';
-import type { Story } from '@storybook/react';
+import type { StoryFn } from '@storybook/react';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
 
-import { ThemeProvider } from '@/app/providers/ThemeProvider';
 import { StoreProvider } from '@/app/providers/StoreProvider';
 import type { StateSchema } from '@/app/providers/StoreProvider';
 import type { ReducersList } from '@/shared/hook/useDynamicReducerLoad';
-import type { Theme } from '@/shared/constant/theme';
 
-import '@/app/styles/index.scss';
-
-export const commonStyleDecorator = (Story: Story) => <Story />;
-
-export const styleDecorator = (styles: CSSProperties) =>
-  (Story: Story) => <div style={styles}><Story /></div>;
-
-// TODO: integrate storybook-addon-themes
-export const themeDecorator = (theme: Theme) => (Story: Story) => (
-  <ThemeProvider initialTheme={theme}>
-    <div className={`app ${theme}`}>
-      <Story />
-    </div>
-  </ThemeProvider>
+export const commonStyleDecorator = (Story: StoryFn) => (
+  <div className="app">
+    <Story />
+  </div>
 );
 
+export const styleDecorator = (styles: CSSProperties) =>
+  (Story: StoryFn) => <div style={styles}><Story /></div>;
+
 // TODO: integrate storybook-addon-react-router-v6 after updating SB till v7
-export const routerDecorator = (initialEntries?: string[], path?: string) => (Story: Story) => (
+export const routerDecorator = (initialEntries?: string[], path?: string) => (Story: StoryFn) => (
   <MemoryRouter initialEntries={initialEntries}>
     <Routes>
       <Route path={path || ''} element={<Story />} />
@@ -38,13 +28,13 @@ export const routerDecorator = (initialEntries?: string[], path?: string) => (St
 export const storeDecorator = (
   initialState?: DeepPartial<StateSchema>,
   asyncReducers?: ReducersList,
-) => (Story: Story) => (
+) => (Story: StoryFn) => (
   <StoreProvider initialState={initialState} asyncReducers={asyncReducers}>
     <Story />
   </StoreProvider>
 );
 
-export const suspenseDecorator = () => (Story: Story) => (
+export const suspenseDecorator = () => (Story: StoryFn) => (
   <Suspense fallback={null}>
     <Story />
   </Suspense>

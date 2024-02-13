@@ -1,10 +1,12 @@
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react';
 
 import { Theme } from '@/shared/constant/theme';
-import { themeDecorator, styleDecorator } from '@/shared/lib/storybook/decorators';
+import { styleDecorator } from '@/shared/lib/storybook/decorators';
 import { centerContentStorybook } from '@/shared/lib/storybook/constants';
 
 import { Select } from './Select';
+
+type Story = StoryObj<typeof Select>;
 
 export default {
   title: 'shared/Select',
@@ -19,27 +21,33 @@ export default {
     ],
     defaultValue: 'option1',
   },
-} as ComponentMeta<typeof Select>;
+} as Meta<typeof Select>;
 
-const Template: ComponentStory<typeof Select> = (args) => <Select {...args} />;
+export const Light: Story = {};
 
-export const Light = Template.bind({});
-
-export const WithValue = Template.bind({});
-WithValue.args = {
-  value: 'option3',
+export const WithValue: Story = {
+  args: {
+    value: 'option3',
+  },
 };
 
-export const Readonly = Template.bind({});
-Readonly.args = {
-  readonly: true,
+export const Readonly: Story = {
+  args: {
+    readonly: true,
+  },
 };
 
-export const TopRight = Template.bind({});
-TopRight.args = {
-  directionH: 'right',
-  directionV: 'top',
+export const TopRight: Story = {
+  args: {
+    directionH: 'right',
+    directionV: 'top',
+  },
 };
 
-export const Dark = Template.bind({});
-Dark.decorators = [themeDecorator(Theme.DARK)];
+export const Dark: Story = {
+  parameters: {
+    themes: {
+      themeOverride: Theme.DARK,
+    },
+  },
+};

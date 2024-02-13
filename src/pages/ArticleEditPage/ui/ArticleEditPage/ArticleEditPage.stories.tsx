@@ -1,19 +1,24 @@
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react';
 
 import { Theme } from '@/shared/constant/theme';
-import { routerDecorator, storeDecorator, themeDecorator } from '@/shared/lib/storybook/decorators';
+import { routerDecorator, storeDecorator } from '@/shared/lib/storybook/decorators';
 
 import ArticleEditPage from './ArticleEditPage';
+
+type Story = StoryObj<typeof ArticleEditPage>;
 
 export default {
   title: 'pages/ArticleEditPage',
   component: ArticleEditPage,
   decorators: [routerDecorator(), storeDecorator()],
-} as ComponentMeta<typeof ArticleEditPage>;
+} as Meta<typeof ArticleEditPage>;
 
-const Template: ComponentStory<typeof ArticleEditPage> = (args) => <ArticleEditPage {...args} />;
+export const Light: Story = {};
 
-export const Light = Template.bind({});
-
-export const Dark = Template.bind({});
-Dark.decorators = [themeDecorator(Theme.DARK)];
+export const Dark: Story = {
+  parameters: {
+    themes: {
+      themeOverride: Theme.DARK,
+    },
+  },
+};
