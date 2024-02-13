@@ -22,8 +22,9 @@ export function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
     use: {
       loader: 'babel-loader',
       options: {
+        cacheDirectory: true,
         plugins: [
-          [
+          isDev &&[
             babelRemovePropsPlugin,
             { props : ['data-testid'] }
           ],
@@ -38,6 +39,7 @@ export function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
     use: {
       loader: 'babel-loader',
       options: {
+        cacheDirectory: true,
         plugins: [
           isDev && require.resolve('react-refresh/babel')].filter(Boolean),
       },
@@ -46,6 +48,7 @@ export function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
 
   const cssLoader = {
     test: /\.s[ac]ss$/i,
+    exclude: /node_modules/,
     use: [
       // Creates `style` nodes from JS strings
       isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
@@ -66,6 +69,7 @@ export function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
 
   const svgLoader = {
     test: /\.svg$/,
+    exclude: /node_modules/,
     use: [{ 
       loader: '@svgr/webpack', 
       options: {
@@ -80,6 +84,7 @@ export function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
 
   const fileLoader = {
     test: /\.(png|jpe?g|gif|woff2|woff)$/i,
+    exclude: /node_modules/,
     use: [
       {
         loader: 'file-loader',

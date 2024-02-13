@@ -21,8 +21,9 @@
     "test:screenshot:approve": "loki approve",
     "storybook": "start-storybook -c ./config/storybook -p 6006",
     "storybook:build": "build-storybook -c ./config/storybook",
-    "visual:report:json": "node scripts/generate-visual-json-report.js",
-    "visual:report:html": "reg-cli --from .loki/report.json --report .loki/report.html"
+    "visual:report:json": "node ./scripts/generate-visual-json-report.js",
+    "visual:report:html": "reg-cli --from .loki/report.json --report .loki/report.html",
+    "postinstall": "node ./scripts/removeBabelCacheFolder.js"
   },
   "keywords": [],
   "author": "",
@@ -39,6 +40,7 @@
     "@storybook/addon-essentials": "^6.4.19",
     "@storybook/addon-interactions": "^6.4.19",
     "@storybook/addon-links": "^6.4.19",
+    "@storybook/addon-themes": "^7.6.13",
     "@storybook/builder-webpack5": "^6.4.19",
     "@storybook/manager-webpack5": "^6.4.19",
     "@storybook/react": "^6.4.19",
