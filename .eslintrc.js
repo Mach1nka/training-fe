@@ -67,6 +67,7 @@ module.exports = {
         'pathGroupsExcludedImportTypes': ['builtin', 'external', 'internal', 'parent', 'sibling', 'index']
       }
     ],
+    'unused-imports/no-unused-imports': 'error',
     'no-unused-vars': 'warn',
     'no-underscore-dangle': 'off',
     'no-shadow': 'off',
@@ -93,7 +94,6 @@ module.exports = {
         fixStyle: 'separate-type-imports' 
       }
     ],
-    "unused-imports/no-unused-imports": "error",
     // NOTE: Accessability
     'jsx-a11y/click-events-have-key-events': 'off',
     'jsx-a11y/no-static-element-interactions': 'off',

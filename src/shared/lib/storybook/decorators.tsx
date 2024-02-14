@@ -29,12 +29,3 @@ export const suspenseDecorator = () => (Story: StoryFn) => (
     <Story />
   </Suspense>
 );
-
-// TODO: integrate storybook-react-i18next after updating SB till v7
-// export const i18nDecorator = (Story: Story) => (
-//   <I18nextProvider i18n={i18n}>
-//     <Suspense fallback="">
-//       <Story />
-//     </Suspense>
-//   </I18nextProvider>
-// );
