@@ -21,7 +21,7 @@ export const parameters = {
 
 export const decorators = [
   commonStyleDecorator,
-  // withRouter,
+  withRouter,
   withThemeByClassName(
     {
       themes: {
