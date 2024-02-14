@@ -2,9 +2,7 @@ import type { StoryObj, Meta } from '@storybook/react';
 
 import { Theme } from '@/shared/constant/theme';
 import {
-  routerDecorator,
   storeDecorator,
-
   styleDecorator,
 } from '@/shared/lib/storybook/decorators';
 import { centerContentStorybook } from '@/shared/lib/storybook/constants';
@@ -17,7 +15,6 @@ export default {
   title: 'features/AccountActions',
   component: AccountActions,
   decorators: [
-    routerDecorator(),
     storeDecorator({ user: { authData: { id: '1', username: 'guest' } } }),
     styleDecorator(centerContentStorybook),
   ],

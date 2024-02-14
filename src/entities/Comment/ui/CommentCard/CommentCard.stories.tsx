@@ -1,7 +1,6 @@
 import type { StoryObj, Meta } from '@storybook/react';
 
 import { Theme } from '@/shared/constant/theme';
-import { routerDecorator } from '@/shared/lib/storybook/decorators';
 
 import { CommentCard } from './CommentCard';
 
@@ -20,7 +19,7 @@ export default {
       },
     },
   },
-  decorators: [routerDecorator()],
+
 } as Meta<typeof CommentCard>;
 
 export const Light: Story = {};

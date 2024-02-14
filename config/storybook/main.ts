@@ -11,7 +11,8 @@ const config: StorybookConfig = {
     '@storybook/addon-essentials',
     '@storybook/addon-interactions',
     '@storybook/addon-themes',
-    'storybook-addon-mock'
+    'storybook-addon-mock',
+    'storybook-addon-react-router-v6'
   ],
   // NOTE: Turn off lazy compilation.
   // features: {

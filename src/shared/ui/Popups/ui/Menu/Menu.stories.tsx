@@ -1,7 +1,7 @@
 import type { StoryObj, Meta } from '@storybook/react';
 
 import { Theme } from '@/shared/constant/theme';
-import { routerDecorator, styleDecorator } from '@/shared/lib/storybook/decorators';
+import { styleDecorator } from '@/shared/lib/storybook/decorators';
 import { Button } from '@/shared/ui/Button/Button';
 import { centerContentStorybook } from '@/shared/lib/storybook/constants';
 
@@ -12,7 +12,7 @@ type Story = StoryObj<typeof Menu>;
 export default {
   title: 'shared/Menu',
   component: Menu,
-  decorators: [styleDecorator(centerContentStorybook), routerDecorator()],
+  decorators: [styleDecorator(centerContentStorybook)],
   args: {
     label: <Button>Options</Button>,
     options: [

@@ -1,7 +1,7 @@
 import type { StoryObj, Meta } from '@storybook/react';
 
 import { Theme } from '@/shared/constant/theme';
-import { routerDecorator, storeDecorator } from '@/shared/lib/storybook/decorators';
+import { storeDecorator } from '@/shared/lib/storybook/decorators';
 import type { ReducersList } from '@/shared/hook/useDynamicReducerLoad';
 
 import { commentArticleReducer } from '../../model/slice/commentArticleSlice';
@@ -29,7 +29,7 @@ export default {
   args: {
     articleId: '1',
   },
-  decorators: [storeDecorator({}, initialReducers), routerDecorator()],
+  decorators: [storeDecorator({}, initialReducers)],
   parameters: {
     mockData: [
       {

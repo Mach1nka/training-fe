@@ -1,7 +1,6 @@
 import { Suspense } from 'react';
 import type { CSSProperties } from 'react';
 import type { StoryFn } from '@storybook/react';
-import { MemoryRouter, Route, Routes } from 'react-router-dom';
 
 import { StoreProvider } from '@/app/providers/StoreProvider';
 import type { StateSchema } from '@/app/providers/StoreProvider';
@@ -15,15 +14,6 @@ export const commonStyleDecorator = (Story: StoryFn) => (
 
 export const styleDecorator = (styles: CSSProperties) =>
   (Story: StoryFn) => <div style={styles}><Story /></div>;
-
-// TODO: integrate storybook-addon-react-router-v6 after updating SB till v7
-export const routerDecorator = (initialEntries?: string[], path?: string) => (Story: StoryFn) => (
-  <MemoryRouter initialEntries={initialEntries}>
-    <Routes>
-      <Route path={path || ''} element={<Story />} />
-    </Routes>
-  </MemoryRouter>
-);
 
 export const storeDecorator = (
   initialState?: DeepPartial<StateSchema>,

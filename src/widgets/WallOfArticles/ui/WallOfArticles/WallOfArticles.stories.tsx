@@ -2,7 +2,7 @@ import type { StoryObj, Meta } from '@storybook/react';
 
 import { ArticleView, ArticleBlockType, ArticleType } from '@/entities/Article/model/const';
 import type { Article } from '@/entities/Article';
-import { routerDecorator, storeDecorator } from '@/shared/lib/storybook/decorators';
+import { storeDecorator } from '@/shared/lib/storybook/decorators';
 import type { ReducersList } from '@/shared/hook/useDynamicReducerLoad';
 import DefaultImage from '@/shared/assets/tests/storybookPlug.jpg';
 
@@ -67,7 +67,6 @@ type Story = StoryObj<typeof WallOfArticles>;
 export default {
   title: 'widgets/WallOfArticles',
   component: WallOfArticles,
-  decorators: [routerDecorator()],
 } as Meta<typeof WallOfArticles>;
 
 export const Tile: Story = {

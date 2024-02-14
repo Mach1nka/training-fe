@@ -1,7 +1,7 @@
 import type { StoryObj, Meta } from '@storybook/react';
 
 import { Theme } from '@/shared/constant/theme';
-import { routerDecorator, storeDecorator } from '@/shared/lib/storybook/decorators';
+import { storeDecorator } from '@/shared/lib/storybook/decorators';
 import { userReducer } from '@/entities/User';
 import type { ReducersList } from '@/shared/hook/useDynamicReducerLoad';
 
@@ -16,7 +16,6 @@ type Story = StoryObj<typeof Sidebar>;
 export default {
   title: 'widgets/Sidebar',
   component: Sidebar,
-  decorators: [routerDecorator()],
 } as Meta<typeof Sidebar>;
 
 export const LightAuth: Story = {

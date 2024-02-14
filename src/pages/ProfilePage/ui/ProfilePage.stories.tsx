@@ -1,7 +1,8 @@
 import type { StoryObj, Meta } from '@storybook/react';
+import { reactRouterParameters } from 'storybook-addon-react-router-v6';
 
 import { Theme } from '@/shared/constant/theme';
-import { routerDecorator, storeDecorator } from '@/shared/lib/storybook/decorators';
+import { storeDecorator } from '@/shared/lib/storybook/decorators';
 import type { ReducersList } from '@/shared/hook/useDynamicReducerLoad';
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
@@ -28,7 +29,16 @@ type Story = StoryObj<typeof ProfilePage>;
 export default {
   title: 'pages/ProfilePage',
   component: ProfilePage,
-  decorators: [routerDecorator(['/profile/1'], '/profile/:id')],
+  parameters: {
+    reactRouter: reactRouterParameters({
+      location: {
+        pathParams: { id: '1' },
+      },
+      routing: {
+        path: '/profile/:id',
+      },
+    }),
+  },
 } as Meta<typeof ProfilePage>;
 
 export const EditMode: Story = {

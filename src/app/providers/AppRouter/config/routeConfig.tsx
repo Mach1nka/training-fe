@@ -1,4 +1,4 @@
-import type { RouteProps } from 'react-router-dom';
+import type { PathRouteProps } from 'react-router-dom';
 
 import { MainPage } from '@/pages/MainPage';
 import { AboutPage } from '@/pages/AboutPage';
@@ -13,7 +13,7 @@ import { ForbiddenPage } from '@/pages/ForbiddenPage';
 import { UserRole } from '@/entities/User';
 import { AppRoutes, RoutePath } from '@/shared/constant/router';
 
-export interface AppRouteProps extends RouteProps {
+export interface AppRouteProps extends PathRouteProps {
   authOnly?: boolean,
   allowedRoles?: UserRole[];
 }

@@ -1,7 +1,6 @@
 import type { StoryObj, Meta } from '@storybook/react';
 
 import { Theme } from '@/shared/constant/theme';
-import { routerDecorator } from '@/shared/lib/storybook/decorators';
 
 import { CommentList } from './CommentList';
 
@@ -30,7 +29,6 @@ export default {
       },
     ],
   },
-  decorators: [routerDecorator()],
 } as Meta<typeof CommentList>;
 
 export const Light: Story = {};

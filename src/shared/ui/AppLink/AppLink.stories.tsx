@@ -1,7 +1,6 @@
 import type { StoryObj, Meta } from '@storybook/react';
 
 import { Theme } from '@/shared/constant/theme';
-import { routerDecorator } from '@/shared/lib/storybook/decorators';
 
 import { AppLink, AppLinkTheme, AppLinkUnderline } from './AppLink';
 
@@ -10,7 +9,6 @@ type Story = StoryObj<typeof AppLink>;
 export default {
   title: 'shared/AppLink',
   component: AppLink,
-  decorators: [routerDecorator()],
   args: {
     to: '/',
     children: 'Text',

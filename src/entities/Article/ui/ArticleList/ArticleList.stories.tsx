@@ -1,7 +1,6 @@
 import type { StoryObj, Meta } from '@storybook/react';
 
 import DefaultImage from '@/shared/assets/tests/storybookPlug.jpg';
-import { routerDecorator } from '@/shared/lib/storybook/decorators';
 
 import { ArticleType, ArticleView } from '../../model/const';
 
@@ -58,7 +57,6 @@ export default {
       },
     ],
   },
-  decorators: [routerDecorator()],
 } as Meta<typeof ArticleList>;
 
 export const List: Story = {

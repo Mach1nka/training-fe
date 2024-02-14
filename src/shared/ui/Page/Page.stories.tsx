@@ -1,6 +1,6 @@
 import type { StoryObj, Meta } from '@storybook/react';
 
-import { routerDecorator, storeDecorator } from '@/shared/lib/storybook/decorators';
+import { storeDecorator } from '@/shared/lib/storybook/decorators';
 
 import { Page } from './Page';
 
@@ -12,7 +12,7 @@ export default {
   args: {
     children: <p>page content</p>,
   },
-  decorators: [routerDecorator(), storeDecorator()],
+  decorators: [storeDecorator()],
 } as Meta<typeof Page>;
 
 export const Light: Story = {};

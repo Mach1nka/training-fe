@@ -1,4 +1,6 @@
 import { withThemeByClassName } from '@storybook/addon-themes';
+import { withRouter } from 'storybook-addon-react-router-v6';
+
 import {
   commonStyleDecorator,
 
@@ -19,6 +21,7 @@ export const parameters = {
 
 export const decorators = [
   commonStyleDecorator,
+  // withRouter,
   withThemeByClassName(
     {
       themes: {

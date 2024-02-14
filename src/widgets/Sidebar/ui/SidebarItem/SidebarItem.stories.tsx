@@ -1,7 +1,7 @@
 import type { StoryObj, Meta } from '@storybook/react';
 
 import { Theme } from '@/shared/constant/theme';
-import { routerDecorator, storeDecorator } from '@/shared/lib/storybook/decorators';
+import { storeDecorator } from '@/shared/lib/storybook/decorators';
 import MainIcon from '@/shared/assets/icons/main.svg';
 import { userReducer } from '@/entities/User';
 import type { ReducersList } from '@/shared/hook/useDynamicReducerLoad';
@@ -17,7 +17,7 @@ type Story = StoryObj<typeof SidebarItem>;
 export default {
   title: 'widgets/SidebarItem',
   component: SidebarItem,
-  decorators: [routerDecorator(), storeDecorator({ user: {} }, initialReducers)],
+  decorators: [storeDecorator({ user: {} }, initialReducers)],
   args: {
     item: {
       path: '/',
@@ -37,7 +37,6 @@ export const Dark: Story = {
   args: {
     collapsed: false,
   },
-
   parameters: {
     themes: {
       themeOverride: Theme.DARK,

@@ -1,7 +1,7 @@
 import type { StoryObj, Meta } from '@storybook/react';
 
 import { Theme } from '@/shared/constant/theme';
-import { storeDecorator, routerDecorator } from '@/shared/lib/storybook/decorators';
+import { storeDecorator } from '@/shared/lib/storybook/decorators';
 
 import { NotificationList } from './NotificationList';
 
@@ -16,7 +16,7 @@ type Story = StoryObj<typeof NotificationList>;
 export default {
   title: 'entities/NotificationList',
   component: NotificationList,
-  decorators: [storeDecorator(), routerDecorator()],
+  decorators: [storeDecorator()],
   parameters: {
     mockData: [
       {

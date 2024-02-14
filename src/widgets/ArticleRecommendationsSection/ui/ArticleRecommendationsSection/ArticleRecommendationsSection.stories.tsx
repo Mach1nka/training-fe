@@ -1,7 +1,7 @@
 import type { StoryObj, Meta } from '@storybook/react';
 
 import { Theme } from '@/shared/constant/theme';
-import { routerDecorator, storeDecorator } from '@/shared/lib/storybook/decorators';
+import { storeDecorator } from '@/shared/lib/storybook/decorators';
 import DefaultImage from '@/shared/assets/tests/storybookPlug.jpg';
 
 import ArticleRecommendationsSection from './ArticleRecommendationsSection';
@@ -26,7 +26,7 @@ type Story = StoryObj<typeof ArticleRecommendationsSection>;
 export default {
   title: 'widgets/ArticleRecommendationsSection',
   component: ArticleRecommendationsSection,
-  decorators: [storeDecorator(), routerDecorator()],
+  decorators: [storeDecorator()],
   parameters: {
     mockData: [
       {

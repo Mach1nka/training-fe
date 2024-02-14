@@ -1,6 +1,6 @@
 import type { StoryObj, Meta } from '@storybook/react';
 
-import { routerDecorator, storeDecorator } from '@/shared/lib/storybook/decorators';
+import { storeDecorator } from '@/shared/lib/storybook/decorators';
 import type { Article } from '@/entities/Article';
 import { ArticleBlockType, ArticleType, ArticleView } from '@/entities/Article/model/const';
 import type { ReducersList } from '@/shared/hook/useDynamicReducerLoad';
@@ -66,7 +66,6 @@ type Story = StoryObj<typeof ArticlesPage>;
 export default {
   title: 'pages/ArticlesPage',
   component: ArticlesPage,
-  decorators: [routerDecorator()],
 } as Meta<typeof ArticlesPage>;
 
 export const Tile: Story = {

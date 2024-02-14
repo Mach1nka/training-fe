@@ -1,7 +1,8 @@
 import type { StoryObj, Meta } from '@storybook/react';
+import { reactRouterParameters } from 'storybook-addon-react-router-v6';
 
 import { Theme } from '@/shared/constant/theme';
-import { routerDecorator, storeDecorator } from '@/shared/lib/storybook/decorators';
+import { storeDecorator } from '@/shared/lib/storybook/decorators';
 import type { Article } from '@/entities/Article';
 import { articleDetailsReducer } from '@/entities/Article/model/slice/articleDetailsSlice';
 import { ArticleType, ArticleBlockType } from '@/entities/Article/model/const';
@@ -79,8 +80,17 @@ type Story = StoryObj<typeof ArticleDetailsPage>;
 export default {
   title: 'pages/ArticleDetailsPage',
   component: ArticleDetailsPage,
+  parameters: {
+    reactRouter: reactRouterParameters({
+      location: {
+        pathParams: { id: '1' },
+      },
+      routing: {
+        path: '/article/:id',
+      },
+    }),
+  },
   decorators: [
-    routerDecorator(['/article/1'], '/article/:id'),
     storeDecorator({ articleDetails: { data: state } }, initialReducers),
   ],
 } as Meta<typeof ArticleDetailsPage>;

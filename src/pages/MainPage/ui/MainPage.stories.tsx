@@ -1,7 +1,7 @@
 import type { StoryObj, Meta } from '@storybook/react';
 
 import { Theme } from '@/shared/constant/theme';
-import { routerDecorator, storeDecorator } from '@/shared/lib/storybook/decorators';
+import { storeDecorator } from '@/shared/lib/storybook/decorators';
 
 import MainPage from './MainPage';
 
@@ -10,7 +10,7 @@ type Story = StoryObj<typeof MainPage>;
 export default {
   title: 'pages/MainPage',
   component: MainPage,
-  decorators: [routerDecorator(), storeDecorator()],
+  decorators: [storeDecorator()],
 } as Meta<typeof MainPage>;
 
 export const Light: Story = {};
