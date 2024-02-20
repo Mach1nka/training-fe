@@ -39,6 +39,7 @@ module.exports = {
     'react/require-default-props': 'off',
     'react/react-in-jsx-scope': 'off',
     'react/jsx-props-no-spreading': 'warn',
+    'react/jsx-no-useless-fragment': 'warn',
     'react/function-component-definition': 'off',
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
@@ -80,7 +81,7 @@ module.exports = {
       ignoreAttribute: [
         'data-testid',
         'to',
-        'target', 'justify', 'align', 'direction', 'wrap', 'as', 'directionH', 'directionV', 'theme'
+        'target', 'justify', 'align', 'direction', 'wrap', 'as', 'directionH', 'directionV', 'theme', 'fallbackTheme'
       ],
     }],
     'max-len': ['error', {

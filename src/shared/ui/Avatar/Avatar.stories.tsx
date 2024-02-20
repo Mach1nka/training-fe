@@ -11,10 +11,24 @@ export default {
   component: Avatar,
   args: {
     src: Image,
+    size: 100,
   },
 } as Meta<typeof Avatar>;
 
 export const Primary: Story = {};
+
+export const ErrorFallbackIcon: Story = {
+  args: {
+    src: '',
+  },
+};
+
+export const ErrorFallbackIconInverted: Story = {
+  args: {
+    src: '',
+    fallbackTheme: 'inverted',
+  },
+};
 
 export const Big: Story = {
   args: {

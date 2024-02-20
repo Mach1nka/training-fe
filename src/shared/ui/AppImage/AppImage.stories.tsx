@@ -2,14 +2,14 @@ import type { StoryObj, Meta } from '@storybook/react';
 
 import { Theme } from '@/shared/constant/theme';
 
-import { [FTName] } from './[FTName]';
+import { AppImage } from './AppImage';
 
-type Story = StoryObj<typeof [FTName]>;
+type Story = StoryObj<typeof AppImage>;
 
 export default {
-  title: '/[FTName]',
-  component: [FTName],
-} as Meta<typeof [FTName]>;
+  title: 'shared/AppImage',
+  component: AppImage,
+} as Meta<typeof AppImage>;
 
 export const Light: Story = {};
 

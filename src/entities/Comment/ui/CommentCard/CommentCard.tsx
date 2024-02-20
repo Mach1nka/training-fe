@@ -4,7 +4,6 @@ import { memo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Avatar } from '@/shared/ui/Avatar/Avatar';
 import { Text } from '@/shared/ui/Text/Text';
-import DefaultAvatar from '@/shared/assets/icons/avatar-default.png';
 import { AppLink } from '@/shared/ui/AppLink/AppLink';
 import { Flex } from '@/shared/ui/Flex/Flex';
 import { RoutePath } from '@/shared/constant/router';
@@ -40,7 +39,7 @@ export const CommentCard: FC<Props> = memo(({ className, comment, isLoading }) =
   return (
     <Flex direction="column" gap={12} className={classNames(cls.CommentCard, {}, [className])}>
       <AppLink to={RoutePath.profile(comment.user.id)} className={cls.userInfo}>
-        <Avatar className={cls.avatar} size={30} src={comment.user.avatar || DefaultAvatar} />
+        <Avatar className={cls.avatar} size={30} src={comment.user.avatar} />
         <Text text={comment.user.username} />
       </AppLink>
       <Text text={comment.text} />

@@ -4,7 +4,6 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
 import { isUserAdmin, userActions } from '@/entities/User';
-import DefaultImage from '@/shared/assets/tests/storybookPlug.jpg';
 import { RoutePath } from '@/shared/constant/router';
 import { Avatar } from '@/shared/ui/Avatar/Avatar';
 import { ButtonForwardedRef, ButtonTheme } from '@/shared/ui/Button/Button';
@@ -51,7 +50,7 @@ export const AccountActions: FC<Props> = memo(({ avatar }) => {
           theme={ButtonTheme.CLEAR}
           data-testid="AccountActions"
         >
-          <Avatar src={avatar || DefaultImage} size={30} />
+          <Avatar src={avatar} size={30} fallbackTheme="inverted" />
         </ButtonForwardedRef>
       )}
       directionH="right"

@@ -89,7 +89,7 @@ export const ProfileCard: FC<Props> = memo(({
       direction="column"
       className={classNames(cls.ProfileCard, mods, [className])}
     >
-      {data?.avatar && <Flex justify="center"><Avatar src={data?.avatar} /></Flex> }
+      {data?.avatar && <Flex justify="center"><Avatar src={data?.avatar} size={100} /></Flex> }
       <Input
         value={data?.firstname}
         placeholder={t('firstname')}

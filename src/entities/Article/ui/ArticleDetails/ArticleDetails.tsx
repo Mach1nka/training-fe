@@ -10,12 +10,12 @@ import {
   Text, TextAlign, TextSize, TextTheme,
 } from '@/shared/ui/Text/Text';
 import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
-import { Avatar } from '@/shared/ui/Avatar/Avatar';
 import CalendarIcon from '@/shared/assets/icons/calendar.svg';
 import EyeIcon from '@/shared/assets/icons/eye.svg';
 import { Icon } from '@/shared/ui/Icon/Icon';
 import { thunkMiddleware } from '@/shared/lib/redux/thunkMiddleware';
 import { Flex } from '@/shared/ui/Flex/Flex';
+import { AppImage } from '@/shared/ui/AppImage/AppImage';
 
 import {
   getArticleDetailsIsLoading,
@@ -94,7 +94,7 @@ export const ArticleDetails: FC<Props> = memo(({ articleId }) => {
 
   return (
     <Flex gap={16} direction="column">
-      <Avatar src={article?.img || ''} size={200} className={cls.avatar} />
+      <AppImage src={article?.img} className={cls.articleImg} />
       <Flex direction="column">
         <Text
           title={article?.title}
