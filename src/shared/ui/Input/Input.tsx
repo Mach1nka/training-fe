@@ -4,12 +4,13 @@ import {
 } from 'react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
+import type { RTLProps } from '@/shared/types/common';
 
 import cls from './Input.module.scss';
 
 type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readOnly'>
 
-interface Props extends HTMLInputProps {
+interface Props extends HTMLInputProps, RTLProps {
   className?: string;
   value?: string | number;
   readonly?: boolean;
@@ -17,7 +18,12 @@ interface Props extends HTMLInputProps {
 }
 
 export const Input: FC<Props> = memo(({
-  className, id, value, onChange, placeholder, type = 'text', readonly = false, ...props
+  className, id, value, onChange,
+  placeholder,
+  type = 'text',
+  readonly = false,
+  'data-testid': dataTestId,
+  ...props
 }) => {
   const onInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     onChange?.(e.target.value);
@@ -37,6 +43,7 @@ export const Input: FC<Props> = memo(({
         value={value}
         onChange={onInputChange}
         readOnly={readonly}
+        data-testid={dataTestId}
         {...props}
       />
     </div>
