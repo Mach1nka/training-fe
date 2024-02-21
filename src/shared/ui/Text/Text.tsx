@@ -1,6 +1,7 @@
 import type { FC } from 'react';
 import { memo } from 'react';
 
+import type { RTLProps } from '@/shared/types/common';
 import { classNames } from '@/shared/lib/classNames/classNames';
 
 import cls from './Text.module.scss';
@@ -31,14 +32,13 @@ const mapSizeToHeaderTag: Record<TextSize, HeaderTagType> = {
   [TextSize.LARGE]: 'h3',
 };
 
-interface Props {
+interface Props extends RTLProps {
   className?: string;
   title?: string;
   text?: string;
   theme?: TextTheme;
   align?: TextAlign;
   size?: TextSize;
-  'data-testid'?: string;
 }
 
 export const Text: FC<Props> = memo(({

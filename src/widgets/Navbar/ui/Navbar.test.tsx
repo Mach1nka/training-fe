@@ -19,7 +19,7 @@ describe('Navbar', () => {
           user: {
             authData: {
               id: '1',
-              username: '',
+              username: 'admin',
               role: [UserRole.ADMIN],
             },
           },
@@ -27,10 +27,12 @@ describe('Navbar', () => {
       });
     });
 
-    test('Test Render', () => {
+    test('Test Render', async () => {
       expect(screen.getByTestId('Navbar')).toBeInTheDocument();
       expect(screen.getByTestId('AccountActions.button')).toBeInTheDocument();
-      expect(screen.getByTestId('Notification.button')).toBeInTheDocument();
+
+      const notificationBtn = await screen.findByTestId('Notification.button');
+      expect(notificationBtn).toBeInTheDocument();
     });
 
     test('Test Logout', async () => {
@@ -72,7 +74,11 @@ describe('Navbar', () => {
     test('Test Login', async () => {
       const mockedRequest = jest.spyOn(api, 'post');
       await userEvent.click(screen.getByTestId('Navbar.login.button'));
-      await userEvent.type(screen.getByTestId('LoginForm.username'), 'John Doe');
+      const username = await screen.findByTestId('LoginForm.username');
+      // act(async () => {
+      // NOTE: Figure what the problem is.
+      // });
+      await userEvent.type(username, 'John Doe');
       await userEvent.type(screen.getByTestId('LoginForm.password'), 'pass123');
       await userEvent.click(screen.getByTestId('LoginForm.submit.button'));
 

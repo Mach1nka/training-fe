@@ -9,7 +9,7 @@ export const ForbiddenPage: FC = memo(() => {
   const { t } = useTranslation();
 
   return (
-    <Page>
+    <Page data-testid="ForbiddenPage">
       <Text theme={TextTheme.ERROR} title={t('forbiddenPage')} />
     </Page>
   );

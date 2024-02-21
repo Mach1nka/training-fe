@@ -8,7 +8,7 @@ const AdminPanelPage: FC = memo(() => {
   const { t } = useTranslation('adminPanel');
 
   return (
-    <Page>
+    <Page data-testid="AdminPanelPage">
       {t('title')}
     </Page>
   );

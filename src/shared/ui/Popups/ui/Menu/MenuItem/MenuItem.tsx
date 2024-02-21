@@ -5,16 +5,16 @@ import { Menu as HMenu } from '@headlessui/react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { AppLink, AppLinkUnderline } from '@/shared/ui/AppLink/AppLink';
 import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
+import type { RTLProps } from '@/shared/types/common';
 
 import popupCls from '../../../styles/popups.module.scss';
 
-export interface DropdownItem {
+export interface DropdownItem extends RTLProps {
   className?: string;
   content: string;
   disabled?: boolean;
   onClick?: () => void;
   href?: string;
-  'data-testid'?: string;
 }
 
 interface Props extends DropdownItem {
@@ -22,7 +22,7 @@ interface Props extends DropdownItem {
 }
 
 export const MenuItem: FC<Props> = memo(({
-  content, disabled, href, onClick, 'data-testid': dataTestId, className,
+  content, disabled, href, onClick, 'data-testid': dataTestId = '', className,
 }) => (
   <HMenu.Item
     disabled={disabled}

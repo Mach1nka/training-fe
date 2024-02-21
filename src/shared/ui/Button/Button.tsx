@@ -8,6 +8,7 @@ import {
 } from 'react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
+import type { RTLProps } from '@/shared/types/common';
 
 import cls from './Button.module.scss';
 
@@ -26,12 +27,11 @@ export enum ButtonSize {
   XLARGE = 'XLarge',
 }
 
-interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface Props extends ButtonHTMLAttributes<HTMLButtonElement>, RTLProps {
   className?: string;
   theme?: ButtonTheme;
   square?: boolean,
   size?: ButtonSize,
-  'data-testid'?: string;
 }
 
 const ButtonComponent: FC<Props> = ({

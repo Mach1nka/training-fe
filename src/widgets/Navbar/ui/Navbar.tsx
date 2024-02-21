@@ -37,7 +37,12 @@ export const Navbar: FC<Props> = memo(({ className }) => {
   if (authData) {
     return (
       <header className={classNames(cls.Navbar, {}, [className])} data-testid="Navbar">
-        <Text className={cls.appName} theme={TextTheme.INVERTED} title={t('appName')} />
+        <Text
+          className={cls.appName}
+          theme={TextTheme.INVERTED}
+          title={t('appName')}
+          data-testid="Navbar"
+        />
         <Flex justify="flex-end" align="center" gap={16}>
           <Suspense fallback={null}>
             <NotificationButton />
@@ -50,7 +55,12 @@ export const Navbar: FC<Props> = memo(({ className }) => {
 
   return (
     <header className={classNames(cls.Navbar, {}, [className])} data-testid="Navbar">
-      <Text className={cls.appName} theme={TextTheme.INVERTED} title={t('appName')} />
+      <Text
+        className={cls.appName}
+        theme={TextTheme.INVERTED}
+        title={t('appName')}
+        data-testid="Navbar"
+      />
       <Button
         className={cls.loginBtn}
         theme={ButtonTheme.CLEAR_INVERTED}
