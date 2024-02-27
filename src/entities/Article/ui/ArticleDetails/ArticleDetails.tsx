@@ -73,7 +73,7 @@ export const ArticleDetails: FC<Props> = memo(({ articleId }) => {
   if (isLoading) {
     return (
       <Flex gap={16} direction="column">
-        <Skeleton width={200} height={200} borderRadius="50%" className={cls.avatar} />
+        <Skeleton width={200} height={200} borderRadius="50%" className={cls.articleImg} />
         <Skeleton width={300} height={30} />
         <Skeleton width={600} height={24} />
         <Skeleton width="100%" height={500} />

@@ -20,8 +20,15 @@ function isPathRelative(path) {
   return path === '.' || path.startsWith('./') || path.startsWith('../');
 }
 
+function getSplittedSourceFilePath(filePath) {
+  const srcDirectory = filePath.split('src')?.[1];
+  // [0] element is ''
+  return srcDirectory?.split('\\');
+}
+
 module.exports = {
   LAYERS,
   LAYERS_IMPORT_RULES,
   isPathRelative,
+  getSplittedSourceFilePath,
 };

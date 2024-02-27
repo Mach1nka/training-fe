@@ -3,7 +3,7 @@ import { Fragment, memo } from 'react';
 import { Menu as HMenu } from '@headlessui/react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { AppLink, AppLinkUnderline } from '@/shared/ui/AppLink/AppLink';
+import { AppLinkForwardedRef, AppLinkUnderline } from '@/shared/ui/AppLink/AppLink';
 import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
 import type { RTLProps } from '@/shared/types/common';
 
@@ -31,14 +31,14 @@ export const MenuItem: FC<Props> = memo(({
     {({ active }) => {
       if (href) {
         return (
-          <AppLink
+          <AppLinkForwardedRef
             to={href}
             onClick={onClick}
             underline={AppLinkUnderline.NEVER}
             className={classNames(popupCls.item, { [popupCls.active]: active }, [className])}
           >
             {content}
-          </AppLink>
+          </AppLinkForwardedRef>
         );
       }
 

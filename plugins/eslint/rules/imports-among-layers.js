@@ -1,13 +1,11 @@
 const { isMatch } = require('micromatch');
 const { toNamespacedPath } = require('path');
-const { LAYERS, LAYERS_IMPORT_RULES, isPathRelative } = require('../utils');
+const { LAYERS, LAYERS_IMPORT_RULES, isPathRelative, getSplittedSourceFilePath } = require('../utils');
 
 const IMPORT_AMONG_LAYERS_ERROR = 'IMPORT_AMONG_LAYERS_ERROR';
 
 function getSourceFileLayer(filePath) {
-  const srcDirectory = filePath.split('src')?.[1];
-  // [0] element is ''
-  return srcDirectory?.split('\\')[1];
+  return getSplittedSourceFilePath(filePath)?.[1];
 }
 
 function getImportedFileLayer(filePath) {
