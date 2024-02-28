@@ -46,7 +46,7 @@ jobs:
         if: ${{ failure() && steps.screenshot_test.conclusion == 'failure' }}
         uses: actions/upload-pages-artifact@v3
         with: 
-          path: '.loki'
+          path: 'reports'
 
   deploy_test_reports:
     permissions:
@@ -56,11 +56,11 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    if: ${{ failure() }}
+    if: ${{ always() }}
     needs: [lint_and_test]
     environment:
       name: github-pages
-      url: '${{ steps.deployment.outputs.page_url}}screenshot_report.html'
+      url: '${{ steps.deployment.outputs.page_url}}screenshot.html'
 
     steps:
       - name: Check whether artifact exists
