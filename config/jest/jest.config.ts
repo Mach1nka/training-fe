@@ -79,7 +79,7 @@ export default {
   reporters: [
     'default',
     ['jest-html-reporters', {
-      publicPath: '<rootDir>/reports/',
+      publicPath: '<rootDir>/reports/tests/',
       filename: 'unit.html',
       openReport: true,
       inlineSource: true,

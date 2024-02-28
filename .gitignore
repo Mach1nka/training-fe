@@ -1,5 +1,5 @@
 /build/
 /node_modules/
 /storybook-static/
-/reports/
+/reports/tests/
 .env
