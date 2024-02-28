@@ -43,11 +43,12 @@ jobs:
           npm run visual:report:json
           npm run visual:report:html
       - name: Upload artifact
+        if: ${{ failure() && steps.screenshot_test.conclusion == 'failure' }}
         uses: actions/upload-pages-artifact@v3
         with: 
           path: '.loki'
 
-  deploy_test_report:
+  deploy_test_reports:
     permissions:
       contents: read
       pages: write
@@ -55,14 +56,14 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    if: ${{ failure() }}
+    if: ${{ failure() ** jobs.lint_and_test.steps.screenshot_test.conclusion == 'failure' }}
     needs: [lint_and_test]
     environment:
       name: github-pages
       url: '${{ steps.deployment.outputs.page_url}}screenshot_report.html'
 
     steps:
-      - name: Setup Pages
+      - name: Setup Github Pages
         uses: actions/configure-pages@v4
       - name: Deploy Screenshot Tests Report
         id: deployment
