@@ -62,8 +62,6 @@ module.exports = {
         const importPath = alias ? node.source.value.replace(`${alias}/`, '') : node.source.value;
         const filename = toNamespacedPath(ctx.filename);
 
-        const namelessPath = getSplittedSourceFilePath(filename)?.slice(0, -1).join('/');
-        console.log(relative(namelessPath || '', `/${importPath}`));
         if (shouldBeRelative(importPath, filename)) {
           ctx.report({
             node,
