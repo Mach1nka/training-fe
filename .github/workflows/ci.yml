@@ -25,19 +25,20 @@ jobs:
           node-version:  ${{ matrix.node }}
       - name: NPM Install
         run: npm ci
-      # - name: Lint
-      #   run: | 
-      #     npm run lint  
-      #     npm run lint:scss
-      #     npm run lint:types
-      # - name: Unit Tests
-      #   run: npm run test:unit
+      - name: Lint
+        run: | 
+          npm run lint  
+          npm run lint:scss
+          npm run lint:types
+      - name: Unit Tests
+        run: npm run test:unit
       - name: Screenshot Tests
+        id: screenshot_test
         run: |
           npm run storybook:build
           npm run test:screenshot:ci
       - name: Generate Screenshot Tests Report
-        if: ${{ always() }}
+        if: ${{ failure() && steps.screenshot_test.conclusion == 'failure' }}
         run: |
           npm run visual:report:json
           npm run visual:report:html
@@ -54,11 +55,11 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    if: ${{ always() }}
+    if: ${{ failure() }}
     needs: [lint_and_test]
     environment:
       name: github-pages
-      url: '${{ steps.deployment.outputs.page_url}}/screenshot_report.html'
+      url: '${{ steps.deployment.outputs.page_url}}screenshot_report.html'
 
     steps:
       - name: Setup Pages
