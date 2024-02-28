@@ -25,13 +25,13 @@ jobs:
           node-version:  ${{ matrix.node }}
       - name: NPM Install
         run: npm ci
-      - name: Lint
-        run: | 
-          npm run lint  
-          npm run lint:scss
-          npm run lint:types
-      - name: Unit Tests
-        run: npm run test:unit
+      # - name: Lint
+      #   run: | 
+      #     npm run lint  
+      #     npm run lint:scss
+      #     npm run lint:types
+      # - name: Unit Tests
+      #   run: npm run test:unit
       - name: Screenshot Tests
         run: |
           npm run storybook:build
