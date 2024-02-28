@@ -56,7 +56,7 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    if: ${{ failure() ** jobs.lint_and_test.steps.screenshot_test.conclusion == 'failure' }}
+    if: ${{ failure() && jobs.lint_and_test.steps.screenshot_test.conclusion == 'failure' }}
     needs: [lint_and_test]
     environment:
       name: github-pages
