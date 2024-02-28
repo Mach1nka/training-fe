@@ -1,17 +1,21 @@
 name: GitHub Actions CI Pipeline
 run-name: ${{ github.actor }} is running pipeline 🚀
+
 on: 
   push:
     branches: [master]
   pull_request:
     branches: [master]
+
 jobs:
-  pipeline:
+  lint_and_test:
     strategy:
       matrix:
         os: [ubuntu-latest]
         node: [18.12.0]
+
     runs-on: ${{ matrix.os }}
+
     steps:
       - name: Cloning...
         uses: actions/checkout@v3
@@ -21,18 +25,52 @@ jobs:
           node-version:  ${{ matrix.node }}
       - name: NPM Install
         run: npm ci
-      - name: Build
-        run: npm run build:prod
       - name: Lint
         run: | 
           npm run lint  
           npm run lint:scss
+          npm run lint:types
       - name: Unit Tests
         run: npm run test:unit
       - name: Screenshot Tests
         run: |
           npm run storybook:build
           npm run test:screenshot:ci
+      - name: Generate Screenshot Tests Report
+        if: ${{ always() }}
+        run: |
+          npm run visual:report:json
+          npm run visual:report:html
+      - name: Upload artifact
+        uses: actions/configure-pages@v3
+        uses: actions/upload-pages-artifact@v3
+          with: 
+            path: '.loki'
+
+  deploy_test_report:
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+
+    runs-on: ubuntu-latest
+
+    if: ${{ always() }}
+    needs: [lint_and_test]
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url}}
+
+    steps:
+      - name: Deploy Screenshot Tests Report
+        id: deployment
+        uses: actions/deploy-pages@v4
+ 
+  build:
+    needs: [lint_and_test]
+    steps:
+      - run: npm run build:prod
+  
         
 
   
