@@ -66,10 +66,10 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
  
-  build:
-    needs: [lint_and_test]
-    steps:
-      - run: npm run build:prod
+  # build:
+  #   needs: [lint_and_test]
+  #   steps:
+  #     - run: npm run build:prod
   
         
 
