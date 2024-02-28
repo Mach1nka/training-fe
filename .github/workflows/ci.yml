@@ -45,7 +45,7 @@ jobs:
         run: |
           npm run visual:report:json
           npm run visual:report:html
-      - name: Upload artifact
+      - name: Upload GH Pages Artifact
         if: ${{ failure() && (steps.screenshot_test.conclusion == 'failure' || steps.unit_test.conclusion == 'failure') }}
         uses: actions/upload-pages-artifact@v3
         with: 
