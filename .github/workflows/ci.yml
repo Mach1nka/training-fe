@@ -39,12 +39,18 @@ jobs:
         run: |
           npm run storybook:build
           npm run test:screenshot:ci
+      - name: Configure Route Path
+        working-directory: reports
+        run: |
+          mkdir '${{ github.ref_name }}.${{ github.sha }}'
+          mv -v tests '${{ github.ref_name }}.${{ github.sha }}'/
+          mv -v index.html '${{ github.ref_name }}.${{ github.sha }}'/
       - name: Generate Screenshot Tests Report
         if: ${{ failure() && steps.screenshot_test.conclusion == 'failure' }}
         run: |
           npm run visual:report:json
           npm run visual:report:html
-          mv .loki reports/tests/
+          mv .loki reports/'${{ github.ref_name }}.${{ github.sha }}'/tests/
       - name: Upload GH Pages Artifact
         if: ${{ failure() && (steps.screenshot_test.conclusion == 'failure' || steps.unit_test.conclusion == 'failure') }}
         uses: actions/upload-pages-artifact@v3
@@ -63,7 +69,7 @@ jobs:
     needs: [lint_and_test]
     environment:
       name: github-pages
-      url: '${{ steps.deployment.outputs.page_url }}'
+      url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
       - name: Setup Github Pages
