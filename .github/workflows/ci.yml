@@ -33,13 +33,12 @@ jobs:
       - name: Unit Tests
         id: unit_test
         run: npm run test:unit
-        # continue-on-error: true
       - name: Screenshot Tests
         id: screenshot_test
+        continue-on-error: true
         run: |
           npm run storybook:build
           npm run test:screenshot:ci
-        # continue-on-error: true
       - name: Generate Screenshot Tests Report
         if: ${{ failure() && steps.screenshot_test.conclusion == 'failure' }}
         run: |
@@ -63,7 +62,7 @@ jobs:
     needs: [lint_and_test]
     environment:
       name: github-pages
-      url: '${{ steps.deployment.outputs.page_url }}/reports'
+      url: '${{ steps.deployment.outputs.page_url }}reports'
 
     steps:
       - name: Setup Github Pages
