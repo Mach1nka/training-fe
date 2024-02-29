@@ -17,7 +17,7 @@ describe('AppRouter', () => {
   test('Redirect to NotFoundPage', async () => {
     renderPreset(<AppRouter />, { route: '/undefined-page' });
 
-    const page = await screen.findByTestId('NotFoundPage');
+    const page = await screen.findByTestId('NotFound');
     expect(page).toBeInTheDocument();
   });
 

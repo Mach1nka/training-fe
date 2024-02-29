@@ -8,6 +8,7 @@ const MainPage: FC = () => {
 
   return (
     <Page data-testid="MainPage">
+      <hr />
       {t('title')}
     </Page>
   );
