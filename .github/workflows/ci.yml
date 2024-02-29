@@ -7,6 +7,9 @@ on:
   pull_request:
     branches: [master]
 
+env: 
+  DEPLOY_PATH: '${{ github.ref_name }}.${{ github.sha }}'
+
 jobs:
   lint_and_test:
     strategy:
@@ -39,19 +42,18 @@ jobs:
         run: |
           npm run storybook:build
           npm run test:screenshot:ci
-      - name: Configure Route Path
-        if: ${{ failure() }}
-        working-directory: reports
-        run: |
-          mkdir '${{ github.ref_name }}.${{ github.sha }}'
-          mv -v tests '${{ github.ref_name }}.${{ github.sha }}'/
-          mv -v index.html '${{ github.ref_name }}.${{ github.sha }}'/
       - name: Generate Screenshot Tests Report
         if: ${{ failure() && steps.screenshot_test.conclusion == 'failure' }}
         run: |
           npm run visual:report:json
           npm run visual:report:html
-          mv .loki reports/'${{ github.ref_name }}.${{ github.sha }}'/tests/
+      - name: Configure Deploy Path
+        working-directory: reports
+        run: |
+          mkdir $DEPLOY_PATH
+          mv -v ../.loki reports/$DEPLOY_PATH/tests/
+          mv -v tests $DEPLOY_PATH/
+          mv -v index.html $DEPLOY_PATH/
       - name: Upload GH Pages Artifact
         if: ${{ failure() && (steps.screenshot_test.conclusion == 'failure' || steps.unit_test.conclusion == 'failure') }}
         uses: actions/upload-pages-artifact@v3
