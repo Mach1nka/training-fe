@@ -37,7 +37,7 @@ jobs:
         id: unit_test
         run: npm run test:unit
       - name: Screenshot Tests
-        if: ${{ !canceled() }}
+        if: ${{ !cancelled() }}
         id: screenshot_test
         run: |
           npm run storybook:build
