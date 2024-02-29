@@ -40,6 +40,7 @@ jobs:
           npm run storybook:build
           npm run test:screenshot:ci
       - name: Configure Route Path
+        if: ${{ failure() }}
         working-directory: reports
         run: |
           mkdir '${{ github.ref_name }}.${{ github.sha }}'
