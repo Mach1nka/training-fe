@@ -73,7 +73,7 @@ jobs:
     needs: [lint_and_test]
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: ${{ steps.deployment.outputs.page_url }}$DEPLOY_PATH
 
     steps:
       - name: Setup Github Pages
