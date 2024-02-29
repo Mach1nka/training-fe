@@ -43,7 +43,7 @@ jobs:
           npm run storybook:build
           npm run test:screenshot:ci
       - name: Generate Screenshot Tests Report
-        if: ${{ failure() && steps.screenshot_test.conclusion == 'failure' }}
+        if: ${{ failure() }}
         run: |
           npm run visual:report:json
           npm run visual:report:html
@@ -73,7 +73,7 @@ jobs:
     needs: [lint_and_test]
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}$DEPLOY_PATH
+      url: '${{ steps.deployment.outputs.page_url }}$DEPLOY_PATH'
 
     steps:
       - name: Setup Github Pages
