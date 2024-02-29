@@ -22,7 +22,7 @@
     "storybook": "storybook dev -c ./config/storybook -p 6006",
     "storybook:build": "storybook build -c ./config/storybook",
     "visual:report:json": "node ./scripts/generate-visual-json-report.js",
-    "visual:report:html": "reg-cli --from ./.loki/screenshot.json --report ./reports/tests/screenshot.html",
+    "visual:report:html": "reg-cli --from ./.loki/screenshot.json --report ./.loki/screenshot.html",
     "postinstall": "node ./scripts/removeBabelCacheFolder.js"
   },
   "keywords": [],

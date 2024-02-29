@@ -44,6 +44,7 @@ jobs:
         run: |
           npm run visual:report:json
           npm run visual:report:html
+          mv .loki reports/tests/
       - name: Upload GH Pages Artifact
         if: ${{ failure() && (steps.screenshot_test.conclusion == 'failure' || steps.unit_test.conclusion == 'failure') }}
         uses: actions/upload-pages-artifact@v3
@@ -62,7 +63,7 @@ jobs:
     needs: [lint_and_test]
     environment:
       name: github-pages
-      url: '${{ steps.deployment.outputs.page_url }}reports'
+      url: '${{ steps.deployment.outputs.page_url }}'
 
     steps:
       - name: Setup Github Pages
