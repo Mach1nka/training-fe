@@ -2,7 +2,6 @@ name: GitHub Actions CI Pipeline
 run-name: ${{ github.actor }} is running pipeline 🚀
 
 on:
-  workflow-dispatch
   push:
     branches: [master]
   pull_request:
@@ -89,7 +88,10 @@ jobs:
         uses: actions/deploy-pages@v4
  
   build:
+    runs-on: ubuntu-latest
+    
     needs: [lint_and_test]
+
     steps: 
       - name: Cloning...
         uses: actions/checkout@v3
