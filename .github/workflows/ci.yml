@@ -7,7 +7,7 @@ on:
   pull_request:
     branches: [master]
 
-env: 
+env:
   DEPLOY_PATH: '${{ github.ref_name }}.${{ github.sha }}'
 
 jobs:
