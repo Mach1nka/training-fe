@@ -14,7 +14,7 @@ const ArticlesPage: FC = memo(() => {
   }, [dispatch]);
 
   return (
-    <InfiniteScrollPage onScrollEndPage={onLoadNextArticlesPage}>
+    <InfiniteScrollPage data-testid="ArticlesPage" onScrollEndPage={onLoadNextArticlesPage}>
       <WallOfArticles />
     </InfiniteScrollPage>
   );

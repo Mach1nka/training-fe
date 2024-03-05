@@ -11,7 +11,12 @@
 //
 //
 // -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
+Cypress.Commands.add('login', (username = 'testUser', password = '123') => {
+  cy.request('POST', 'http://localhost:8000/login', { username, password }).then((res) => {
+    console.log(res);
+    window.localStorage.setItem('user', JSON.stringify(res.body));
+  });
+});
 //
 //
 // -- This is a child command --
@@ -24,11 +29,11 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
-//
+
 declare global {
   namespace Cypress {
     interface Chainable {
-      login(email: string, password: string): Chainable<void>;
+      login(username?: string, password?: string): Chainable<void>;
     }
   }
 }

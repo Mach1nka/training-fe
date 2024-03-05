@@ -25,7 +25,7 @@ export function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
       options: {
         cacheDirectory: true,
         plugins: [
-          isDev && [
+          !isDev && [
             babelRemovePropsPlugin,
             { props: ['data-testid'] },
           ],
