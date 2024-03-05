@@ -62,6 +62,10 @@ module.exports = {
         const importPath = alias ? node.source.value.replace(`${alias}/`, '') : node.source.value;
         const filename = toNamespacedPath(ctx.filename);
 
+        if (!filename.split('\\').find((el) => el === 'src')) {
+          return false;
+        }
+
         if (shouldBeRelative(importPath, filename)) {
           ctx.report({
             node,

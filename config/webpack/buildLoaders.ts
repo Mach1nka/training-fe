@@ -2,6 +2,7 @@ import type { RuleSetRule } from 'webpack';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 import babelRemovePropsPlugin from '../../plugins/babel/removePropsPlugin';
+
 import type { BuildOptions } from './types/config';
 
 export function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
@@ -24,9 +25,9 @@ export function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
       options: {
         cacheDirectory: true,
         plugins: [
-          isDev &&[
+          isDev && [
             babelRemovePropsPlugin,
-            { props : ['data-testid'] }
+            { props: ['data-testid'] },
           ],
           isDev && require.resolve('react-refresh/babel')].filter(Boolean),
       },
@@ -70,15 +71,15 @@ export function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
   const svgLoader = {
     test: /\.svg$/,
     exclude: /node_modules/,
-    use: [{ 
-      loader: '@svgr/webpack', 
+    use: [{
+      loader: '@svgr/webpack',
       options: {
         svgoConfig: {
           plugins: [
-            { name: 'removeViewBox', active: false }
-          ]
-        }
-      }
+            { name: 'removeViewBox', active: false },
+          ],
+        },
+      },
     }],
   };
 

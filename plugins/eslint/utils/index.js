@@ -21,7 +21,7 @@ function isPathRelative(path) {
 }
 
 function getSplittedSourceFilePath(filePath) {
-  const srcDirectory = filePath.split('src')?.[1];
+  const srcDirectory = filePath.split('src')[1];
   // [0] element is ''
   return srcDirectory?.split('\\');
 }

@@ -1,5 +1,5 @@
 {
-  "name": "training-fe-course",
+  "name": "training-fe",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -17,6 +17,7 @@
     "lint:scss:fix": "stylelint \"**/*.scss\" --fix",
     "test:unit": "jest --config ./config/jest/jest.config.ts",
     "test:screenshot": "loki test",
+    "test:e2e": "cypress open",
     "test:screenshot:ci": "loki --requireReference --reactUri file:./storybook-static",
     "test:screenshot:approve": "loki approve",
     "storybook": "storybook dev -c ./config/storybook -p 6006",
@@ -65,6 +66,7 @@
     "concurrently": "^7.0.0",
     "copy-webpack-plugin": "^10.2.4",
     "css-loader": "^6.6.0",
+    "cypress": "^13.6.6",
     "dotenv": "^16.3.1",
     "eslint": "^8.34.0",
     "eslint-config-airbnb": "^19.0.4",

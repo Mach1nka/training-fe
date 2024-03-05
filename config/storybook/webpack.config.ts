@@ -1,8 +1,10 @@
 import path from 'path';
-import { Configuration, DefinePlugin } from 'webpack';
+
+import type { Configuration } from 'webpack';
+import { DefinePlugin } from 'webpack';
 import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin';
 
-import { BuildPaths } from '../webpack/types/config';
+import type { BuildPaths } from '../webpack/types/config';
 
 export default ({ config }: {config: Configuration}) => {
   const paths: Omit<BuildPaths, 'locales' | 'buildLocales'> = {

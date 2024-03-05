@@ -20,10 +20,10 @@ export const parameters = {
 
 export const globals = {
   locale: 'en',
-    locales: {
-      en: 'English',
-      ru: 'Russian',
-    },
+  locales: {
+    en: 'English',
+    ru: 'Russian',
+  },
 };
 
 export const decorators = [
@@ -36,7 +36,7 @@ export const decorators = [
         dark: 'dark',
         purple: 'purple',
       },
-      defaultTheme: 'light'
-    }
+      defaultTheme: 'light',
+    },
   ),
 ];

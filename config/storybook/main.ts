@@ -4,7 +4,7 @@ const config: StorybookConfig = {
   framework: '@storybook/react-webpack5',
   stories: [
     '../../src/**/*.stories.mdx',
-    '../../src/**/*.stories.@(js|jsx|ts|tsx)'
+    '../../src/**/*.stories.@(js|jsx|ts|tsx)',
   ],
   addons: [
     '@storybook/addon-links',
@@ -22,7 +22,7 @@ const config: StorybookConfig = {
   // core: {
   //   builder: {
   //     name: '@storybook/builder-webpack5',
-  //     options: { 
+  //     options: {
   //       lazyCompilation: false,
   //     }
   //   }

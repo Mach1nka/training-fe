@@ -13,7 +13,7 @@ export default (env: BuildEnv) => {
     locales: path.resolve(__dirname, 'public', 'locales'),
     buildLocales: path.resolve(__dirname, 'build', 'locales'),
   };
- 
+
   const mode = env.mode || process.env.MODE;
   const isDev = mode === 'development';
   const port = env.port || Number(process.env.PORT);
