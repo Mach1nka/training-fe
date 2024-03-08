@@ -3,6 +3,7 @@ import { memo } from 'react';
 
 import { Flex } from '@/shared/ui/Flex/Flex';
 import { classNames } from '@/shared/lib/classNames/classNames';
+import type { RTLProps } from '@/shared/types/common';
 
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
@@ -13,7 +14,7 @@ const getSkeletons = (view: ArticleView) => new Array(view === ArticleView.TILE 
   .fill(undefined)
   .map((_, idx) => <ArticleListItemSkeleton view={view} key={idx} />);
 
-interface Props {
+interface Props extends RTLProps {
   className?: string;
   view?: ArticleView;
   target?: HTMLAttributeAnchorTarget;
@@ -22,14 +23,14 @@ interface Props {
 }
 
 export const ArticleList: FC<Props> = memo(({
-  className, articles, isLoading, target, view = ArticleView.TILE,
+  className, articles, isLoading, target, view = ArticleView.TILE, 'data-testid': dataTestId = '',
 }) => {
   const renderArticles = (article: Article) =>
     <ArticleListItem key={article.id} target={target} article={article} view={view} />;
 
   if (view === ArticleView.TILE) {
     return (
-      <Flex gap={32} wrap="wrap" className={classNames('', {}, [className])}>
+      <Flex gap={32} wrap="wrap" className={classNames('', {}, [className])} data-testid={dataTestId}>
         {
           articles.length ? articles.map(renderArticles) : null
         }
@@ -41,7 +42,12 @@ export const ArticleList: FC<Props> = memo(({
   }
 
   return (
-    <Flex gap={32} direction="column" className={classNames('', {}, [className])}>
+    <Flex
+      gap={32}
+      direction="column"
+      className={classNames('', {}, [className])}
+      data-testid={dataTestId}
+    >
       {
         articles.length ? articles.map(renderArticles) : null
       }

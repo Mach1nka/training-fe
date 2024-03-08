@@ -69,38 +69,38 @@ export const EditableProfileCard: FC<Props> = memo(({ id }) => {
 
   const onChangeFirstname = useCallback((value: string) => {
     dispatch(profileActions.updateProfile({ firstname: value }));
-  }, []);
+  }, [dispatch]);
 
   const onChangeLastname = useCallback((value: string) => {
     dispatch(profileActions.updateProfile({ lastname: value }));
-  }, []);
+  }, [dispatch]);
 
   const onChangeAge = useCallback((value: string) => {
     const onlyNumbers = /^\d+$/;
     if (onlyNumbers.test(value) || value === '') {
       dispatch(profileActions.updateProfile({ age: Number(value) }));
     }
-  }, []);
+  }, [dispatch]);
 
   const onChangeCity = useCallback((value: string) => {
     dispatch(profileActions.updateProfile({ city: value }));
-  }, []);
+  }, [dispatch]);
 
   const onChangeUsername = useCallback((value: string) => {
     dispatch(profileActions.updateProfile({ username: value }));
-  }, []);
+  }, [dispatch]);
 
   const onChangeAvatar = useCallback((value: string) => {
     dispatch(profileActions.updateProfile({ avatar: value }));
-  }, []);
+  }, [dispatch]);
 
   const onChangeCurrency = useCallback((currency: Currency) => {
     dispatch(profileActions.updateProfile({ currency }));
-  }, []);
+  }, [dispatch]);
 
   const onChangeCountry = useCallback((country: Country) => {
     dispatch(profileActions.updateProfile({ country }));
-  }, []);
+  }, [dispatch]);
 
   useDynamicReducerLoad(initialReducers);
 
@@ -108,7 +108,7 @@ export const EditableProfileCard: FC<Props> = memo(({ id }) => {
     if (id) {
       thunkMiddleware(() => dispatch(fetchProfileData(id)));
     }
-  }, [id]);
+  }, [id, dispatch]);
 
   return (
     <>

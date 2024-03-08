@@ -40,12 +40,19 @@ const FeedbackModal: FC<Props> = memo(({
           value={feedback}
           placeholder={placeholder}
           onChange={onFeedbackChange}
+          data-testid="Feedback.input"
         />
         <Flex justify="space-between">
-          <Button onClick={() => onAccept(feedback)}>{acceptBtnText}</Button>
+          <Button
+            onClick={() => onAccept(feedback)}
+            data-testid="Feedback.accept"
+          >
+            {acceptBtnText}
+          </Button>
           <Button
             theme={ButtonTheme.OUTLINE_RED}
             onClick={onCancel}
+            data-testid="Feedback.cancel"
           >
             {cancelBtnText}
           </Button>

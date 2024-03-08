@@ -27,7 +27,7 @@ export function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
         plugins: [
           !isDev && [
             babelRemovePropsPlugin,
-            { props: ['data-testid'] },
+            { props: ['data-testid', 'data-selected'] },
           ],
           isDev && require.resolve('react-refresh/babel')].filter(Boolean),
       },

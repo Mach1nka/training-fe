@@ -2,12 +2,13 @@ import type { FC, ReactElement, SVGProps } from 'react';
 import { memo } from 'react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
+import type { RTLProps } from '@/shared/types/common';
 
 import cls from './Icon.module.scss';
 
 export type IconTheme = 'primary' | 'secondary' | 'inverted';
 
-interface Props extends SVGProps<SVGElement> {
+interface Props extends SVGProps<SVGElement>, RTLProps {
   className?: string;
   theme?: IconTheme;
   Svg: (props: SVGProps<SVGElement>) => ReactElement;

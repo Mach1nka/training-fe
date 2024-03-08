@@ -37,7 +37,12 @@ export const CommentCard: FC<Props> = memo(({ className, comment, isLoading }) =
   }
 
   return (
-    <Flex direction="column" gap={12} className={classNames(cls.CommentCard, {}, [className])}>
+    <Flex
+      direction="column"
+      gap={12}
+      className={classNames(cls.CommentCard, {}, [className])}
+      data-testid="CommentCard"
+    >
       <AppLink to={RoutePath.profile(comment.user.id)} className={cls.userInfo}>
         <Avatar className={cls.avatar} size={30} src={comment.user.avatar} />
         <Text text={comment.user.username} />

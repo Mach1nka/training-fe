@@ -27,15 +27,15 @@ export const EditableProfileCardHeader: FC<Props> = memo(({ className }) => {
 
   const onEdit = useCallback(() => {
     dispatch(profileActions.setReadonly(false));
-  }, []);
+  }, [dispatch]);
 
   const onCancelEditing = useCallback(() => {
     dispatch(profileActions.cancelEditing());
-  }, []);
+  }, [dispatch]);
 
   const onSave = useCallback(() => {
     dispatch(updateProfileData());
-  }, []);
+  }, [dispatch]);
 
   const controlBlock = readonly ? (
     <Button data-testid="EditableProfileCardHeader.edit" onClick={onEdit}>
@@ -58,7 +58,7 @@ export const EditableProfileCardHeader: FC<Props> = memo(({ className }) => {
 
   return (
     <Flex justify="space-between" className={className}>
-      <Text title={t('title')} />
+      <Text data-testid="EditableProfileCardHeader" title={t('title')} />
       {canBeEdited ? controlBlock : null}
     </Flex>
   );

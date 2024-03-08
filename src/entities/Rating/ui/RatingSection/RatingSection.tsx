@@ -65,7 +65,7 @@ export const RatingSection: FC<Props> = memo(({
 
   return (
     <>
-      <Card className={className}>
+      <Card className={className} data-testid="RatingSection">
         <Flex direction="column" align="center" gap={8}>
           <Text title={rating ? gratitudeText : callToActionText} />
           <Rating value={rating} size={40} onChange={onRatingChange} />

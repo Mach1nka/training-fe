@@ -29,14 +29,19 @@ export const CommentForm: FC<Props> = memo(({
   };
 
   return (
-    <form onSubmit={onCommentSubmit} className={classNames(cls.CommentForm, {}, [className])}>
+    <form
+      onSubmit={onCommentSubmit}
+      className={classNames(cls.CommentForm, {}, [className])}
+      data-testid="CommentForm"
+    >
       <Input
         id={commentHintId}
         value={text}
         placeholder={placeholder}
         onChange={onChange}
+        data-testid="CommentForm.input"
       />
-      <Button disabled={isLoading} type="submit">{label}</Button>
+      <Button disabled={isLoading} type="submit" data-testid="CommentForm.submit">{label}</Button>
     </form>
   );
 });

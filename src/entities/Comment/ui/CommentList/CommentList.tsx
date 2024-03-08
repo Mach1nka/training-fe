@@ -33,7 +33,11 @@ export const CommentList: FC<Props> = memo(({ className, comments, isLoading }) 
   }
 
   return (
-    <Flex direction="column" gap={16} className={classNames('', {}, [className])}>
+    <Flex
+      direction="column"
+      gap={16}
+      className={classNames('', {}, [className])}
+    >
       {comments.map((comment) => (
         <CommentCard
           key={comment.id}

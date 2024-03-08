@@ -1,8 +1,10 @@
 import type { FC } from 'react';
 import { memo } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { ArticleList } from '@/entities/Article';
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { Text } from '@/shared/ui/Text/Text';
 
 import { useFetchArticleRecommendationsQuery } from '../../api/articleRecommendationsApi';
 
@@ -13,15 +15,21 @@ interface Props {
 }
 
 const ArticleRecommendationsSection: FC<Props> = memo(({ className }) => {
+  const { t } = useTranslation('articleDetails');
   const { isLoading, data: articles } = useFetchArticleRecommendationsQuery();
 
   return (
-    <ArticleList
-      className={classNames(cls.recommendations, {}, [className])}
-      articles={articles || []}
-      isLoading={isLoading}
-      target="_blank"
-    />
+    <>
+      <Text title={t('recommendationsSectionTitle')} className={cls.sectionTitle} />
+      <ArticleList
+        className={classNames(cls.recommendations, {}, [className])}
+        articles={articles || []}
+        isLoading={isLoading}
+        target="_blank"
+        data-testid="ArticleRecommendationsSection"
+      />
+    </>
+
   );
 });
 

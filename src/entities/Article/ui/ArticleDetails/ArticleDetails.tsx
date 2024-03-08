@@ -68,7 +68,7 @@ export const ArticleDetails: FC<Props> = memo(({ articleId }) => {
 
   useEffect(() => {
     thunkMiddleware(() => dispatch(fetchArticleById(articleId)));
-  }, [articleId]);
+  }, [articleId, dispatch]);
 
   if (isLoading) {
     return (
@@ -95,7 +95,7 @@ export const ArticleDetails: FC<Props> = memo(({ articleId }) => {
   return (
     <Flex gap={16} direction="column">
       <AppImage src={article?.img} className={cls.articleImg} />
-      <Flex direction="column">
+      <Flex data-testid="ArticleDetails.info" direction="column">
         <Text
           title={article?.title}
           text={article?.subtitle}

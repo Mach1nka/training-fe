@@ -1,6 +1,7 @@
 import type { FC, CSSProperties, PropsWithChildren } from 'react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
+import type { RTLProps } from '@/shared/types/common';
 
 import cls from './Flex.module.scss';
 
@@ -16,7 +17,7 @@ type Direction = Extract<CSSProperties['flexDirection'], 'row' | 'column'>;
 type Wrap = Extract<CSSProperties['flexWrap'], 'wrap' | 'nowrap'>;
 type Gap = 4 | 8 | 12 | 16 | 20 | 32;
 
-interface Props extends PropsWithChildren {
+interface Props extends PropsWithChildren, RTLProps {
   className?: string;
   justify?: Justify;
   align?: Align;
@@ -35,6 +36,7 @@ export const Flex: FC<Props> = ({
   gap,
   isGrown = true,
   children,
+  'data-testid': dataTestId = '',
 }) => {
   const classes = {
     justify,
@@ -50,6 +52,7 @@ export const Flex: FC<Props> = ({
 
   return (
     <div
+      data-testid={dataTestId}
       className={
         classNames(
           cls.Flex,

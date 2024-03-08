@@ -8,6 +8,8 @@ import { useDynamicReducerLoad } from '@/shared/hook/useDynamicReducerLoad';
 import { useAppDispatch } from '@/shared/hook/useAppDispatch';
 import { CommentForm, CommentList } from '@/entities/Comment';
 import { getUserId } from '@/entities/User';
+import { Text } from '@/shared/ui/Text/Text';
+import { Flex } from '@/shared/ui/Flex/Flex';
 
 import {
   getCommentArticleText,
@@ -19,17 +21,16 @@ import {
   useAddArticleCommentMutation,
 } from '../../api/articleCommentsApi';
 
-import cls from './ArticleCommentSection.module.scss';
-
 const initialReducers: ReducersList = {
   commentArticle: commentArticleReducer,
 };
 
 interface Props {
   articleId: string;
+  className?: string;
 }
 
-const ArticleCommentSection: FC<Props> = memo(({ articleId }) => {
+const ArticleCommentSection: FC<Props> = memo(({ articleId, className }) => {
   const { t } = useTranslation('articleDetails');
   const dispatch = useAppDispatch();
   const commentHintId = useId();
@@ -52,9 +53,9 @@ const ArticleCommentSection: FC<Props> = memo(({ articleId }) => {
   useDynamicReducerLoad(initialReducers);
 
   return (
-    <>
+    <Flex gap={16} direction="column" className={className}>
+      <Text title={t('commentSectionTitle')} />
       <CommentForm
-        className={cls.commentForm}
         text={text}
         isLoading={isCommentSending}
         commentHintId={commentHintId}
@@ -64,7 +65,7 @@ const ArticleCommentSection: FC<Props> = memo(({ articleId }) => {
         onSubmit={onSubmit}
       />
       <CommentList comments={comments || []} isLoading={isCommentsLoading} />
-    </>
+    </Flex>
   );
 });
 

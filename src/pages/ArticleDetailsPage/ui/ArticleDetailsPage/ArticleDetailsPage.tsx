@@ -29,15 +29,13 @@ const ArticleDetailsPage: FC = memo(() => {
       <ArticleDetailsPageHeader />
       <ArticleDetails articleId={id} />
       <Suspense fallback={<Flex direction="column" align="center"><Loader /></Flex>}>
-        <ArticleRatingSection className={cls.ratingSection} articleId={id} />
+        <ArticleRatingSection className={cls.section} articleId={id} />
       </Suspense>
-      <Text title={t('recommendationsSectionTitle')} className={cls.recommendationsSectionTitle} />
       <Suspense fallback={<Flex direction="column" align="center"><Loader /></Flex>}>
-        <ArticleRecommendationsSection />
+        <ArticleRecommendationsSection className={cls.section} />
       </Suspense>
-      <Text title={t('commentSectionTitle')} className={cls.commentSectionTitle} />
       <Suspense fallback={<Flex direction="column" align="center"><Loader /></Flex>}>
-        <ArticleCommentSection articleId={id} />
+        <ArticleCommentSection className={cls.section} articleId={id} />
       </Suspense>
     </Page>
   );

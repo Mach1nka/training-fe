@@ -47,15 +47,17 @@ export const Rating: FC<Props> = memo(({
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
-      {ratingRange.map((value) => (
+      {ratingRange.map((count) => (
         <Icon
-          key={value}
-          className={classNames(cls.star, mods(value))}
+          key={count}
+          className={classNames(cls.star, mods(count))}
           Svg={StarIcon}
           width={size}
           height={size}
-          onClick={onStarClick(value)}
-          onMouseEnter={onHover(value)}
+          onClick={onStarClick(count)}
+          onMouseEnter={onHover(count)}
+          data-testid={`Rating${count}`}
+          data-selected={count <= Number(value)}
         />
       ))}
     </div>
