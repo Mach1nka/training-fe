@@ -13,10 +13,12 @@ describe('Articles List Page', () => {
   });
 
   it('Article Recommendations Section is successfully loaded', () => {
+    cy.intercept('GET', '**/articles/*', { fixture: 'articleDetails.json' });
     cy.getByTestId('ArticleRecommendationsSection').should('exist');
   });
 
   it('Comment is successfully left', () => {
+    cy.intercept('GET', '**/articles/*', { fixture: 'articleDetails.json' });
     cy.getByTestId('ArticleRecommendationsSection').should('exist');
     cy.getByTestId('ArticleRecommendationsSection').scrollIntoView();
     cy.getByTestId('CommentForm.input').type('Comment text');
@@ -26,6 +28,7 @@ describe('Articles List Page', () => {
   });
 
   it('Comment is successfully Rate the Article', () => {
+    cy.intercept('GET', '**/articles/*', { fixture: 'articleDetails.json' });
     cy.getByTestId('RatingSection').should('exist');
     cy.getByTestId('RatingSection').scrollIntoView();
     cy.getByTestId('Rating2').click();

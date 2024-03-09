@@ -65,6 +65,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with: 
           path: 'reports'
+      # TODO: add e2e tests
 
   deploy_test_reports:
     permissions:
