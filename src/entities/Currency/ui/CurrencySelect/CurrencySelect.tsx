@@ -13,15 +13,15 @@ interface Props {
   onChange: (value: Currency) => void;
 }
 
-const options = Object.entries(Currency)
-  .map((currency) => ({ label: currency[0], value: currency[1] }));
+const options = Object.entries(Currency).map((currency) => ({
+  label: currency[0],
+  value: currency[1],
+}));
 
-export const CurrencySelect: FC<Props> = memo(({
-  className, value, readonly, onChange,
-}) => {
+export const CurrencySelect: FC<Props> = memo(({ className, value, readonly, onChange }) => {
   const { t } = useTranslation('profile');
 
-  const onChangeSelect = useCallback((value:string) => {
+  const onChangeSelect = useCallback((value: string) => {
     onChange(value as Currency);
   }, []);
 

@@ -9,10 +9,11 @@ describe('commentArticleSlice extra reducers', () => {
   };
 
   test('set text', () => {
-    expect(commentArticleReducer(
-      state as CommentArticleSchema,
-      commentArticleActions.setText('some comment text'),
-    ))
-      .toEqual({ text: 'some comment text', error: undefined });
+    expect(
+      commentArticleReducer(
+        state as CommentArticleSchema,
+        commentArticleActions.setText('some comment text'),
+      ),
+    ).toEqual({ text: 'some comment text', error: undefined });
   });
 });

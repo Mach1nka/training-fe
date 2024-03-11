@@ -18,17 +18,12 @@ interface Props {
 
 // FIX: Figure out how to apply this component to Headless UI Listbox.Option.
 // NOTE: Leverage through as attribute or Children wasn't succeed because active and selected values don't react on user interaction.
-export const SelectItem: FC<Props> = memo(({
-  className, label, active, selected,
-}) => (
+export const SelectItem: FC<Props> = memo(({ className, label, active, selected }) => (
   <li
-    className={
-      classNames(
-        cls.item,
-        { [popupCls.active]: active, [cls.selected]: selected },
-        [popupCls.item, className],
-      )
-    }
+    className={classNames(cls.item, { [popupCls.active]: active, [cls.selected]: selected }, [
+      popupCls.item,
+      className,
+    ])}
   >
     {selected && <Icon Svg={CheckIcon} className={cls.checkIcon} />}
     {label}

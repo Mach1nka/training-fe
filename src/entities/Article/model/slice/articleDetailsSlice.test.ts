@@ -27,11 +27,15 @@ describe('articleDetailsSlice extra reducers', () => {
       blocks: [],
     };
 
-    expect(articleDetailsReducer(state as ArticleDetailsSchema, fetchArticleById.fulfilled(response, '', '')))
-      .toEqual({
-        isLoading: false,
-        error: undefined,
-        data: response,
-      });
+    expect(
+      articleDetailsReducer(
+        state as ArticleDetailsSchema,
+        fetchArticleById.fulfilled(response, '', ''),
+      ),
+    ).toEqual({
+      isLoading: false,
+      error: undefined,
+      data: response,
+    });
   });
 });

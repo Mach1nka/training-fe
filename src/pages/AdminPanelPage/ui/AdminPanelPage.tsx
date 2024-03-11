@@ -7,11 +7,7 @@ import { Page } from '@/shared/ui/Page/Page';
 const AdminPanelPage: FC = memo(() => {
   const { t } = useTranslation('adminPanel');
 
-  return (
-    <Page data-testid="AdminPanelPage">
-      {t('title')}
-    </Page>
-  );
+  return <Page data-testid="AdminPanelPage">{t('title')}</Page>;
 });
 
 export default AdminPanelPage;

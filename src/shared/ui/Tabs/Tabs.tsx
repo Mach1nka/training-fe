@@ -18,25 +18,23 @@ interface Props {
   onTabClick: (value: string) => void;
 }
 
-export const Tabs: FC<Props> = memo(({
-  className, tabs, value, onTabClick,
-}) => {
-  const onClick = (tab: string) => () => { onTabClick(tab); };
+export const Tabs: FC<Props> = memo(({ className, tabs, value, onTabClick }) => {
+  const onClick = (tab: string) => () => {
+    onTabClick(tab);
+  };
 
   return (
     <div className={classNames(cls.Tabs, {}, [className])}>
-      {
-        tabs.map((tab) => (
-          <Card
-            key={tab.value}
-            className={cls.tab}
-            theme={tab.value === value ? CardTheme.NORMAL : CardTheme.OUTLINE}
-            onClick={onClick(tab.value)}
-          >
-            {tab.label}
-          </Card>
-        ))
-      }
+      {tabs.map((tab) => (
+        <Card
+          key={tab.value}
+          className={cls.tab}
+          theme={tab.value === value ? CardTheme.NORMAL : CardTheme.OUTLINE}
+          onClick={onClick(tab.value)}
+        >
+          {tab.label}
+        </Card>
+      ))}
     </div>
   );
 });

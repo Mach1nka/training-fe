@@ -30,9 +30,7 @@ export const Dark: Story = {
 };
 
 export const AuthorizedDark: Story = {
-  decorators: [
-    storeDecorator({ user: { authData: { id: '1', username: 'guest' } } }),
-  ],
+  decorators: [storeDecorator({ user: { authData: { id: '1', username: 'guest' } } })],
   parameters: {
     themes: {
       themeOverride: Theme.DARK,

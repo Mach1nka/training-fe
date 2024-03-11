@@ -6,11 +6,7 @@ import { Page } from '@/shared/ui/Page/Page';
 const ArticleEditPage: FC = () => {
   const { t } = useTranslation();
 
-  return (
-    <Page>
-      {t('editPage')}
-    </Page>
-  );
+  return <Page>{t('editPage')}</Page>;
 };
 
 export default ArticleEditPage;

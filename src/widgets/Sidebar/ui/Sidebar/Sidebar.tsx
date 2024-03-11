@@ -42,11 +42,7 @@ export const Sidebar: FC<Props> = memo(({ className }) => {
       </Button>
       <Flex gap={4} direction="column" className={classNames(cls.items)}>
         {sidebarItemList.map((item) => (
-          <SidebarItem
-            key={item.path}
-            item={item}
-            collapsed={collapsed}
-          />
+          <SidebarItem key={item.path} item={item} collapsed={collapsed} />
         ))}
       </Flex>
       <div className={cls.switchers}>

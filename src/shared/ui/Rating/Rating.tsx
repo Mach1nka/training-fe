@@ -17,9 +17,7 @@ interface Props {
 
 const ratingRange = [1, 2, 3, 4, 5] as const;
 
-export const Rating: FC<Props> = memo(({
-  className, size = 20, value, onChange,
-}) => {
+export const Rating: FC<Props> = memo(({ className, size = 20, value, onChange }) => {
   const [hoveredItem, setHoveredItem] = useState(0);
   const [isHovered, { onMouseEnter, onMouseLeave }] = useHover();
 

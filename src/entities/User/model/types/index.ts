@@ -9,5 +9,5 @@ export interface User {
 
 export interface UserSchema {
   authData?: User;
-  initialized: boolean
+  initialized: boolean;
 }

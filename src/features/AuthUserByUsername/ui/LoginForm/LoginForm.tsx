@@ -13,7 +13,10 @@ import { useAppDispatch } from '@/shared/hook/useAppDispatch';
 
 import { loginActions, loginReducer } from '../../model/slice/loginSlice';
 import {
-  getLoginUsername, getLoginPassword, getLoginLoading, getLoginError,
+  getLoginUsername,
+  getLoginPassword,
+  getLoginLoading,
+  getLoginError,
 } from '../../model/selector/loginSelector';
 import { loginByUsername } from '../../model/service/loginByUsername/loginByUsername';
 
@@ -44,14 +47,17 @@ const LoginForm: FC<Props> = memo(({ className, onSuccess }) => {
     dispatch(loginActions.setPassword(value));
   }, []);
 
-  const onLoginSubmit = useCallback(async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const response = await dispatch(loginByUsername({ username, password }));
+  const onLoginSubmit = useCallback(
+    async (e: FormEvent<HTMLFormElement>) => {
+      e.preventDefault();
+      const response = await dispatch(loginByUsername({ username, password }));
 
-    if (response.meta.requestStatus === 'fulfilled') {
-      onSuccess();
-    }
-  }, [username, password, onSuccess]);
+      if (response.meta.requestStatus === 'fulfilled') {
+        onSuccess();
+      }
+    },
+    [username, password, onSuccess],
+  );
 
   useDynamicReducerLoad(initialReducers);
 

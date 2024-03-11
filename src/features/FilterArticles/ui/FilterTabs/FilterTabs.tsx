@@ -12,26 +12,33 @@ interface Props {
   onChangeTypeFilter: (newType: ArticleType) => void;
 }
 
-export const FilterTabs: FC<Props> = memo(({ className, articleTypeFilter, onChangeTypeFilter }) => {
-  const { t } = useTranslation('articles');
+export const FilterTabs: FC<Props> = memo(
+  ({ className, articleTypeFilter, onChangeTypeFilter }) => {
+    const { t } = useTranslation('articles');
 
-  const articleTypeTabs: TabItem[] = useMemo(() =>
-    Object.values(ArticleType)
-      .reduce((acc: TabItem[], value) => {
-        acc.push({ label: t(`filters.${value.toLowerCase()}`), value });
-        return acc;
-      }, []), [t]);
+    const articleTypeTabs: TabItem[] = useMemo(
+      () =>
+        Object.values(ArticleType).reduce((acc: TabItem[], value) => {
+          acc.push({ label: t(`filters.${value.toLowerCase()}`), value });
+          return acc;
+        }, []),
+      [t],
+    );
 
-  const onTabClick = useCallback((value: string) => {
-    onChangeTypeFilter(value as ArticleType);
-  }, [onChangeTypeFilter]);
+    const onTabClick = useCallback(
+      (value: string) => {
+        onChangeTypeFilter(value as ArticleType);
+      },
+      [onChangeTypeFilter],
+    );
 
-  return (
-    <Tabs
-      tabs={articleTypeTabs}
-      value={articleTypeFilter}
-      onTabClick={onTabClick}
-      className={className}
-    />
-  );
-});
+    return (
+      <Tabs
+        tabs={articleTypeTabs}
+        value={articleTypeFilter}
+        onTabClick={onTabClick}
+        className={className}
+      />
+    );
+  },
+);

@@ -34,7 +34,6 @@ export default {
       ],
     },
   },
-
 } as Meta<typeof ArticleListItem>;
 
 export const List: Story = {

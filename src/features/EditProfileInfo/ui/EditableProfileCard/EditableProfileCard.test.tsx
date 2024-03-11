@@ -1,9 +1,7 @@
 import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import {
-  renderPreset,
-} from '@/shared/lib/jest/renderPreset';
+import { renderPreset } from '@/shared/lib/jest/renderPreset';
 import type { Profile } from '@/entities/Profile';
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
@@ -71,7 +69,9 @@ describe('EditableProfileCard', () => {
     await userEvent.clear(screen.getByTestId('ProfileCard.lastname'));
     await userEvent.click(screen.getByTestId('EditableProfileCardHeader.save.button'));
 
-    expect(screen.getAllByTestId('EditableProfileCardError.paragraph').length).toBeGreaterThanOrEqual(1);
+    expect(
+      screen.getAllByTestId('EditableProfileCardError.paragraph').length,
+    ).toBeGreaterThanOrEqual(1);
   });
 
   test('Test success scenario', async () => {

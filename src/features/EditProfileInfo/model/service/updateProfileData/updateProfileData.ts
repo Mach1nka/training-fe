@@ -10,27 +10,25 @@ import { validateProfileForm } from '../../lib/validateProfileForm/validateProfi
 export const updateProfileData = createAsyncThunk<
   Profile,
   undefined,
-  ThunkConfig<ValidateProfileError[]>>(
-    'profile/updateProfileData',
-    async (_, { rejectWithValue, extra, getState }) => {
-      try {
-        const formData = getProfileForm(getState());
-        const data = getProfileData(getState());
-        const errors = validateProfileForm(formData);
+  ThunkConfig<ValidateProfileError[]>
+>('profile/updateProfileData', async (_, { rejectWithValue, extra, getState }) => {
+  try {
+    const formData = getProfileForm(getState());
+    const data = getProfileData(getState());
+    const errors = validateProfileForm(formData);
 
-        if (errors.length) {
-          return rejectWithValue(errors);
-        }
+    if (errors.length) {
+      return rejectWithValue(errors);
+    }
 
-        const response = await extra.api.put<Profile>(`/profiles/${data?.id}`, formData);
+    const response = await extra.api.put<Profile>(`/profiles/${data?.id}`, formData);
 
-        if (!response.data) {
-          throw new Error();
-        }
+    if (!response.data) {
+      throw new Error();
+    }
 
-        return response.data;
-      } catch (err) {
-        return rejectWithValue([ValidateProfileError.SERVER_ERROR]);
-      }
-    },
-  );
+    return response.data;
+  } catch (err) {
+    return rejectWithValue([ValidateProfileError.SERVER_ERROR]);
+  }
+});

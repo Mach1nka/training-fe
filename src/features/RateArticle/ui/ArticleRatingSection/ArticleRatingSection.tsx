@@ -6,7 +6,10 @@ import { useSelector } from 'react-redux';
 import { RatingSection } from '@/entities/Rating';
 import { getUserId } from '@/entities/User';
 
-import { useFetchArticleRatingQuery, useRateArticleMutation } from '../../model/api/articleRatingApi';
+import {
+  useFetchArticleRatingQuery,
+  useRateArticleMutation,
+} from '../../model/api/articleRatingApi';
 
 interface Props {
   className?: string;
@@ -19,23 +22,35 @@ const ArticleRatingSection: FC<Props> = memo(({ className, articleId }) => {
   const { data } = useFetchArticleRatingQuery({ articleId, userId });
   const [rateArticle] = useRateArticleMutation();
 
-  const rateArticleRequest = useCallback((ratingValue: number, feedback?: string) => {
-    try {
-      rateArticle({
-        articleId, userId, rating: ratingValue, feedback,
-      });
-    } catch (e) {
-      console.log(e);
-    }
-  }, [articleId, userId, rateArticle]);
+  const rateArticleRequest = useCallback(
+    (ratingValue: number, feedback?: string) => {
+      try {
+        rateArticle({
+          articleId,
+          userId,
+          rating: ratingValue,
+          feedback,
+        });
+      } catch (e) {
+        console.log(e);
+      }
+    },
+    [articleId, userId, rateArticle],
+  );
 
-  const onAccept = useCallback((rating: number, feedback: string) => {
-    rateArticleRequest(rating, feedback);
-  }, [rateArticleRequest]);
+  const onAccept = useCallback(
+    (rating: number, feedback: string) => {
+      rateArticleRequest(rating, feedback);
+    },
+    [rateArticleRequest],
+  );
 
-  const onCancel = useCallback((rating: number) => {
-    rateArticleRequest(rating);
-  }, [rateArticleRequest]);
+  const onCancel = useCallback(
+    (rating: number) => {
+      rateArticleRequest(rating);
+    },
+    [rateArticleRequest],
+  );
 
   return (
     <RatingSection

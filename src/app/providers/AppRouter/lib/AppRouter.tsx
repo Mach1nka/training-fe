@@ -11,9 +11,7 @@ import { AuthProtection } from './AuthProtection';
 import { RoleProtection } from './RoleProtection';
 
 export const AppRouter: FC = memo(() => {
-  const renderWithProtection = ({
-    path, element, authOnly, allowedRoles,
-  }: AppRouteProps) => {
+  const renderWithProtection = ({ path, element, authOnly, allowedRoles }: AppRouteProps) => {
     if (authOnly) {
       return (
         <Route key={path} element={<AuthProtection />}>
@@ -29,9 +27,7 @@ export const AppRouter: FC = memo(() => {
 
   return (
     <Suspense fallback={<PageLoader />}>
-      <Routes>
-        {Object.values(routeConfig).map(renderWithProtection)}
-      </Routes>
+      <Routes>{Object.values(routeConfig).map(renderWithProtection)}</Routes>
     </Suspense>
   );
 });

@@ -15,11 +15,7 @@ export const ThemeSwitcher: FC<Props> = memo(({ className }) => {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <Button
-      className={className}
-      theme={ButtonTheme.CLEAR}
-      onClick={toggleTheme}
-    >
+    <Button className={className} theme={ButtonTheme.CLEAR} onClick={toggleTheme}>
       {theme === Theme.DARK ? <DarkIcon /> : <LightIcon />}
     </Button>
   );

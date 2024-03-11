@@ -6,15 +6,13 @@ export default function (): PluginItem {
       Program(path, state) {
         const attributes: string[] = state.opts.props || [];
 
-        path.traverse(
-          {
-            JSXIdentifier: (current) => {
-              if (attributes.includes(current.node.name)) {
-                current.parentPath.remove();
-              }
-            },
+        path.traverse({
+          JSXIdentifier: (current) => {
+            if (attributes.includes(current.node.name)) {
+              current.parentPath.remove();
+            }
           },
-        );
+        });
       },
     },
   };

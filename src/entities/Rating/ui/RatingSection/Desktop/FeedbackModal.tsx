@@ -17,49 +17,40 @@ interface Props {
   onCancel: () => void;
 }
 
-const FeedbackModal: FC<Props> = memo(({
-  isOpen,
-  title,
-  placeholder,
-  acceptBtnText,
-  cancelBtnText,
-  onAccept,
-  onCancel,
-}) => {
-  const [feedback, setFeedback] = useState('');
+const FeedbackModal: FC<Props> = memo(
+  ({ isOpen, title, placeholder, acceptBtnText, cancelBtnText, onAccept, onCancel }) => {
+    const [feedback, setFeedback] = useState('');
 
-  const onFeedbackChange = useCallback((text: string) => {
-    setFeedback(text);
-  }, []);
+    const onFeedbackChange = useCallback((text: string) => {
+      setFeedback(text);
+    }, []);
 
-  return (
-    <Modal isOpen={isOpen} onClose={onCancel}>
-      <Flex direction="column" gap={32}>
-        <Text title={title} />
-        <Input
-          value={feedback}
-          placeholder={placeholder}
-          onChange={onFeedbackChange}
-          data-testid="Feedback.input"
-        />
-        <Flex justify="space-between">
-          <Button
-            onClick={() => onAccept(feedback)}
-            data-testid="Feedback.accept"
-          >
-            {acceptBtnText}
-          </Button>
-          <Button
-            theme={ButtonTheme.OUTLINE_RED}
-            onClick={onCancel}
-            data-testid="Feedback.cancel"
-          >
-            {cancelBtnText}
-          </Button>
+    return (
+      <Modal isOpen={isOpen} onClose={onCancel}>
+        <Flex direction="column" gap={32}>
+          <Text title={title} />
+          <Input
+            value={feedback}
+            placeholder={placeholder}
+            onChange={onFeedbackChange}
+            data-testid="Feedback.input"
+          />
+          <Flex justify="space-between">
+            <Button onClick={() => onAccept(feedback)} data-testid="Feedback.accept">
+              {acceptBtnText}
+            </Button>
+            <Button
+              theme={ButtonTheme.OUTLINE_RED}
+              onClick={onCancel}
+              data-testid="Feedback.cancel"
+            >
+              {cancelBtnText}
+            </Button>
+          </Flex>
         </Flex>
-      </Flex>
-    </Modal>
-  );
-});
+      </Modal>
+    );
+  },
+);
 
 export default FeedbackModal;

@@ -12,5 +12,9 @@ export const getUserInitialized = (state: StateSchema) => Boolean(state.user.ini
 
 export const getUserRole = (state: StateSchema) => state.user.authData?.role;
 
-export const isUserAdmin = createSelector(getUserRole, (roles) => roles?.includes(UserRole.ADMIN));
-export const isUserManager = createSelector(getUserRole, (roles) => roles?.includes(UserRole.MANAGER));
+export const isUserAdmin = createSelector(getUserRole, (roles) =>
+  roles?.includes(UserRole.ADMIN),
+);
+export const isUserManager = createSelector(getUserRole, (roles) =>
+  roles?.includes(UserRole.MANAGER),
+);

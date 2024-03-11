@@ -1,7 +1,5 @@
 import type { FC } from 'react';
-import {
-  useState, useCallback, memo, Suspense,
-} from 'react';
+import { useState, useCallback, memo, Suspense } from 'react';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 

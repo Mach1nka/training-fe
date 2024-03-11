@@ -1,10 +1,7 @@
 import type { StoryObj, Meta } from '@storybook/react';
 
 import { Theme } from '@/shared/constant/theme';
-import {
-  storeDecorator,
-  styleDecorator,
-} from '@/shared/lib/storybook/decorators';
+import { storeDecorator, styleDecorator } from '@/shared/lib/storybook/decorators';
 import { centerContentStorybook } from '@/shared/lib/storybook/constants';
 
 import { AccountActions } from './AccountActions';

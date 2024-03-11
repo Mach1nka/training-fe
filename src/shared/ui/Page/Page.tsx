@@ -11,18 +11,15 @@ interface Props extends PropsWithChildren, RTLProps {
   onScroll?: () => void;
 }
 
-export const Page = forwardRef<HTMLDivElement, Props>(({
-  className,
-  children,
-  onScroll,
-  'data-testid': dataTestId = '',
-}, ref) => (
-  <main
-    ref={ref}
-    onScroll={onScroll}
-    className={classNames(cls.Page, {}, [className])}
-    data-testid={dataTestId}
-  >
-    {children}
-  </main>
-));
+export const Page = forwardRef<HTMLDivElement, Props>(
+  ({ className, children, onScroll, 'data-testid': dataTestId = '' }, ref) => (
+    <main
+      ref={ref}
+      onScroll={onScroll}
+      className={classNames(cls.Page, {}, [className])}
+      data-testid={dataTestId}
+    >
+      {children}
+    </main>
+  ),
+);

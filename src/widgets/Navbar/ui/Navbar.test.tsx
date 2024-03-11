@@ -1,9 +1,7 @@
 import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import {
-  renderPreset,
-} from '@/shared/lib/jest/renderPreset';
+import { renderPreset } from '@/shared/lib/jest/renderPreset';
 import '@/shared/lib/jest/matchMedia.mock';
 import { UserRole } from '@/entities/User';
 import { api } from '@/shared/api/api';

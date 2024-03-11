@@ -4,14 +4,8 @@ import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { useSearchParams } from 'react-router-dom';
 
-import type {
-  ArticleSortedField,
-  ArticleType,
-  ArticleView,
-} from '@/entities/Article';
-import {
-  ArticleList,
-} from '@/entities/Article';
+import type { ArticleSortedField, ArticleType, ArticleView } from '@/entities/Article';
+import { ArticleList } from '@/entities/Article';
 import type { ReducersList } from '@/shared/hook/useDynamicReducerLoad';
 import { useDynamicReducerLoad } from '@/shared/hook/useDynamicReducerLoad';
 import { useAppDispatch } from '@/shared/hook/useAppDispatch';
@@ -34,7 +28,10 @@ import {
   getWallOfArticlesTypeFilter,
   getWallOfArticlesView,
 } from '../../model/selector/wallOfArticlesSelector';
-import { wallOfArticlesReducer, wallOfArticlesActions } from '../../model/slice/wallOfArticlesSlice';
+import {
+  wallOfArticlesReducer,
+  wallOfArticlesActions,
+} from '../../model/slice/wallOfArticlesSlice';
 
 import cls from './WallOfArticles.module.scss';
 
@@ -61,52 +58,71 @@ export const WallOfArticles: FC<Props> = memo(({ className }) => {
   const error = useSelector(getWallOfArticlesError);
   const debouncedSearch = useDebounce(fetchArticles({ replace: true }), 500);
 
-  const onChangeView = useCallback((newView: ArticleView) => {
-    dispatch(wallOfArticlesActions.setView(newView));
-    localStorage.setItem(LOCAL_STORAGE_WALL_OF_ARTICLES_VIEW, newView);
-  }, [dispatch]);
+  const onChangeView = useCallback(
+    (newView: ArticleView) => {
+      dispatch(wallOfArticlesActions.setView(newView));
+      localStorage.setItem(LOCAL_STORAGE_WALL_OF_ARTICLES_VIEW, newView);
+    },
+    [dispatch],
+  );
 
-  const onChangeSortOrder = useCallback((newOrder: SortingOrder) => {
-    dispatch(wallOfArticlesActions.setSortOrder(newOrder));
-    dispatch(wallOfArticlesActions.setPage(1));
-    searchParams.set('order', newOrder);
-    setSearchParams(searchParams);
-    thunkMiddleware(() => dispatch(fetchArticles({ replace: true })));
-  }, [dispatch, searchParams, setSearchParams]);
+  const onChangeSortOrder = useCallback(
+    (newOrder: SortingOrder) => {
+      dispatch(wallOfArticlesActions.setSortOrder(newOrder));
+      dispatch(wallOfArticlesActions.setPage(1));
+      searchParams.set('order', newOrder);
+      setSearchParams(searchParams);
+      thunkMiddleware(() => dispatch(fetchArticles({ replace: true })));
+    },
+    [dispatch, searchParams, setSearchParams],
+  );
 
-  const onChangeSort = useCallback((newField: ArticleSortedField) => {
-    dispatch(wallOfArticlesActions.setSortField(newField));
-    dispatch(wallOfArticlesActions.setPage(1));
-    searchParams.set('sort', newField);
-    setSearchParams(searchParams);
-    thunkMiddleware(() => dispatch(fetchArticles({ replace: true })));
-  }, [dispatch, searchParams, setSearchParams]);
+  const onChangeSort = useCallback(
+    (newField: ArticleSortedField) => {
+      dispatch(wallOfArticlesActions.setSortField(newField));
+      dispatch(wallOfArticlesActions.setPage(1));
+      searchParams.set('sort', newField);
+      setSearchParams(searchParams);
+      thunkMiddleware(() => dispatch(fetchArticles({ replace: true })));
+    },
+    [dispatch, searchParams, setSearchParams],
+  );
 
-  const onChangeSearch = useCallback((value: string) => {
-    dispatch(wallOfArticlesActions.setPage(1));
-    dispatch(wallOfArticlesActions.setSearch(value));
-    searchParams.set('search', value);
-    setSearchParams(searchParams);
-    thunkMiddleware(() => dispatch(debouncedSearch));
-  }, [dispatch, searchParams, setSearchParams, debouncedSearch]);
+  const onChangeSearch = useCallback(
+    (value: string) => {
+      dispatch(wallOfArticlesActions.setPage(1));
+      dispatch(wallOfArticlesActions.setSearch(value));
+      searchParams.set('search', value);
+      setSearchParams(searchParams);
+      thunkMiddleware(() => dispatch(debouncedSearch));
+    },
+    [dispatch, searchParams, setSearchParams, debouncedSearch],
+  );
 
-  const onChangeTypeFilter = useCallback((value: ArticleType) => {
-    dispatch(wallOfArticlesActions.setTypeFilter(value));
-    dispatch(wallOfArticlesActions.setPage(1));
-    searchParams.set('type', value);
-    setSearchParams(searchParams);
-    thunkMiddleware(() => dispatch(fetchArticles({ replace: true })));
-  }, [dispatch, searchParams, setSearchParams]);
+  const onChangeTypeFilter = useCallback(
+    (value: ArticleType) => {
+      dispatch(wallOfArticlesActions.setTypeFilter(value));
+      dispatch(wallOfArticlesActions.setPage(1));
+      searchParams.set('type', value);
+      setSearchParams(searchParams);
+      thunkMiddleware(() => dispatch(fetchArticles({ replace: true })));
+    },
+    [dispatch, searchParams, setSearchParams],
+  );
 
   useDynamicReducerLoad(initialReducers, false);
 
   useEffect(() => {
     if (!initialized) {
       const searchParamsObj: Record<string, string> = {};
-      searchParams.forEach((value, key) => { searchParamsObj[key] = value; });
+      searchParams.forEach((value, key) => {
+        searchParamsObj[key] = value;
+      });
       const view = localStorage.getItem(LOCAL_STORAGE_WALL_OF_ARTICLES_VIEW) as ArticleView;
 
-      dispatch(wallOfArticlesActions.initWallOfArticles({ searchURLParams: searchParamsObj, view }));
+      dispatch(
+        wallOfArticlesActions.initWallOfArticles({ searchURLParams: searchParamsObj, view }),
+      );
       thunkMiddleware(() => dispatch(fetchArticles({})));
     }
   }, [dispatch]);
@@ -134,11 +150,7 @@ export const WallOfArticles: FC<Props> = memo(({ className }) => {
         onChangeSearch={onChangeSearch}
         onChangeView={onChangeView}
       />
-      <ArticleList
-        isLoading={isLoading}
-        view={view}
-        articles={articles}
-      />
+      <ArticleList isLoading={isLoading} view={view} articles={articles} />
     </div>
   );
 });

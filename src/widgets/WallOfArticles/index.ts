@@ -2,11 +2,6 @@ import { fetchArticlesByPage } from './model/service/fetchArticlesByPage/fetchAr
 import type { WallOfArticlesSchema } from './model/types';
 import { WallOfArticles } from './ui/WallOfArticles/WallOfArticles';
 
-export type {
-  WallOfArticlesSchema,
-};
+export type { WallOfArticlesSchema };
 
-export {
-  WallOfArticles,
-  fetchArticlesByPage,
-};
+export { WallOfArticles, fetchArticlesByPage };

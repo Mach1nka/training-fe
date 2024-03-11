@@ -27,9 +27,7 @@ interface Props {
   view: ArticleView;
 }
 
-export const ArticleListItem: FC<Props> = memo(({
-  className, article, view, target,
-}) => {
+export const ArticleListItem: FC<Props> = memo(({ className, article, view, target }) => {
   const { t } = useTranslation('articles');
 
   const articleTypes = <Text text={article.type.join(', ')} className={cls.type} />;
@@ -60,16 +58,16 @@ export const ArticleListItem: FC<Props> = memo(({
           className={cls.img}
           fallback={<Skeleton width="100%" height={180} />}
         />
-        {textBlock ? <ArticleTextBlockComponent block={textBlock} className={cls.textBlock} /> : null}
+        {textBlock ? (
+          <ArticleTextBlockComponent block={textBlock} className={cls.textBlock} />
+        ) : null}
         <div className={cls.footer}>
           <AppLink
             target={target}
             to={RoutePath.articleDetails(article.id)}
             underline={AppLinkUnderline.NEVER}
           >
-            <Button>
-              {t('readMoreBtn')}
-            </Button>
+            <Button>{t('readMoreBtn')}</Button>
           </AppLink>
           {views}
         </div>

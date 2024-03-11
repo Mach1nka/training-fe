@@ -19,4 +19,5 @@ const commentArticleSlice = createSlice({
   },
 });
 
-export const { actions: commentArticleActions, reducer: commentArticleReducer } = commentArticleSlice;
+export const { actions: commentArticleActions, reducer: commentArticleReducer } =
+  commentArticleSlice;

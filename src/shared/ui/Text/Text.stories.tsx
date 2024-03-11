@@ -2,9 +2,7 @@ import type { StoryObj, Meta } from '@storybook/react';
 
 import { Theme } from '@/shared/constant/theme';
 
-import {
-  Text, TextAlign, TextSize, TextTheme,
-} from './Text';
+import { Text, TextAlign, TextSize, TextTheme } from './Text';
 
 type Story = StoryObj<typeof Text>;
 

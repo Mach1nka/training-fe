@@ -15,12 +15,8 @@ interface Props {
   lazy?: boolean;
 }
 
-export const Modal: FC<Props> = ({
-  children, className, isOpen, onClose, lazy,
-}) => {
-  const {
-    showing, closing, isMounted, onModalClose,
-  } = useModal(isOpen, 300, onClose);
+export const Modal: FC<Props> = ({ children, className, isOpen, onClose, lazy }) => {
+  const { showing, closing, isMounted, onModalClose } = useModal(isOpen, 300, onClose);
 
   const mods = {
     [cls.opened]: showing,
@@ -35,9 +31,7 @@ export const Modal: FC<Props> = ({
     <Portal>
       <div className={classNames(cls.Modal, mods, [className])}>
         <Overlay onClick={onModalClose} />
-        <div className={cls.content}>
-          {children}
-        </div>
+        <div className={cls.content}>{children}</div>
       </div>
     </Portal>
   );

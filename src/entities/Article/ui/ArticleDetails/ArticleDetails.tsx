@@ -6,9 +6,7 @@ import { useSelector } from 'react-redux';
 import type { ReducersList } from '@/shared/hook/useDynamicReducerLoad';
 import { useDynamicReducerLoad } from '@/shared/hook/useDynamicReducerLoad';
 import { useAppDispatch } from '@/shared/hook/useAppDispatch';
-import {
-  Text, TextAlign, TextSize, TextTheme,
-} from '@/shared/ui/Text/Text';
+import { Text, TextAlign, TextSize, TextTheme } from '@/shared/ui/Text/Text';
 import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
 import CalendarIcon from '@/shared/assets/icons/calendar.svg';
 import EyeIcon from '@/shared/assets/icons/eye.svg';
@@ -25,7 +23,10 @@ import {
 import { fetchArticleById } from '../../model/service/fetchArticleById/fetchArticleById';
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
 import type {
-  ArticleBlock, ArticleCodeBlock, ArticleImageBlock, ArticleTextBlock,
+  ArticleBlock,
+  ArticleCodeBlock,
+  ArticleImageBlock,
+  ArticleTextBlock,
 } from '../../model/types';
 import { ArticleBlockType } from '../../model/const';
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
@@ -34,20 +35,18 @@ import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleT
 
 import cls from './ArticleDetails.module.scss';
 
-const renderBlock = (block: ArticleBlock) => ({
-  [ArticleBlockType.TEXT]: <ArticleTextBlockComponent
-    key={block.id}
-    block={block as ArticleTextBlock}
-  />,
-  [ArticleBlockType.IMAGE]: <ArticleImageBlockComponent
-    key={block.id}
-    block={block as ArticleImageBlock}
-  />,
-  [ArticleBlockType.CODE]: <ArticleCodeBlockComponent
-    key={block.id}
-    block={block as ArticleCodeBlock}
-  />,
-}[block.type]);
+const renderBlock = (block: ArticleBlock) =>
+  ({
+    [ArticleBlockType.TEXT]: (
+      <ArticleTextBlockComponent key={block.id} block={block as ArticleTextBlock} />
+    ),
+    [ArticleBlockType.IMAGE]: (
+      <ArticleImageBlockComponent key={block.id} block={block as ArticleImageBlock} />
+    ),
+    [ArticleBlockType.CODE]: (
+      <ArticleCodeBlockComponent key={block.id} block={block as ArticleCodeBlock} />
+    ),
+  })[block.type];
 
 const initialReducers: ReducersList = {
   articleDetails: articleDetailsReducer,
@@ -83,24 +82,14 @@ export const ArticleDetails: FC<Props> = memo(({ articleId }) => {
   }
 
   if (error) {
-    return (
-      <Text
-        theme={TextTheme.ERROR}
-        align={TextAlign.CENTER}
-        title={t('error.title')}
-      />
-    );
+    return <Text theme={TextTheme.ERROR} align={TextAlign.CENTER} title={t('error.title')} />;
   }
 
   return (
     <Flex gap={16} direction="column">
       <AppImage src={article?.img} className={cls.articleImg} />
       <Flex data-testid="ArticleDetails.info" direction="column">
-        <Text
-          title={article?.title}
-          text={article?.subtitle}
-          size={TextSize.LARGE}
-        />
+        <Text title={article?.title} text={article?.subtitle} size={TextSize.LARGE} />
         <Flex gap={8} align="center">
           <Icon Svg={EyeIcon} className={cls.infoIcon} />
           <Text text={String(article?.views)} />

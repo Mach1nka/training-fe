@@ -10,7 +10,10 @@ describe('fetchPageOfArticles thunk', () => {
   test('success', async () => {
     const thunk = new TestAsyncThunk(fetchArticlesByPage, {
       wallOfArticles: {
-        limit: 4, page: 2, hasMore: true, isLoading: false,
+        limit: 4,
+        page: 2,
+        hasMore: true,
+        isLoading: false,
       },
     });
     await thunk.callThunk(undefined);
@@ -21,7 +24,9 @@ describe('fetchPageOfArticles thunk', () => {
   test('hasMore false', async () => {
     const thunk = new TestAsyncThunk(fetchArticlesByPage, {
       wallOfArticles: {
-        limit: 4, page: 2, hasMore: false,
+        limit: 4,
+        page: 2,
+        hasMore: false,
       },
     });
     await thunk.callThunk(undefined);
@@ -32,7 +37,10 @@ describe('fetchPageOfArticles thunk', () => {
   test('isLoading true', async () => {
     const thunk = new TestAsyncThunk(fetchArticlesByPage, {
       wallOfArticles: {
-        limit: 4, page: 2, hasMore: true, isLoading: true,
+        limit: 4,
+        page: 2,
+        hasMore: true,
+        isLoading: true,
       },
     });
     await thunk.callThunk(undefined);

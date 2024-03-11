@@ -30,12 +30,7 @@
     "./config/**/*.ts",
     "./config/**/*.tsx",
     "./*.ts",
-    "./*.d.ts",
+    "./*.d.ts"
   ],
-  "exclude": [
-    "./config/cypress/*.ts",
-    "./cypress.config.ts",
-    "./cypress",
-    "node_modules"
-  ]
+  "exclude": ["./config/cypress/*.ts", "./cypress.config.ts", "./cypress", "node_modules"]
 }

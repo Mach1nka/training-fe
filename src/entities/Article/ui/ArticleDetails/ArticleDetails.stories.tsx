@@ -90,5 +90,7 @@ export const Loading: Story = {
 };
 
 export const Error: Story = {
-  decorators: [storeDecorator({ articleDetails: { error: 'Error message' } }, initialReducers)],
+  decorators: [
+    storeDecorator({ articleDetails: { error: 'Error message' } }, initialReducers),
+  ],
 };

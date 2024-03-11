@@ -28,13 +28,31 @@ const ArticleDetailsPage: FC = memo(() => {
     <Page>
       <ArticleDetailsPageHeader />
       <ArticleDetails articleId={id} />
-      <Suspense fallback={<Flex direction="column" align="center"><Loader /></Flex>}>
+      <Suspense
+        fallback={
+          <Flex direction="column" align="center">
+            <Loader />
+          </Flex>
+        }
+      >
         <ArticleRatingSection className={cls.section} articleId={id} />
       </Suspense>
-      <Suspense fallback={<Flex direction="column" align="center"><Loader /></Flex>}>
+      <Suspense
+        fallback={
+          <Flex direction="column" align="center">
+            <Loader />
+          </Flex>
+        }
+      >
         <ArticleRecommendationsSection className={cls.section} />
       </Suspense>
-      <Suspense fallback={<Flex direction="column" align="center"><Loader /></Flex>}>
+      <Suspense
+        fallback={
+          <Flex direction="column" align="center">
+            <Loader />
+          </Flex>
+        }
+      >
         <ArticleCommentSection className={cls.section} articleId={id} />
       </Suspense>
     </Page>

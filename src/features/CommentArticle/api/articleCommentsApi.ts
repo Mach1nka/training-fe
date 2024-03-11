@@ -2,9 +2,9 @@ import type { Comment } from '@/entities/Comment';
 import { rtkApi } from '@/shared/api/rtkApi';
 
 interface AddCommentBody {
-  userId: string,
-  articleId: string,
-  text: string,
+  userId: string;
+  articleId: string;
+  text: string;
 }
 
 const { useFetchArticleCommentsQuery, useAddArticleCommentMutation } = rtkApi.injectEndpoints({

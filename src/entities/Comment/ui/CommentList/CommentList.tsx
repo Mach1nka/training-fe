@@ -11,7 +11,7 @@ import { CommentCard } from '../CommentCard/CommentCard';
 
 interface Props {
   className?: string;
-  isLoading:boolean;
+  isLoading: boolean;
   comments: Comment[];
 }
 
@@ -33,17 +33,9 @@ export const CommentList: FC<Props> = memo(({ className, comments, isLoading }) 
   }
 
   return (
-    <Flex
-      direction="column"
-      gap={16}
-      className={classNames('', {}, [className])}
-    >
+    <Flex direction="column" gap={16} className={classNames('', {}, [className])}>
       {comments.map((comment) => (
-        <CommentCard
-          key={comment.id}
-          comment={comment}
-          isLoading={false}
-        />
+        <CommentCard key={comment.id} comment={comment} isLoading={false} />
       ))}
     </Flex>
   );

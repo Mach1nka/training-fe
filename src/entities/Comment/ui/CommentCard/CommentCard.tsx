@@ -22,7 +22,11 @@ interface Props {
 export const CommentCard: FC<Props> = memo(({ className, comment, isLoading }) => {
   if (isLoading) {
     return (
-      <Flex direction="column" gap={12} className={classNames(cls.CommentCard, {}, [className])}>
+      <Flex
+        direction="column"
+        gap={12}
+        className={classNames(cls.CommentCard, {}, [className])}
+      >
         <Flex align="center">
           <Skeleton width={30} height={30} borderRadius="50%" className={cls.avatar} />
           <Skeleton width={50} height={16} />

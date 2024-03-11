@@ -27,9 +27,7 @@ const { useFetchArticleRatingQuery, useRateArticleMutation } = rtkApi.injectEndp
       }),
     }),
     rateArticle: build.mutation<void, RateArticleArgs>({
-      query: ({
-        userId, articleId, rating, feedback,
-      }) => ({
+      query: ({ userId, articleId, rating, feedback }) => ({
         url: '/article-ratings',
         method: 'POST',
         body: {

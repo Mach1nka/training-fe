@@ -9,13 +9,13 @@ import cls from './Text.module.scss';
 export enum TextTheme {
   PRIMARY = 'primary',
   INVERTED = 'inverted',
-  ERROR = 'error'
+  ERROR = 'error',
 }
 
 export enum TextAlign {
   RIGHT = 'right',
   CENTER = 'center',
-  LEFT = 'left'
+  LEFT = 'left',
 }
 
 export enum TextSize {
@@ -41,26 +41,33 @@ interface Props extends RTLProps {
   size?: TextSize;
 }
 
-export const Text: FC<Props> = memo(({
-  className,
-  title,
-  text,
-  size = TextSize.MEDIUM,
-  theme = TextTheme.PRIMARY,
-  align = TextAlign.LEFT,
-  'data-testid': dataTestId = '',
-}) => {
-  const HeadingTag = mapSizeToHeaderTag[size];
+export const Text: FC<Props> = memo(
+  ({
+    className,
+    title,
+    text,
+    size = TextSize.MEDIUM,
+    theme = TextTheme.PRIMARY,
+    align = TextAlign.LEFT,
+    'data-testid': dataTestId = '',
+  }) => {
+    const HeadingTag = mapSizeToHeaderTag[size];
 
-  return (
-    <div className={classNames(cls.Text, {}, [className, cls[theme], cls[align], cls[size]])}>
-      {title
-        ? (
+    return (
+      <div
+        className={classNames(cls.Text, {}, [className, cls[theme], cls[align], cls[size]])}
+      >
+        {title ? (
           <HeadingTag data-testid={`${dataTestId}.heading`} className={cls.title}>
             {title}
           </HeadingTag>
         ) : null}
-      {text ? <p data-testid={`${dataTestId}.paragraph`} className={cls.text}>{text}</p> : null}
-    </div>
-  );
-});
+        {text ? (
+          <p data-testid={`${dataTestId}.paragraph`} className={cls.text}>
+            {text}
+          </p>
+        ) : null}
+      </div>
+    );
+  },
+);

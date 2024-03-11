@@ -25,29 +25,37 @@ interface EnrichedProps extends Props {
 const height = window.innerHeight - 100;
 
 const Drawer: FC<EnrichedProps> = ({
-  className, children, isOpen, onClose, lazy, Gesture, Spring,
+  className,
+  children,
+  isOpen,
+  onClose,
+  lazy,
+  Gesture,
+  Spring,
 }) => {
   const [{ y }, api] = Spring.useSpring(() => ({
     y: height,
-    onRest: (e: AnimationResult<SpringValue<Lookup<number>>>) => e.value.y === height && onClose(),
+    onRest: (e: AnimationResult<SpringValue<Lookup<number>>>) =>
+      e.value.y === height && onClose(),
   }));
 
   const openDrawer = useCallback(() => {
     api.start({ y: 0, immediate: false });
   }, [api]);
 
-  const closeDrawer = useCallback((velocity = 0) => {
-    api.start({ y: height, immediate: false, config: { ...Spring.config.stiff, velocity } });
-  }, [api, Spring.config.stiff]);
+  const closeDrawer = useCallback(
+    (velocity = 0) => {
+      api.start({ y: height, immediate: false, config: { ...Spring.config.stiff, velocity } });
+    },
+    [api, Spring.config.stiff],
+  );
 
   const onOverlayClose = useCallback(() => {
     closeDrawer(y.velocity);
   }, [y.velocity, closeDrawer]);
 
   const bind = Gesture.useDrag(
-    ({
-      last, velocity: [, vy], direction: [, dy], offset: [, oy], cancel,
-    }) => {
+    ({ last, velocity: [, vy], direction: [, dy], offset: [, oy], cancel }) => {
       // NOTE: if the user drags up passed a threshold, then we cancel the drag so that the sheet resets to its open position
       if (oy < -70) cancel();
 
@@ -63,7 +71,10 @@ const Drawer: FC<EnrichedProps> = ({
       return openDrawer();
     },
     {
-      from: () => [0, y.get()], filterTaps: true, bounds: { top: 0 }, rubberband: true,
+      from: () => [0, y.get()],
+      filterTaps: true,
+      bounds: { top: 0 },
+      rubberband: true,
     },
   );
 
@@ -100,11 +111,9 @@ const Drawer: FC<EnrichedProps> = ({
 };
 
 const DrawerWrapper: FC<Props> = (props) => {
-  const {
-    isLoaded,
-    Gesture,
-    Spring,
-  } = useLoadAnimationLibrary() as Required<ReturnType<UseAnimationLibrary>>;
+  const { isLoaded, Gesture, Spring } = useLoadAnimationLibrary() as Required<
+    ReturnType<UseAnimationLibrary>
+  >;
 
   if (!isLoaded) {
     return null;

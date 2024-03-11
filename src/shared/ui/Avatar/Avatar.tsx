@@ -18,35 +18,36 @@ interface Props {
   fallbackTheme?: IconTheme;
 }
 
-export const Avatar: FC<Props> = memo(({
-  className, src, size, alt = 'avatar', fallbackTheme,
-}) => {
-  const styles = useMemo<CSSProperties>(() => ({
-    width: size,
-    height: size,
-  }), [size]);
+export const Avatar: FC<Props> = memo(
+  ({ className, src, size, alt = 'avatar', fallbackTheme }) => {
+    const styles = useMemo<CSSProperties>(
+      () => ({
+        width: size,
+        height: size,
+      }),
+      [size],
+    );
 
-  const fallback = (
-    <Skeleton width={size} height={size} borderRadius="50%" />
-  );
+    const fallback = <Skeleton width={size} height={size} borderRadius="50%" />;
 
-  const errorFallback = (
-    <Icon
-      Svg={DefaultAvatar}
-      className={classNames(cls.Avatar, {}, [className])}
-      style={styles}
-      theme={fallbackTheme}
-    />
-  );
+    const errorFallback = (
+      <Icon
+        Svg={DefaultAvatar}
+        className={classNames(cls.Avatar, {}, [className])}
+        style={styles}
+        theme={fallbackTheme}
+      />
+    );
 
-  return (
-    <AppImage
-      className={classNames(cls.Avatar, {}, [className])}
-      src={src}
-      style={styles}
-      alt={alt}
-      fallback={fallback}
-      errorFallback={errorFallback}
-    />
-  );
-});
+    return (
+      <AppImage
+        className={classNames(cls.Avatar, {}, [className])}
+        src={src}
+        style={styles}
+        alt={alt}
+        fallback={fallback}
+        errorFallback={errorFallback}
+      />
+    );
+  },
+);

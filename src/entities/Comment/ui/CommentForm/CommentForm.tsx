@@ -19,29 +19,41 @@ interface Props {
   onSubmit: (text: string) => void;
 }
 
-export const CommentForm: FC<Props> = memo(({
-  className, text, commentHintId, isLoading, error, placeholder, label, onChange, onSubmit,
-}) => {
-  const onCommentSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    onSubmit(text);
-    onChange('');
-  };
+export const CommentForm: FC<Props> = memo(
+  ({
+    className,
+    text,
+    commentHintId,
+    isLoading,
+    error,
+    placeholder,
+    label,
+    onChange,
+    onSubmit,
+  }) => {
+    const onCommentSubmit = (e: FormEvent<HTMLFormElement>) => {
+      e.preventDefault();
+      onSubmit(text);
+      onChange('');
+    };
 
-  return (
-    <form
-      onSubmit={onCommentSubmit}
-      className={classNames(cls.CommentForm, {}, [className])}
-      data-testid="CommentForm"
-    >
-      <Input
-        id={commentHintId}
-        value={text}
-        placeholder={placeholder}
-        onChange={onChange}
-        data-testid="CommentForm.input"
-      />
-      <Button disabled={isLoading} type="submit" data-testid="CommentForm.submit">{label}</Button>
-    </form>
-  );
-});
+    return (
+      <form
+        onSubmit={onCommentSubmit}
+        className={classNames(cls.CommentForm, {}, [className])}
+        data-testid="CommentForm"
+      >
+        <Input
+          id={commentHintId}
+          value={text}
+          placeholder={placeholder}
+          onChange={onChange}
+          data-testid="CommentForm.input"
+        />
+        <Button disabled={isLoading} type="submit" data-testid="CommentForm.submit">
+          {label}
+        </Button>
+      </form>
+    );
+  },
+);

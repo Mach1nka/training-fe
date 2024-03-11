@@ -11,15 +11,20 @@ describe('profileSlice reducers', () => {
   test('set readonly', () => {
     const state: DeepPartial<ProfileSchema> = { readonly: false };
 
-    expect(profileReducer(state as ProfileSchema, profileActions.setReadonly(true)))
-      .toEqual({ readonly: true });
+    expect(profileReducer(state as ProfileSchema, profileActions.setReadonly(true))).toEqual({
+      readonly: true,
+    });
   });
 
   test('update profile', () => {
     const state: DeepPartial<ProfileSchema> = { form: { firstname: 'guest' } };
 
-    expect(profileReducer(state as ProfileSchema, profileActions.updateProfile({ firstname: 'John' })))
-      .toEqual({ form: { firstname: 'John' } });
+    expect(
+      profileReducer(
+        state as ProfileSchema,
+        profileActions.updateProfile({ firstname: 'John' }),
+      ),
+    ).toEqual({ form: { firstname: 'John' } });
   });
 
   test('cancel editing', () => {
@@ -29,8 +34,11 @@ describe('profileSlice reducers', () => {
       readonly: false,
     };
 
-    expect(profileReducer(state as ProfileSchema, profileActions.cancelEditing()))
-      .toEqual({ data: { lastname: 'guest' }, form: { lastname: 'guest' }, readonly: true });
+    expect(profileReducer(state as ProfileSchema, profileActions.cancelEditing())).toEqual({
+      data: { lastname: 'guest' },
+      form: { lastname: 'guest' },
+      readonly: true,
+    });
   });
 });
 
@@ -55,13 +63,17 @@ describe('profileSlice extra reducers', () => {
       city: undefined,
     };
 
-    expect(profileReducer(state as ProfileSchema, updateProfileData.fulfilled(response, '', undefined)))
-      .toEqual({
-        isLoading: false,
-        readonly: true,
-        validateErrors: undefined,
-        data: response,
-        form: response,
-      });
+    expect(
+      profileReducer(
+        state as ProfileSchema,
+        updateProfileData.fulfilled(response, '', undefined),
+      ),
+    ).toEqual({
+      isLoading: false,
+      readonly: true,
+      validateErrors: undefined,
+      data: response,
+      form: response,
+    });
   });
 });

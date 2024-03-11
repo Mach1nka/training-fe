@@ -15,9 +15,7 @@ interface Props {
   href?: string;
 }
 
-export const NotificationItem: FC<Props> = memo(({
-  className, title, description, href,
-}) => {
+export const NotificationItem: FC<Props> = memo(({ className, title, description, href }) => {
   const content = (
     <Card
       theme={CardTheme.OUTLINE}

@@ -13,11 +13,7 @@ interface Props {
 }
 
 export const LoginModal: FC<Props> = ({ className, isOpen, onClose }) => (
-  <Modal
-    isOpen={isOpen}
-    onClose={onClose}
-    lazy
-  >
+  <Modal isOpen={isOpen} onClose={onClose} lazy>
     <Suspense fallback={<Loader />}>
       <LoginFormLazy onSuccess={onClose} />
     </Suspense>

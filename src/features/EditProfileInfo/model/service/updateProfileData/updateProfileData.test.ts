@@ -42,7 +42,9 @@ describe('updateProfileData thunk', () => {
   });
 
   test('validate error', async () => {
-    const thunk = new TestAsyncThunk(updateProfileData, { profile: { form: { ...formData, lastname: '' } } });
+    const thunk = new TestAsyncThunk(updateProfileData, {
+      profile: { form: { ...formData, lastname: '' } },
+    });
     const result = await thunk.callThunk(undefined);
 
     expect(result.meta.requestStatus).toBe('rejected');

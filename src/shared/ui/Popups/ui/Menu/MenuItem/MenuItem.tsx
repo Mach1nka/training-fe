@@ -21,38 +21,35 @@ interface Props extends DropdownItem {
   className?: string;
 }
 
-export const MenuItem: FC<Props> = memo(({
-  content, disabled, href, onClick, 'data-testid': dataTestId = '', className,
-}) => (
-  <HMenu.Item
-    disabled={disabled}
-    as={Fragment}
-  >
-    {({ active }) => {
-      if (href) {
+export const MenuItem: FC<Props> = memo(
+  ({ content, disabled, href, onClick, 'data-testid': dataTestId = '', className }) => (
+    <HMenu.Item disabled={disabled} as={Fragment}>
+      {({ active }) => {
+        if (href) {
+          return (
+            <AppLinkForwardedRef
+              to={href}
+              onClick={onClick}
+              underline={AppLinkUnderline.NEVER}
+              className={classNames(popupCls.item, { [popupCls.active]: active }, [className])}
+            >
+              {content}
+            </AppLinkForwardedRef>
+          );
+        }
+
         return (
-          <AppLinkForwardedRef
-            to={href}
+          <Button
+            theme={ButtonTheme.CLEAR}
+            disabled={disabled}
             onClick={onClick}
-            underline={AppLinkUnderline.NEVER}
             className={classNames(popupCls.item, { [popupCls.active]: active }, [className])}
+            data-testid={dataTestId}
           >
             {content}
-          </AppLinkForwardedRef>
+          </Button>
         );
-      }
-
-      return (
-        <Button
-          theme={ButtonTheme.CLEAR}
-          disabled={disabled}
-          onClick={onClick}
-          className={classNames(popupCls.item, { [popupCls.active]: active }, [className])}
-          data-testid={dataTestId}
-        >
-          {content}
-        </Button>
-      );
-    }}
-  </HMenu.Item>
-));
+      }}
+    </HMenu.Item>
+  ),
+);

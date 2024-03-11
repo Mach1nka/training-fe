@@ -53,9 +53,7 @@ export const EditMode: Story = {
 };
 
 export const ReadMode: Story = {
-  decorators: [
-    storeDecorator({ profile: { form: state, readonly: true } }, initialReducers),
-  ],
+  decorators: [storeDecorator({ profile: { form: state, readonly: true } }, initialReducers)],
   parameters: {
     themes: {
       themeOverride: Theme.DARK,

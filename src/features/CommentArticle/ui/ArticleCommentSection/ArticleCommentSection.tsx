@@ -15,7 +15,10 @@ import {
   getCommentArticleText,
   getCommentArticleError,
 } from '../../model/selector/commentArticleSelector';
-import { commentArticleActions, commentArticleReducer } from '../../model/slice/commentArticleSlice';
+import {
+  commentArticleActions,
+  commentArticleReducer,
+} from '../../model/slice/commentArticleSlice';
 import {
   useFetchArticleCommentsQuery,
   useAddArticleCommentMutation,
@@ -37,18 +40,25 @@ const ArticleCommentSection: FC<Props> = memo(({ articleId, className }) => {
   const text = useSelector(getCommentArticleText);
   const error = useSelector(getCommentArticleError);
   const userId = useSelector(getUserId);
-  const { isLoading: isCommentsLoading, data: comments } = useFetchArticleCommentsQuery(articleId);
+  const { isLoading: isCommentsLoading, data: comments } =
+    useFetchArticleCommentsQuery(articleId);
   const [addArticleComment, { isLoading: isCommentSending }] = useAddArticleCommentMutation();
 
-  const onChange = useCallback((value: string) => {
-    dispatch(commentArticleActions.setText(value));
-  }, [dispatch]);
+  const onChange = useCallback(
+    (value: string) => {
+      dispatch(commentArticleActions.setText(value));
+    },
+    [dispatch],
+  );
 
-  const onSubmit = useCallback(async (text: string) => {
-    if (userId && articleId && text) {
-      addArticleComment({ userId, articleId, text });
-    }
-  }, [articleId, userId, addArticleComment]);
+  const onSubmit = useCallback(
+    async (text: string) => {
+      if (userId && articleId && text) {
+        addArticleComment({ userId, articleId, text });
+      }
+    },
+    [articleId, userId, addArticleComment],
+  );
 
   useDynamicReducerLoad(initialReducers);
 

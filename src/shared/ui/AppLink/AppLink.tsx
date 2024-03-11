@@ -15,7 +15,7 @@ export enum AppLinkTheme {
 export enum AppLinkUnderline {
   ALWAYS = 'always',
   HOVER = 'hover',
-  NEVER = 'never'
+  NEVER = 'never',
 }
 
 interface Props extends LinkProps {
@@ -31,26 +31,34 @@ export const AppLinkComponent: FC<Props> = ({
   underline = AppLinkUnderline.ALWAYS,
   ...props
 }) => (
-  <Link className={classNames(cls.AppLink, {}, [className, cls[theme], cls[underline]])} {...props}>
-    {children}
-  </Link>
-);
-
-export const AppLinkForwardedRefComponent = forwardRef<HTMLAnchorElement, Props>(({
-  children,
-  className,
-  theme = AppLinkTheme.PRIMARY,
-  underline = AppLinkUnderline.ALWAYS,
-  ...props
-}, ref) => (
   <Link
-    ref={ref}
     className={classNames(cls.AppLink, {}, [className, cls[theme], cls[underline]])}
     {...props}
   >
     {children}
   </Link>
-));
+);
+
+export const AppLinkForwardedRefComponent = forwardRef<HTMLAnchorElement, Props>(
+  (
+    {
+      children,
+      className,
+      theme = AppLinkTheme.PRIMARY,
+      underline = AppLinkUnderline.ALWAYS,
+      ...props
+    },
+    ref,
+  ) => (
+    <Link
+      ref={ref}
+      className={classNames(cls.AppLink, {}, [className, cls[theme], cls[underline]])}
+      {...props}
+    >
+      {children}
+    </Link>
+  ),
+);
 
 export const AppLink = memo(AppLinkComponent);
 export const AppLinkForwardedRef = memo(AppLinkForwardedRefComponent);

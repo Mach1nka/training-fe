@@ -16,7 +16,8 @@ const getCanBeArticleEdited = createSelector(
   },
 );
 
-const getArticleDetailsIsLoading = (state: StateSchema) => Boolean(state.articleDetails?.isLoading);
+const getArticleDetailsIsLoading = (state: StateSchema) =>
+  Boolean(state.articleDetails?.isLoading);
 
 const getArticleDetailsError = (state: StateSchema) => state.articleDetails?.error;
 

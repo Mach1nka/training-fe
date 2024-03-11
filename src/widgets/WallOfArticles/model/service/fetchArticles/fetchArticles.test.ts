@@ -5,20 +5,22 @@ import { ArticleType } from '@/entities/Article';
 import { fetchArticles } from './fetchArticles';
 
 describe('fetchArticles thunk', () => {
-  const articles: Article[] = [{
-    id: '1',
-    user: {
+  const articles: Article[] = [
+    {
       id: '1',
-      username: 'user',
+      user: {
+        id: '1',
+        username: 'user',
+      },
+      title: 'Javascript - язык программирования',
+      subtitle: 'Краткий пересказ всего JavaScript',
+      img: 'https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png',
+      views: 10,
+      createdAt: '20.05.2020',
+      type: [],
+      blocks: [],
     },
-    title: 'Javascript - язык программирования',
-    subtitle: 'Краткий пересказ всего JavaScript',
-    img: 'https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png',
-    views: 10,
-    createdAt: '20.05.2020',
-    type: [],
-    blocks: [],
-  }];
+  ];
 
   test('success', async () => {
     const thunk = new TestAsyncThunk(fetchArticles, {

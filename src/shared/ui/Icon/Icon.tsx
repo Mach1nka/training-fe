@@ -14,8 +14,6 @@ interface Props extends SVGProps<SVGElement>, RTLProps {
   Svg: (props: SVGProps<SVGElement>) => ReactElement;
 }
 
-export const Icon: FC<Props> = memo(({
-  className, theme = 'primary', Svg, ...props
-}) => (
+export const Icon: FC<Props> = memo(({ className, theme = 'primary', Svg, ...props }) => (
   <Svg className={classNames(cls.Icon, {}, [className, cls[theme]])} {...props} />
 ));

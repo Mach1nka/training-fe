@@ -2,11 +2,7 @@ import type { DeepPartial } from '@reduxjs/toolkit';
 
 import { MockDefaultState } from '@/shared/lib/jest/mockDefaultState';
 import type { Article } from '@/entities/Article';
-import {
-  ArticleSortedField,
-  ArticleType,
-  ArticleView,
-} from '@/entities/Article';
+import { ArticleSortedField, ArticleType, ArticleView } from '@/entities/Article';
 
 import { fetchArticles } from '../service/fetchArticles/fetchArticles';
 import type { WallOfArticlesSchema } from '../types';
@@ -55,100 +51,134 @@ describe('wallOfArticlesSlice extra reducers', () => {
   });
 
   test('setView', () => {
-    expect(wallOfArticlesReducer(mockedData.state as WallOfArticlesSchema, wallOfArticlesActions.setView(ArticleView.LIST)))
-      .toEqual({
-        ...defaultState,
-        view: ArticleView.LIST,
-      });
+    expect(
+      wallOfArticlesReducer(
+        mockedData.state as WallOfArticlesSchema,
+        wallOfArticlesActions.setView(ArticleView.LIST),
+      ),
+    ).toEqual({
+      ...defaultState,
+      view: ArticleView.LIST,
+    });
   });
 
   test('setSearch', () => {
-    expect(wallOfArticlesReducer(mockedData.state as WallOfArticlesSchema, wallOfArticlesActions.setSearch('some text')))
-      .toEqual({
-        ...defaultState,
-        search: 'some text',
-      });
+    expect(
+      wallOfArticlesReducer(
+        mockedData.state as WallOfArticlesSchema,
+        wallOfArticlesActions.setSearch('some text'),
+      ),
+    ).toEqual({
+      ...defaultState,
+      search: 'some text',
+    });
   });
 
   test('setSortOrder', () => {
-    expect(wallOfArticlesReducer(mockedData.state as WallOfArticlesSchema, wallOfArticlesActions.setSortOrder('desc')))
-      .toEqual({
-        ...defaultState,
-        order: 'desc',
-      });
+    expect(
+      wallOfArticlesReducer(
+        mockedData.state as WallOfArticlesSchema,
+        wallOfArticlesActions.setSortOrder('desc'),
+      ),
+    ).toEqual({
+      ...defaultState,
+      order: 'desc',
+    });
   });
 
   test('setSortField', () => {
-    expect(wallOfArticlesReducer(mockedData.state as WallOfArticlesSchema, wallOfArticlesActions.setSortField(ArticleSortedField.TITLE)))
-      .toEqual({
-        ...defaultState,
-        sort: ArticleSortedField.TITLE,
-      });
+    expect(
+      wallOfArticlesReducer(
+        mockedData.state as WallOfArticlesSchema,
+        wallOfArticlesActions.setSortField(ArticleSortedField.TITLE),
+      ),
+    ).toEqual({
+      ...defaultState,
+      sort: ArticleSortedField.TITLE,
+    });
   });
 
   test('setTypeFilter', () => {
-    expect(wallOfArticlesReducer(mockedData.state as WallOfArticlesSchema, wallOfArticlesActions.setTypeFilter(ArticleType.IT)))
-      .toEqual({
-        ...defaultState,
-        filters: {
-          type: ArticleType.IT,
-        },
-      });
+    expect(
+      wallOfArticlesReducer(
+        mockedData.state as WallOfArticlesSchema,
+        wallOfArticlesActions.setTypeFilter(ArticleType.IT),
+      ),
+    ).toEqual({
+      ...defaultState,
+      filters: {
+        type: ArticleType.IT,
+      },
+    });
   });
 
   test('setPage', () => {
-    expect(wallOfArticlesReducer(mockedData.state as WallOfArticlesSchema, wallOfArticlesActions.setPage(23)))
-      .toEqual({
-        ...defaultState,
-        page: 23,
-      });
+    expect(
+      wallOfArticlesReducer(
+        mockedData.state as WallOfArticlesSchema,
+        wallOfArticlesActions.setPage(23),
+      ),
+    ).toEqual({
+      ...defaultState,
+      page: 23,
+    });
   });
 
   test('initWallOfArticles', () => {
-    expect(wallOfArticlesReducer(mockedData.state as WallOfArticlesSchema, wallOfArticlesActions.initWallOfArticles({
-      searchURLParams: {
-        order: 'desc',
-        search: 'text',
-        sort: 'views',
-        type: 'SCIENCE',
+    expect(
+      wallOfArticlesReducer(
+        mockedData.state as WallOfArticlesSchema,
+        wallOfArticlesActions.initWallOfArticles({
+          searchURLParams: {
+            order: 'desc',
+            search: 'text',
+            sort: 'views',
+            type: 'SCIENCE',
+          },
+          view: ArticleView.LIST,
+        }),
+      ),
+    ).toEqual({
+      ...defaultState,
+      initialized: true,
+      order: 'desc',
+      search: 'text',
+      sort: ArticleSortedField.VIEWS,
+      view: 'LIST',
+      limit: 4,
+      filters: {
+        type: ArticleType.SCIENCE,
       },
-      view: ArticleView.LIST,
-    })))
-      .toEqual({
-        ...defaultState,
-        initialized: true,
-        order: 'desc',
-        search: 'text',
-        sort: ArticleSortedField.VIEWS,
-        view: 'LIST',
-        limit: 4,
-        filters: {
-          type: ArticleType.SCIENCE,
-        },
-      });
+    });
   });
 
   test('fetchArticles fulfilled', () => {
-    const response: Article[] = [{
-      id: '2',
-      user: {
+    const response: Article[] = [
+      {
         id: '2',
-        username: 'user',
+        user: {
+          id: '2',
+          username: 'user',
+        },
+        title: 'Javascript - язык программирования',
+        subtitle: 'Краткий пересказ всего JavaScript',
+        img: 'https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png',
+        views: 120,
+        createdAt: '25.05.2022',
+        type: [],
+        blocks: [],
       },
-      title: 'Javascript - язык программирования',
-      subtitle: 'Краткий пересказ всего JavaScript',
-      img: 'https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png',
-      views: 120,
-      createdAt: '25.05.2022',
-      type: [],
-      blocks: [],
-    }];
+    ];
 
-    expect(wallOfArticlesReducer(mockedData.state as WallOfArticlesSchema, fetchArticles.fulfilled(response, '', {})))
-      .toEqual({
-        ...defaultState,
-        hasMore: false,
-        data: articles.concat(response),
-      });
+    expect(
+      wallOfArticlesReducer(
+        mockedData.state as WallOfArticlesSchema,
+        fetchArticles.fulfilled(response, '', {}),
+      ),
+    ).toEqual({
+      ...defaultState,
+      hasMore: false,
+      data: articles.concat(response),
+    });
   });
 });

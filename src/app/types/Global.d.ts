@@ -1,6 +1,6 @@
 declare module '*.scss' {
   interface ClassNames {
-    [className: string]: string
+    [className: string]: string;
   }
   const classNames: ClassNames;
   export = classNames;
@@ -32,6 +32,8 @@ declare const IS_DEV: boolean;
 declare const API_URL: string;
 declare const PROJECT: 'storybook' | 'jest' | 'frontend';
 
-declare type DeepPartial<T> = T extends object ? {
-  [P in keyof T]?: DeepPartial<T[P]>;
-} : T;
+declare type DeepPartial<T> = T extends object
+  ? {
+      [P in keyof T]?: DeepPartial<T[P]>;
+    }
+  : T;

@@ -1,8 +1,6 @@
 import { screen, fireEvent } from '@testing-library/react';
 
-import {
-  renderPreset,
-} from '@/shared/lib/jest/renderPreset';
+import { renderPreset } from '@/shared/lib/jest/renderPreset';
 
 import { Sidebar } from './Sidebar';
 

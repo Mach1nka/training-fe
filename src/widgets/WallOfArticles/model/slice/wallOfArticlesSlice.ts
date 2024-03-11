@@ -25,10 +25,18 @@ const initialState: WallOfArticlesSchema = {
 };
 
 const mapSearchURLParams: SearchURLParamsMapper = (state) => ({
-  order: (value: string) => { state.order = value as SortingOrder; },
-  sort: (value: string) => { state.sort = value as ArticleSortedField; },
-  type: (value: string) => { state.filters.type = value as ArticleType; },
-  search: (value: string) => { state.search = value; },
+  order: (value: string) => {
+    state.order = value as SortingOrder;
+  },
+  sort: (value: string) => {
+    state.sort = value as ArticleSortedField;
+  },
+  type: (value: string) => {
+    state.filters.type = value as ArticleType;
+  },
+  search: (value: string) => {
+    state.search = value;
+  },
 });
 
 const wallOfArticlesSlice = createSlice({
@@ -55,15 +63,17 @@ const wallOfArticlesSlice = createSlice({
     },
     initWallOfArticles: (
       state,
-      { payload }: PayloadAction<{ view?: ArticleView, searchURLParams: Record<string, string> }>,
+      {
+        payload,
+      }: PayloadAction<{ view?: ArticleView; searchURLParams: Record<string, string> }>,
     ) => {
       state.initialized = true;
       if (payload.view) {
         state.view = payload.view;
         state.limit = payload.view === ArticleView.LIST ? 4 : 10;
       }
-      Object.entries(payload.searchURLParams).forEach(
-        ([key, value]) => mapSearchURLParams(state)[key](value),
+      Object.entries(payload.searchURLParams).forEach(([key, value]) =>
+        mapSearchURLParams(state)[key](value),
       );
     },
   },
@@ -92,4 +102,5 @@ const wallOfArticlesSlice = createSlice({
   },
 });
 
-export const { actions: wallOfArticlesActions, reducer: wallOfArticlesReducer } = wallOfArticlesSlice;
+export const { actions: wallOfArticlesActions, reducer: wallOfArticlesReducer } =
+  wallOfArticlesSlice;

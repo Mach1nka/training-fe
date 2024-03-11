@@ -34,19 +34,14 @@ export const ViewSwitcher: FC<Props> = memo(({ className, view, onChangeView }) 
 
   return (
     <div className={classNames('', {}, [className])}>
-      {viewOptions.map((option, idx) =>
-        (
-          <Button
-            key={idx}
-            theme={ButtonTheme.CLEAR}
-            onClick={onClick(option.view)}
-          >
-            <Icon
-              Svg={option.icon}
-              className={classNames(cls.icon, { [cls.selected]: option.view === view })}
-            />
-          </Button>
-        ))}
+      {viewOptions.map((option, idx) => (
+        <Button key={idx} theme={ButtonTheme.CLEAR} onClick={onClick(option.view)}>
+          <Icon
+            Svg={option.icon}
+            className={classNames(cls.icon, { [cls.selected]: option.view === view })}
+          />
+        </Button>
+      ))}
     </div>
   );
 });

@@ -3,9 +3,7 @@
 import type { User } from '../../../src/entities/User';
 import type { Article } from '../../../src/entities/Article';
 
-import {
-  createArticle, deleteArticle, getByTestId, login, resetProfile,
-} from './common';
+import { createArticle, deleteArticle, getByTestId, login, resetProfile } from './common';
 
 // ***********************************************
 // This example commands.ts shows you how to
@@ -30,7 +28,7 @@ declare global {
       getByTestId(id: string): Chainable<JQuery<HTMLElement>>;
       resetProfile(): Chainable<void>;
       createArticle(): Chainable<Article>;
-      deleteArticle() : Chainable<void>;
+      deleteArticle(): Chainable<void>;
     }
   }
 }

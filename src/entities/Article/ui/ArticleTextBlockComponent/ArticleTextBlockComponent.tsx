@@ -15,8 +15,8 @@ interface Props {
 export const ArticleTextBlockComponent: FC<Props> = memo(({ className, block }) => (
   <article className={className}>
     {block.title && <Text title={block.title} className={cls.title} />}
-    {
-      block.paragraphs.map((text, idx) => <Text key={idx} text={text} />)
-    }
+    {block.paragraphs.map((text, idx) => (
+      <Text key={idx} text={text} />
+    ))}
   </article>
 ));

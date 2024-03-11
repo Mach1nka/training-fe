@@ -26,25 +26,32 @@ export const AccountActions: FC<Props> = memo(({ avatar }) => {
     dispatch(userActions.logout());
   }, []);
 
-  const menuOptions = useMemo<DropdownItem[]>(() => ([
-    ...(isAdmin ? [{
-      content: t('header.adminPanel'),
-      href: RoutePath.adminPanel(),
-    }] : []),
-    {
-      content: t('header.createArticle'),
-      href: RoutePath.articleCreate(),
-    },
-    {
-      content: t('header.logout'),
-      onClick: onLogout,
-      'data-testid': 'AccountActions.logout',
-    },
-  ]), [isAdmin, t, onLogout]);
+  const menuOptions = useMemo<DropdownItem[]>(
+    () => [
+      ...(isAdmin
+        ? [
+            {
+              content: t('header.adminPanel'),
+              href: RoutePath.adminPanel(),
+            },
+          ]
+        : []),
+      {
+        content: t('header.createArticle'),
+        href: RoutePath.articleCreate(),
+      },
+      {
+        content: t('header.logout'),
+        onClick: onLogout,
+        'data-testid': 'AccountActions.logout',
+      },
+    ],
+    [isAdmin, t, onLogout],
+  );
 
   return (
     <Menu
-      label={(
+      label={
         <ButtonForwardedRef
           className={cls.menuTrigger}
           theme={ButtonTheme.CLEAR}
@@ -52,7 +59,7 @@ export const AccountActions: FC<Props> = memo(({ avatar }) => {
         >
           <Avatar src={avatar} size={30} fallbackTheme="inverted" />
         </ButtonForwardedRef>
-      )}
+      }
       directionH="right"
       options={menuOptions}
     />

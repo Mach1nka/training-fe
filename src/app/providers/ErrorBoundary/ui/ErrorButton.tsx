@@ -20,7 +20,9 @@ export const ErrorButton: FC<Props> = () => {
 
   return (
     <Button
-      onClick={() => { setError(true); }}
+      onClick={() => {
+        setError(true);
+      }}
     >
       Throw Error
     </Button>

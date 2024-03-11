@@ -2,10 +2,7 @@ import type { DeepPartial } from '@reduxjs/toolkit';
 
 import type { StateSchema } from '@/app/providers/StoreProvider';
 
-import {
-  getCommentArticleError,
-  getCommentArticleText,
-} from './commentArticleSelector';
+import { getCommentArticleError, getCommentArticleText } from './commentArticleSelector';
 
 const state: DeepPartial<StateSchema> = {
   commentArticle: {

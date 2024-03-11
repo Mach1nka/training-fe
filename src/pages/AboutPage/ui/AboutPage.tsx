@@ -6,11 +6,7 @@ import { Page } from '@/shared/ui/Page/Page';
 const AboutPage: FC = () => {
   const { t } = useTranslation('about');
 
-  return (
-    <Page data-testid="AboutPage">
-      {t('title')}
-    </Page>
-  );
+  return <Page data-testid="AboutPage">{t('title')}</Page>;
 };
 
 export default AboutPage;

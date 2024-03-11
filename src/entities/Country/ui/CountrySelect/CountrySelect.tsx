@@ -14,17 +14,20 @@ interface Props {
   onChange: (value: Country) => void;
 }
 
-const options: SelectOption<Country>[] = Object.entries(Country)
-  .map((country) => ({ label: country[0], value: country[1] }));
+const options: SelectOption<Country>[] = Object.entries(Country).map((country) => ({
+  label: country[0],
+  value: country[1],
+}));
 
-export const CountrySelect: FC<Props> = memo(({
-  className, value, readonly, onChange,
-}) => {
+export const CountrySelect: FC<Props> = memo(({ className, value, readonly, onChange }) => {
   const { t } = useTranslation('profile');
 
-  const onChangeSelect = useCallback((value:string) => {
-    onChange(value as Country);
-  }, [onChange]);
+  const onChangeSelect = useCallback(
+    (value: string) => {
+      onChange(value as Country);
+    },
+    [onChange],
+  );
 
   return (
     <Select

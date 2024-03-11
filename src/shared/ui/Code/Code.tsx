@@ -22,9 +22,7 @@ export const Code: FC<Props> = memo(({ className, text }) => {
       <Button onClick={onCopyClick} theme={ButtonTheme.CLEAR} className={cls.copyBtn}>
         <CopyIcon className={cls.copyIcon} />
       </Button>
-      <code>
-        {text}
-      </code>
+      <code>{text}</code>
     </pre>
   );
 });

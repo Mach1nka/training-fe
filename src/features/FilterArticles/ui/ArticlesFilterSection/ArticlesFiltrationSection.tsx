@@ -27,36 +27,41 @@ interface Props {
   onChangeSearch: (value: string) => void;
 }
 
-export const ArticlesFiltrationSection: FC<Props> = memo(({
-  className,
-  view,
-  sort,
-  order,
-  search,
-  articleTypeFilter,
-  onChangeView,
-  onChangeSortOrder,
-  onChangeSort,
-  onChangeSearch,
-  onChangeTypeFilter,
-}) => {
-  const { t } = useTranslation('articles');
+export const ArticlesFiltrationSection: FC<Props> = memo(
+  ({
+    className,
+    view,
+    sort,
+    order,
+    search,
+    articleTypeFilter,
+    onChangeView,
+    onChangeSortOrder,
+    onChangeSort,
+    onChangeSearch,
+    onChangeTypeFilter,
+  }) => {
+    const { t } = useTranslation('articles');
 
-  return (
-    <Flex gap={12} direction="column" className={classNames('', {}, [className])}>
-      <Flex justify="space-between">
-        <SortSelector
-          sort={sort}
-          order={order}
-          onChangeOrder={onChangeSortOrder}
-          onChangeSort={onChangeSort}
+    return (
+      <Flex gap={12} direction="column" className={classNames('', {}, [className])}>
+        <Flex justify="space-between">
+          <SortSelector
+            sort={sort}
+            order={order}
+            onChangeOrder={onChangeSortOrder}
+            onChangeSort={onChangeSort}
+          />
+          <ViewSwitcher view={view} onChangeView={onChangeView} />
+        </Flex>
+        <Card>
+          <Input placeholder={t('search')} value={search} onChange={onChangeSearch} />
+        </Card>
+        <FilterTabs
+          articleTypeFilter={articleTypeFilter}
+          onChangeTypeFilter={onChangeTypeFilter}
         />
-        <ViewSwitcher view={view} onChangeView={onChangeView} />
       </Flex>
-      <Card>
-        <Input placeholder={t('search')} value={search} onChange={onChangeSearch} />
-      </Card>
-      <FilterTabs articleTypeFilter={articleTypeFilter} onChangeTypeFilter={onChangeTypeFilter} />
-    </Flex>
-  );
-});
+    );
+  },
+);

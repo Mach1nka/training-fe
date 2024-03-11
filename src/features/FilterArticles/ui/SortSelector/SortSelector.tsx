@@ -18,38 +18,46 @@ interface Props {
   onChangeSort: (sortField: ArticleSortedField) => void;
 }
 
-export const SortSelector: FC<Props> = memo(({
-  className, sort, order, onChangeOrder, onChangeSort,
-}) => {
-  const { t } = useTranslation('articles');
+export const SortSelector: FC<Props> = memo(
+  ({ className, sort, order, onChangeOrder, onChangeSort }) => {
+    const { t } = useTranslation('articles');
 
-  const orderOptions = useMemo<SelectOption<SortingOrder>[]>(() => [
-    {
-      label: t('sort.asc'),
-      value: 'asc',
-    },
-    {
-      label: t('sort.desc'),
-      value: 'desc',
-    },
-  ], [t]);
+    const orderOptions = useMemo<SelectOption<SortingOrder>[]>(
+      () => [
+        {
+          label: t('sort.asc'),
+          value: 'asc',
+        },
+        {
+          label: t('sort.desc'),
+          value: 'desc',
+        },
+      ],
+      [t],
+    );
 
-  const sortFieldOptions = useMemo<SelectOption<ArticleSortedField>[]>(() =>
-    Object.values(ArticleSortedField)
-      .reduce((acc: SelectOption<ArticleSortedField>[], value) => {
-        acc.push({ label: t(`sort.${value}`), value });
-        return acc;
-      }, []), [t]);
+    const sortFieldOptions = useMemo<SelectOption<ArticleSortedField>[]>(
+      () =>
+        Object.values(ArticleSortedField).reduce(
+          (acc: SelectOption<ArticleSortedField>[], value) => {
+            acc.push({ label: t(`sort.${value}`), value });
+            return acc;
+          },
+          [],
+        ),
+      [t],
+    );
 
-  return (
-    <div className={classNames(cls.SortSelector, {}, [className])}>
-      <Select<ArticleSortedField>
-        placeholder={t('sort.label')}
-        value={sort}
-        options={sortFieldOptions}
-        onChange={onChangeSort}
-      />
-      <Select<SortingOrder> options={orderOptions} value={order} onChange={onChangeOrder} />
-    </div>
-  );
-});
+    return (
+      <div className={classNames(cls.SortSelector, {}, [className])}>
+        <Select<ArticleSortedField>
+          placeholder={t('sort.label')}
+          value={sort}
+          options={sortFieldOptions}
+          onChange={onChangeSort}
+        />
+        <Select<SortingOrder> options={orderOptions} value={order} onChange={onChangeOrder} />
+      </div>
+    );
+  },
+);

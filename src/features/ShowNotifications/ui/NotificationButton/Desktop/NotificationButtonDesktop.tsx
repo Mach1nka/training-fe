@@ -13,7 +13,7 @@ const NotificationButtonDesktop: FC = memo(() => (
   <Popover
     directionH="right"
     unmount={false}
-    label={(
+    label={
       <ButtonForwardedRef
         theme={ButtonTheme.CLEAR}
         className={cls.popoverTrigger}
@@ -21,7 +21,7 @@ const NotificationButtonDesktop: FC = memo(() => (
       >
         <Icon theme="inverted" Svg={BellIcon} />
       </ButtonForwardedRef>
-    )}
+    }
   >
     <NotificationList className={cls.popoverContent} />
   </Popover>

@@ -118,7 +118,9 @@ describe('getProfileReadonly selector', () => {
 
 describe('getProfileValidateError selector', () => {
   test('should return readonly', () => {
-    expect(getProfileValidateError(state as StateSchema)).toEqual([ValidateProfileError.NO_DATA]);
+    expect(getProfileValidateError(state as StateSchema)).toEqual([
+      ValidateProfileError.NO_DATA,
+    ]);
   });
 
   test('should work with empty value', () => {

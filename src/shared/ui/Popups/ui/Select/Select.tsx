@@ -1,12 +1,12 @@
-import {
-  Fragment,
-  memo, useCallback, useMemo, useState,
-} from 'react';
+import { Fragment, memo, useCallback, useMemo, useState } from 'react';
 import { Listbox } from '@headlessui/react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { ButtonForwardedRef } from '@/shared/ui/Button/Button';
-import type { DropdownVerticalDirection, DropdownHorizontalDirection } from '@/shared/types/common';
+import type {
+  DropdownVerticalDirection,
+  DropdownHorizontalDirection,
+} from '@/shared/types/common';
 import CheckIcon from '@/shared/assets/icons/confirm.svg';
 import { Icon } from '@/shared/ui/Icon/Icon';
 
@@ -46,26 +46,27 @@ const SelectComponent = <T extends string>({
   onChange,
 }: Props<T>) => {
   const [item, setItem] = useState<SelectOption<T> | undefined>(
-    options.find((el) => el.value === value)
-    || options.find((el) => el.value === defaultValue),
+    options.find((el) => el.value === value) ||
+      options.find((el) => el.value === defaultValue),
   );
 
-  const listClasses = useMemo(() => ([
-    popupCls.list, popupCls[directionV], popupCls[directionH],
-  ]), [directionV, directionH]);
+  const listClasses = useMemo(
+    () => [popupCls.list, popupCls[directionV], popupCls[directionH]],
+    [directionV, directionH],
+  );
 
-  const optionsList = useMemo(() => (
-    options.map((option) => (
-      <Listbox.Option
-        key={option.value}
-        value={option}
-        disabled={option.disabled}
-        as={Fragment}
-      >
-        {({ active, selected }) => (
-          <li
-            className={
-              classNames(
+  const optionsList = useMemo(
+    () =>
+      options.map((option) => (
+        <Listbox.Option
+          key={option.value}
+          value={option}
+          disabled={option.disabled}
+          as={Fragment}
+        >
+          {({ active, selected }) => (
+            <li
+              className={classNames(
                 cls.item,
                 {
                   [popupCls.active]: active,
@@ -73,21 +74,24 @@ const SelectComponent = <T extends string>({
                   [cls.disabled]: option.disabled,
                 },
                 [popupCls.item],
-              )
-            }
-          >
-            {selected && <Icon Svg={CheckIcon} className={cls.checkIcon} />}
-            {option.label}
-          </li>
-        )}
-      </Listbox.Option>
-    ))
-  ), [options]);
+              )}
+            >
+              {selected && <Icon Svg={CheckIcon} className={cls.checkIcon} />}
+              {option.label}
+            </li>
+          )}
+        </Listbox.Option>
+      )),
+    [options],
+  );
 
-  const onSelectChange = useCallback((option: SelectOption<T>) => {
-    setItem(option);
-    onChange(option.value);
-  }, [onChange]);
+  const onSelectChange = useCallback(
+    (option: SelectOption<T>) => {
+      setItem(option);
+      onChange(option.value);
+    },
+    [onChange],
+  );
 
   return (
     <Listbox

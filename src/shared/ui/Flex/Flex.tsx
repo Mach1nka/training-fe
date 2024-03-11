@@ -53,16 +53,12 @@ export const Flex: FC<Props> = ({
   return (
     <div
       data-testid={dataTestId}
-      className={
-        classNames(
-          cls.Flex,
-          mods,
-          [
-            Object.entries(classes).map(([key, value]) => cls[`${key}_${value}`]).join(' '),
-            className,
-          ],
-        )
-      }
+      className={classNames(cls.Flex, mods, [
+        Object.entries(classes)
+          .map(([key, value]) => cls[`${key}_${value}`])
+          .join(' '),
+        className,
+      ])}
     >
       {children}
     </div>

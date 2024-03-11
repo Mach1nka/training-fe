@@ -1,7 +1,5 @@
 import { useEffect, useRef } from 'react';
-import type {
-  FC, MutableRefObject, PropsWithChildren, UIEvent,
-} from 'react';
+import type { FC, MutableRefObject, PropsWithChildren, UIEvent } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
@@ -32,9 +30,12 @@ export const InfiniteScrollPage: FC<Props> = ({
   const scrollTop = useSelector(getScrollPositionByPath(pathname));
 
   const onScroll = useThrottle((e: UIEvent<HTMLDivElement>) => {
-    dispatch(uiConditionActions.setPageScrollPosition({
-      path: pathname, position: e.currentTarget.scrollTop,
-    }));
+    dispatch(
+      uiConditionActions.setPageScrollPosition({
+        path: pathname,
+        position: e.currentTarget.scrollTop,
+      }),
+    );
   }, 1000);
 
   useEffect(() => {

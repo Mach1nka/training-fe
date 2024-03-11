@@ -10,12 +10,8 @@ const isMobile = detectDevice();
 
 export const NotificationButton: FC = memo(() => {
   if (isMobile) {
-    return (
-      <NotificationButtonMobile />
-    );
+    return <NotificationButtonMobile />;
   }
 
-  return (
-    <NotificationButtonDesktop />
-  );
+  return <NotificationButtonDesktop />;
 });

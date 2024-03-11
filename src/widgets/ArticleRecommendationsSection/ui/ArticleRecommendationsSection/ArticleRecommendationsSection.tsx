@@ -29,7 +29,6 @@ const ArticleRecommendationsSection: FC<Props> = memo(({ className }) => {
         data-testid="ArticleRecommendationsSection"
       />
     </>
-
   );
 });
 

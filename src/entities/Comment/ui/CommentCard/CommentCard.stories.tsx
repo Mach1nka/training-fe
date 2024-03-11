@@ -19,7 +19,6 @@ export default {
       },
     },
   },
-
 } as Meta<typeof CommentCard>;
 
 export const Light: Story = {};

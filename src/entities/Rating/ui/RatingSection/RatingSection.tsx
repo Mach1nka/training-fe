@@ -1,7 +1,4 @@
-import {
-  memo, useCallback,
-  useEffect, useState,
-} from 'react';
+import { memo, useCallback, useEffect, useState } from 'react';
 import type { FC } from 'react';
 
 import { Card } from '@/shared/ui/Card/Card';
@@ -26,63 +23,66 @@ interface Props {
   onCancel: (rating: number) => void;
 }
 
-export const RatingSection: FC<Props> = memo(({
-  className,
-  ratingValue,
-  gratitudeText,
-  callToActionText,
-  feedbackPopupTitle,
-  feedbackPlaceholderText,
-  feedbackAcceptBtnText,
-  feedbackCancelBtnText,
-  onAccept,
-  onCancel,
-}) => {
-  const [rating, setRating] = useState(ratingValue || 0);
-  const [isFormOpen, setIsFormOpen] = useState(false);
-  const isMobile = detectDevice();
+export const RatingSection: FC<Props> = memo(
+  ({
+    className,
+    ratingValue,
+    gratitudeText,
+    callToActionText,
+    feedbackPopupTitle,
+    feedbackPlaceholderText,
+    feedbackAcceptBtnText,
+    feedbackCancelBtnText,
+    onAccept,
+    onCancel,
+  }) => {
+    const [rating, setRating] = useState(ratingValue || 0);
+    const [isFormOpen, setIsFormOpen] = useState(false);
+    const isMobile = detectDevice();
 
-  const onRatingChange = useCallback((ratingValue: number) => {
-    setRating(ratingValue);
-    setIsFormOpen(true);
-  }, []);
-
-  const onFeedbackAccept = useCallback((feedback: string) => {
-    onAccept(rating, feedback);
-    setIsFormOpen(false);
-  }, [rating, onAccept]);
-
-  const onFeedbackCancel = useCallback(() => {
-    onCancel(rating);
-    setIsFormOpen(false);
-  }, [rating, onCancel]);
-
-  useEffect(() => {
-    if (ratingValue && !rating) {
+    const onRatingChange = useCallback((ratingValue: number) => {
       setRating(ratingValue);
-    }
-  }, [ratingValue, rating]);
+      setIsFormOpen(true);
+    }, []);
 
-  return (
-    <>
-      <Card className={className} data-testid="RatingSection">
-        <Flex direction="column" align="center" gap={8}>
-          <Text title={rating ? gratitudeText : callToActionText} />
-          <Rating value={rating} size={40} onChange={onRatingChange} />
-        </Flex>
-      </Card>
-      { isMobile ? (
-        <FeedbackDrawerMobile
-          isOpen={isFormOpen}
-          title={feedbackPopupTitle}
-          placeholder={feedbackPlaceholderText}
-          acceptBtnText={feedbackAcceptBtnText}
-          cancelBtnText={feedbackCancelBtnText}
-          onAccept={onFeedbackAccept}
-          onCancel={onFeedbackCancel}
-        />
-      )
-        : (
+    const onFeedbackAccept = useCallback(
+      (feedback: string) => {
+        onAccept(rating, feedback);
+        setIsFormOpen(false);
+      },
+      [rating, onAccept],
+    );
+
+    const onFeedbackCancel = useCallback(() => {
+      onCancel(rating);
+      setIsFormOpen(false);
+    }, [rating, onCancel]);
+
+    useEffect(() => {
+      if (ratingValue && !rating) {
+        setRating(ratingValue);
+      }
+    }, [ratingValue, rating]);
+
+    return (
+      <>
+        <Card className={className} data-testid="RatingSection">
+          <Flex direction="column" align="center" gap={8}>
+            <Text title={rating ? gratitudeText : callToActionText} />
+            <Rating value={rating} size={40} onChange={onRatingChange} />
+          </Flex>
+        </Card>
+        {isMobile ? (
+          <FeedbackDrawerMobile
+            isOpen={isFormOpen}
+            title={feedbackPopupTitle}
+            placeholder={feedbackPlaceholderText}
+            acceptBtnText={feedbackAcceptBtnText}
+            cancelBtnText={feedbackCancelBtnText}
+            onAccept={onFeedbackAccept}
+            onCancel={onFeedbackCancel}
+          />
+        ) : (
           <FeedbackModalDesktop
             isOpen={isFormOpen}
             title={feedbackPopupTitle}
@@ -92,7 +92,8 @@ export const RatingSection: FC<Props> = memo(({
             onAccept={onFeedbackAccept}
             onCancel={onFeedbackCancel}
           />
-        ) }
-    </>
-  );
-});
+        )}
+      </>
+    );
+  },
+);

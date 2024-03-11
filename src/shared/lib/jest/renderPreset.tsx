@@ -22,9 +22,7 @@ export const renderPreset = (
   render(
     <StoreProvider initialState={initialState as StateSchema} asyncReducers={asyncReducers}>
       <MemoryRouter initialEntries={[route]}>
-        <I18nextProvider i18n={i18nJest}>
-          {component}
-        </I18nextProvider>
+        <I18nextProvider i18n={i18nJest}>{component}</I18nextProvider>
       </MemoryRouter>
     </StoreProvider>,
   );

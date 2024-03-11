@@ -11,16 +11,12 @@ interface Props {
   borderRadius?: string;
 }
 
-export const Skeleton: FC<Props> = ({
-  className, width, height, borderRadius,
-}) => {
+export const Skeleton: FC<Props> = ({ className, width, height, borderRadius }) => {
   const style: CSSProperties = {
     width,
     height,
     borderRadius,
   };
 
-  return (
-    <div className={classNames(cls.Skeleton, {}, [className])} style={style} />
-  );
+  return <div className={classNames(cls.Skeleton, {}, [className])} style={style} />;
 };

@@ -11,7 +11,7 @@ import cls from './ArticleListItem.module.scss';
 
 interface Props {
   className?: string;
-  view: ArticleView
+  view: ArticleView;
 }
 
 export const ArticleListItemSkeleton: FC<Props> = memo(({ className, view }) => {

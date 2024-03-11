@@ -6,6 +6,5 @@ interface Props {
   domNode?: HTMLElement;
 }
 
-export const Portal: FC<Props> = ({ children, domNode = document.body }) => (
-  createPortal(children, domNode)
-);
+export const Portal: FC<Props> = ({ children, domNode = document.body }) =>
+  createPortal(children, domNode);

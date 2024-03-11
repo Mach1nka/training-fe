@@ -90,9 +90,7 @@ export default {
       },
     }),
   },
-  decorators: [
-    storeDecorator({ articleDetails: { data: state } }, initialReducers),
-  ],
+  decorators: [storeDecorator({ articleDetails: { data: state } }, initialReducers)],
 } as Meta<typeof ArticleDetailsPage>;
 
 export const Light: Story = {};

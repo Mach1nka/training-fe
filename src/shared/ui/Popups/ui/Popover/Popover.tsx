@@ -3,7 +3,10 @@ import type { FC, PropsWithChildren, ReactNode } from 'react';
 import { Popover as HPopover } from '@headlessui/react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
-import type { DropdownVerticalDirection, DropdownHorizontalDirection } from '@/shared/types/common';
+import type {
+  DropdownVerticalDirection,
+  DropdownHorizontalDirection,
+} from '@/shared/types/common';
 
 import popupCls from '../../styles/popups.module.scss';
 
@@ -25,9 +28,10 @@ export const Popover: FC<Props> = ({
   directionH = 'left',
   unmount = true,
 }) => {
-  const listClasses = useMemo(() => ([
-    popupCls.list, popupCls[directionV], popupCls[directionH],
-  ]), [directionV, directionH]);
+  const listClasses = useMemo(
+    () => [popupCls.list, popupCls[directionV], popupCls[directionH]],
+    [directionV, directionH],
+  );
 
   return (
     <HPopover className={classNames(cls.Popover, {}, [className])}>

@@ -11,7 +11,10 @@ export const uiConditionSlice = createSlice({
   name: 'uiCondition',
   initialState,
   reducers: {
-    setPageScrollPosition: (state, { payload }: PayloadAction<{path: string, position: number}>) => {
+    setPageScrollPosition: (
+      state,
+      { payload }: PayloadAction<{ path: string; position: number }>,
+    ) => {
       state.scroll[payload.path] = payload.position;
     },
   },

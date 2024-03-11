@@ -16,7 +16,10 @@ interface Props extends HTMLAttributes<HTMLDivElement>, RTLProps {
 }
 
 export const Card: FC<Props> = ({
-  className, theme = CardTheme.NORMAL, children, ...props
+  className,
+  theme = CardTheme.NORMAL,
+  children,
+  ...props
 }) => (
   <div className={classNames(cls.Card, {}, [className, cls[theme]])} {...props}>
     {children}

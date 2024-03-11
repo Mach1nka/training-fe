@@ -19,5 +19,5 @@ export enum ArticleBlockType {
 
 export enum ArticleView {
   LIST = 'LIST',
-  TILE = 'TILE'
+  TILE = 'TILE',
 }
